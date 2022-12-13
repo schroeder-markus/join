@@ -39,6 +39,7 @@
 }
 
 body {
+    display: flex;
     margin: 0;
     padding: 0;
     background-color: var(--main-gray);
@@ -65,3 +66,15 @@ aside {
     background-color: var(--main-dark);
     box-shadow: var(--sub-shadow);
 }
+
+main {
+    position: absolute;
+    top: 90px;
+    left: 230px;
+}
+
+h1 {
+    
+}
+
+

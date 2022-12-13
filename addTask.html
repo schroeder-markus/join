@@ -7,22 +7,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join - Add Task</title>
     <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="styleAddTask.css">
+
 </head>
 
 <body>
-    <form action="" onsubmit="addTask()">
-        <div class="input">
-        <div>Title</div><div><input type="text" placeholder="Enter a title"></div>
-        </div>
-        <div class="input">
-        <div>Description</div><div><input type="text" placeholder="Enter a title"></div>
-        </div>
-        <div class="input">
-        <div>Category</div><div id="categoryDropdown" class="dropdown"></div></div>
-        <div>Assigned to</div><div id="categoryDropdown" class="dropdown"></div></div>
-        </div>
-    </form>
+    <header>
+        <nav>
+
+        </nav>
+    </header>
+
+    <aside>
+        <nav>
+
+        </nav>
+    </aside>
+    <main>
+        <h1>Add Task</h1>
+        <form class="AddTaskForm" action="" onsubmit="addTask()">
+            <div class="input">
+                <div>Title</div>
+                <div><input type="text" placeholder="Enter a title"></div>
+            </div>
+            <div class="input">
+                <div>Description</div>
+                <div><input type="text" placeholder="Enter a title"></div>
+            </div>
+            <div>Category</div><input id="categoryDropdown" class="dropdown">
+            <div>Assigned to</div><input id="AssignedToDropdown" class="dropdown"></div>
+        </form>
+    </main>
 
     <script src="script.js" defer></script>
 </body>
