@@ -1,7 +1,7 @@
 :root {
 
     /* Main Colors */
-    
+
     --main-dark: #2A3647;
     --main-dark-contrast: #091931;
 
@@ -67,7 +67,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left:300px;
+    margin-left: 300px;
     margin-right: 30px;
     height: 100%;
 }
@@ -87,15 +87,17 @@ header {
 }
 
 aside {
-    width: 230px;
-    height: 100%;
+    width: 232px;
+    height: 100vh;
     background-color: var(--main-dark);
     box-shadow: var(--sub-shadow);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
     color: var(--aside-font-color);
+    position: relative;
+    padding: 66px 20px;
+    gap: 103px;
 }
 
 main {
@@ -104,8 +106,4 @@ main {
     left: 230px;
 }
 
-h1 {
-    
-}
-
-
+h1 {}
