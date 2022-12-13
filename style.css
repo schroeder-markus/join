@@ -8,7 +8,7 @@
     --main-white: #ffffff;
     --main-black: #000000;
     --main-blue: #007cee;
-    --main-gray: #d9d9d9;
+    --main-gray: #d5d5d5;
 
     --prio-urgent: #ff3d00;
     --prio-medium: #ffa800;
@@ -29,6 +29,9 @@
     --task-blue: #29abe2;
 
     --main-shadow: box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    --sub-shadow: box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+
+    --nav-color: #cdcdcd;
 }
 
 * {
@@ -41,4 +44,24 @@ body {
     background-color: var(--main-gray);
     height: 100vh;
     width: 100%;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 120%;
+}
+
+header {
+    height: 90px;
+    width: 100%;
+    background-color: var(--main-white);
+    box-shadow: var(--main-shadow);
+    position: absolute;
+    z-index: -1;
+}
+
+aside {
+    width: 230px;
+    height: 100%;
+    background-color: var(--main-dark);
+    box-shadow: var(--sub-shadow);
 }
