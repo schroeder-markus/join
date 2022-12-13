@@ -48,6 +48,7 @@ body {
     font-style: normal;
     font-size: 16px;
     line-height: 120%;
+    display: flex;
 }
 
 header {
@@ -57,6 +58,27 @@ header {
     box-shadow: var(--main-shadow);
     position: absolute;
     z-index: -1;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left:300px;
+    margin-right: 30px;
+    height: 100%;
+}
+
+.header-nav-user-container {
+    display: flex;
+    gap: 26px;
+}
+
+.user-avatar-header {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 5px solid var(--main-dark-contrast);
 }
 
 aside {
