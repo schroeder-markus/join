@@ -78,8 +78,9 @@ header {
 .user-avatar-header {
     height: 50px;
     width: 50px;
+    padding: 1px;
     border-radius: 100%;
-    border: 5px solid var(--main-dark-contrast);
+    border: 3px solid var(--main-dark-contrast);
 }
 
 aside {
