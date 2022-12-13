@@ -5,6 +5,8 @@
     --main-dark: #2A3647;
     --main-dark-contrast: #091931;
 
+    --main-bg-color: #f6f7f8;
+
     --main-white: #ffffff;
     --main-black: #000000;
     --main-blue: #007cee;
@@ -42,7 +44,7 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
-    background-color: var(--main-gray);
+    background-color: var(--main-bg-color);
     height: 100vh;
     width: 100%;
     font-weight: 400;
