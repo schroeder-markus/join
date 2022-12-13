@@ -27,8 +27,7 @@
     --label-8: #4e963d;
 
     --task-blue: #29abe2;
-}
 
-body {
-    background-color: var(--main-dark);
+    --main-shadow: box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    
 }
