@@ -28,3 +28,7 @@
 
     --task-blue: #29abe2;
 }
+
+body {
+    background-color: var(--main-dark);
+}
