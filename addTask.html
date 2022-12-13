@@ -25,18 +25,33 @@
     </aside>
     <main>
         <h1>Add Task</h1>
-        <form class="AddTaskForm" action="" onsubmit="addTask()">
-            <div class="input">
-                <div>Title</div>
-                <div><input type="text" placeholder="Enter a title"></div>
-            </div>
-            <div class="input">
-                <div>Description</div>
-                <div><input type="text" placeholder="Enter a title"></div>
-            </div>
-            <div>Category</div><input id="categoryDropdown" class="dropdown">
-            <div>Assigned to</div><input id="AssignedToDropdown" class="dropdown"></div>
-        </form>
+        <div id="addTaskFormContainer">
+            <form class="addTaskForm" action="" onsubmit="addTask()">
+                <div class="input">
+                    <div>Title</div>
+                    <div><input type="text" placeholder="Enter a title" required></div>
+                </div>
+                <div>
+                    <div>Description</div>
+                    <div><textarea class="descriptionTextArea" type="text" placeholder="Enter a title" required></textarea></div>
+                </div>
+                <div>Category</div><input id="categoryDropdown" class="dropdown" required>
+                <div>Assigned to</div><input id="AssignedToDropdown" class="dropdown" required>
+
+            </form>
+            <form class="addTaskForm" action="" onsubmit="addTask()">
+                <div class="input">
+                    <div>Due Date</div>
+                    <div><input type="text" placeholder="Enter a title"></div>
+                </div>
+                <div class="input">
+                    <div>Prio</div>
+                    <button>Urgent</button><button>Medium</button><button>Low</button>
+                </div>
+                <div>Category</div><input id="categoryDropdown" class="dropdown">
+                <div>Assigned to</div><input id="AssignedToDropdown" class="dropdown">
+            </form>
+        </div>
     </main>
 
     <script src="script.js" defer></script>
