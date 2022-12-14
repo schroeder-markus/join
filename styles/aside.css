@@ -1,81 +1,80 @@
+aside nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 15px;
+    width: 232px;
+    height: 229px;
+}
 
- aside nav {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: flex-start;
-     padding: 0px;
-     gap: 15px;
-     width: 232px;
-     height: 229px;
- }
+aside:first-child {
+    position: absolute;
+    left: 0px;
+    right: 28.44%;
+    top: 0px;
+    bottom: 81.64%;
+}
 
- aside:first-child {
-     position: absolute;
-     left: 0px;
-     right: 28.44%;
-     top: 0px;
-     bottom: 81.64%;
- }
+.icon-1 {
+    margin-right: 20px;
+    height: 22px;
+    width: 22px;
+}
 
- .icon-1 {
-     margin-right: 20px;
-     height: 22px;
-     width: 22px;
- }
+.icon-2 {
+    margin-right: 20px;
+    height: 22px;
+    width: 26px;
+}
 
- .icon-2 {
-     margin-right: 20px;
-     height: 22px;
-     width: 26px;
- }
+.icon-3 {
+    margin-right: 20px;
+    height: 26px;
+    width: 26px;
+}
 
- .icon-3 {
-     margin-right: 20px;
-     height: 26px;
-     width: 26px;
- }
+.icon-4 {
+    margin-right: 20px;
+    height: 22px;
+    width: 19.5px;
+}
 
- .icon-4 {
-     margin-right: 20px;
-     height: 22px;
-     width: 19.5px;
- }
+aside a {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 8px 53px;
+    width: 232px;
+    height: 46px;
+    text-decoration: none;
+    color: var(--aside-font-color);
+}
 
- aside a {
-     display: flex;
-     justify-content: start;
-     align-items: center;
-     padding: 8px 53px;
-     width: 232px;
-     height: 46px;
-     text-decoration: none;
-     color: var(--aside-font-color);
- }
+aside a:hover {
+    background-color: var(--main-dark-contrast);
+}
 
- aside a:hover {
-     background-color: var(--main-dark-contrast);
- }
-
- .notice {
-     display: flex;
-     flex-direction: column;
-     justify-content: flex-end;
-     align-items: flex-start;
-     padding: 137px 0px 0px;
-     gap: 15px;
-     width: 232px;
-     height: 289px;
- }
+.notice {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 137px 0px 0px;
+    gap: 15px;
+    width: 232px;
+    height: 289px;
+}
 
 
- .impressum {
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     justify-content: center;
-     gap: 20px;
-     width: 100%;
-     height: 46px;
-     padding: 0;
- }
+.impressum {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    height: 46px;
+    padding: 0;
+}
