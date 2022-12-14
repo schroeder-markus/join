@@ -1,26 +1,91 @@
-input {
-    height: 35px;
+/* Basics */
+
+h1 {
+    margin-left: 100px;
+}
+
+
+/* Form */
+
+
+input, .descriptionTextArea {
     width: 422px;
-    border-radius: 10px;
+    padding: 13px 21px 13px 21px;
+    border-style: none;
+    border: 1px solid #D1D1D1;
+    outline: none;
+}
+
+
+input  {
+    height: 38px;
+    border-radius: 5px;
+}
+
+.inputWithIcon {
+    width: 392px;
+    border-right: unset;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.inputIcon {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: white;
+    border-right: 1px solid #D1D1D1;
+    border-top: 1px solid #D1D1D1;
+    border-bottom: 1px solid #D1D1D1;
+}
+
+.inputIcon:hover {
+    cursor: pointer;
 }
 
 .descriptionTextArea {
     border-radius: 5px;
     height: 119px;
-    width: 422px;
 }
 
 
 #addTaskFormContainer {
     display: flex;
+    margin-left: 100px;
+    margin-right: 100px;
 
 }
 
 .addTaskForm {
-    padding-left: 60px;
     padding-right: 60px;
 }
 
+.addTaskForm:nth-child(2) {
+    padding-left: 60px;
+
+}
+
+.addTaskForm > div {
+    margin-bottom: 25px;
+}
+
 .addTaskForm:nth-of-type(2){
-    border-left: 1px solid grey;
+    border-left: 1px solid #D1D1D1
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.dateInput img {
+    height: 17px;
+    padding-right: 10px;
+}
+
+.subtaskInput img {
+    height: 10.49px;
+    padding-right: 10px;
 }

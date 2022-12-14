@@ -8,6 +8,7 @@
     <title>Join - Add Task</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styleAddTask.css">
+    <link rel="stylesheet" href="font.css">
 
 </head>
 
@@ -29,28 +30,30 @@
                 </div>
                 <div>
                     <div>Description</div>
-                    <div><textarea class="descriptionTextArea" type="text" placeholder="Enter a title" required></textarea></div>
+                    <div><textarea class="descriptionTextArea" type="text" placeholder="Enter a description" required></textarea></div>
                 </div>
-                <div>Category</div><input id="categoryDropdown" class="dropdown" required>
-                <div>Assigned to</div><input id="AssignedToDropdown" class="dropdown" required>
+                <div>Category<input id="categoryDropdown" class="dropdown" required></div>
+                <div>Assigned to<input id="AssignedToDropdown" class="dropdown" required></div>
 
             </form>
             <form class="addTaskForm" action="" onsubmit="addTask()">
                 <div class="input">
                     <div>Due Date</div>
-                    <div><input type="text" placeholder="Enter a title"></div>
+                    <div class="inputContainer dateInput"><input class="inputWithIcon" type="text" placeholder="dd/mm/yy"><div class="inputIcon" onclick="openDatePicker()"><img src="img/icon-date-picker.svg" alt="commitSubtaskPlusIcon"></a></div></div>
                 </div>
                 <div class="input">
                     <div>Prio</div>
                     <button>Urgent</button><button>Medium</button><button>Low</button>
                 </div>
-                <div>Subtasks</div><input id="subtasksInput" class="dropdown">
+                <div>Subtasks
+                <div class="inputContainer subtaskInput"><input class="inputWithIcon"><div class="inputIcon" onclick="commitSubtask()"><img src="img/icon-add-plus.png" alt="commitSubtaskPlusIcon"></a></div></div>
+                </div>
             </form>
         </div>
     </main>
 
     <script src="script.js" defer></script>
-    <script src="includes.js"></script>
+    <script src="includes.js" defer></script>
 </body>
 
 </html>
