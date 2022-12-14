@@ -154,3 +154,52 @@ h2 {
     font-size: 64px;
     color: #29ABE2;
 }
+
+.urgent-number {
+    width: 50px;
+    height: 56px;
+    font-weight: 600;
+    font-size: 47px;
+    text-align: center;
+    color: #000000;
+}
+
+.urgent-text {
+    width: 52px;
+    height: 19px;
+    color: #2A3647;
+}
+
+.date {
+    width: 178px;
+    height: 25px;
+    font-weight: 700;
+    font-size: 21px;
+    color: #2A3647;
+    text-align: start;
+}
+
+.deadline {
+    width: 148px;
+    height: 19px;
+    color: #2A3647;
+    text-align: start;
+}
+
+.section-3-number {
+    width: 31px;
+    height: 77px;
+    font-weight: 600;
+    font-size: 64px;
+    text-align: center;
+    color: #000000;
+}
+
+
+
+.section-3-text {
+    width: 60px;
+    height: 25px;
+    font-size: 21px;
+    color: #2A3647;
+}
