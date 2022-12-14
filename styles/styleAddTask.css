@@ -29,6 +29,10 @@ input {
     border-radius: 5px;
 }
 
+input:focus::placeholder, textarea:focus::placeholder {
+    color: transparent;
+}
+
 .inputWithIcon {
     width: 392px;
     border-right: unset;
@@ -167,6 +171,7 @@ section div:not(:first-of-type) label {
     padding: 18px 10px;
     gap: 10px;
     height: 61px;
+    border: 1px solid var(--main-dark);
     border-radius: 10px;
     font-style: normal;
     font-weight: 700;
@@ -184,6 +189,11 @@ section div:not(:first-of-type) label {
     width: 130px;
 }
 
+#clearButton:hover {
+    background-color: white;
+    transition: all 225ms;
+}
+
 #createTaskButton {
     background-color: var(--main-dark);
     color: var(--main-white);
@@ -194,8 +204,4 @@ section div:not(:first-of-type) label {
     background-color: #29ABE2;
     border-color: #29ABE2;
     transition: all 225ms;
-
-    ;
 }
-
-

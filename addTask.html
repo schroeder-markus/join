@@ -30,7 +30,7 @@
                     <section class="leftArea">
                         <div class="input">
                             <label for="title">Title</label>
-                            <input id="title" type="text" placeholder="Enter a title" required>
+                            <input id="title" type="text" placeholder="Enter a title" onfocus="this.value=''"" required>
                             <span class="requiredAlert">This field is required</span>
                         </div>
                         <div>
@@ -41,21 +41,23 @@
                         </div>
                         <div>
                             <label for="categoryDropdown">Category</label>
-                            <input id="categoryDropdown" class="dropdown" value="Select task category" required>
+                            <div class="inputContainer"><input id="categoryDropdown" class="inputWithIcon dropdown" value="Select task category" required>
+                            <div class="inputIcon" onclick="showDropdown()"><img src="img/icon-dropdown.svg" alt="commitSubtaskPlusIcon"></div>
+                        </div>
                             <span class="requiredAlert"></span>
                         </div>
                         <div>
                             <label for="assignedToDropdown">Assigned to</label>
-                            <input id="assignedToDropdown" class="dropdown" value="select contacts to assign" required>
+                            <div class="inputContainer"><input id="assignedToDropdown" class="inputWithIcon dropdown" value="select contacts to assign" required>
+                            <div class="inputIcon" onclick="showDropdown()"><img src="img/icon-dropdown.svg" alt="commitSubtaskPlusIcon"></div>
+                            </div>
                             <span class="requiredAlert"></span>
                         </div>
                     </section>
                     <section class="rightArea">
                         <div class="input">
                             <label for="dateInput">Due Date</label>
-
-                            <div class="inputContainer"><input class="inputWithIcon dateInput" type="text"
-                                    placeholder="dd/mm/yy">
+                            <div class="inputContainer"><input class="inputWithIcon dateInput" type="text" placeholder="dd/mm/yy">
                                 <div class="inputIcon" onclick="openDatePicker()"><img src="img/icon-date-picker.svg"
                                         alt="commitSubtaskPlusIcon"></div>
                             </div>
@@ -68,23 +70,21 @@
                                         w3-include-html="includes/prio-urgent-svg.html"></div></button>
                                 <button id="prioMediumButton">Medium<div
                                         w3-include-html="includes/prio-medium-svg.html"></div></button>
-                                <button id="prioLowButton">Low<div w3-include-html="includes/prio-low-svg.html"></div>
-                                    </button>
+                                <button id="prioLowButton">Low<div
+                                        w3-include-html="includes/prio-low-svg.html"></div></button>
                             </div>
-               
                         </div>
                         <div>
                             <label for="subtaskInput">Subtasks</label>
-                            <div class="inputContainer"><input class="inputWithIcon subtaskInput"
-                                    value="Create new icons">
+                            <div class="inputContainer"><input class="inputWithIcon subtaskInput" value="Create new icons">
                                 <div class="inputIcon" onclick="commitSubtask()"><img src="img/icon-add-plus.png"
-                                        alt="commitSubtaskPlusIcon"></a></div>
+                                        alt="commitSubtaskPlusIcon"></div>
                             </div>
                         </div>
                     </section>
             </div>
             <section class="submitAndClearButtons">
-                <button id="clearButton">Clear<img src="img/icons-cancel.svg"></button>
+                <button id="clearButton" onclick="clearInputFields()">Clear<img src="img/icons-cancel.svg"></button>
                 <button id="createTaskButton">Create Task<img src="img/icons-check.svg"></button>
             </section>
             </form>
