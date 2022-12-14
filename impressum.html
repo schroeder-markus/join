@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/font.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/aside.css" />
+    <title>Join</title>
+  </head>
+
+  <body onload="init()">
+    <!-- header template -->
+    <div w3-include-html="includes/header.html"></div>
+    <!-- header template END -->
+
+    <!-- aside template -->
+    <div w3-include-html="includes/aside.html"></div>
+    <!-- aside template END -->
+
+    <main>
+      <div class="main-container">
+        <div class="content-container">
+          <div class="impressum-title">
+            <h1>Impressum</h1>
+            <img
+              id="arrow-left-content"
+              src="./img/icon-arrow-left.svg"
+              alt=""
+            />
+          </div>
+          <div class="impressum-content">
+            <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+            <p>
+              Max Mustermann<br />
+              Musterstra&szlig;e 111<br />
+              Geb&auml;ude 44<br />
+              90210 Musterstadt
+            </p>
+            <h2>Kontakt</h2>
+            <p>
+              Telefon: +49 (0) 123 44 55 66<br />
+              Telefax: +49 (0) 123 44 55 99<br />
+              E-Mail: mustermann@musterfirma.de
+            </p>
+            <p>
+              Quelle:
+              <a href="https://www.e-recht24.de/impressum-generator.html" target="_blank"
+                >https://www.e-recht24.de/impressum-generator.html</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="includes.js" defer></script>
+  </body>
+</html>

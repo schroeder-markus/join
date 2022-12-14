@@ -125,8 +125,19 @@ main {
     height: calc(100% - 80px);
 }
 
-.main-container div {
-    display: grid;
-    place-items: center;
-    height: 100%;
+.content-container {
+    margin-right: 124px;
+}
+
+.impressum-title {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100px;
+}
+
+#arrow-left-content {
+    height: 37px;
+    width: 37px;
 }
