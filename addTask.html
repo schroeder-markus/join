@@ -12,17 +12,13 @@
 </head>
 
 <body>
-    <header>
-        <nav>
+   <!-- header template -->
+   <div w3-include-html="includes/header.html"></div>
+   <!-- header template END -->
 
-        </nav>
-    </header>
-
-    <aside>
-        <nav>
-
-        </nav>
-    </aside>
+  <!-- aside template -->
+  <div w3-include-html="includes/aside.html"></div>
+  <!-- aside template END -->
     <main>
         <h1>Add Task</h1>
         <div id="addTaskFormContainer">
@@ -48,8 +44,7 @@
                     <div>Prio</div>
                     <button>Urgent</button><button>Medium</button><button>Low</button>
                 </div>
-                <div>Category</div><input id="categoryDropdown" class="dropdown">
-                <div>Assigned to</div><input id="AssignedToDropdown" class="dropdown">
+                <div>Subtasks</div><input id="subtasksInput" class="dropdown">
             </form>
         </div>
     </main>

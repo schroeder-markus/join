@@ -1,12 +1,13 @@
 input {
-    width: 300px;
-    border-radius: 5px;
+    height: 35px;
+    width: 422px;
+    border-radius: 10px;
 }
 
 .descriptionTextArea {
     border-radius: 5px;
     height: 119px;
-    width: 300px;
+    width: 422px;
 }
 
 

@@ -11,29 +11,15 @@
     <title>Join</title>
 </head>
 
-<body>
-    <header>
-        <nav class="header-nav">
-            <span>Kanban Project Management Tool</span>
-            <div class="header-nav-user-container">
-                <a href="#"><img src="./img/icon-help-head.svg" alt=""></a>
-                <img class="user-avatar-header" src="./img/ms.jpg" alt="Markus S">
-            </div>
-        </nav>
-    </header>
+<body onload="init()">
+   <!-- header template -->
+   <div w3-include-html="includes/header.html"></div>
+   <!-- header template END -->
 
-    <aside>
-        <img src="img/logo-white.svg" alt="">
-        <nav>
-            <a href="#"><img class="icon-1" src="img/icon-summary.svg" alt=""> Summary</a>
-            <a href="#"><img class="icon-2" src="img/Icon-board.svg" alt=""> Board</a>
-            <a href="#"><img class="icon-3" src="img/icon-add-task.svg" alt=""> Add Task</a>
-            <a href="#"><img class="icon-4" src="img/icon-contacts 13.svg" alt=""> Contacts</a>
-        </nav>
-        <div class="notice">
-            <div class="impressum"><img src="img/icon-legal.svg" alt=""><span>Legal notice</span></div>
-        </div>
-    </aside>
+   <!-- aside template -->
+   <div w3-include-html="includes/aside.html"></div>
+   <!-- aside template END -->
+
 
     <main>
         <div class="main-container">
@@ -44,6 +30,8 @@
         </div>
 
     </main>
+
+    <script src="includes.js" defer></script>
 </body>
 
 </html>
