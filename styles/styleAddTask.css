@@ -1,7 +1,10 @@
 /* Basics */
 
 h1 {
+    font-size: 61px;
+    margin-top: 82px;
     margin-left: 100px;
+    padding-bottom: 16px;
 }
 
 
@@ -62,7 +65,27 @@ input {
 }
 
 label {
+    display: inline-block;
     margin-bottom: 8px;
+}
+
+.requiredAlert {
+    color: var(--field-required);
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 120%;
+    height: 12px;
+    margin-top: 8px;
+}
+
+section > div {
+    display: flex;
+    flex-direction: column;
+}
+section div:not(:first-of-type) label{ /* all labels except the first ones of each section */
+    margin-top: 14px;
 }
 
 .leftArea {
@@ -72,6 +95,7 @@ label {
 
 .rightArea {
     padding-left: 59px;
+    border-left: 1px solid #D1D1D1;
 
 }
 
@@ -91,6 +115,7 @@ label {
 
 .prioButtons {
     display: flex;
+    margin-bottom: 38px;    
 }
 
 .prioButtons>button {
