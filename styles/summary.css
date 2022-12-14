@@ -5,8 +5,12 @@
     gap: 30px;
     width: 679px;
     height: 73px;
-    margin-left: 80px;
-    margin-top: 80px;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .showroom {
@@ -31,7 +35,7 @@
 .inprogress {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     padding: 25px 0px;
     gap: 13px;
@@ -43,8 +47,6 @@
 }
 
 .tasks {
-    width: 87px;
-    height: 50px;
     font-weight: 400;
     font-size: 21px;
     text-align: center;
@@ -52,8 +54,6 @@
 }
 
 .count {
-    width: 41px;
-    height: 77px;
     font-weight: 600;
     font-size: 64px;
     text-align: center;
@@ -124,6 +124,8 @@
 .section-3 {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
     align-items: center;
     padding: 0px;
 }
@@ -135,10 +137,7 @@
     align-items: flex-start;
     padding: 0px;
     gap: 3px;
-    position: absolute;
     height: 136px;
-    right: 53px;
-    bottom: 355px;
 }
 
 h2 {
@@ -187,8 +186,6 @@ h2 {
 }
 
 .section-3-number {
-    width: 31px;
-    height: 77px;
     font-weight: 600;
     font-size: 64px;
     text-align: center;
@@ -198,8 +195,6 @@ h2 {
 
 
 .section-3-text {
-    width: 60px;
-    height: 25px;
     font-size: 21px;
     color: #2A3647;
 }
