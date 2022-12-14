@@ -5,16 +5,18 @@
 }
 
 .contact-container {
-    background-color: #fff;
+    /* background-color: #fff; */
     height: 100%;
 }
 
 .contact-container-left {
     display: flex;
     position: fixed;
+    left: 243px;
     justify-content: center;
     position: fixed;
-    background-color: lightblue;
+    background-color: var(--main-white);
+    box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
     height: 100%;
     width: 453px;
 }
@@ -34,8 +36,7 @@
     align-items: flex-start;
     justify-content: center;
     width: 282px;
-    height: 40px;
-    /* background-color: crimson; */
+    height: 60px;
     font-size: 21px;
     line-height: 25.2px;
     padding-left: 37px;
@@ -43,7 +44,8 @@
 }
 
 .divider {
-    border-bottom: 1px solid var(--main-gray);
-    width: 327px;
-    height: 28px;
+    border-top: 1px solid #D1D1D1;
+    border-radius: 3px;
+    width: 300px;
+    height: 0px;
 }
