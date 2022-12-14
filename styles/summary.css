@@ -1,16 +1,22 @@
+main{
+    padding-left: 123px;
+}
+
 .headline {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 30px;
     width: 679px;
     height: 73px;
+    margin-top: 35px;
+    margin-bottom: 35px;
 }
 
 .flex{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .showroom {
