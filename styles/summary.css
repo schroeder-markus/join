@@ -17,6 +17,7 @@ main{
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 1400px;
 }
 
 .showroom {
@@ -52,6 +53,12 @@ main{
     border-radius: 30px;
 }
 
+.inprogress:nth-child(1n):hover{
+    background-color: var(--main-dark);
+    color: white;
+    cursor: pointer;
+}
+
 .tasks {
     font-weight: 400;
     font-size: 21px;
@@ -59,11 +66,23 @@ main{
     color: #2A3647;
 }
 
+.tasks:hover{
+    background-color: var(--main-dark);
+    color: white;
+    cursor: pointer;
+}
+
 .count {
     font-weight: 600;
     font-size: 64px;
     text-align: center;
     color: #000000;
+}
+
+.count:hover{
+    background-color: var(--main-dark);
+    color: white;
+    cursor: pointer;
 }
 
 .infos {
@@ -77,6 +96,12 @@ main{
     background: #FFFFFF;
     box-shadow: var(--aside-font-color);
     border-radius: 30px;
+}
+
+.infos:hover{
+    background-color: var(--main-dark);
+    color: white;
+    cursor: pointer;
 }
 
 .urgent {
@@ -120,6 +145,12 @@ main{
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
+}
+
+.todo:hover{
+    background-color: var(--main-dark);
+    color: white;
+    cursor: pointer;
 }
 
 .todo img {
