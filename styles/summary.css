@@ -1,4 +1,4 @@
-main{
+main {
     padding-left: 123px;
 }
 
@@ -12,7 +12,7 @@ main{
     margin-bottom: 35px;
 }
 
-.flex{
+.flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,7 +53,9 @@ main{
     border-radius: 30px;
 }
 
-.inprogress:nth-child(1n):hover{
+.inprogress:hover,
+.inprogress:hover>.tasks,
+.inprogress:hover>.count {
     background-color: var(--main-dark);
     color: white;
     cursor: pointer;
@@ -63,14 +65,9 @@ main{
     font-weight: 400;
     font-size: 21px;
     text-align: center;
-    color: #2A3647;
+    color: var(--main-dark);
 }
 
-.tasks:hover{
-    background-color: var(--main-dark);
-    color: white;
-    cursor: pointer;
-}
 
 .count {
     font-weight: 600;
@@ -79,7 +76,7 @@ main{
     color: #000000;
 }
 
-.count:hover{
+.count:hover {
     background-color: var(--main-dark);
     color: white;
     cursor: pointer;
@@ -98,7 +95,9 @@ main{
     border-radius: 30px;
 }
 
-.infos:hover{
+.infos:hover,
+.infos:hover>*>*,
+.infos:hover>*>*>* {
     background-color: var(--main-dark);
     color: white;
     cursor: pointer;
@@ -147,10 +146,43 @@ main{
     border-radius: 30px;
 }
 
-.todo:hover{
+.todo:hover,
+.todo:hover > svg,
+.todo:hover>*>* {
     background-color: var(--main-dark);
     color: white;
     cursor: pointer;
+    stroke: var(--main-dark);
+    fill: white;
+}
+
+.todo1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 38px 19px;
+    gap: 18px;
+    width: 272.5px;
+    height: 150px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+.todo1:hover,
+.todo1:hover > *>*{
+    color: white;
+    background-color: var(--main-dark);
+    cursor: pointer;
+}
+
+.todo1:hover > svg > circle {
+    fill: white;
+}
+
+.todo1:hover > svg >path {
+    fill: var(--main-dark);
 }
 
 .todo img {
