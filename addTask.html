@@ -15,41 +15,58 @@
 </head>
 
 <body onload="init()">
-   <!-- header template -->
-   <div w3-include-html="includes/header.html"></div>
-   <!-- header template END -->
+    <!-- header template -->
+    <div w3-include-html="includes/header.html"></div>
+    <!-- header template END -->
 
-  <!-- aside template -->
-  <div w3-include-html="includes/aside.html"></div>
-  <!-- aside template END -->
+    <!-- aside template -->
+    <div w3-include-html="includes/aside.html"></div>
+    <!-- aside template END -->
     <main>
         <h1>Add Task</h1>
         <div id="addTaskFormContainer">
-            <form class="addTaskForm" action="" onsubmit="addTask()">
-                <div class="input">
-                    <div>Title</div>
-                    <div><input type="text" placeholder="Enter a title" required></div>
-                </div>
-                <div>
-                    <div>Description</div>
-                    <div><textarea class="descriptionTextArea" type="text" placeholder="Enter a description" required></textarea></div>
-                </div>
-                <div><div>Category</div><input id="categoryDropdown" class="dropdown" required></div>
-                <div><div>Assigned to</div><input id="AssignedToDropdown" class="dropdown" required></div>
-
-            </form>
-            <form class="addTaskForm" action="" onsubmit="addTask()">
-                <div class="input">
-                    <div>Due Date</div>
-                    <div class="inputContainer dateInput"><input class="inputWithIcon" type="text" placeholder="dd/mm/yy"><div class="inputIcon" onclick="openDatePicker()"><img src="img/icon-date-picker.svg" alt="commitSubtaskPlusIcon"></a></div></div>
-                </div>
-                <div class="prioButtons input">
-                    <div>Prio</div>
-                    <button id="prioUrgentButton">Urgent </button><button id="prioMediumButton">Medium</button><button id="prioLowButton">Low</button>
-                </div>
-                <div>Subtasks
-                <div class="inputContainer subtaskInput"><input class="inputWithIcon"><div class="inputIcon" onclick="commitSubtask()"><img src="img/icon-add-plus.png" alt="commitSubtaskPlusIcon"></a></div></div>
-                </div>
+            <form class="addTaskForm" onsubmit="addTask()">
+                <section class="leftArea">
+                    <div class="input">
+                        <label for="title">Title</label><br>
+                        <input id="title" type="text" placeholder="Enter a title" required>
+                    </div>
+                    <div>
+                        <label for="description">Description</label><br>
+                        <textarea id="description" class="descriptionTextArea" type="text"
+                            placeholder="Enter a description" required></textarea>
+                    </div>
+                    <div>
+                        <label for="categoryDropdown">Category</label><br>
+                        <input id="categoryDropdown" class="dropdown" required>
+                    </div>
+                    <div>
+                        <label for="assignedToDropdown">Assigned to</label>
+                        <input id="assignedToDropdown" class="dropdown" required>
+                    </div>
+                </section>
+                <section class="rightArea">
+                    <div class="input">
+                        <label for="dateInput">Due Date</label>
+                        <div class="inputContainer"><input class="inputWithIcon dateInput" type="text" placeholder="dd/mm/yy">
+                            <div class="inputIcon" onclick="openDatePicker()"><img src="img/icon-date-picker.svg" alt="commitSubtaskPlusIcon"></div>
+                        </div>
+                    </div>
+                    <div class="input">
+                        <label>Prio</label>
+                        <div class="prioButtons">
+                        <button id="prioUrgentButton">Urgent </button>
+                        <button id="prioMediumButton">Medium</button>
+                        <button id="prioLowButton">Low</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subtaskInput">Subtasks</label>
+                        <div class="inputContainer"><input class="inputWithIcon subtaskInput">
+                            <div class="inputIcon" onclick="commitSubtask()"><img src="img/icon-add-plus.png" alt="commitSubtaskPlusIcon"></a></div>
+                        </div>
+                    </div>
+                </section>
             </form>
         </div>
     </main>
