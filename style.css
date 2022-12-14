@@ -55,6 +55,10 @@ body {
     display: flex;
 }
 
+textarea {
+    font-family: 'Inter' !important;
+}
+
 header {
     height: 90px;
     width: 100%;
