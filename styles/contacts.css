@@ -5,12 +5,13 @@
 }
 
 .contact-container {
-    background-color: lightsalmon;
+    background-color: #fff;
     height: 100%;
 }
 
 .contact-container-left {
     display: flex;
+    position: fixed;
     justify-content: center;
     position: fixed;
     background-color: lightblue;
@@ -24,23 +25,25 @@
     align-items: center;
     width: 357px;
     height: 100%;
-    background-color: rgba(1, 189, 218, 0.2)
+    /* background-color: rgba(1, 189, 218, 0.2) */
 }
 
 .contact-letter {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
     width: 282px;
     height: 40px;
     /* background-color: crimson; */
     font-size: 21px;
     line-height: 25.2px;
-    gap: 10px;
+    padding-left: 37px;
+    padding-right: 37px;
 }
 
 .divider {
-    border-bottom: 1px solid black;
-    width: 100%;
-    padding: 14px;
+    border-bottom: 1px solid var(--main-gray);
+    width: 327px;
+    height: 28px;
 }
