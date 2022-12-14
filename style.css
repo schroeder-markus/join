@@ -129,7 +129,7 @@ main {
     margin-right: 124px;
 }
 
-.impressum-title {
+.content-title {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -140,4 +140,8 @@ main {
 #arrow-left-content {
     height: 37px;
     width: 37px;
+}
+
+.datenschutz-content {
+    padding-bottom: 5rem;
 }
