@@ -1,0 +1,200 @@
+.headline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 679px;
+    height: 73px;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.showroom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 35px;
+    width: 580px;
+    height: 540px;
+}
+
+.numbers {
+    display: flex;
+    align-items: flex-start;
+    padding: 0;
+    gap: 35px;
+    width: 580px;
+    height: 170px;
+}
+
+.inprogress {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 25px 0px;
+    gap: 13px;
+    width: 170px;
+    height: 170px;
+    background-color: #FFFFFF;
+    box-shadow: var(--aside-font-color);
+    border-radius: 30px;
+}
+
+.tasks {
+    font-weight: 400;
+    font-size: 21px;
+    text-align: center;
+    color: #2A3647;
+}
+
+.count {
+    font-weight: 600;
+    font-size: 64px;
+    text-align: center;
+    color: #000000;
+}
+
+.infos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 48px;
+    gap: 61px;
+    width: 580px;
+    height: 150px;
+    background: #FFFFFF;
+    box-shadow: var(--aside-font-color);
+    border-radius: 30px;
+}
+
+.urgent {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    gap: 18px;
+    width: 130px;
+    height: 75px;
+}
+
+.urgent img {
+    width: 60px;
+    height: 60px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.todobox {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    gap: 35px;
+    width: 580px;
+    height: 150px;
+}
+
+.todo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 38px 19px;
+    gap: 18px;
+    width: 272.5px;
+    height: 150px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+.todo img {
+    width: 69px;
+    height: 69px;
+}
+
+.section-3 {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px;
+}
+
+.greet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 3px;
+    height: 136px;
+}
+
+h2 {
+    height: 56px;
+    font-weight: 500;
+    font-size: 47px;
+    color: #2A3647;
+}
+
+.greetname {
+    height: 77px;
+    font-weight: 700;
+    font-size: 64px;
+    color: #29ABE2;
+}
+
+.urgent-number {
+    width: 50px;
+    height: 56px;
+    font-weight: 600;
+    font-size: 47px;
+    text-align: center;
+    color: #000000;
+}
+
+.urgent-text {
+    width: 52px;
+    height: 19px;
+    color: #2A3647;
+}
+
+.date {
+    width: 178px;
+    height: 25px;
+    font-weight: 700;
+    font-size: 21px;
+    color: #2A3647;
+    text-align: start;
+}
+
+.deadline {
+    width: 148px;
+    height: 19px;
+    color: #2A3647;
+    text-align: start;
+}
+
+.section-3-number {
+    font-weight: 600;
+    font-size: 64px;
+    text-align: center;
+    color: #000000;
+}
+
+
+
+.section-3-text {
+    font-size: 21px;
+    color: #2A3647;
+}
