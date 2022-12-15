@@ -14,28 +14,22 @@ main {
 
 /* Form */
 
-input, .descriptionTextArea {
+input, .dropdown, .descriptionTextArea {
     width: 422px;
     padding: 13px 21px 13px 21px;
     border-style: none;
     border: 1px solid #D1D1D1;
     outline: none;
+    background-color: var(--main-white);
 }
 
-input {
+input, .dropdown {
     height: 38px;
     border-radius: 5px;
 }
 
 input:focus::placeholder, textarea:focus::placeholder {
     color: transparent;
-}
-
-.inputWithIcon {
-    width: 392px;
-    border-right: unset;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
 }
 
 .inputIcon {
@@ -50,13 +44,10 @@ input:focus::placeholder, textarea:focus::placeholder {
     border-bottom: 1px solid #D1D1D1;
 }
 
-.inputIcon:hover {
-    cursor: pointer;
-}
-
 .descriptionTextArea {
     border-radius: 5px;
     height: 119px;
+    resize: none;
 }
 
 
@@ -74,6 +65,22 @@ label {
     display: inline-block;
     margin-bottom: 8px;
 }
+
+.dropdown {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.dropdown > img {
+    position: absolute;
+    right: 10px;
+} 
+
+.dropdown:hover {
+    cursor: pointer;
+}
+
 
 .requiredAlert {
     color: var(--field-required);
