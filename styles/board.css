@@ -110,119 +110,85 @@ span {
     flex-grow: 0;
 }
 
-.progressbar{
+.progressbar {
     width: 138px;
     height: 8px;
-    
     background: #F4F4F4;
     border-radius: 2px;
-    
-    /* Inside auto layout */
     flex: none;
     order: 0;
     flex-grow: 0;
 }
 
-.progressbardiv span{
+.progressbardiv span {
     width: 51px;
-height: 14px;
-
-/* Version 2/t7 */
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 120%;
-/* or 14px */
-
-color: #000000;
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-flex-grow: 0;
+    height: 14px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    color: #000000;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
 
-.cardfooter{
+.cardfooter {
     display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 0px;
-gap: 83px;
-
-width: 207px;
-height: 35px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 3;
-flex-grow: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 83px;
+    width: 207px;
+    height: 35px;
+    flex: none;
+    order: 3;
+    flex-grow: 0;
 }
 
-.userbox{
+.userbox {
     display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 0px;
-
-width: 93px;
-height: 35px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 93px;
+    height: 35px;
 }
 
-.user{
-
-box-sizing: border-box;
-
-/* Auto layout */
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 10px 8px;
-gap: 10px;
-
-width: 35px;
-height: 35px;
-
-background: #0190E0;
-/* white */
-border: 1px solid #FFFFFF;
-border-radius: 58px;
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-margin: 0px -6px;
-}
-
-.cardfooter svg{
+.user {
+    box-sizing: border-box;
     display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 10px 18px;
-gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 8px;
+    gap: 10px;
+    width: 35px;
+    height: 35px;
+    background: #0190E0;
+    border: 1px solid #FFFFFF;
+    border-radius: 58px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px -6px;
+}
 
-width: 32px;
-height: 32px;
-
-/* white */
-background: #FFFFFF;
-border-radius: 10px;
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-flex-grow: 0;
+.cardfooter svg {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 18px;
+    gap: 10px;
+    width: 32px;
+    height: 32px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 }
