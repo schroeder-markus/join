@@ -16,20 +16,26 @@ main {
 
 input, .dropdown, .descriptionTextArea {
     width: 422px;
-    padding: 13px 21px 13px 21px;
+    padding-left: 21px;
     border-style: none;
     border: 1px solid #D1D1D1;
+    border-radius: 5px;
     outline: none;
     background-color: var(--main-white);
 }
 
 input, .dropdown {
-    height: 38px;
+    min-height: 38px;
     border-radius: 5px;
 }
 
 input:focus::placeholder, textarea:focus::placeholder {
     color: transparent;
+}
+
+.descriptionTextArea {
+    height: 119px;
+    resize: none;
 }
 
 .inputIcon {
@@ -44,11 +50,6 @@ input:focus::placeholder, textarea:focus::placeholder {
     border-bottom: 1px solid #D1D1D1;
 }
 
-.descriptionTextArea {
-    border-radius: 5px;
-    height: 119px;
-    resize: none;
-}
 
 
 #addTaskFormContainer {
@@ -73,14 +74,34 @@ label {
 /* START dropdowns */
 
 .dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: auto;
     position: relative;
+    padding-left: 0px;
 }
 
-.dropdown img {
-    
+.dropdown:hover {
+    cursor: pointer;
 }
 
+.dropdown>img {
+    position: absolute;
+    right: 10px;
+    top: 14px;
+}
+
+.dropdown span {
+    display: flex;
+    align-items: center;
+    height: 38px;
+    padding-left: 21px;
+}
+
+.dropdown > div > div:hover {
+    background-color: grey;
+}
 
 /* END dropdowns */
 

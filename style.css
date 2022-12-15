@@ -64,6 +64,12 @@ header {
     z-index: 9;
 }
 
+
+textarea, input {
+    font-family: 'Inter', 'Courier New', Courier, monospace;
+}
+
+
 .header-nav {
     display: flex;
     justify-content: space-between;
