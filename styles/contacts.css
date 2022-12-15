@@ -7,18 +7,17 @@
 .contact-container {
     /* background-color: #fff; */
     height: 100%;
+    display: flex;
 }
 
 .contact-container-left {
     display: flex;
-    position: sticky;
-    left: 243px;
+    top: 90px;
     justify-content: center;
-    position: fixed;
     background-color: var(--main-white);
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
-    height: calc(100% - 90px);
-    width: 453px;
+    min-width: 453px;
+    height: calc(100vh - 90px);
 }
 
 .contacts-list {
@@ -139,4 +138,32 @@
 
 .scroll::-webkit-scrollbar-button:start:decrement {
     background-image: url(/img/icon-arrow-up-scroll.svg)
+}
+
+.contact-container-right {
+    background-color: lightblue;
+    height: 100%;
+    width: 100%;
+}
+
+.headline-container {
+    display: flex;
+}
+
+.headline-container h1 {
+    display: inline;
+}
+
+.headline-container h2 {
+    display: inline;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+}
+
+.pipe {
+    display: block;
+    height: 10px;
+    width: 2px;
+    color: crimson;
 }
