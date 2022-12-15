@@ -162,13 +162,13 @@ main {
     transition: all 225ms;
 }
 
-#createTaskButton {
+#createButton {
     background-color: var(--main-dark);
     color: var(--main-white);
     margin-left: 30px;
 }
 
-#createTaskButton:hover {
+#createButton:hover {
     background-color: #29ABE2;
     border-color: #29ABE2;
     transition: all 225ms;
