@@ -150,3 +150,26 @@ main {
 .datenschutz-content {
     padding-bottom: 5rem;
 }
+
+#clearButton {
+    color: var(--main-dark);
+    font-weight: 400;
+    width: 130px;
+}
+
+#clearButton:hover {
+    background-color: white;
+    transition: all 225ms;
+}
+
+#createTaskButton {
+    background-color: var(--main-dark);
+    color: var(--main-white);
+    margin-left: 30px;
+}
+
+#createTaskButton:hover {
+    background-color: #29ABE2;
+    border-color: #29ABE2;
+    transition: all 225ms;
+}

@@ -5,15 +5,15 @@ setURL('https://gruppe-406.developerakademie.net/smallest_backend_ever');
 let categories = [
     {
     'name': 'sales',
-    'color':  '#D95030',
+    'color': '#D95030',
     },
     {
     'name': 'backoffice',
-    'color':  ' #497E76',
+    'color': '#497E76',
     },
     {
     'name': 'accounting',
-    'color':  '#FFFF00',
+    'color': '#FFFF00',
     },
 ];
 
