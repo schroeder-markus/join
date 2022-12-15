@@ -73,37 +73,14 @@ label {
 /* START dropdowns */
 
 .dropdown {
-    padding: 13px 0px 0px 0px;
-    height: unset;
+    height: auto;
     position: relative;
 }
 
-.dropdown:hover {
-    cursor: pointer;
+.dropdown img {
+    
 }
 
-.dropdown > img {
-    position: absolute;
-    right: 10px;
-    top: 20px;
-} 
-
-.dropdown > div {
-    display: none;
-}
-
-.dropdown > div > div:hover {
-    background-color: grey;
-}
-
-.dropdown span {
-    padding: 8px 10px 8px 21px;
-    height: 40px;
-}
-
-.dropdownValue {
-    padding-top: 0px !important;
-}
 
 /* END dropdowns */
 
