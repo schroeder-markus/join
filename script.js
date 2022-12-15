@@ -1,6 +1,6 @@
 'use strict'
 
-setURL('http://developerakademie.com/smallest_backend_ever');
+setURL('https://gruppe-406.developerakademie.net/smallest_backend_ever');
 
 function addTask() {
 

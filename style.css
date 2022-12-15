@@ -9,7 +9,7 @@
 
     --main-white: #ffffff;
     --main-black: #000000;
-    --main-blue: #007cee;
+    --main-blue: #42abe2;
     --main-gray: #d5d5d5;
 
     --prio-urgent: #ff3d00;
@@ -127,7 +127,7 @@ main {
     margin-left: 80px;
     margin-top: 80px;
     width: 100%;
-    height: calc(100% - 80px);
+    height: calc(100% - 80px);  
 }
 
 .content-container {
