@@ -27,10 +27,10 @@
             <div class="inputFields">
                 <form class="addTaskForm" onsubmit="addTask()">
                     <section class="leftArea">
-                        <div class="input">
+                        <div>
                             <label for="title">Title</label>
                             <input id="title" type="text" placeholder="Enter a title" onfocus="this.value=''" required>
-                            <span class=" requiredAlert">This field is required</span>
+                            <span class="requiredAlert"></span>
                         </div>
                         <div>
                             <label for="description">Description</label>
@@ -38,21 +38,19 @@
                                 placeholder="Enter a description" required></textarea>
                             <span class="requiredAlert"></span>
                         </div>
-                        <div>
+                        <div  onclick="categoryDropdown()" readonly>
                             <label for="categoryDropdown">Category</label>
-                            <div class="inputContainer"><input id="categoryDropdown" class="inputWithIcon dropdown"
-                                    value="Select task category" required>
-                                <div class="inputIcon" onclick="showDropdown()"><img src="img/icon-dropdown.svg"
-                                        alt="commitSubtaskPlusIcon"></div>
+                            <div id="categoryDropdown" class="dropdown">
+                                <span class="dropdownValue">Select Task Category</span>
+                                <img src="img/icon-dropdown.svg" alt="dropdownIcon">
+                            <div id="categories"></div>
                             </div>
                             <span class="requiredAlert"></span>
                         </div>
-                        <div>
+                        <div onclick="toggleDropdown()" readonly>
                             <label for="assignedToDropdown">Assigned to</label>
-                            <div class="inputContainer"><input id="assignedToDropdown" class="inputWithIcon dropdown"
-                                    value="select contacts to assign" required>
-                                <div class="inputIcon" onclick="showDropdown()"><img src="img/icon-dropdown.svg"
-                                        alt="commitSubtaskPlusIcon"></div>
+                            <div id="assignedToDropdown" class="dropdown">Select contacts to assign<img src="img/icon-dropdown.svg" alt="dropdownIcon">
+                            <div id="assignTo"></div>
                             </div>
                             <span class="requiredAlert"></span>
                         </div>
@@ -60,11 +58,7 @@
                     <section class="rightArea">
                         <div class="input">
                             <label for="dateInput">Due Date</label>
-                            <div class="inputContainer"><input class="inputWithIcon dateInput" type="text"
-                                    placeholder="dd/mm/yy">
-                                <div class="inputIcon" onclick="openDatePicker()"><img src="img/icon-date-picker.svg"
-                                        alt="commitSubtaskPlusIcon"></div>
-                            </div>
+                            <div class="inputContainer"><input class="input dateInput" type="text" placeholder="dd/mm/yyyy"></div>
                             <span class="requiredAlert"></span>
                         </div>
                         <div class="input">
@@ -110,10 +104,7 @@
                         </div>
                         <div>
                             <label for="subtaskInput">Subtasks</label>
-                            <div class="inputContainer"><input class="inputWithIcon subtaskInput"
-                                    value="Create new icons">
-                                <div class="inputIcon" onclick="commitSubtask()"><img src="img/icon-add-plus.png"
-                                        alt="commitSubtaskPlusIcon"></div>
+                            <div class="inputContainer"><input class="input subtaskInput" value="Add new Subtask">
                             </div>
                         </div>
                     </section>
