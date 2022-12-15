@@ -11,7 +11,7 @@
 
 .contact-container-left {
     display: flex;
-    position: fixed;
+    position: sticky;
     left: 243px;
     justify-content: center;
     position: fixed;
@@ -138,5 +138,5 @@
 }
 
 .scroll::-webkit-scrollbar-button:start:decrement {
-   background-image: url(/img/icon-arrow-up-scroll.svg)
+    background-image: url(/img/icon-arrow-up-scroll.svg)
 }
