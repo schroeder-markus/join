@@ -155,21 +155,47 @@ main {
     color: var(--main-dark);
     font-weight: 400;
     width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    height: 61px;
+    border: 1px solid var(--main-dark);
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
 }
 
 #clearButton:hover {
     background-color: white;
     transition: all 225ms;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
 #createButton {
     background-color: var(--main-dark);
     color: var(--main-white);
     margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    height: 61px;
+    border: 1px solid var(--main-dark);
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
 }
 
 #createButton:hover {
     background-color: #29ABE2;
     border-color: #29ABE2;
     transition: all 225ms;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 }

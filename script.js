@@ -5,15 +5,15 @@ setURL('https://gruppe-406.developerakademie.net/smallest_backend_ever');
 let categories = [
     {
     'name': 'sales',
-    'color': '#D95030',
+    'color': 'var(--label-1)',
     },
     {
     'name': 'backoffice',
-    'color': '#497E76',
+    'color': 'var(--label-2)',
     },
     {
     'name': 'accounting',
-    'color': '#FFFF00',
+    'color': 'var(--label-3)',
     },
 ];
 
@@ -30,7 +30,7 @@ function categoryDropdown() {
   	 dropdownElement.style.display = "block";
      dropdownElement.innerHTML = `<div><span onclick="setNewCategory()">new category</span></div>`;
   for(let i = 0; i < categories.length; i++) {
-  	 dropdownElement.innerHTML += `<div><span onclick="setCategory()">${categories[i]['name']}</span></div>`;
+  	 dropdownElement.innerHTML += `<div><span onclick="setCategory()">${categories[i]['name']}<img class="colorDot"></span></div>`;
   }
   
   } else {

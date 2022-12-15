@@ -200,17 +200,7 @@ section div:not(:first-of-type) label {
 }
 
 .submitAndClearButtons button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 18px 10px;
-    gap: 10px;
-    height: 61px;
-    border: 1px solid var(--main-dark);
-    border-radius: 10px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
+    
 }
 
 .submitAndClearButtons button:hover {
@@ -224,4 +214,5 @@ section div:not(:first-of-type) label {
     background-color: #bbb;
     border-radius: 50%;
     display: inline;
+    margin-left: 10px;
 }
