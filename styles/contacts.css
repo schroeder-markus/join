@@ -38,7 +38,7 @@
     height: 60px;
     font-size: 21px;
     line-height: 25.2px;
-    padding-left: 37px;
+    padding-left: 17px;
     padding-right: 37px;
 }
 
@@ -141,17 +141,24 @@
 }
 
 .contact-container-right {
-    background-color: lightblue;
     height: 100%;
     width: 100%;
 }
 
 .headline-container {
     display: flex;
+    align-items: center;
+    height: 50px;
+    margin-top: 80px;
+    margin-left: 80px;
 }
 
 .headline-container h1 {
     display: inline;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    margin: 0;
 }
 
 .headline-container h2 {
@@ -159,11 +166,15 @@
     font-weight: 400;
     font-size: 21px;
     line-height: 25px;
+    margin: 0;
 }
 
 .pipe {
     display: block;
-    height: 10px;
-    width: 2px;
-    color: crimson;
+    font-size: 50px;
+    color: var(--main-blue);
+    margin-left: 16px;
+    margin-right: 16px;
 }
+
+

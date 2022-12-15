@@ -34,8 +34,9 @@ input:focus::placeholder, textarea:focus::placeholder {
 }
 
 .descriptionTextArea {
+    padding-top: 12px;
     height: 119px;
-    resize: none;
+    resize: vertical;
 }
 
 .inputIcon {
@@ -100,7 +101,11 @@ label {
 }
 
 .dropdown > div > div:hover {
-    background-color: grey;
+    background-color: #D1D1D1;
+}
+
+#categories {
+    display: none;
 }
 
 /* END dropdowns */
@@ -128,12 +133,13 @@ section div:not(:first-of-type) label {
 
 .leftArea {
     padding-right: 59px;
+    border-right: 1px solid #D1D1D1;
 
 }
 
-.rightArea {
+.rightArea > div {
     padding-left: 59px;
-    border-left: 1px solid #D1D1D1;
+
 
 }
 
@@ -188,6 +194,7 @@ section div:not(:first-of-type) label {
 }
 
 .submitAndClearButtons {
+    margin-top: 200px;
     display: flex;
     justify-content: flex-end;
 }
@@ -217,27 +224,4 @@ section div:not(:first-of-type) label {
     background-color: #bbb;
     border-radius: 50%;
     display: inline;
-}
-
-#clearButton {
-    color: var(--main-dark);
-    font-weight: 400;
-    width: 130px;
-}
-
-#clearButton:hover {
-    background-color: white;
-    transition: all 225ms;
-}
-
-#createTaskButton {
-    background-color: var(--main-dark);
-    color: var(--main-white);
-    margin-left: 30px;
-}
-
-#createTaskButton:hover {
-    background-color: #29ABE2;
-    border-color: #29ABE2;
-    transition: all 225ms;
 }
