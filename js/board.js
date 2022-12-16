@@ -16,7 +16,7 @@ let tasks = [
         'todo': 'Change Button color from yellow to green',
         'user': 'BB',
         'priority': 'High',
-        'status': 'open',
+        'status': 'inprogress',
     },
     {
         'id': 2,
@@ -25,7 +25,7 @@ let tasks = [
         'todo': 'Change Button color from yellow to green',
         'user': 'BB',
         'priority': 'High',
-        'status': 'open',
+        'status': 'awaitingfeedback',
     },
     {
         'id': 3,

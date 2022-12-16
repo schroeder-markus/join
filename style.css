@@ -109,7 +109,7 @@ aside {
     flex-direction: column;
     align-items: center;
     color: var(--aside-font-color);
-    position: relative;
+    position:  fixed !important;
     padding: 66px 20px;
     gap: 103px;
     z-index: 10;
