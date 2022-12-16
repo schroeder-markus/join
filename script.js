@@ -2,6 +2,7 @@
 
 setURL('https://gruppe-406.developerakademie.net/smallest_backend_ever');
 
+
 let categories = [
     {
     'name': 'sales',
@@ -16,6 +17,7 @@ let categories = [
     'color': 'var(--label-3)',
     },
 ];
+
 
 // add Task form:
 
