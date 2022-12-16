@@ -2,12 +2,10 @@
     display: flex;
     width: 100%;
 }
-
-.content > *{
+.content>* {
     margin-left: 16px;
     margin-right: 16px;
 }
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -17,7 +15,6 @@
     min-width: 230px;
     height: 30px;
 }
-
 h2 {
     font-weight: 700;
     font-size: 21px;
@@ -27,7 +24,6 @@ h2 {
     font-size: 21px;
     line-height: 120%;
 }
-
 .card {
     display: flex;
     flex-direction: column;
@@ -41,18 +37,12 @@ h2 {
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
 }
-
-.todo,
-.inprogress,
-.awaitingfeedback,
-.done {
+.todo, .inprogress, .awaitingfeedback, .done {
     width: 25%;
 }
-
 main {
     width: calc(100%-232px);
 }
-
 .headline {
     display: flex;
     gap: 10px;
@@ -60,15 +50,12 @@ main {
     background: #FF7A00;
     border-radius: 8px;
 }
-
-.headline span{
+.headline span {
     width: fit-content;
 }
-
-.title{
+.title {
     place-self: flex-start;
 }
-
 .cardcontent {
     display: flex;
     flex-direction: column;
@@ -79,7 +66,6 @@ main {
     height: 67px;
     border-radius: 10px;
 }
-
 h3 {
     width: 137px;
     height: 19px;
@@ -90,7 +76,6 @@ h3 {
     line-height: 120%;
     color: #2A3647;
 }
-
 span {
     width: 207px;
     height: 38px;
@@ -104,7 +89,6 @@ span {
     order: 1;
     flex-grow: 0;
 }
-
 .progressbardiv {
     display: flex;
     flex-direction: row;
@@ -118,7 +102,6 @@ span {
     order: 2;
     flex-grow: 0;
 }
-
 .progressbar {
     width: 138px;
     height: 8px;
@@ -128,7 +111,6 @@ span {
     order: 0;
     flex-grow: 0;
 }
-
 .progressbardiv span {
     width: 51px;
     height: 14px;
@@ -142,7 +124,6 @@ span {
     order: 1;
     flex-grow: 0;
 }
-
 .cardfooter {
     display: flex;
     flex-direction: row;
@@ -156,7 +137,6 @@ span {
     order: 3;
     flex-grow: 0;
 }
-
 .userbox {
     display: flex;
     flex-direction: row;
@@ -166,7 +146,6 @@ span {
     width: 93px;
     height: 35px;
 }
-
 .user {
     box-sizing: border-box;
     display: flex;
@@ -185,7 +164,6 @@ span {
     flex-grow: 0;
     margin: 0px -6px;
 }
-
 .cardfooter svg {
     display: flex;
     flex-direction: row;
@@ -201,7 +179,30 @@ span {
     order: 1;
     flex-grow: 0;
 }
-
-.draganddrop{
+.draganddrop {
     height: 100vh;
+}
+.content svg:hover, .content svg:hover>* {
+    stroke: rgb(0 144 224);
+    cursor: pointer;
+}
+
+
+.addtaskslide{
+    position: absolute;
+    z-index: 3;
+    top: 50px;
+    left: 50px;
+    background-color: white;
+    border-radius: 30px;
+    overflow-x: hidden;
+    transition: 225ms all ease-in-out;
+}
+
+.showslide{
+    transform: translateX(0px);
+}
+
+.closeslide{
+    transform: translateX(2000px);
 }

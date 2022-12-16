@@ -136,3 +136,15 @@ function moveTo(category) {
     tasks[currentDraggedElement]['status'] = category;
     updateTasks();
 }
+
+
+function openSlide(){
+    let taskSlide = document.getElementById('taskslide');
+    taskSlide.classList.remove('closeslide')
+}
+
+
+function closeSlide(){
+    let taskSlide = document.getElementById('taskslide');
+    taskSlide.classList.add('closeslide')
+}
