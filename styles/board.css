@@ -18,6 +18,7 @@
     font-size: 21px;
     font-style: normal;
     font-weight: 700;
+    margin-left: 16px;
 }
 
 h2 {
@@ -203,13 +204,14 @@ span {
 
 .addtaskslide {
     position: absolute;
-    z-index: 3;
-    top: 50px;
+    z-index: 99;
+    top: -60px;
     left: 50px;
     background-color: white;
     border-radius: 30px;
     overflow-x: hidden;
     transition: 225ms all ease-in-out;
+    padding-bottom: 82px;
 }
 
 .showslide {
