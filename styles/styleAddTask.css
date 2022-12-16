@@ -21,7 +21,7 @@ input, .dropdown, .descriptionTextArea {
     border: 1px solid #D1D1D1;
     border-radius: 5px;
     outline: none;
-    background-color: var(--main-white);
+    background-color: var(--main-white);     
 }
 
 input, .dropdown {
