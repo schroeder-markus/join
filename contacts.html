@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="styles/font.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="styles/aside.css" />
-    <link rel="stylesheet" href="./styles/contacts.css" />
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/contacts.css" />
     <title>Join</title>
     <script src="./mini_backend.js"></script>
   </head>
@@ -370,10 +371,39 @@
         </div>
         <div class="new-contact-container">
           <div>
-
           </div>
           <div class="new-contact-left">
+            dddd
+          </div>
+          <div class="new-contact-right">
+            <div class="contact-avatar-area">
+              <div class="contact-right-avatar">
+              <img src="img/icon-user.svg" alt="">
+              </div>
+            </div>
+            <div class="contact-form-area">
+              <form onsubmit="addUser(); return false;" id="submit" class="">
+                <div id="sign_up_field" class="login-field">
+                    <div class="input-pics">
+                        <input class="input" id="submit-name" placeholder="Name" type="text" required>
+                        <img src="img/name_input.svg" alt="name">
+                    </div>
+                    <div class="input-pics">
+                        <input class="input" id="submit-email" placeholder="Email" type="email" required>
+                        <img src="img/email_input.svg" alt="email">
+                    </div>
+                    <div class="input-pics">
+                        <input class="input" id="submit-phone" placeholder="Phone" type="number" required>
+                        <img src="img/icon-phone.svg" alt="pw">
+                    </div>
 
+                    <div class="log-in-btn-container">
+                      <button class="sign-up-btn cancel-btn">Cancel</button>
+                        <button class="sign-up-btn">Create Contact</button>
+                    </div>
+                </div>
+            </form>
+            </div>
           </div>
         </div>
         <div class="add-new-contact">
