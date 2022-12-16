@@ -1,4 +1,4 @@
-let users = [];
+
 
 /**
  * This function hides the signup-container

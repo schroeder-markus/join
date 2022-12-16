@@ -2,6 +2,7 @@
 
 setURL('https://gruppe-406.developerakademie.net/smallest_backend_ever');
 
+let users = [];
 
 let categories = [
     {
