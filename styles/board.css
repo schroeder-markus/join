@@ -3,6 +3,11 @@
     width: 100%;
 }
 
+.content > *{
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -50,14 +55,18 @@ main {
 
 .headline {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 4px 25px;
     gap: 10px;
-    width: 103px;
     height: 27px;
     background: #FF7A00;
     border-radius: 8px;
+}
+
+.headline span{
+    width: fit-content;
+}
+
+.title{
+    place-self: flex-start;
 }
 
 .cardcontent {
@@ -191,4 +200,8 @@ span {
     flex: none;
     order: 1;
     flex-grow: 0;
+}
+
+.draganddrop{
+    height: 100vh;
 }

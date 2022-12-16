@@ -1,35 +1,93 @@
+let currentDraggedElement;
 let tasks = [
     {
-        'id': 0, 
+        'id': 0,
+        'category': 'Handson',
+        'title': 'Load Battery',
+        'todo': 'Change Button color from yellow to green',
+        'user': 'BB',
+        'priority': 'High',
+        'status': 'open',
+    },
+    {
+        'id': 1,
         'category': 'Design',
         'title': 'Change Button color',
         'todo': 'Change Button color from yellow to green',
         'user': 'BB',
         'priority': 'High',
-        'status': 'todo',
+        'status': 'open',
+    },
+    {
+        'id': 2,
+        'category': 'marketing',
+        'title': 'SEO',
+        'todo': 'Change Button color from yellow to green',
+        'user': 'BB',
+        'priority': 'High',
+        'status': 'open',
+    },
+    {
+        'id': 3,
+        'category': 'Programming',
+        'title': 'Container',
+        'todo': 'Change Button color from yellow to green',
+        'user': 'BB',
+        'priority': 'High',
+        'status': 'done',
     }
-]
+];
 
 
-
-function renderTasks(){
+function updateTasks() {
     let toDoDiv = document.getElementById('tododiv')
-    
-    for (let i = 0; i < tasks.length; i++) {
-        const task = tasks[i];
+    let open = tasks.filter(t => t['status'] == 'open')
 
-        toDoDiv.innerHTML +=cardHTML(task)
-        
+    toDoDiv.innerHTML = '';
+
+    for (let i = 0; i < open.length; i++) {
+        const element = open[i];
+        toDoDiv.innerHTML += cardHTML(element)
+    }
+
+    let inProgressDiv = document.getElementById('inprogressdiv')
+    let inProgress = tasks.filter(t => t['status'] == 'inprogress')
+
+    inProgressDiv.innerHTML = '';
+
+    for (let i = 0; i < inProgress.length; i++) {
+        const task = inProgress[i];
+        inProgressDiv.innerHTML += cardHTML(task)
+    }
+
+    let awaitingFeedbackDiv = document.getElementById('awaitingfeedbackdiv')
+    let awaitingFeedback = tasks.filter(t => t['status'] == 'awaitingfeedback')
+
+    awaitingFeedbackDiv.innerHTML = '';
+
+    for (let i = 0; i < awaitingFeedback.length; i++) {
+        const task = awaitingFeedback[i];
+        awaitingFeedbackDiv.innerHTML += cardHTML(task)
+    }
+
+    let doneDiv = document.getElementById('donediv')
+    let done = tasks.filter(t => t['status'] == 'done')
+
+    doneDiv.innerHTML = '';
+
+    for (let i = 0; i < done.length; i++) {
+        const task = done[i];
+        doneDiv.innerHTML += cardHTML(task)
     }
 
 }
 
 
-
-
-function cardHTML(task){
-    return `<div draggable="true" ondragstart="startDragging()" class="card">
-    <div class="headline" id="category">${task['category']}</div>
+function cardHTML(task) {
+    return ` <div draggable="true" ondragstart="startDragging(${task['id']})" class="card">
+    <div class="title">
+        <div class="headline" id="category">${task['category']}</div>
+    </div>
     <div class="cardcontent">
         <h3 id="title">${task['title']}</h3>
         <span id="todo">${task['todo']}</span>
@@ -64,6 +122,17 @@ function cardHTML(task){
 }
 
 
-function startDragging(){
+function startDragging(id) {
+    currentDraggedElement = id;
+}
 
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+
+function moveTo(category) {
+    tasks[currentDraggedElement]['status'] = category;
+    updateTasks();
 }
