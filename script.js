@@ -30,8 +30,9 @@ function categoryDropdown() {
   	 dropdownElement.style.display = "block";
      dropdownElement.innerHTML = `<div><span onclick="setNewCategory()">new category</span></div>`;
   for(let i = 0; i < categories.length; i++) {
-  	 dropdownElement.innerHTML += `<div><span onclick="setCategory()">${categories[i]['name']}<img class="colorDot"></span></div>`;
-  }
+  	 dropdownElement.innerHTML += `<div><span onclick="setCategory()">${categories[i]['name']}<img class="colorDot" style="background-color:${categories[i]['color']"></span></div>`;
+
+    }
   
   } else {
   	 dropdownElement.style.display = "none";
