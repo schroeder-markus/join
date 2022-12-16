@@ -218,3 +218,60 @@ section div:not(:first-of-type) label {
     display: inline-block;
     margin-left: 10px;
 }
+
+#dot1 {
+    background-color: var(--label-1)
+}
+
+#dot2 {
+    background-color: var(--label-2)
+}
+
+#dot3 {
+    background-color: var(--label-3)
+}
+
+#dot4 {
+    background-color: var(--label-5)
+}
+
+#dot5 {
+    background-color: var(--label-6)
+}
+
+#dot6 {
+    background-color: var(--label-7)
+}
+
+/* new Category */
+
+.newEntryInput {
+    display: none;
+    position: relative;
+}
+
+.confirmOrCancel {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    padding: 0px 5px;
+}
+
+.confirmOrCancel:hover {
+    cursor: pointer;
+}
+
+.confirmOrCancel img {
+    height: 10.49px;
+    padding: 0px 10px;
+}
+
+.confirmOrCancel div:nth-last-of-type(2){
+    border-right: 1px solid #D1D1D1;
+}
+
+#colorSelection {
+    width: 200px;
+}

@@ -45,8 +45,34 @@
                                 <img src="img/icon-dropdown.svg" alt="dropdownIcon">
                                 <div id="categories"></div>
                             </div>
+
+                            <!-- Input for new category (display: none on default) -->
+                            <div id="newCategoryInput" class="newEntryInput">
+                                <div><input type="text" placeholder="New category name" onfocus="this.value=''">
+                                    <div class="confirmOrCancel">
+                                        <div onclick="setNewCategory()"><img src="img/icon-x.svg" alt="cancelIcon"
+                                                required>
+                                        </div>
+                                        <div onclick="cancelInput()"><img src="img/icon-check-dark.svg" alt="checkIcon">
+                                        </div>
+                                    </div>
+                                </div>                           
+                                 <!-- WARUM WIRD DAS NICHT ANGEZEIGT????? -->
+                                <span id="colorSelection">
+                                    <span id="dot1" class="colorDot"></span>
+                                    <span id="dot2" class="colorDot"></span>
+                                    <span id="dot3" class="colorDot"></span>
+                                    <span id="dot4" class="colorDot"></span>
+                                    <span id="dot5" class="colorDot"></span>
+                                    <span id="dot6" class="colorDot"></span>
+                                </span>
+                            </div>
+
+
+                            <!--  -->
                             <span class="requiredAlert"></span>
                         </div>
+
                         <div readonly>
                             <label for="assignToDropdown">Assign To</label>
                             <div onclick="assignToDropdown()" id="assignToDropdown" class="dropdown">
@@ -54,6 +80,7 @@
                                 <img src="img/icon-dropdown.svg" alt="dropdownIcon">
                                 <div id="assignList"></div>
                             </div>
+
                             <span class="requiredAlert"></span>
                         </div>
                     </section>
@@ -132,7 +159,8 @@
                         <section class="submitAndClearButtons">
                             <button id="clearButton" onclick="clearInputFields()">Clear<img
                                     src="img/icons-cancel.svg"></button>
-                            <button id="createButton" onclick="submit()">Create Task<img src="img/icons-check.svg"></button>
+                            <button id="createButton" onclick="submit()">Create Task<img
+                                    src="img/icons-check.svg"></button>
                         </section>
                     </section>
 
