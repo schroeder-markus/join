@@ -85,9 +85,6 @@ span {
     font-size: 16px;
     line-height: 120%;
     color: #A8A8A8;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 }
 .progressbardiv {
     display: flex;
@@ -98,18 +95,12 @@ span {
     gap: 20px;
     width: 209px;
     height: 14px;
-    flex: none;
-    order: 2;
-    flex-grow: 0;
 }
 .progressbar {
     width: 138px;
     height: 8px;
     background: #F4F4F4;
     border-radius: 2px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }
 .progressbardiv span {
     width: 51px;
@@ -120,9 +111,6 @@ span {
     font-size: 12px;
     line-height: 120%;
     color: #000000;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 }
 .cardfooter {
     display: flex;
@@ -133,9 +121,6 @@ span {
     gap: 83px;
     width: 207px;
     height: 35px;
-    flex: none;
-    order: 3;
-    flex-grow: 0;
 }
 .userbox {
     display: flex;
@@ -159,9 +144,6 @@ span {
     background: #0190E0;
     border: 1px solid #FFFFFF;
     border-radius: 58px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
     margin: 0px -6px;
 }
 .cardfooter svg {
@@ -175,9 +157,6 @@ span {
     height: 32px;
     background: #FFFFFF;
     border-radius: 10px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 }
 .draganddrop {
     height: 100vh;
