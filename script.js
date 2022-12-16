@@ -2,6 +2,14 @@
 
 setURL('https://gruppe-406.developerakademie.net/smallest_backend_ever');
 
+let categoryColors = [
+  'var(--label-1)',
+  'var(--label-2)',
+  'var(--label-3)',
+  'var(--label-4)',
+  'var(--label-5)',
+  'var(--label-6)',
+];
 
 let categories = [
   {
@@ -31,7 +39,7 @@ function categoryDropdown() {
 
   if(dropdownElement.style.display != "block") {
   	 dropdownElement.style.display = "block";
-     dropdownElement.innerHTML = `<div><span onclick="setNewCategory()">new category</span></div>`;
+     dropdownElement.innerHTML = `<div><span onclick="newEntryInput('categoryDropdown','newCategoryInput')">new category</span></div>`;
   for(let i = 0; i < categories.length; i++) {
   	 dropdownElement.innerHTML += `<div><span onclick="setCategory(${i})">${createCategoryHtml(i)}</span></div>`
      };
@@ -68,9 +76,14 @@ function clearInputFields() {
 };
 
 
-function setNewCategory() {
+function newEntryInput(dropdownID, inputID) {
+  let dropdownElement = document.getElementById(dropdownID);
+  let inputElement = document.getElementById(inputID);
+
+  dropdownElement.style.display = "none";
+  inputElement.style.display = "block";
+
+  renderColorSelection();
 
 };
 
-
-// 
