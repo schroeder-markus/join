@@ -38,18 +38,18 @@
                                 placeholder="Enter a description" required></textarea>
                             <span class="requiredAlert"></span>
                         </div>
-                        <div onclick="categoryDropdown()" readonly>
+                        <div readonly>
                             <label for="categoryDropdown">Category</label>
-                            <div id="categoryDropdown" class="dropdown">
+                            <div onclick="categoryDropdown()" id="categoryDropdown" class="dropdown">
                                 <span class="dropdownValue">Select Task Category</span>
                                 <img src="img/icon-dropdown.svg" alt="dropdownIcon">
                                 <div id="categories"></div>
                             </div>
                             <span class="requiredAlert"></span>
                         </div>
-                        <div onclick="assignToDropdown()" readonly>
-                            <label for="assignToDropdown">Category</label>
-                            <div id="assignToDropdown" class="dropdown">
+                        <div readonly>
+                            <label for="assignToDropdown">Assign To</label>
+                            <div onclick="assignToDropdown()" id="assignToDropdown" class="dropdown">
                                 <span class="dropdownValue">Select contacts to assign</span>
                                 <img src="img/icon-dropdown.svg" alt="dropdownIcon">
                                 <div id="assignList"></div>

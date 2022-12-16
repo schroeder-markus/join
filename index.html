@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <script src="mini_backend.js"></script>
+    <script src="includes.js"></script>
     <script src="./js/login_register.js"></script>
     <link rel="stylesheet" href="styles/font.css">
     <link rel="stylesheet" href="style.css">
@@ -14,7 +15,7 @@
     <title>Join</title>
 </head>
 
-<body onload="init()">
+<body onload="usersFromServer(); init()">
 
 
     <div class="login-wrapper">
@@ -49,7 +50,7 @@
                     </div>
                     <div class="log-in-btn-container">
                         <button type="submit" class="sign-up-btn">Log in</button>
-                        <button type="button" onclick="" class="guest-log-in-btn">Guest Log in</button>
+                        <button type="button" onclick="enterSummary()" class="guest-log-in-btn">Guest Log in</button>
                     </div>
                 </div>
             </form>
@@ -63,15 +64,15 @@
                         <div class="blue-line"></div>
                     </div>
                     <div class="input-pics">
-                        <input class="input" id="name" placeholder="Name" type="text" required>
+                        <input class="input" id="submit-name" placeholder="Name" type="text" required>
                         <img src="img/name_input.svg" alt="name">
                     </div>
                     <div class="input-pics">
-                        <input class="input" id="email" placeholder="Email" type="email" required>
+                        <input class="input" id="submit-email" placeholder="Email" type="email" required>
                         <img src="img/email_input.svg" alt="email">
                     </div>
                     <div class="input-pics">
-                        <input class="input" id="password" placeholder="Password" type="password" required>
+                        <input class="input" id="submit-password" placeholder="Password" type="password" required>
                         <img src="img/password_input.svg" alt="pw">
                     </div>
 
