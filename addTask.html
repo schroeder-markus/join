@@ -61,8 +61,8 @@
                         <div>
                             <div class="input">
                                 <label for="dateInput">Due Date</label>
-                                <div class="inputContainer"><input class="input dateInput" type="text"
-                                        placeholder="dd/mm/yyyy"></div>
+                                <div class="inputContainer"><input class="input dateInput" type="date"
+                                        placeholder="dd/mm/yyyy" value=""></div>
                                 <span class="requiredAlert"></span>
                             </div>
                             <div class="input">
@@ -132,7 +132,7 @@
                         <section class="submitAndClearButtons">
                             <button id="clearButton" onclick="clearInputFields()">Clear<img
                                     src="img/icons-cancel.svg"></button>
-                            <button id="createButton">Create Task<img src="img/icons-check.svg"></button>
+                            <button id="createButton" onclick="submit()">Create Task<img src="img/icons-check.svg"></button>
                         </section>
                     </section>
 
