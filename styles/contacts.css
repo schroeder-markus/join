@@ -296,12 +296,12 @@
     position: absolute;
     width: 1212px;
     height: 594px;
-
     background: #FFFFFF;
     border-radius: 30px;
 }
 
 .new-contact-left {
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -316,4 +316,72 @@
     left: 0px;
     top: 0px;
     background-color: var(--main-dark);
+}
+
+.new-contact-right {
+    display: flex;
+    position: absolute;
+    background-color: var(--main-white);
+    height: 100%;
+    width: calc(1212px - 453px);
+    color: crimson;
+    text-align: left;
+    left: 453px;
+}
+
+.contact-right-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 80px;
+    top: 204px;
+    background: var(--main-gray);
+    border: 3px solid #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 70px;
+}
+
+.contact-right-avatar > img {
+    height: 80px;
+    width: 80px;
+}
+
+.contact-avatar-area {
+    width: 300px;
+    height: 100%;
+    /* background-color: lightgreen */
+}
+
+.contact-form-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+}
+
+.login-field {
+    position: static;
+    border-radius: none;
+    background: none;
+    box-shadow: none;
+    min-width: 422px;
+    padding: 0;
+}
+
+.cancel-btn {
+    background: none;
+    border: 1px solid #2A3647;
+    color: #2A3647;
+    font-size: 21px;
+    line-height: 120%;
+}
+
+.cancel-btn:hover {
+    color: var(--task-blue);
+    border: 1px solid var(--task-blue);
+    background: none;
 }
