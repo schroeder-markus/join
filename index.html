@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <script src="mini_backend.js"></script>
+    <script src="includes.js"></script>
     <script src="./js/login_register.js"></script>
     <link rel="stylesheet" href="styles/font.css">
     <link rel="stylesheet" href="style.css">
@@ -14,7 +15,7 @@
     <title>Join</title>
 </head>
 
-<body onload="init()">
+<body onload="usersFromServer(); init()">
 
 
     <div class="login-wrapper">
@@ -49,7 +50,7 @@
                     </div>
                     <div class="log-in-btn-container">
                         <button type="submit" class="sign-up-btn">Log in</button>
-                        <button type="button" onclick="" class="guest-log-in-btn">Guest Log in</button>
+                        <button type="button" onclick="enterSummary()" class="guest-log-in-btn">Guest Log in</button>
                     </div>
                 </div>
             </form>

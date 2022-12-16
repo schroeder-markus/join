@@ -1,4 +1,12 @@
+let users = [];
 
+/**
+ * This function loads allUsers from backend and parses them to users
+ */
+async function usersFromServer() {
+    await downloadFromServer();
+    users = JSON.parse(backend.getItem('allUsers')) || [];
+  }
 
 /**
  * This function hides the signup-container
@@ -41,7 +49,11 @@ function addUser() {
     let email = document.getElementById('submit-email');
     let password = document.getElementById('submit-password');
     users.push({name: name.value, email: email.value, password: password.value})
-    /*let allUsersAsString = JSON.stringify(users);
-    backend.setItem('allUsers', allUsersAsString);*/
+    let allUsersAsString = JSON.stringify(users);
+    backend.setItem('allUsers', allUsersAsString);
     backToLogIn();
+  }
+
+  function enterSummary() {
+    window.location.href = "summary.html";
   }
