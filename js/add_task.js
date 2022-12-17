@@ -91,5 +91,9 @@ function renderColorSelection() {
 
 
 function setColor() {
-    
+
+};
+
+function subtaskInput() {
+    // u.a. muss hier das 'confirmOrcancel-Element' eingeblendet werden.
 };

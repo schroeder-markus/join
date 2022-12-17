@@ -21,7 +21,8 @@ input, .dropdown, .descriptionTextArea {
     border: 1px solid #D1D1D1;
     border-radius: 5px;
     outline: none;
-    background-color: var(--main-white);     
+    background-color: var(--main-white);
+    position: relative;    
 }
 
 input, .dropdown {
@@ -143,6 +144,7 @@ section div:not(:first-of-type) label {
 }
 
 .inputContainer {
+    position: relative;
     display: flex;
 }
 
@@ -157,14 +159,16 @@ section div:not(:first-of-type) label {
     right: 5px;
 }
 
-.subtaskInput img {
-    height: 10.49px;
+.subtaskInput img{ 
+    position: absolute;
+    right: 0px;
+    top: 10px;
     padding-right: 10px;
 }
 
 .prioButtons {
     display: flex;
-    margin-bottom: 38px;
+    margin-bottom: 24px;
 }
 
 .prioButtons>button {
@@ -235,7 +239,6 @@ section div:not(:first-of-type) label {
     margin-bottom: 15px;
 }
 
-
 .confirmOrCancel {
     display: flex;
     align-items: center;
@@ -276,4 +279,8 @@ section div:not(:first-of-type) label {
     display: flex;
     justify-content: space-between;
     padding-right: 15px;
+}
+
+.subtaskInput .confirmOrCancel {
+    display: none;
 }

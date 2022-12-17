@@ -49,7 +49,6 @@
                                 <img src="img/icon-dropdown.svg" alt="dropdownIcon">
                                 <div id="categories"></div>
                             </div>
-
                             <!-- Input for new category (display: none on default) -->
                             <div id="newCategoryInput" class="newEntryInput">
                                 <div><input type="text" placeholder="New category name" onfocus="this.value=''">
@@ -60,7 +59,7 @@
                                         <div onclick="cancelInput()"><img src="img/icon-check-dark.svg" alt="checkIcon">
                                         </div>
                                     </div>
-                                </div>                           
+                                </div>
                                 <span id="colorSelection">
                                 </span>
                             </div>
@@ -75,7 +74,6 @@
                                 <img src="img/icon-dropdown.svg" alt="dropdownIcon">
                                 <div id="contactSelection"></div>
                             </div>
-
                             <!-- Input for new Contact (display: none on default) -->
                             <div id="invitePersonInput" class="newEntryInput">
                                 <div><input type="text" placeholder="Contact email" onfocus="this.value=''">
@@ -86,7 +84,7 @@
                                         <div onclick="cancelInput()"><img src="img/icon-check-dark.svg" alt="checkIcon">
                                         </div>
                                     </div>
-                                </div>                           
+                                </div>
                             </div>
                             <!--  -->
                             <span class="requiredAlert"></span>
@@ -98,8 +96,8 @@
                             <div class="input">
                                 <label for="dateInput">Due Date</label>
                                 <div class="inputContainer"><input class="input dateInput" type="text"
-                                    placeholder="Enter date" onfocus="(this.type='date')">
-                                 </div>
+                                        placeholder="Enter date" onfocus="(this.type='date')">
+                                </div>
                                 <span class="requiredAlert"></span>
                             </div>
                             <!-- Priority -->
@@ -162,20 +160,29 @@
                                 </div>
                             </div>
                             <!-- Subtasks -->
-                            <div>
+                            <div class="subtaskInput">
                                 <label for="subtaskInput">Subtasks</label>
-                                <div class="inputContainer"><input class="input subtaskInput" value="Add new Subtask">
+                                <div class="inputContainer"><input onfocus=subtaskInput() class="input" placeholder="Add new Subtask">
+                                    <img src="img/icon-add-plus-dark.svg" alt="plusIcon">
+                                    <!-- confirm / cancel Buttons (display: none on default) -->
+                                    <div class="confirmOrCancel">
+                                        <div onclick="setNewCategory()"><img src="img/icon-x.svg" alt="cancelIcon"
+                                                required>
+                                        </div>
+                                        <div onclick="cancelInput()"><img src="img/icon-check-dark.svg" alt="checkIcon">
+                                        </div>
+                                    </div>
+                                    <!--  -->
                                 </div>
+                                <!--  -->
                             </div>
-                            <!--  -->
-                        </div>
-                        <!-- submit Or Clear Buttons -->
-                        <section class="submitAndClearButtons">
-                            <button id="clearButton" onclick="clearInputFields()">Clear<img
-                                    src="img/icons-cancel.svg"></button>
-                            <button id="createButton" onclick="submit()">Create Task<img
-                                    src="img/icons-check.svg"></button>
-                        </section>
+                            <!-- submit Or Clear Buttons -->
+                            <section class="submitAndClearButtons">
+                                <button id="clearButton" onclick="clearInputFields()">Clear<img
+                                        src="img/icons-cancel.svg"></button>
+                                <button id="createButton" onclick="submit()">Create Task<img
+                                        src="img/icons-check.svg"></button>
+                            </section>
                     </section>
 
             </div>
