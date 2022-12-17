@@ -32,6 +32,7 @@ function createCategoryHtml(i) {
 
 };
 
+
 function assignToDropdown() {
     let dropdownElement = document.getElementById('contactSelection');
     dropdownElement.innerHTML = "";
@@ -47,8 +48,6 @@ function assignToDropdown() {
         dropdownElement.style.display = "none";
     };
 };
-
-
 
 
 function openDatePicker() {
@@ -92,5 +91,5 @@ function renderColorSelection() {
 
 
 function setColor() {
-
+    
 };

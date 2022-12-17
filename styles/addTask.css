@@ -127,7 +127,6 @@ section>div {
 }
 
 section div:not(:first-of-type) label {
-    /* all labels except the first ones of each section */
     margin-top: 14px;
 }
 
@@ -147,9 +146,15 @@ section div:not(:first-of-type) label {
     display: flex;
 }
 
-.dateInput img {
-    height: 17px;
-    padding-right: 10px;
+.dateInput {
+    position: relative;
+}
+
+.dateInput::-webkit-calendar-picker-indicator {
+    background: url(/img/icon-date-picker.svg) no-repeat;
+    background-size: 20px;
+    position: absolute;
+    right: 5px;
 }
 
 .subtaskInput img {
@@ -270,5 +275,5 @@ section div:not(:first-of-type) label {
 #contactSelection span {
     display: flex;
     justify-content: space-between;
-    padding-right: 5px;
+    padding-right: 15px;
 }
