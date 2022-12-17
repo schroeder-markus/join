@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles/contacts.css" />
     <title>Join</title>
     <script src="./mini_backend.js"></script>
+    <script src="./js/contacts.js" defer></script>
   </head>
 
   <body onload="init()">
@@ -354,7 +355,7 @@
             <div class="contact-detail-data">
               <div class="contact-information">
                 <span>Contact Information</span>
-                <div class="edit-contact">
+                <div class="edit-contact" onclick="editContact()">
                   <img src="img/pencil-no-bg.svg" alt="">
                   <span>Edit Contact</span>
                 </div>
@@ -371,8 +372,6 @@
           </div>
         </div>
         <div class="new-contact-container">
-          <div>
-          </div>
           <div class="new-contact-left">
             <div>
               <img src="./img/logo-white.svg" alt="">
@@ -408,13 +407,57 @@
                     </div>
 
                     <div class="log-in-btn-container">
-                        <button class="sign-up-btn cancel-btn">
+                        <button class="sign-up-btn cancel-btn" onclick="cancelContact()">
                           <svg id="icon-x" width="13" height="13" viewBox="0 0 13 13" fill="" xmlns="http://www.w3.org/2000/svg">
                             <path  d="M6.501 6.49996L11.744 11.743M1.258 11.743L6.501 6.49996L1.258 11.743ZM11.744 1.25696L6.5 6.49996L11.744 1.25696ZM6.5 6.49996L1.258 1.25696L6.5 6.49996Z" stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                           Cancel
                         </button>
                         <button class="sign-up-btn"><img src="/img/icon-check.svg" alt="">Create Contact</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+        <div class="edit-contact-container">
+          <div class="edit-contact-left">
+            <div>
+              <img src="./img/logo-white.svg" alt="">
+            </div>
+            <div>
+              <span class="edit-contact-headline">Edit Contact</span>
+            </div>
+            <div class="blue-line"></div>
+          </div>
+          <div class="edit-contact-right">
+            <div class="contact-avatar-area">
+              <div class="contact-right-avatar">
+                <div class="name-circle-large">
+                  <span class="name-circle-letter-large">A</span>
+                  <span class="name-circle-letter-large">B</span>
+                </div>
+              </div>
+              
+            </div>
+            <div class="contact-form-area">
+              <form onsubmit="addUser(); return false;" id="submit" class="">
+                <div id="sign_up_field" class="login-field">
+                    <div class="input-pics">
+                        <input class="input" id="submit-name" placeholder="Name" type="text" required>
+                        <img src="img/name_input.svg" alt="name">
+                    </div>
+                    <div class="input-pics">
+                        <input class="input" id="submit-email" placeholder="Email" type="email" required>
+                        <img src="img/email_input.svg" alt="email">
+                    </div>
+                    <div class="input-pics">
+                        <input class="input" id="submit-phone" placeholder="Phone" type="number" required>
+                        <img src="img/icon-phone.svg" alt="pw">
+                    </div>
+
+                    <div class="log-in-btn-container">
+                        <button class="sign-up-btn save-btn">Save</button>
                     </div>
                 </div>
             </form>

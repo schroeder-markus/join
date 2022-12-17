@@ -259,6 +259,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
 }
 
 .edit-contact > span {
@@ -289,6 +290,7 @@
     color: #007CEE;
 }
 
+/* Adding new Contact */
 
 .new-contact-container {
     top: 600px;
@@ -387,6 +389,65 @@
     padding: 0;
 }
 
+/* Edit Contact */
+
+.edit-contact-container {
+    top: 600px;
+    left: 600px;
+    position: absolute;
+    width: 1212px;
+    height: 594px;
+    background: #FFFFFF;
+    border-radius: 30px;
+}
+
+.edit-contact-left {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 66px 46px;
+    gap: 12px;
+    isolation: isolate;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    position: absolute;
+    width: 453px;
+    height: 594px;
+    left: 0px;
+    top: 0px;
+    background-color: var(--main-dark);
+}
+
+.edit-contact-headline {
+    font-size: 61px;
+    line-height: 120%;
+    color: var(--main-white);
+}
+
+.edit-contact-subline {
+    font-size: 26px;
+    line-height: 120%;
+    color: var(--main-white);
+}
+
+.edit-contact-right {
+    display: flex;
+    position: absolute;
+    background-color: var(--main-white);
+    height: 100%;
+    width: calc(1212px - 453px);
+    text-align: left;
+    left: 453px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.save-btn {
+    width: 143px;
+}
+
 .cancel-btn {
     background: none;
     border: 1px solid #2A3647;
@@ -403,4 +464,14 @@
 
 #icon-x path {
     stroke: greenyellow;
+}
+
+/* Test */
+
+.new-contact-container {
+    display: none;
+}
+
+.edit-contact-container {
+    display: none;
 }
