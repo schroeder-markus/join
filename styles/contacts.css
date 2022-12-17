@@ -385,3 +385,7 @@
     border: 1px solid var(--task-blue);
     background: none;
 }
+
+#icon-x {
+    fill: red;
+}
