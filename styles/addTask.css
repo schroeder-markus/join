@@ -275,3 +275,12 @@ section div:not(:first-of-type) label {
 #colorSelection {
     width: 200px;
 }
+
+#colorSelection > .colorDot:hover {
+    cursor: pointer;
+}
+
+#colorSelection > .colorDot:active {
+    cursor: pointer;
+    border: 1.5px solid var(--main-white);
+}
