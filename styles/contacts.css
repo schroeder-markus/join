@@ -309,6 +309,8 @@
     padding: 66px 46px;
     gap: 12px;
     isolation: isolate;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 
     position: absolute;
     width: 453px;
@@ -318,15 +320,28 @@
     background-color: var(--main-dark);
 }
 
+.new-contact-headline {
+    font-size: 61px;
+    line-height: 120%;
+    color: var(--main-white);
+}
+
+.new-contact-subline {
+    font-size: 26px;
+    line-height: 120%;
+    color: var(--main-white);
+}
+
 .new-contact-right {
     display: flex;
     position: absolute;
     background-color: var(--main-white);
     height: 100%;
     width: calc(1212px - 453px);
-    color: crimson;
     text-align: left;
     left: 453px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 .contact-right-avatar {
@@ -386,6 +401,6 @@
     background: none;
 }
 
-#icon-x {
-    fill: red;
+#icon-x path {
+    stroke: greenyellow;
 }
