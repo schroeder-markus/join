@@ -6,9 +6,9 @@ let categoryColors = [
   'var(--label-1)',
   'var(--label-2)',
   'var(--label-3)',
-  'var(--label-4)',
   'var(--label-5)',
   'var(--label-6)',
+  'var(--label-7)',
 ];
 
 let categories = [

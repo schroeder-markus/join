@@ -219,36 +219,17 @@ section div:not(:first-of-type) label {
     margin-left: 10px;
 }
 
-#dot1 {
-    background-color: var(--label-1)
-}
-
-#dot2 {
-    background-color: var(--label-2)
-}
-
-#dot3 {
-    background-color: var(--label-3)
-}
-
-#dot4 {
-    background-color: var(--label-5)
-}
-
-#dot5 {
-    background-color: var(--label-6)
-}
-
-#dot6 {
-    background-color: var(--label-7)
-}
-
 /* new Category */
 
 .newEntryInput {
     display: none;
     position: relative;
 }
+
+.newEntryInput input {
+    margin-bottom: 15px;
+}
+
 
 .confirmOrCancel {
     display: flex;
@@ -274,6 +255,7 @@ section div:not(:first-of-type) label {
 
 #colorSelection {
     width: 200px;
+
 }
 
 #colorSelection > .colorDot:hover {
@@ -283,4 +265,10 @@ section div:not(:first-of-type) label {
 #colorSelection > .colorDot:active {
     cursor: pointer;
     border: 1.5px solid var(--main-white);
+}
+
+#contactSelection span {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 5px;
 }
