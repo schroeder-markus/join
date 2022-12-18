@@ -444,6 +444,18 @@
     border-bottom-right-radius: 30px;
 }
 
+.close-contact-input {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    cursor: pointer;
+}
+
+.close-contact-input > img {
+    height: 24px;
+    width: 24px;
+}
+
 .save-btn {
     width: 143px;
 }
@@ -454,6 +466,7 @@
     color: #2A3647;
     font-size: 21px;
     line-height: 120%;
+    transition: none;
 }
 
 .cancel-btn:hover {
@@ -462,9 +475,11 @@
     background: none;
 }
 
-#icon-x path {
-    stroke: greenyellow;
+.cancel-btn:hover > * > * {
+    stroke: var(--task-blue);
 }
+
+
 
 /* Test */
 

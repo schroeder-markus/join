@@ -385,6 +385,9 @@
             <div class="blue-line"></div>
           </div>
           <div class="new-contact-right">
+            <div class="close-contact-input" onclick="closeNewContact()">
+              <img src="/img/icon-x.svg" alt="">
+            </div>
             <div class="contact-avatar-area">
               <div class="contact-right-avatar">
               <img src="img/icon-user.svg" alt="">
@@ -431,6 +434,9 @@
             <div class="blue-line"></div>
           </div>
           <div class="edit-contact-right">
+            <div class="close-contact-input" onclick="closeEditContact()">
+              <img src="/img/icon-x.svg" alt="">
+            </div>
             <div class="contact-avatar-area">
               <div class="contact-right-avatar">
                 <div class="name-circle-large">
@@ -465,7 +471,7 @@
           </div>
         </div>
         <div class="add-new-contact">
-            <button class="create" id="createButton">New Contact<img src="img/icons-add-contact.svg"></button>
+            <button class="create" id="createButton" onclick="createContact()">New Contact<img src="img/icons-add-contact.svg"></button>
         </div>
       </div>
     </main>
