@@ -1,11 +1,13 @@
 "use strict"
 
+let contactData = [];
+
 function editContact () {
     document.querySelector(".edit-contact-container").style.display = "flex";
 }
 
 function cancelContact () {
-    document.querySelector(".edit-contact-container").style.display = "none";
+    document.querySelector(".new-contact-container").style.display = "none";
 }
 
 function createContact() {
