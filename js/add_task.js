@@ -1,4 +1,6 @@
+'use strict'
 
+let selectedCategoryColor;
 
 function addTask() {
 
@@ -50,12 +52,7 @@ function assignToDropdown() {
 };
 
 
-function openDatePicker() {
-
-};
-
-
-function commitSubtasks() {
+function commitSubtask() {
 
 };
 
@@ -82,17 +79,21 @@ function renderColorSelection() {
 
     colorSelectionElement.innerHTML = '';
     for (let i = 0; i < categoryColors.length; i++) {
-        colorSelectionElement.innerHTML += ` 
+        colorSelectionElement.innerHTML += `
         <button onclick="setColor(${i})" type="button" id="dot${i}" class="colorDot"
-        style="background-color:${categoryColors[i]}"></button>`
+        style="background-color:${categoryColors[i]}" name="color"></button>`
     };       
 
 };
 
 
-function setColor() {
-
+function setColor(i) {
+    renderColorSelection();
+    let colorDotElement = document.getElementById(`dot${i}`);
+    colorDotElement.classList.add('dotShadow');
+    selectedCategoryColor = categoryColors[i];
 };
+
 
 function subtaskInput() {
     // u.a. muss hier das 'confirmOrcancel-Element' eingeblendet werden.

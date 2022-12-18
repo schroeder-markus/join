@@ -78,10 +78,10 @@
                             <div id="invitePersonInput" class="newEntryInput">
                                 <div><input type="text" placeholder="Contact email" onfocus="this.value=''">
                                     <div class="confirmOrCancel">
-                                        <div onclick="setNewCategory()"><img src="img/icon-x.svg" alt="cancelIcon"
+                                        <div onclick="cancelInput()"><img src="img/icon-x.svg" alt="cancelIcon"
                                                 required>
                                         </div>
-                                        <div onclick="cancelInput()"><img src="img/icon-check-dark.svg" alt="checkIcon">
+                                        <div onclick="setNewCategory()"><img src="img/icon-check-dark.svg" alt="checkIcon">
                                         </div>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@
                             <div class="input">
                                 <label>Prio</label>
                                 <div class="prioButtons">
-                                    <button type="button" id="prioUrgentButton">Urgent
+                                    <button onclick="" type="button" id="prioUrgentButton">Urgent
                                         <div>
                                             <svg width="21" height="15" viewBox="0 0 21 15" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -162,14 +162,15 @@
                             <!-- Subtasks -->
                             <div class="subtaskInput">
                                 <label for="subtaskInput">Subtasks</label>
-                                <div class="inputContainer"><input onfocus=subtaskInput() class="input" placeholder="Add new Subtask">
+                                <div class="inputContainer"><input onfocus=subtaskInput() class="input"
+                                        placeholder="Add new Subtask">
                                     <img src="img/icon-add-plus-dark.svg" alt="plusIcon">
                                     <!-- confirm / cancel Buttons (display: none on default) -->
                                     <div class="confirmOrCancel">
-                                        <div onclick="setNewCategory()"><img src="img/icon-x.svg" alt="cancelIcon"
+                                        <div onclick="cancelInput()"><img src="img/icon-x.svg" alt="cancelIcon"
                                                 required>
                                         </div>
-                                        <div onclick="cancelInput()"><img src="img/icon-check-dark.svg" alt="checkIcon">
+                                        <div onclick="setNewCategory()"><img src="img/icon-check-dark.svg" alt="checkIcon">
                                         </div>
                                     </div>
                                     <!--  -->
@@ -184,12 +185,13 @@
                                         src="img/icons-check.svg"></button>
                             </section>
                     </section>
-
             </div>
-
             </form>
+            <div class="taskAddedNotification"><img src="img/notification-task-added.svg" alt="notificationTaskAdded"></div>
         </div>
     </main>
+
+
 
     <script src="script.js" defer></script>
     <script src="includes.js" defer></script>
