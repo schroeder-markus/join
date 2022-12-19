@@ -21,6 +21,8 @@ let contactData = [
 }
 ];
 
+let firstLetterArr = [];
+
 function editContact (contactID) {
     document.querySelector(".edit-contact-container").style.display = "flex";
     document.querySelector("#submit-name").value = contactData[contactID].name
@@ -40,7 +42,6 @@ function editContact (contactID) {
 
 
 function saveContactChange(contactID) {
-  console.log(`ID nach klick auf Speichern ist: ${contactID}`)
   contactData[contactID].name = document.querySelector("#submit-name").value;
   contactData[contactID].mail = document.querySelector("#submit-email").value;
   contactData[contactID].phone = document.querySelector("#submit-phone").value;
@@ -138,3 +139,8 @@ function showContactData(contactID) {
     `
 }
 
+
+function genrateFirstLetter() {
+  for (let i = 0; i < contactData.length; i++) {
+    firstLetterArr.push(contactData[i].name.charAt(0).toLocaleUpperCase);
+}}
