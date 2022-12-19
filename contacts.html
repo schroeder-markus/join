@@ -15,7 +15,7 @@
     <script src="./js/contacts.js" defer></script>
   </head>
 
-  <body onload="init()">
+  <body onload="init(), createContactList()">
     <!-- header template -->
     <div w3-include-html="includes/header.html"></div>
     <!-- header template END -->
@@ -150,14 +150,13 @@
             <div class="contact-avatar-area">
               <div class="contact-right-avatar">
                 <div class="name-circle-large">
-                  <span class="name-circle-letter-large">A</span>
-                  <span class="name-circle-letter-large">B</span>
+                  <span id="name-circle-letter-edit" class="name-circle-letter-large">AB</span>
                 </div>
               </div>
               
             </div>
             <div class="contact-form-area">
-              <form onsubmit="addUser(); return false;" id="submit" class="">
+              <form onsubmit="; return false;" id="submit" class="">
                 <div id="sign_up_field" class="login-field">
                     <div class="input-pics">
                         <input class="input" id="submit-name" placeholder="Name" type="text" required>

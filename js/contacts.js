@@ -1,9 +1,34 @@
 "use strict"
 
-let contactData = [];
+let contactData = [
+  {
+        "name": "Test User",
+        "mail": "testuser@test.te",
+        "phone": '0176123456789',
+        "initials" : "TU"
+    }
+];
 
-function editContact () {
+function editContact (contactID) {
     document.querySelector(".edit-contact-container").style.display = "flex";
+
+    document.querySelector("#submit-name").value = contactData[contactID].name
+    document.querySelector("#submit-email").value = contactData[contactID].mail
+    document.querySelector("#submit-phone").value = contactData[contactID].phone
+    document.querySelector("#name-circle-letter-edit").innerHTML = `${contactData[contactID].initials}`
+
+    document.querySelector(".save-btn").addEventListener("click", () => {
+      saveContactChanges(contactID)
+    })
+    
+}
+
+function saveContactChanges(contactID) {
+  contactData[contactID].name = document.querySelector("#submit-name").value 
+  contactData[contactID].mail = document.querySelector("#submit-email").value
+  contactData[contactID].phone = document.querySelector("#submit-phone").value
+  createContactList()
+  closeEditContact()
 }
 
 function cancelContact () {
@@ -64,7 +89,6 @@ function createContactList() {
 }
 
 function showContactData(contactID) {
-    console.log("click")
     document.querySelector(".contact-detail-container").innerHTML = `
     <div class="contact-detail-name">
     <div class="name-circle-large">
@@ -78,7 +102,7 @@ function showContactData(contactID) {
 <div class="contact-detail-data">
   <div class="contact-information">
     <span>Contact Information</span>
-    <div class="edit-contact" onclick="editContact()">
+    <div class="edit-contact" onclick="editContact(${contactID})">
       <img src="img/pencil-no-bg.svg" alt="">
       <span>Edit Contact</span>
     </div>
