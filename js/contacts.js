@@ -1,12 +1,24 @@
-"use strict"
+
 
 let contactData = [
   {
-        "name": "Test User",
-        "mail": "testuser@test.te",
-        "phone": '0176123456789',
-        "initials" : "TU"
-    }
+      "name": "Daniela Faber",
+      "mail": "DanielaFaber@einrot.com",
+      "phone": 0911719268,
+      "initials" : "DF"
+    },
+    {
+      "name": "Sabrina Trommler",
+      "mail": "SabrinaTrommler@cuvox.de",
+      "phone": 08841281030,
+      "initials" : "ST"
+  },
+  {
+    "name": "Mario Moeller",
+    "mail": "MarioMoeller@cuvox.de",
+    "phone": 06541620484,
+    "initials" : "MM"
+}
 ];
 
 function editContact (contactID) {
