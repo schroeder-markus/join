@@ -1,4 +1,5 @@
 let users = [];
+checkYoN = false;
 
 /**
  * This function loads allUsers from backend and parses them to users
@@ -66,10 +67,34 @@ function addUser() {
   function logIn() {
     let email = document.getElementById('login-email');
     let password = document.getElementById('login-password');
+
     let user = users.find(u => u.email == email.value && u.password == password.value);
+
     if (user) {
+        if (document.getElementById('remember').checked == true) {
+            localStorage.setItem('email', email.value);
+            localStorage.setItem('password', password.value);
+            checkYoN = true;
+        } else {
+            checkYoN = false;
+            localStorage.removeItem("email");
+            localStorage.removeItem("password");
+        }
         window.location.href = "summary.html";
     } else {
         document.getElementById('alarm').classList.remove('d-none');
     }
 }
+
+function onPageLoad() {
+    let email = document.getElementById('login-email');
+    let password = document.getElementById('login-password');
+    if (localStorage.email !== undefined && localStorage.password !== undefined) {
+        checkYoN = true;
+        email.value = localStorage.email;
+        password.value = localStorage.password;
+    } else {
+        checkYoN = false;
+    }
+    document.getElementById('remember').checked = checkYoN;
+  }

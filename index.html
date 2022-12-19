@@ -16,7 +16,7 @@
     <title>Join</title>
 </head>
 
-<body onload="usersFromServer(); init()">
+<body onload="usersFromServer(); onPageLoad(); init()">
 
 
     <div class="login-wrapper">
@@ -37,18 +37,18 @@
                         <div class="blue-line"></div>
                     </div>
                     <div class="input-pics">
-                        <input class="input" id="login-email" placeholder="Email" type="email">
+                        <input class="input" id="login-email" placeholder="Email" type="email" required>
                         <img src="img/email_input.svg" alt="email">
                     </div>
                     <div class="input-pics">
-                        <input class="input" id="login-password" placeholder="Password" type="password">
+                        <input class="input" id="login-password" placeholder="Password" type="password" required>
                         <img src="img/password_input.svg" alt="pw">
                     </div>
                     <div id="submit-success" class="d-none">Your registration was submitted successfully!</div>
                     <div id="alarm" class="d-none">Wrong E-Mail or Password!</div>
                     <div class="checkbox-container">
-                        <input type="checkbox">
-                        <span>Remember me</span>
+                        <input id="remember" type="checkbox">
+                        <label for="remember">Remember me</label>
                         <a type="button" onclick="moveToFmP()">Forgot my Password</a>
                     </div>
                     <div class="log-in-btn-container">
