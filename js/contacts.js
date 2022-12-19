@@ -28,6 +28,7 @@ function saveContactChanges(contactID) {
   contactData[contactID].mail = document.querySelector("#submit-email").value
   contactData[contactID].phone = document.querySelector("#submit-phone").value
   createContactList()
+  showContactData(contactID)
   closeEditContact()
 }
 
@@ -61,7 +62,7 @@ function addNewContact() {
     document.querySelector("#newContactSubmitName").value = "";
     document.querySelector("#newContactSubmitEmail").value = "";
     document.querySelector("#newContactSubmitPhone").value = "";
-    createContactList()
+    createContactList();
     closeNewContact();
 }
 
