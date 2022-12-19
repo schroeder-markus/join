@@ -34,6 +34,39 @@ input:focus::placeholder, textarea:focus::placeholder {
     color: transparent;
 }
 
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding-left: 0px;
+}
+
+.dropdown:hover {
+    cursor: pointer;
+}
+
+.dropdown>img {
+    position: absolute;
+    right: 10px;
+    top: 14px;
+}
+
+.dropdown span:not(.colorDot) {
+    display: flex;
+    align-items: center;
+    height: 38px;
+    padding-left: 21px;
+}
+
+.dropdown>div>div:hover {
+    background-color: #D1D1D1;
+}
+
+#categories {
+    display: none;
+}
+
 .descriptionTextArea {
     padding-top: 12px;
     height: 119px;
@@ -72,44 +105,6 @@ label {
 #categories {
     display: none;
 }
-
-/* START dropdowns */
-
-.dropdown {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: auto;
-    position: relative;
-    padding-left: 0px;
-}
-
-.dropdown:hover {
-    cursor: pointer;
-}
-
-.dropdown>img {
-    position: absolute;
-    right: 10px;
-    top: 14px;
-}
-
-.dropdown span:not(.colorDot) {
-    display: flex;
-    align-items: center;
-    height: 38px;
-    padding-left: 21px;
-}
-
-.dropdown>div>div:hover {
-    background-color: #D1D1D1;
-}
-
-#categories {
-    display: none;
-}
-
-/* END dropdowns */
 
 .requiredAlert {
     color: var(--field-required);
