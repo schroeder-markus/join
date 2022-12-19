@@ -24,6 +24,7 @@ function editContact (contactID) {
 }
 
 function saveContactChanges(contactID) {
+  console.log(`ID Ist: ${contactID}`)
   contactData[contactID].name = document.querySelector("#submit-name").value 
   contactData[contactID].mail = document.querySelector("#submit-email").value
   contactData[contactID].phone = document.querySelector("#submit-phone").value
