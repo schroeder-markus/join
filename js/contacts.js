@@ -9,42 +9,30 @@ let contactData = [
     }
 ];
 
-// function editContact (contactID) {
-//     document.querySelector(".edit-contact-container").style.display = "flex";
-
-//     document.querySelector("#submit-name").value = contactData[contactID].name
-//     document.querySelector("#submit-email").value = contactData[contactID].mail
-//     document.querySelector("#submit-phone").value = contactData[contactID].phone
-//     document.querySelector("#name-circle-letter-edit").innerHTML = `${contactData[contactID].initials}`
-//     console.log(`ID vor dem klick auf Speichern ist: ${contactID}`)
-//     document.querySelector(".save-btn").addEventListener("click", () => {
-//       saveContactChange(contactID)
-//     })
-// }
-
-//Test für Remove eventlistener
-
 function editContact (contactID) {
-  document.querySelector(".edit-contact-container").style.display = "flex";
-
-  document.querySelector("#submit-name").value = contactData[contactID].name
-  document.querySelector("#submit-email").value = contactData[contactID].mail
-  document.querySelector("#submit-phone").value = contactData[contactID].phone
-  document.querySelector("#name-circle-letter-edit").innerHTML = `${contactData[contactID].initials}`
-  console.log(`ID vor dem klick auf Speichern ist: ${contactID}`)
-  
-  // Remove the event listener before adding a new one
-  document.querySelector(".save-btn").removeEventListener("click", saveContactChange);
-  document.querySelector(".save-btn").addEventListener("click", () => {
-    saveContactChange(contactID)
-  });
+    document.querySelector(".edit-contact-container").style.display = "flex";
+    document.querySelector("#submit-name").value = contactData[contactID].name
+    document.querySelector("#submit-email").value = contactData[contactID].mail
+    document.querySelector("#submit-phone").value = contactData[contactID].phone
+    document.querySelector("#name-circle-letter-edit").innerHTML = `${contactData[contactID].initials}`
+    let saveBtn = document.querySelector(".save-btn");
+    let saveBtnClicked = false;
+    saveBtn.addEventListener("click", () => {
+      if (!saveBtnClicked) {
+        saveContactChange(contactID);
+        saveBtnClicked = true;
+      }
+      saveBtn.removeEventListener("click", () => {});
+    });
 }
+
 
 function saveContactChange(contactID) {
   console.log(`ID nach klick auf Speichern ist: ${contactID}`)
-  contactData[contactID].name = document.querySelector("#submit-name").value 
-  contactData[contactID].mail = document.querySelector("#submit-email").value
-  contactData[contactID].phone = document.querySelector("#submit-phone").value
+  contactData[contactID].name = document.querySelector("#submit-name").value;
+  contactData[contactID].mail = document.querySelector("#submit-email").value;
+  contactData[contactID].phone = document.querySelector("#submit-phone").value;
+  contactData[contactID].initials = document.querySelector("#submit-name").value.split(" ").map((n)=>n[0]).join("")
   createContactList()
   showContactData(contactID)
   closeEditContact()
