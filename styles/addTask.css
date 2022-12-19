@@ -265,6 +265,13 @@ section div:not(:first-of-type) label {
     border-right: 1px solid #D1D1D1;
 }
 
+.colorSelWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
 #colorSelection {
     width: 200px;
 
@@ -278,6 +285,14 @@ section div:not(:first-of-type) label {
     cursor: pointer;
     border: 1.5px solid var(--main-white);
 }
+
+
+#colorSelAlert {
+    display: none;
+    margin: 0px;
+    font-size: 14px;
+}
+
 
 #contactSelection span {
     display: flex;
