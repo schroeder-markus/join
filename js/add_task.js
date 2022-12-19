@@ -2,32 +2,34 @@
 
 let selectedCategoryColor;
 let assignedContacts = [];
+let showCategoryList = false;
 
 function addTask() {
 
 };
 
 
-function categoryDropdown() {
-    let dropdownElement = document.getElementById('categories');
-    dropdownElement.innerHTML = "";
+function toggleDropdown() {
+    showCategoryList = !showCategoryList;
 
-    if (dropdownElement.style.display != "block") {
-        dropdownElement.style.display = "block";
-        dropdownElement.innerHTML = `<div><span onclick="toggleView_DropdownAndNewEntry('categoryDropdown','newCategoryInput')">new category</span></div>`;      
-        renderColorSelection();
-        for (let i = 0; i < categories.length; i++) {
-            dropdownElement.innerHTML += `<div><span onclick="setCategory(${i})">${createCategoryHtml(i)}</span></div>`
-        };
+    let dropdownContainer = document.getElementById('categoryDropdown');
+
+    if (showCategoryList) {
+        renderCategoryList();
+        dropdownContainer.classList.add('showCategories');
     } else {
-        dropdownElement.style.display = "none";
+        dropdownContainer.classList.remove('showCategories')
     };
 };
 
-
-function setCategory(i) {
-    let categoryInput = document.getElementById('categoryInput');
-    categoryInput.innerHTML = `${createCategoryHtml(i)}`
+function renderCategoryList() {
+    let dropList = document.getElementById('categories');
+    dropList.innerHTML = "";
+    dropList.innerHTML = `<div><span onclick="toggleView_DropdownAndNewEntry('categoryDropdown','newCategoryInput')">new category</span></div>`
+    for (let i = 0; i < categories.length; i++) {
+        dropList.innerHTML += `<div><span onclick="setCategory(${i})">${createCategoryHtml(i)}</span></div>`
+    };
+    renderColorSelection();
 };
 
 
@@ -35,6 +37,14 @@ function createCategoryHtml(i) {
     return `${categories[i]['name']}<span class="colorDot" style="background-color:${categories[i]['color']}">`
 
 };
+
+
+
+function setCategory(i) {
+    let categoryInput = document.getElementById('categoryInput');
+    categoryInput.innerHTML = `${createCategoryHtml(i)}`
+};
+
 
 
 function cancelInput() {
@@ -60,7 +70,7 @@ function setNewCategory() {
 };
 
 
-function finishNewCategory(categoryName){
+function finishNewCategory(categoryName) {
     let categoryIndex = categories.findIndex(object => object.name === categoryName);
     toggleView_DropdownAndNewEntry('newCategoryInput', 'categoryDropdown');
     setCategory(categoryIndex);
@@ -78,7 +88,7 @@ function showRequired() {
     let colorSelAlertElement = document.getElementById('colorSelAlert');
 
     if (selectedCategoryColor == undefined) {
-            colorSelAlertElement.style.display = "block";
+        colorSelAlertElement.style.display = "block";
     }
 };
 

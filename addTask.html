@@ -14,7 +14,7 @@
     <script src="./mini_backend.js"></script>
 </head>
 
-<body onload="init()">
+<body onload="init(), renderCategoryList()">
     <!-- header template -->
     <div w3-include-html="includes/header.html"></div>
     <!-- header template END -->
@@ -44,7 +44,7 @@
                         <!-- Category -->
                         <div readonly>
                             <label for="categoryDropdown">Category</label>
-                            <div onclick="categoryDropdown()" id="categoryDropdown" class="dropdown">
+                            <div onclick="toggleDropdown('categories')" id="categoryDropdown" class="dropdown">
                                 <span id="categoryInput" class="dropdownValue">Select Task Category</span>
                                 <img src="img/icon-dropdown.svg" alt="dropdownIcon">
                                 <div id="categories"></div>
