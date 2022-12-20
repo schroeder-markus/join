@@ -4,8 +4,11 @@
     margin-right: 0;
 }
 
+.main-container > * {
+    user-select: none;
+}
+
 .contact-container {
-    /* background-color: #fff; */
     height: 100%;
     display: flex;
 }
@@ -26,7 +29,6 @@
     align-items: center;
     width: 357px;
     height: 100%;
-    /* background-color: rgba(1, 189, 218, 0.2) */
 }
 
 .contact-letter {
@@ -59,10 +61,6 @@
     width: 100%;
     height: 80px;
 }
-
-/* .contactnames-hov {
-
-} */
 
 .contact-names-hov:hover {
     background: rgb(249,249,249);
@@ -133,9 +131,9 @@
     width: 1rem;
 }
 
-.scroll::-webkit-scrollbar-button:horizontal:increment {
+/* .scroll::-webkit-scrollbar-button:horizontal:increment {
     background-image: url(/img/icon-arrow-up-scroll.svg);
-}
+} */
 
 .scroll::-webkit-scrollbar-button:end:increment {
     background-image: url(/img/icon-arrow-down-scroll.svg);
@@ -183,9 +181,7 @@
 }
 
 .contact-detail-container {
-    /* width: 461px; */
     height: 364px;
-    /* background-color: lightsalmon; */
     margin-top: 80px;
     margin-left: 80px;
 }
@@ -195,7 +191,6 @@
     align-items: center;
     width: 100%;
     height: 120px;
-    /* background-color: lightblue; */
 }
 
 .name-circle-large {
@@ -205,7 +200,6 @@
     height: 120px;
     width: 120px;
     border-radius: 100%;
-    background-color: lightseagreen;
     border: 2px solid var(--main-white);
 }
 
@@ -243,7 +237,6 @@
 }
 
 .contact-detail-data {
-    /* background-color: blueviolet; */
     width: 392.85px;
     height: 74px;
     margin-top: 16px;
@@ -294,8 +287,6 @@
 .contact-detail-data-mail {
     color: #007CEE;
 }
-
-/* Adding new Contact */
 
 .new-contact-container {
     top: 600px;
@@ -374,7 +365,6 @@
 .contact-avatar-area {
     width: 300px;
     height: 100%;
-    /* background-color: lightgreen */
 }
 
 .contact-form-area {
@@ -486,7 +476,6 @@
 
 
 
-/* Test */
 
 .new-contact-container {
     display: none;
