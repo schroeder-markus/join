@@ -4,24 +4,28 @@ let contactData = [
     mail: "DanielaFaber@einrot.com",
     phone: 0911719268,
     initials: "DF",
+    color: "#6666ff"
   },
   {
     name: "Sabrina Trommler",
     mail: "SabrinaTrommler@cuvox.de",
     phone: 08841281030,
     initials: "ST",
+    color: "#009900"
   },
   {
     name: "Sandra Reiter",
     mail: "SabrinaTrommler@cuvox.de",
     phone: 08841281030,
     initials: "SR",
+    color: "#cc6600"
   },
   {
     name: "Mario Moeller",
     mail: "MarioMoeller@cuvox.de",
     phone: 06541620484,
     initials: "MM",
+    color: "#cc00cc"
   },
 ];
 
@@ -32,9 +36,11 @@ function editContact(contactID) {
   document.querySelector("#submit-name").value = contactData[contactID].name;
   document.querySelector("#submit-email").value = contactData[contactID].mail;
   document.querySelector("#submit-phone").value = contactData[contactID].phone;
+  document.querySelector("#submit-color").value = contactData[contactID].color;
   document.querySelector(
     "#name-circle-letter-edit"
   ).innerHTML = `${contactData[contactID].initials}`;
+  document.querySelector(".name-circle-large-edit").style.backgroundColor = `${contactData[contactID].color}`;
   let saveBtn = document.querySelector(".save-btn");
   let saveBtnClicked = false;
   saveBtn.addEventListener("click", () => {
@@ -50,6 +56,7 @@ function saveContactChange(contactID) {
   contactData[contactID].name = document.querySelector("#submit-name").value;
   contactData[contactID].mail = document.querySelector("#submit-email").value;
   contactData[contactID].phone = document.querySelector("#submit-phone").value;
+  contactData[contactID].color = document.querySelector("#submit-color").value;
   contactData[contactID].initials = document
     .querySelector("#submit-name")
     .value.split(" ")
@@ -83,6 +90,7 @@ function addNewContact() {
     name: document.querySelector("#newContactSubmitName").value,
     mail: document.querySelector("#newContactSubmitEmail").value,
     phone: document.querySelector("#newContactSubmitPhone").value,
+    color: document.querySelector("#newContactSubmitColor").value,
     initials: document
       .querySelector("#newContactSubmitName")
       .value.split(" ")
@@ -94,6 +102,7 @@ function addNewContact() {
   document.querySelector("#newContactSubmitName").value = "";
   document.querySelector("#newContactSubmitEmail").value = "";
   document.querySelector("#newContactSubmitPhone").value = "";
+  document.querySelector("#newContactSubmitColor").value = "";
   createContactList();
   closeNewContact();
 }
@@ -125,7 +134,7 @@ function createContactList() {
         console.log("- " + contactData[i]["name"]);
         document.querySelector(".contacts-list").innerHTML += `
         <div class="contact-names" onclick="showContactData(${i}), selectContainer(this)">
-        <div class="name-circle">
+        <div class="name-circle" style="background-color: ${contactData[i]["color"]};">
           <span class="name-circle-letter">${contactData[i]["name"]
             .split(" ")
             .map((n) => n[0])
@@ -145,7 +154,7 @@ function createContactList() {
 function showContactData(contactID) {
   document.querySelector(".contact-detail-container").innerHTML = `
     <div class="contact-detail-name">
-    <div class="name-circle-large">
+    <div class="name-circle-large" style="background-color: ${contactData[contactID]["color"]};">
       <span class="name-circle-letter-large">${contactData[contactID].initials}</span>
     </div>
     <div class="contact-detail-fullname">
