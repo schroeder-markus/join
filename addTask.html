@@ -53,10 +53,10 @@
                             <div id="newCategoryInput" class="newEntryInput">
                                 <div><input type="text" placeholder="New category name" onfocus="this.value=''">
                                     <div class="confirmOrCancel">
-                                        <div onclick="cancelInput()"><img src="img/icon-x.svg" alt="cancelIcon"
+                                        <div onclick="cancelNewCategory()"><img src="img/icon-x.svg" alt="cancelIcon"
                                                 required>
                                         </div>
-                                        <div onclick="setNewCategory()"><img src="img/icon-check-dark.svg" alt="checkIcon">
+                                        <div onclick="confirmNewCategory()"><img src="img/icon-check-dark.svg" alt="checkIcon">
                                         </div>
                                     </div>
                                 </div>
@@ -71,19 +71,19 @@
                         <!-- Assign to -->
                         <div readonly>
                             <label for="assignToDropdown">Assign to</label>
-                            <div onclick="toggleAssignDropdown()" id="assignToDropdown" class="dropdown">
-                                <span id="assignToInput" class="dropdownValue">Select contacts to assign</span>
-                                <img src="img/icon-dropdown.svg" alt="dropdownIcon">
+                            <div id="assignToDropdown" class="dropdown">
+                                <span onclick="toggleAssignDropdown()" id="assignToInput" class="dropdownValue">Select contacts to assign</span>
+                                <img onclick="toggleAssignDropdown()" src="img/icon-dropdown.svg" alt="dropdownIcon">
                                 <div id="contactSelection"></div>
                             </div>
                             <!-- Input for new Contact (display: none on default) -->
                             <div id="invitePersonInput" class="newEntryInput">
                                 <div><input type="text" placeholder="Contact email" onfocus="this.value=''">
                                     <div class="confirmOrCancel">
-                                        <div onclick="cancelNewCategory()"><img src="img/icon-x.svg" alt="cancelIcon"
+                                        <div onclick="cancelInviteContact()"><img src="img/icon-x.svg" alt="cancelIcon"
                                                 required>
                                         </div>
-                                        <div onclick="confirmNewCategory()"><img src="img/icon-check-dark.svg" alt="checkIcon">
+                                        <div onclick="inviteContact()"><img src="img/icon-check-dark.svg" alt="checkIcon">
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +172,7 @@
                                         <div onclick="cancelInput()"><img src="img/icon-x.svg" alt="cancelIcon"
                                                 required>
                                         </div>
-                                        <div onclick="setNewCategory()"><img src="img/icon-check-dark.svg" alt="checkIcon">
+                                        <div onclick="confirmNewCategory()"><img src="img/icon-check-dark.svg" alt="checkIcon">
                                         </div>
                                     </div>
                                     <!--  -->

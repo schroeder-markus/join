@@ -43,7 +43,7 @@ function renderCategoryList() {
     dropList.innerHTML = "";
     dropList.innerHTML = `<div><span onclick="toggleView_DropdownAndNewEntry('categoryDropdown','newCategoryInput')">new category</span></div>`
     for (let i = 0; i < categories.length; i++) {
-        dropList.innerHTML += `<div><span onclick="setCategory(${i})">${createCategoryHtml(i)}</span></div>`
+        dropList.innerHTML += `<div><span onclick="setCategorySelectionAsInput(${i})">${createCategoryHtml(i)}</span></div>`
     };
     renderColorSelection();
 };
@@ -74,8 +74,8 @@ function resetNewCategoryColorAndInput() {
 
 
 // fired after clicking the check-button in "new Category"-dialogue.
-// validates the input, what means if category name is filled and a color is selected.
-// success: finisches dialogue. fail: shows required-notification
+// checks if category name is filled and a color is selected.
+// success: finishes dialogue. fail: shows required-notification.
 
 function confirmNewCategory() {
     let categoryInputElement = document.querySelector('#newCategoryInput input');
@@ -148,30 +148,42 @@ function setColor(i) {
 function renderContactSelection() {
     let dropList = document.getElementById('contactSelection');
     dropList.innerHTML = "";
-    dropList.innerHTML = `<div><span onclick="checkContact()">You<img id="contactCheckbox()" src="img/icon-selection-false.svg" alt="contactIconDark"</span></div>`
+    dropList.innerHTML = `<div><span onclick="assignContact()">You<div id="contactCheckbox()" class="assignCheckbox"><div class="assignChecked"></div></div></span></div>`
     for (let i = 0; i < contactData.length; i++) {
-        dropList.innerHTML += `<div><span onclick="checkContact(${i})">${contactData[i].name}<img id="contactCheckbox(${i})" src="img/icon-selection-false.svg" alt="contactIconDarkEmpty"</span></div>`
+        dropList.innerHTML += `<div><span onclick="toggleSelection(${i})"><div id="contact(${i})">${contactData[i].name}</div><div class="assignCheckbox"><div id="contactChecked(${i})" class="assignChecked"></div></div></span></div>`
     };
     dropList.InnerHTML += `<div><span onclick="toggleView_DropdownAndNewEntry('assignToDropdown','invitePersonInput')">Invite new Contact<img src="img/icon-contacts-dark.svg" alt="contactIconDark"</span></div>`;
 };
 
-// 
+// selects oder unselects contacts for assignment. The entry has a check-button and the contact is added or removed from the assignedContacts array.
 
-function assignToDropdown() {
-    let dropdownElement = document.getElementById('contactSelection');
-    dropdownElement.innerHTML = "";
-
-    if (dropdownElement.style.display != "block") {
-        dropdownElement.style.display = "block";
-        dropdownElement.innerHTML += `<div><span onclick="checkContact()">You<img id="contactCheckbox()" src="img/icon-selection-false.svg" alt="contactIconDark"</span></div>`;
-
-        for (let i = 0; i < contactData.length; i++) {
-            dropdownElement.innerHTML += `<div><span onclick="checkContact(${i})">${contactData[i].name}<img id="contactCheckbox(${i})" src="img/icon-selection-false.svg" alt="contactIconDarkEmpty"</span></div>`
-        };
-        dropdownElement.innerHTML += `<div><span onclick="toggleView_DropdownAndNewEntry('assignToDropdown','invitePersonInput')">Invite new Contact<img src="img/icon-contacts-dark.svg" alt="contactIconDark"</span></div>`;
+function toggleSelection(i) {
+    let contactCheckedElement = document.getElementById(`contactChecked(${i})`);
+    if (contactCheckedElement.style.display != "block") {
+        contactCheckedElement.style.display = "block";
+        selectContact(i);
     } else {
-        dropdownElement.style.display = "none";
-    };
+        contactCheckedElement.style.display = "none";
+        unselectContact(i);
+    }
+};
+
+
+function selectContact(i) {
+    let contactElement = document.getElementById(`contact(${i})`);
+    assignedContacts.push(contactElement.innerHTML);
+};
+
+
+function unselectContact(i) {
+    let contactElement = document.getElementById(`contact(${i})`);
+    assignedContacts.splice(findIndexOfContact(contactElement.innerHTML), 1);
+};
+
+
+function findIndexOfContact(contactName) {
+    return assignedContacts.indexOf(contactName);
+
 };
 
 
