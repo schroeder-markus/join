@@ -1,115 +1,188 @@
-
-
 let contactData = [
   {
-      "name": "Daniela Faber",
-      "mail": "DanielaFaber@einrot.com",
-      "phone": 0911719268,
-      "initials" : "DF"
-    },
-    {
-      "name": "Sabrina Trommler",
-      "mail": "SabrinaTrommler@cuvox.de",
-      "phone": 08841281030,
-      "initials" : "ST"
+    name: "Daniela Faber",
+    mail: "DanielaFaber@einrot.com",
+    phone: 0911719268,
+    initials: "DF",
   },
   {
-    "name": "Mario Moeller",
-    "mail": "MarioMoeller@cuvox.de",
-    "phone": 06541620484,
-    "initials" : "MM"
-}
+    name: "Sabrina Trommler",
+    mail: "SabrinaTrommler@cuvox.de",
+    phone: 08841281030,
+    initials: "ST",
+  },
+  {
+    name: "Sandra Reiter",
+    mail: "SabrinaTrommler@cuvox.de",
+    phone: 08841281030,
+    initials: "SR",
+  },
+  {
+    name: "Mario Moeller",
+    mail: "MarioMoeller@cuvox.de",
+    phone: 06541620484,
+    initials: "MM",
+  },
 ];
 
-let firstLetterArr = [];
 
-function editContact (contactID) {
-    document.querySelector(".edit-contact-container").style.display = "flex";
-    document.querySelector("#submit-name").value = contactData[contactID].name
-    document.querySelector("#submit-email").value = contactData[contactID].mail
-    document.querySelector("#submit-phone").value = contactData[contactID].phone
-    document.querySelector("#name-circle-letter-edit").innerHTML = `${contactData[contactID].initials}`
-    let saveBtn = document.querySelector(".save-btn");
-    let saveBtnClicked = false;
-    saveBtn.addEventListener("click", () => {
-      if (!saveBtnClicked) {
-        saveContactChange(contactID);
-        saveBtnClicked = true;
-      }
-      saveBtn.removeEventListener("click", () => {});
-    });
+
+function editContact(contactID) {
+  document.querySelector(".edit-contact-container").style.display = "flex";
+  document.querySelector("#submit-name").value = contactData[contactID].name;
+  document.querySelector("#submit-email").value = contactData[contactID].mail;
+  document.querySelector("#submit-phone").value = contactData[contactID].phone;
+  document.querySelector(
+    "#name-circle-letter-edit"
+  ).innerHTML = `${contactData[contactID].initials}`;
+  let saveBtn = document.querySelector(".save-btn");
+  let saveBtnClicked = false;
+  saveBtn.addEventListener("click", () => {
+    if (!saveBtnClicked) {
+      saveContactChange(contactID);
+      saveBtnClicked = true;
+    }
+    saveBtn.removeEventListener("click", () => {});
+  });
 }
-
 
 function saveContactChange(contactID) {
   contactData[contactID].name = document.querySelector("#submit-name").value;
   contactData[contactID].mail = document.querySelector("#submit-email").value;
   contactData[contactID].phone = document.querySelector("#submit-phone").value;
-  contactData[contactID].initials = document.querySelector("#submit-name").value.split(" ").map((n)=>n[0]).join("")
-  createContactList()
-  showContactData(contactID)
-  closeEditContact()
+  contactData[contactID].initials = document
+    .querySelector("#submit-name")
+    .value.split(" ")
+    .map((n) => n[0])
+    .join("");
+  createContactList();
+  showContactData(contactID);
+  closeEditContact();
 }
 
-function cancelContact () {
-    document.querySelector(".new-contact-container").style.display = "none";
+function cancelContact() {
+  document.querySelector(".new-contact-container").style.display = "none";
 }
 
 function createContact() {
-    document.querySelector(".new-contact-container").style.display = "flex";
+  document.querySelector(".new-contact-container").style.display = "flex";
 }
 
 function closeEditContact() {
-    document.querySelector(".edit-contact-container").style.display = "none";
+  document.querySelector(".edit-contact-container").style.display = "none";
 }
 
 function closeNewContact() {
-    document.querySelector(".new-contact-container").style.display = "none";
+  document.querySelector(".new-contact-container").style.display = "none";
 }
 
 // Add Contacts
 
 function addNewContact() {
-    let newContactData = {
-        "name": document.querySelector("#newContactSubmitName").value,
-        "mail": document.querySelector("#newContactSubmitEmail").value,
-        "phone": document.querySelector("#newContactSubmitPhone").value,
-        "initials" : document.querySelector("#newContactSubmitName").value.split(" ").map((n)=>n[0]).join("")
-    }
+  let newContactData = {
+    name: document.querySelector("#newContactSubmitName").value,
+    mail: document.querySelector("#newContactSubmitEmail").value,
+    phone: document.querySelector("#newContactSubmitPhone").value,
+    initials: document
+      .querySelector("#newContactSubmitName")
+      .value.split(" ")
+      .map((n) => n[0])
+      .join(""),
+  };
 
-    contactData.push(newContactData)
-    document.querySelector("#newContactSubmitName").value = "";
-    document.querySelector("#newContactSubmitEmail").value = "";
-    document.querySelector("#newContactSubmitPhone").value = "";
-    createContactList();
-    closeNewContact();
+  contactData.push(newContactData);
+  document.querySelector("#newContactSubmitName").value = "";
+  document.querySelector("#newContactSubmitEmail").value = "";
+  document.querySelector("#newContactSubmitPhone").value = "";
+  createContactList();
+  closeNewContact();
 }
 
+// function createContactList() {
+//   document.querySelector(".contacts-list").innerHTML = ``;
+//   let initials = new Set();
+
+//   for (let i = 0; i < contactData.length; i++) {
+//     initials.add(contactData[i]["name"][0]);
+//   }
+
+//   for (let initial of initials) {
+//     console.log(initial);
+//     document.querySelector(".contacts-list").innerHTML += `
+//     <div class="contact-letter">
+//                 <div>
+//                   <span>${initial}</span>
+//                 </div>
+//                 <div class="divider"></div>
+//               </div>`;
+//     for (let i = 0; i < contactData.length; i++) {
+//       if (contactData[i]["name"][0] === initial) {
+//         console.log("- " + contactData[i]["name"]);
+//         document.querySelector(".contacts-list").innerHTML += `
+//         <div class="contact-names" onclick="showContactData(${i})">
+//         <div class="name-circle">
+//           <span class="name-circle-letter">${contactData[i]["name"]
+//             .split(" ")
+//             .map((n) => n[0])
+//             .join("")}</span>
+//         </div>
+//         <div class="name-fullname">
+//           <span class="name-contact-name">${contactData[i]["name"]}</span>
+//           <span class="name-contact-mail">${contactData[i]["mail"]}</span>
+//         </div>
+//       </div>  
+//         `;
+//       }
+//     }
+//   }
+// }
 
 function createContactList() {
+  document.querySelector(".contacts-list").innerHTML = ``;
+  let initials = new Set();
 
-    document.querySelector(".contacts-list").innerHTML = ``
+  // Erstelle ein Set von Initialen aus den Namen der Kontakte
+  for (let i = 0; i < contactData.length; i++) {
+    initials.add(contactData[i]["name"][0]);
+  }
+
+  // Wandle das Set in ein Array um und sortiere es
+  initials = Array.from(initials).sort();
+
+  // Erstelle eine Liste der Kontakte nach Initialen sortiert
+  for (let initial of initials) {
+    console.log(initial);
+    document.querySelector(".contacts-list").innerHTML += `
+    <div class="contact-letter">
+                <div>
+                  <span>${initial}</span>
+                </div>
+                <div class="divider"></div>
+              </div>`;
     for (let i = 0; i < contactData.length; i++) {
-        const contactName = contactData[i].name;
-        const contactMail = contactData[i].mail;
-        const contactLetter = contactData[i].initials;
-
+      if (contactData[i]["name"][0] === initial) {
+        console.log("- " + contactData[i]["name"]);
         document.querySelector(".contacts-list").innerHTML += `
         <div class="contact-names" onclick="showContactData(${i})">
         <div class="name-circle">
-          <span class="name-circle-letter">${contactLetter}</span>
+          <span class="name-circle-letter">${contactData[i]["name"]
+            .split(" ")
+            .map((n) => n[0])
+            .join("")}</span>
         </div>
         <div class="name-fullname">
-          <span class="name-contact-name">${contactName}</span>
-          <span class="name-contact-mail">${contactMail}</span>
+          <span class="name-contact-name">${contactData[i]["name"]}</span>
+          <span class="name-contact-mail">${contactData[i]["mail"]}</span>
         </div>
       </div>  
-        `
+        `;
+      }
     }
+  }
 }
 
 function showContactData(contactID) {
-    document.querySelector(".contact-detail-container").innerHTML = `
+  document.querySelector(".contact-detail-container").innerHTML = `
     <div class="contact-detail-name">
     <div class="name-circle-large">
       <span class="name-circle-letter-large">${contactData[contactID].initials}</span>
@@ -136,11 +209,5 @@ function showContactData(contactID) {
     <span class="contact-detail-data-phone">${contactData[contactID].phone}</span>
   </div>
 </div>
-    `
+    `;
 }
-
-
-function genrateFirstLetter() {
-  for (let i = 0; i < contactData.length; i++) {
-    firstLetterArr.push(contactData[i].name.charAt(0).toLocaleUpperCase);
-}}
