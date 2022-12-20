@@ -98,52 +98,13 @@ function addNewContact() {
   closeNewContact();
 }
 
-// function createContactList() {
-//   document.querySelector(".contacts-list").innerHTML = ``;
-//   let initials = new Set();
-
-//   for (let i = 0; i < contactData.length; i++) {
-//     initials.add(contactData[i]["name"][0]);
-//   }
-
-//   for (let initial of initials) {
-//     console.log(initial);
-//     document.querySelector(".contacts-list").innerHTML += `
-//     <div class="contact-letter">
-//                 <div>
-//                   <span>${initial}</span>
-//                 </div>
-//                 <div class="divider"></div>
-//               </div>`;
-//     for (let i = 0; i < contactData.length; i++) {
-//       if (contactData[i]["name"][0] === initial) {
-//         console.log("- " + contactData[i]["name"]);
-//         document.querySelector(".contacts-list").innerHTML += `
-//         <div class="contact-names" onclick="showContactData(${i})">
-//         <div class="name-circle">
-//           <span class="name-circle-letter">${contactData[i]["name"]
-//             .split(" ")
-//             .map((n) => n[0])
-//             .join("")}</span>
-//         </div>
-//         <div class="name-fullname">
-//           <span class="name-contact-name">${contactData[i]["name"]}</span>
-//           <span class="name-contact-mail">${contactData[i]["mail"]}</span>
-//         </div>
-//       </div>  
-//         `;
-//       }
-//     }
-//   }
-// }
-
 function createContactList() {
   document.querySelector(".contacts-list").innerHTML = ``;
   let initials = new Set();
 
   // Erstelle ein Set von Initialen aus den Namen der Kontakte
   for (let i = 0; i < contactData.length; i++) {
-    initials.add(contactData[i]["name"][0]);
+    initials.add(contactData[i]["name"][0].toUpperCase());
   }
 
   // Wandle das Set in ein Array um und sortiere es
@@ -160,7 +121,7 @@ function createContactList() {
                 <div class="divider"></div>
               </div>`;
     for (let i = 0; i < contactData.length; i++) {
-      if (contactData[i]["name"][0] === initial) {
+      if (contactData[i]["name"][0].toUpperCase() === initial) {
         console.log("- " + contactData[i]["name"]);
         document.querySelector(".contacts-list").innerHTML += `
         <div class="contact-names" onclick="showContactData(${i})">
