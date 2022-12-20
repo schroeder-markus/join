@@ -62,9 +62,14 @@ aside nav a:hover {
     background-color: var(--main-dark-contrast);
 }
 
-.notice a:hover {
+.notice a:hover,.notice a:visited {
     background-color: var(--main-dark-contrast);
 }
+
+.notice a:active {
+    background-color: var(--main-dark-contrast);
+}
+
 
 .notice {
     display: flex;
