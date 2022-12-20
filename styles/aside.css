@@ -33,7 +33,7 @@ aside nav {
     width: 19.5px;
 }
 
-.i-icon{
+.i-icon {
     margin-right: 20px;
     height: 30px;
     width: 30px;
@@ -54,7 +54,8 @@ aside nav a:hover {
     background-color: var(--main-dark-contrast);
 }
 
-.notice a:hover,.notice a:visited {
+.notice a:hover,
+.notice a:visited {
     background-color: var(--main-dark-contrast);
 }
 
@@ -74,7 +75,7 @@ aside nav a:hover {
     height: 229px;
 }
 
-.notice a{
+.notice a {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -99,4 +100,12 @@ aside nav a:hover {
     width: 100%;
     height: 46px;
     padding: 0;
+}
+
+
+@media(max-width:600px) {
+    main{
+        position: unset;
+        padding: 0 !important;
+    }
 }
