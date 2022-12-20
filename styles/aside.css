@@ -102,10 +102,3 @@ aside nav a:hover {
     padding: 0;
 }
 
-
-@media(max-width:600px) {
-    main{
-        position: unset;
-        padding: 0 !important;
-    }
-}
