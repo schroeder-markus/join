@@ -295,6 +295,13 @@ section div:not(:first-of-type) label {
     font-size: 14px;
 }
 
+.showContactSelection {
+    height: 192px;
+}
+
+#contactSelection {
+    overflow-y: scroll;
+}
 
 #contactSelection span {
     display: flex;

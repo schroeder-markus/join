@@ -44,7 +44,7 @@
                         <!-- Category -->
                         <div readonly>
                             <label for="categoryDropdown">Category</label>
-                            <div onclick="toggleDropdown('categories')" id="categoryDropdown" class="dropdown">
+                            <div onclick="toggleCategoryDropdown()" id="categoryDropdown" class="dropdown">
                                 <span id="categoryInput" class="dropdownValue">Select Task Category</span>
                                 <img src="img/icon-dropdown.svg" alt="dropdownIcon">
                                 <div id="categories"></div>
@@ -71,8 +71,8 @@
                         <!-- Assign to -->
                         <div readonly>
                             <label for="assignToDropdown">Assign to</label>
-                            <div onclick="assignToDropdown()" id="assignToDropdown" class="dropdown">
-                                <span id="assignToValue" class="dropdownValue">Select contacts to assign</span>
+                            <div onclick="toggleAssignDropdown()" id="assignToDropdown" class="dropdown">
+                                <span id="assignToInput" class="dropdownValue">Select contacts to assign</span>
                                 <img src="img/icon-dropdown.svg" alt="dropdownIcon">
                                 <div id="contactSelection"></div>
                             </div>
@@ -80,10 +80,10 @@
                             <div id="invitePersonInput" class="newEntryInput">
                                 <div><input type="text" placeholder="Contact email" onfocus="this.value=''">
                                     <div class="confirmOrCancel">
-                                        <div onclick="cancelInput()"><img src="img/icon-x.svg" alt="cancelIcon"
+                                        <div onclick="cancelNewCategory()"><img src="img/icon-x.svg" alt="cancelIcon"
                                                 required>
                                         </div>
-                                        <div onclick="setNewCategory()"><img src="img/icon-check-dark.svg" alt="checkIcon">
+                                        <div onclick="confirmNewCategory()"><img src="img/icon-check-dark.svg" alt="checkIcon">
                                         </div>
                                     </div>
                                 </div>
@@ -198,6 +198,7 @@
     <script src="script.js" defer></script>
     <script src="includes.js" defer></script>
     <script src="js/add_task.js" defer></script>
+    <script src="js/contacts.js" defer></script>
 </body>
 
 </html>
