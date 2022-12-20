@@ -491,3 +491,10 @@
 .edit-contact-container {
     display: none;
 }
+
+.selected {
+    background-color: var(--main-dark);
+    border-radius: 10px;
+    color: var(--main-white);
+}
+

@@ -124,7 +124,7 @@ function createContactList() {
       if (contactData[i]["name"][0].toUpperCase() === initial) {
         console.log("- " + contactData[i]["name"]);
         document.querySelector(".contacts-list").innerHTML += `
-        <div class="contact-names" onclick="showContactData(${i})">
+        <div class="contact-names" onclick="showContactData(${i}), selectContainer(this)">
         <div class="name-circle">
           <span class="name-circle-letter">${contactData[i]["name"]
             .split(" ")
@@ -172,3 +172,16 @@ function showContactData(contactID) {
 </div>
     `;
 }
+
+
+let selectedContainer = null;
+
+  function selectContainer(container) {
+    if (selectedContainer) {
+      selectedContainer.classList.remove('selected');
+    }
+
+    selectedContainer = container;
+    selectedContainer.classList.add('selected');
+    selectedContainer.style.pointerEvents = 'auto';
+  }
