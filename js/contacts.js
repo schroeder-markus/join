@@ -133,7 +133,7 @@ function createContactList() {
       if (contactData[i]["name"][0].toUpperCase() === initial) {
         console.log("- " + contactData[i]["name"]);
         document.querySelector(".contacts-list").innerHTML += `
-        <div class="contact-names" onclick="showContactData(${i}), selectContainer(this)">
+        <div class="contact-names contact-names-hov" onclick="showContactData(${i}), selectContainer(this)">
         <div class="name-circle" style="background-color: ${contactData[i]["color"]};">
           <span class="name-circle-letter">${contactData[i]["name"]
             .split(" ")
@@ -188,9 +188,10 @@ let selectedContainer = null;
   function selectContainer(container) {
     if (selectedContainer) {
       selectedContainer.classList.remove('selected');
+      selectedContainer.classList.add("contact-names-hov")
     }
 
+    container.classList.remove('contact-names-hov')
     selectedContainer = container;
     selectedContainer.classList.add('selected');
-    selectedContainer.style.pointerEvents = 'auto';
   }

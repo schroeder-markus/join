@@ -60,7 +60,11 @@
     height: 80px;
 }
 
-.contact-names:hover {
+/* .contactnames-hov {
+
+} */
+
+.contact-names-hov:hover {
     background: rgb(249,249,249);
     background: linear-gradient(180deg, rgba(249,249,249,1) 0%, rgba(241,241,241,1) 100%);
     border-radius: 10px;
