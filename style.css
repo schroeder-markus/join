@@ -123,6 +123,10 @@ input {
     cursor: pointer;
 }
 
+.toggle-logout-btn {
+    display: none;
+}
+
 aside {
     width: 232px;
     height: 100vh;

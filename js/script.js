@@ -25,3 +25,8 @@ let categories = [
     'color': 'var(--label-3)',
   },
 ];
+
+function logOutClickAvatar() {
+  console.log("OK")
+  document.querySelector(".logout-btn").classList.toggle("toggle-logout-btn")
+}
