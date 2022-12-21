@@ -13,7 +13,7 @@ let tasks = [
         'id': 1,
         'category': 'Design',
         'title': 'Change Button color',
-        'todo': 'Change Button color from yellow to green',
+        'todo': 'Do Button color from yellow to green',
         'user': 'BB',
         'priority': 'High',
         'status': 'inprogress',
@@ -22,7 +22,7 @@ let tasks = [
         'id': 2,
         'category': 'marketing',
         'title': 'SEO',
-        'todo': 'Change Button color from yellow to green',
+        'todo': 'Make Button color from yellow to green',
         'user': 'BB',
         'priority': 'High',
         'status': 'awaitingfeedback',
@@ -31,7 +31,7 @@ let tasks = [
         'id': 3,
         'category': 'Programming',
         'title': 'Container',
-        'todo': 'Change Button color from yellow to green',
+        'todo': 'Delete Button color from yellow to green',
         'user': 'BB',
         'priority': 'High',
         'status': 'done',
@@ -156,7 +156,7 @@ function searchTasks(){
     let awaitingFeedbackDiv = document.getElementById('awaitingfeedbackdiv');
     let inProgressDiv = document.getElementById('inprogressdiv');
     let doneDiv = document.getElementById('donediv');
-    let searchTask = tasks.filter(t => t['title'].includes(search));
+    let searchTask = tasks.filter(t => t['title'].includes(search)||t['todo'].includes(search));
     
     doneDiv.innerHTML = '';
     inProgressDiv.innerHTML = '';
