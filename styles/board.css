@@ -235,7 +235,7 @@ span {
     display: flex;
 }
 
-button {
+.addtaskboard {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -253,7 +253,7 @@ button {
     gap: 10px;
 }
 
-input {
+.searchinput {
     display: flex;
     flex-direction: row;
     align-items: center;

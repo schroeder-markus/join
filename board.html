@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="img/favicon.png">
     <link rel="stylesheet" href="styles/font.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/addTask.css">
     <link rel="stylesheet" href="styles/aside.css">
     <link rel="stylesheet" href="styles/board.css">
     <script src="includes.js" defer></script>
@@ -31,8 +32,8 @@
             <div class="inputcontainer">
                 <h1>Board</h1>
                 <div class="searchsection">
-                <input id="searchtask" onchange="searchTasks()" placeholder="Find Task" type="text">
-                <button>Add Task<svg width="15" height="15" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <input class="searchinput" id="searchtask" onkeyup="searchTasks()" placeholder="Find Task" type="text">
+                <button onclick="openSlide()" class="addtaskboard">Add Task<svg width="15" height="15" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8.5 1V16" stroke="white" stroke-width="2" stroke-linecap="round"/>
                     <path d="M16 8.6416L1 8.6416" stroke="white" stroke-width="2" stroke-linecap="round"/>
                     </svg>
