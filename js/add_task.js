@@ -1,7 +1,7 @@
 'use strict'
 
 let selectedCategoryColor;
-let assignedContacts = [];
+let assignedPersons = [];
 let showCategoryList = false;
 let showContactList = false;
 
@@ -28,7 +28,6 @@ function toggleAssignDropdown() {
     let dropdownContainer = document.getElementById('assignToDropdown');
 
     if (showContactList) {
-        // renderContactSelection();
         dropdownContainer.classList.add('showContactSelection');
     } else {
         dropdownContainer.classList.remove('showContactSelection');
@@ -36,12 +35,12 @@ function toggleAssignDropdown() {
 };
 
 // render functions for Dropdown Lists.
-// renders "New Category" plus categories from category-array with a for loop.
+// renders "New Category" plus categories from category-array with a for-loop.
 
 function renderCategoryList() {
     let dropList = document.getElementById('categories');
     dropList.innerHTML = "";
-    dropList.innerHTML = `<div><span onclick="toggleView_DropdownAndNewEntry('categoryDropdown','newCategoryInput')">new category</span></div>`
+    dropList.innerHTML = `<div><span onclick="toggleView_DropdownAndNewEntry('categoryDropdown','newCategoryInput', 'catNameInput')">new category</span></div>`
     for (let i = 0; i < categories.length; i++) {
         dropList.innerHTML += `<div><span onclick="setCategorySelectionAsInput(${i})">${createCategoryHtml(i)}</span></div>`
     };
@@ -60,7 +59,7 @@ function createCategoryHtml(i) {
 
 function cancelNewCategory() {
     resetNewCategoryColorAndInput();
-    toggleView_DropdownAndNewEntry('newCategoryInput', 'categoryDropdown');
+    toggleView_DropdownAndNewEntry('newCategoryInput', 'categoryDropdown', 'catNameInput');
 };
 
 // resets selectable color for new Categories and empties the 'new Category' input field for further attempts.
@@ -75,7 +74,7 @@ function resetNewCategoryColorAndInput() {
 
 // fired after clicking the check-button in "new Category"-dialogue.
 // checks if category name is filled and a color is selected.
-// success: finishes dialogue. fail: shows required-notification.
+// success: finishes dialogue. fail: shows "required"-notification.
 
 function confirmNewCategory() {
     let categoryInputElement = document.querySelector('#newCategoryInput input');
@@ -89,14 +88,14 @@ function confirmNewCategory() {
         finishNewCategory(categoryInputElement.value);
         resetNewCategoryColorAndInput();
     } else {
-        showRequired()
+        showColorRequiredAlert()
     };
 };
 // finishes the 'New Category'-dialogue after a SUCCESSFUL validation check for color and Input Value (included in confirmNewCategory())
 
 function finishNewCategory(categoryName) {
     let categoryIndex = categories.findIndex(object => object.name === categoryName);
-    toggleView_DropdownAndNewEntry('newCategoryInput', 'categoryDropdown');
+    toggleView_DropdownAndNewEntry('newCategoryInput', 'categoryDropdown', 'catNameInput');
     setCategorySelectionAsInput(categoryIndex);
 
 };
@@ -110,7 +109,7 @@ function setCategorySelectionAsInput(i) {
 
 // after a failed validation in the "new category"-dialogue, the selected color the "required Alert" shows.
 
-function showRequired() {
+function showColorRequiredAlert() {
     let colorSelAlertElement = document.getElementById('colorSelAlert');
 
     if (selectedCategoryColor == undefined) {
@@ -143,19 +142,7 @@ function setColor(i) {
     colorSelAlertElement.style.display = "none";
 };
 
-// renders actual User ("You") as selectable, all contacts from contact-array with a for loop and then adds the 'invite New Contact' option" .
-
-// function renderContactSelection() {
-//     let dropList = document.getElementById('contactSelection');
-//     dropList.innerHTML = "";
-//     dropList.innerHTML = `<div><span onclick="assignContact()">You<div id="contactCheckbox()" class="assignCheckbox"><div class="assignChecked"></div></div></span></div>`
-//     for (let i = 0; i < contactData.length; i++) {
-//         dropList.innerHTML += `<div><span onclick="toggleSelection(${i})"><div id="contact(${i})">${contactData[i].name}</div><div class="assignCheckbox"><div id="contactChecked(${i})" class="assignChecked"></div></div></span></div>`
-//     };
-//     dropList.innerHTML += `<div><span onclick="toggleView_DropdownAndNewEntry('assignToDropdown','invitePersonInput')">Invite new Contact<img src="img/icon-contacts-dark.svg" alt="contactIconDark"</span></div>`;
-// };
-
-// selects oder unselects contacts for assignment. The entry has a check-button and the contact is added or removed from the assignedContacts array.
+// changes the contact selection to select / unselect and pushes selected names to assignedContacts array.
 
 function toggleSelection(i) {
     let contactCheckedElement = document.getElementById(`contactChecked(${i})`);
@@ -170,42 +157,76 @@ function toggleSelection(i) {
 
 
 function selectContact(i) {
-    let contactElement = document.getElementById(`contact(${i})`);
-    assignedContacts.push(contactElement.innerHTML);
+    let firstName = document.getElementById(`firstName(${i})`).innerHTML;
+    let lastName = document.getElementById(`lastName(${i})`).innerHTML;
+    assignedPersons.push({
+        'name' : `${firstName} ${lastName}`,
+        'initials' : `${firstName.charAt(0)}${lastName.charAt(0)}`
+    });
 };
 
 
 function unselectContact(i) {
-    let contactElement = document.getElementById(`contact(${i})`);
-    assignedContacts.splice(findIndexOfContact(contactElement.innerHTML), 1);
+    let firstName = document.getElementById(`firstName(${i})`).innerHTML;
+    let lastName = document.getElementById(`lastName(${i})`).innerHTML;
+    let fullName = document.getElementById(`${firstName} ${lastName}`);
+
+    assignedPersons.splice(findIndexOfContact(fullName), 1);
 };
 
 
 function findIndexOfContact(contactName) {
-    return assignedContacts.indexOf(contactName);
+    return assignedPersons.map(contact => contact.name).indexOf(contactName);
 
 };
 
 
-function commitSubtask() {
+function confirmMailAdress() {
+    let mailInputElement = document.getElementById('mailInput');
+    let contactIndex = findIndexFromMail(mailInputElement.value);
+    if( contactIndex == -1) {
+        showMailNotFoundAlert(mailInputElement.value);
+    } else {
+        finishInvitationInput(contactIndex);
+    }
 
 };
 
 
-function toggleView_DropdownAndNewEntry(IDinvisibleElement, IDvisibleElement) {
-    let invisibleElement = document.getElementById(IDinvisibleElement);
-    let visibleElement = document.getElementById(IDvisibleElement);
+function findIndexFromMail(mailAdress) {
+    console.log(mailAdress);
+    return contactData.map(contact => contact.mail).indexOf(mailAdress);
+};
+
+
+function showMailNotFoundAlert(inputValue) {
+    let mailNotFoundAlertElement = document.getElementById('mailNotFoundAlert');
+        mailNotFoundAlertElement.innerHTML = `'${inputValue}' could not be found in contacts`;
+        mailNotFoundAlertElement.style.display = "block";
+};
+
+
+function finishInvitationInput(contactIndex) {
+    assignedPersons.push({
+        'name' : `${contactData[contactIndex].name}`,
+        'initials' : `${contactData[contactIndex].initials}`
+    });
+    toggleView_DropdownAndNewEntry('invitePersonInput', 'assignToDropdown','mailInput');
+    toggleAssignDropdown();
+
+};
+
+
+function toggleView_DropdownAndNewEntry(invisibleElementID, visibleElementID, inputFieldID) {
+    let invisibleElement = document.getElementById(invisibleElementID);
+    let visibleElement = document.getElementById(visibleElementID);
+    let inputFieldElement = document.getElementById(inputFieldID);
 
     invisibleElement.style.display = "none";
     visibleElement.style.display = "block";
-
+    inputFieldElement.focus();
 };
 
 function subtaskInput() {
-    // u.a. muss hier das 'confirmOrcancel-Element' eingeblendet werden.
-};
-
-
-function addTask() {
-
+    
 };
