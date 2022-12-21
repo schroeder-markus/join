@@ -31,7 +31,7 @@
                         <!-- Title -->
                         <div>
                             <label for="title">Title</label>
-                            <input id="title" type="text" placeholder="Enter a title" onfocus="this.value=''" required>
+                            <input id="title" type="text" placeholder="Enter a title" required>
                             <span class="requiredAlert"></span>
                         </div>
                         <!-- Description -->
@@ -51,7 +51,8 @@
                             </div>
                             <!-- Input for new category (display: none on default) -->
                             <div id="newCategoryInput" class="newEntryInput">
-                                <div><input type="text" placeholder="New category name" onfocus="this.value=''">
+                                <div><input id="catNameInput" type="text" placeholder="New category name"
+                                        onfocus="this.value=''">
                                     <div class="confirmOrCancel">
                                         <div onclick="cancelNewCategory()"><img src="img/icon-x.svg" alt="cancelIcon"
                                                 required>
@@ -77,50 +78,57 @@
                                     contacts to assign</span>
                                 <img onclick="toggleAssignDropdown()" src="img/icon-dropdown.svg" alt="dropdownIcon">
                                 <div id="contactSelection">
-                                    <div><span onclick="assignContact()">You<div id="contactCheckbox()"
+                                    <div><span onclick="toggleSelf()">You<div id="contactCheckbox()"
                                                 class="assignCheckbox">
                                                 <div class="assignChecked"></div>
                                             </div></span></div>
                                     <div><span onclick="toggleSelection(0)">
-                                            <div id="contact(0)">Markus Schröder</div>
+                                            <div id="contact(0)"><div class="assignName"><span id="firstName(0)">Markus</span><span id="lastName(0)">Schröder</span></div></div>
                                             <div class="assignCheckbox">
                                                 <div id="contactChecked(0)" class="assignChecked"></div>
                                             </div>
                                         </span></div>
                                     <div><span onclick="toggleSelection(1)">
-                                            <div id="contact(1)">Boubkir Benamar</div>
+                                            <div id="contact(1)"><div class="assignName"><span id="firstName(1)">Boubkir</span><span id="lastName(1)">Benamar</span></div></div>
                                             <div class="assignCheckbox">
                                                 <div id="contactChecked(1)" class="assignChecked"></div>
                                             </div>
                                         </span></div>
                                     <div><span onclick="toggleSelection(2)">
-                                            <div id="contact(2)">Ilja Gaus-Gerbeth</div>
+                                            <div id="contact(2)"><div class="assignName"><span id="firstName(2)">Ilja</span><span id="lastName(2)">Gaus-Gerbeth</span></div></div>
                                             <div class="assignCheckbox">
                                                 <div id="contactChecked(2)" class="assignChecked"></div>
                                             </div>
                                         </span></div>
                                     <div><span onclick="toggleSelection(3)">
-                                            <div id="contact(3)">Ingo Hermsen</div>
+                                            <div id="contact(3)"><div class="assignName"><span id="firstName(3)">Ingo</span><span id="lastName(3)">Hermsen</span></div></div>
                                             <div class="assignCheckbox">
                                                 <div id="contactChecked(3)" class="assignChecked"></div>
                                             </div>
                                         </span></div>
-                                    <div><span onclick="toggleView_DropdownAndNewEntry('assignToDropdown','invitePersonInput')">Invite new Contact<img src="img/icon-contacts-dark.svg" alt="contactIconDark"></span></div>
-                                </div>
+                                    <div><span
+                                            onclick="toggleView_DropdownAndNewEntry('assignToDropdown','invitePersonInput', 'mailInput')">Invite
+                                            new Contact<img src="img/icon-contacts-dark.svg"
+                                                alt="contactIconDark"></span></div>
+                                    </div>
                             </div>
+                            <span><span class="initialDot">IH</span></span>
                             <!-- Input for new Contact (display: none on default) -->
                             <div id="invitePersonInput" class="newEntryInput">
-                                <div><input type="text" placeholder="Contact email" onfocus="this.value=''">
+                                <div><input id="mailInput" type="email" placeholder="Contact email"
+                                        onfocus="this.value=''">
                                     <div class="confirmOrCancel">
                                         <div onclick="cancelInviteContact()"><img src="img/icon-x.svg" alt="cancelIcon"
                                                 required>
                                         </div>
-                                        <div onclick="inviteContact()"><img src="img/icon-check-dark.svg"
+                                        <div onclick="confirmMailAdress()"><img src="img/icon-check-dark.svg"
                                                 alt="checkIcon">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <span id="mailNotFoundAlert" class="requiredAlert"></span>
+
                             <!--  -->
                             <span class="requiredAlert"></span>
                         </div>
