@@ -28,7 +28,7 @@ function toggleAssignDropdown() {
     let dropdownContainer = document.getElementById('assignToDropdown');
 
     if (showContactList) {
-        renderContactSelection();
+        // renderContactSelection();
         dropdownContainer.classList.add('showContactSelection');
     } else {
         dropdownContainer.classList.remove('showContactSelection');
@@ -145,15 +145,15 @@ function setColor(i) {
 
 // renders actual User ("You") as selectable, all contacts from contact-array with a for loop and then adds the 'invite New Contact' option" .
 
-function renderContactSelection() {
-    let dropList = document.getElementById('contactSelection');
-    dropList.innerHTML = "";
-    dropList.innerHTML = `<div><span onclick="assignContact()">You<div id="contactCheckbox()" class="assignCheckbox"><div class="assignChecked"></div></div></span></div>`
-    for (let i = 0; i < contactData.length; i++) {
-        dropList.innerHTML += `<div><span onclick="toggleSelection(${i})"><div id="contact(${i})">${contactData[i].name}</div><div class="assignCheckbox"><div id="contactChecked(${i})" class="assignChecked"></div></div></span></div>`
-    };
-    dropList.InnerHTML += `<div><span onclick="toggleView_DropdownAndNewEntry('assignToDropdown','invitePersonInput')">Invite new Contact<img src="img/icon-contacts-dark.svg" alt="contactIconDark"</span></div>`;
-};
+// function renderContactSelection() {
+//     let dropList = document.getElementById('contactSelection');
+//     dropList.innerHTML = "";
+//     dropList.innerHTML = `<div><span onclick="assignContact()">You<div id="contactCheckbox()" class="assignCheckbox"><div class="assignChecked"></div></div></span></div>`
+//     for (let i = 0; i < contactData.length; i++) {
+//         dropList.innerHTML += `<div><span onclick="toggleSelection(${i})"><div id="contact(${i})">${contactData[i].name}</div><div class="assignCheckbox"><div id="contactChecked(${i})" class="assignChecked"></div></div></span></div>`
+//     };
+//     dropList.innerHTML += `<div><span onclick="toggleView_DropdownAndNewEntry('assignToDropdown','invitePersonInput')">Invite new Contact<img src="img/icon-contacts-dark.svg" alt="contactIconDark"</span></div>`;
+// };
 
 // selects oder unselects contacts for assignment. The entry has a check-button and the contact is added or removed from the assignedContacts array.
 
