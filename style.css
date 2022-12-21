@@ -208,7 +208,7 @@ main {
 }
 
 
-@media(max-width:600px) {
+@media(max-width:750px) {
     header {
         height: 80px;
         position: fixed;
@@ -230,6 +230,7 @@ main {
         align-items: center;
         padding-left: 25px;
         margin: 0;
+        width: 100vw;
     }
 
     main {
@@ -238,6 +239,11 @@ main {
         padding: 0;
         padding-left: 0px !important;
         width: 100%;
+        display: flex;
+        height: calc(100% - 160px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     aside {
@@ -246,7 +252,7 @@ main {
         left: 0;
         right: 0;
         flex-direction: row;
-        width: 100%;
+        width: 100vw;
         padding: 0;
     }
 
@@ -281,7 +287,7 @@ main {
     }
 
     .d-none {
-        display: none;
+        display: none !important;
     }
 
     .asidelogo {

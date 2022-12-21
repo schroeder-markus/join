@@ -222,3 +222,49 @@ span {
     transform: translateX(2000px);
 }
 
+.inputcontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+.searchsection {
+    display: flex;
+}
+
+button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    width: 137px;
+    height: 51px;
+    background: #2A3647;
+    border: 1px solid #2A3647;
+    border-radius: 10px;
+    margin-right: 20px;
+    font-weight: 700;
+    font-size: 21px;
+    color: white;
+    gap: 10px;
+}
+
+input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 251px;
+    height: 51px;
+    border: 1px solid #A8A8A8;
+    border-radius: 10px;
+}
+
+h1 {
+    margin: 0;
+}

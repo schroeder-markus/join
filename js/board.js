@@ -148,3 +148,43 @@ function closeSlide(){
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.add('closeslide')
 }
+
+function searchTasks(){
+    let search = document.getElementById('searchtask');
+    search = search.value;
+    let toDoDiv = document.getElementById('tododiv');
+    let awaitingFeedbackDiv = document.getElementById('awaitingfeedbackdiv');
+    let inProgressDiv = document.getElementById('inprogressdiv');
+    let doneDiv = document.getElementById('donediv');
+    let searchTask = tasks.filter(t => t['title'].includes(search));
+    
+    doneDiv.innerHTML = '';
+    inProgressDiv.innerHTML = '';
+    awaitingFeedbackDiv.innerHTML = '';
+    toDoDiv.innerHTML = '';
+
+    let todo = searchTask.filter(t => t['status'] == 'open')
+    for (let i = 0; i < todo.length; i++) {
+        const element = todo[i];
+        toDoDiv.innerHTML += cardHTML(element)
+    }
+
+    let inProgress = searchTask.filter(t => t['status'] == 'inprogress')
+    for (let i = 0; i < inProgress.length; i++) {
+        const task = inProgress[i];
+        inProgressDiv.innerHTML += cardHTML(task)
+    }
+
+    let awaitinFeedback = searchTask.filter(t => t['status'] == 'awaitingfeedback')
+    for (let i = 0; i < awaitinFeedback.length; i++) {
+        const task = awaitinFeedback[i];
+        awaitingFeedbackDiv.innerHTML += cardHTML(task)
+    }
+
+    let done = searchTask.filter(t => t['status'] == 'done')
+    for (let i = 0; i < done.length; i++) {
+        const task = done[i];
+        doneDiv.innerHTML += cardHTML(task)
+    }
+
+}
