@@ -347,7 +347,7 @@ section div:not(:first-of-type) label {
 
 #nameCircles {
     display: flex;
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
 #nameCircles span {
@@ -357,7 +357,7 @@ section div:not(:first-of-type) label {
 
 #mailNotFoundAlert {
     display: none;
-    margin: 0px;
+    margin: 0px 0px 10px 0px;
     font-size: 14px;
 }
 

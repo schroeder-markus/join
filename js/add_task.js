@@ -165,7 +165,7 @@ function selectContact(i) {
     let lastName = document.getElementById(`lastName(${i})`).innerHTML;
     assignedPersons.push({
         'name' : `${firstName} ${lastName}`,
-        'initials' : `${firstName.charAt(0)}${lastName.charAt(0)}`
+        'initials' : `${firstName.charAt(0)}${lastName.charAt(0)}`,
     });
 };
 
@@ -209,14 +209,16 @@ function showMailNotFoundAlert(inputValue) {
 // cancels invitation dialogue
 
 function cancelInviteContact() {
+    document.getElementByIdm
     toggleView_DropdownAndNewEntry('invitePersonInput', 'assignToDropdown','mailInput');
 };
 
 
-function finishInvitationInput(contactIndex) {
+function finishInvitationInput(index) {
     assignedPersons.push({
-        'name' : `${contactData[contactIndex].name}`,
-        'initials' : `${contactData[contactIndex].initials}`
+        'name' : `${contactData[index].name}`,
+        'initials' : `${contactData[index].initials}`,
+        'color' : `${contactData[index].color}`
     });
     toggleView_DropdownAndNewEntry('invitePersonInput', 'assignToDropdown','mailInput');
     renderNameCircles();
@@ -227,9 +229,10 @@ function renderNameCircles() {
     nameCirclesElement.innerHTML = '';
     for(let i = 0; i < assignedPersons.length; i++) {
         nameCirclesElement.innerHTML += `
-        <span class="name-circle name-circle-letter">${assignedPersons[i].initials}</span></span>
+        <span class="name-circle name-circle-letter" style="background-color:${assignedPersons[i].color}">
+        ${assignedPersons[i].initials}</span></span>
         `
-    }
+    };
 };
 
 
@@ -252,11 +255,10 @@ function setPrio(priorityValue) {
     priority = priorityValue;
     prioButtonElement.classList.add('prioActive');
     prioButtonElement.style.backgroundColor = `var(--prio-${priorityValue})`;
-    
 };
 
 function resetActivePrio() {
-     let activePrioButtonElement = document.getElementById(`prioButton-${priority}`)
+    let activePrioButtonElement = document.getElementById(`prioButton-${priority}`)
         activePrioButtonElement.classList.remove('prioActive');
         activePrioButtonElement.style.backgroundColor = `var(--main-white)`
 }
