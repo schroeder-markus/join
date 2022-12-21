@@ -121,7 +121,6 @@ function createContactList() {
 
   // Erstelle eine Liste der Kontakte nach Initialen sortiert
   for (let initial of initials) {
-    console.log(initial);
     document.querySelector(".contacts-list").innerHTML += `
     <div class="contact-letter">
                 <div>
@@ -131,7 +130,6 @@ function createContactList() {
               </div>`;
     for (let i = 0; i < contactData.length; i++) {
       if (contactData[i]["name"][0].toUpperCase() === initial) {
-        console.log("- " + contactData[i]["name"]);
         document.querySelector(".contacts-list").innerHTML += `
         <div class="contact-names contact-names-hov" onclick="showContactData(${i}), selectContainer(this)">
         <div class="name-circle" style="background-color: ${contactData[i]["color"]};">

@@ -27,6 +27,5 @@ let categories = [
 ];
 
 function logOutClickAvatar() {
-  console.log("OK")
   document.querySelector(".logout-btn").classList.toggle("toggle-logout-btn")
 }
