@@ -98,3 +98,27 @@ function onPageLoad() {
     }
     document.getElementById('remember').checked = checkYoN;
   }
+
+  async function sendEmail(event) {
+    event.preventDefault(); // prevent default form action
+    let formData = new FormData(event.target) //Create a formdata based on our form element in html
+    let response = await action(formData);
+    if (response.ok) 
+        alert('Email was sent!')
+    else 
+        alert('No Email sent')
+  }
+
+  function action(formData) {
+    const input = 'https://gruppe-406.developerakademie.net/send_mail.php';
+    const requestInit = {
+        method: 'post',
+        body: formData
+    };
+
+    return fetch(
+        input,
+        requestInit
+    );
+  }
+
