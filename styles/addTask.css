@@ -310,6 +310,29 @@ section div:not(:first-of-type) label {
     padding-right: 15px;
 }
 
+
+.assignCheckbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 13px;
+    width: 13px;
+    border: 1px solid var(--main-black);
+    border-radius: 3px;
+    background-color: var(#b6b3b3);
+
+}
+
+.assignChecked {
+    display: none;
+    height: 6px;
+    width: 6px;
+    border: 1px solid var(--main-black);
+    border-radius: 2px;
+    background-color: var(--main-black);
+
+}
+
 .subtaskInput .confirmOrCancel {
     display: none;
 }
