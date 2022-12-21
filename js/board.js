@@ -156,7 +156,7 @@ function searchTasks(){
     let awaitingFeedbackDiv = document.getElementById('awaitingfeedbackdiv');
     let inProgressDiv = document.getElementById('inprogressdiv');
     let doneDiv = document.getElementById('donediv');
-    let searchTask = tasks.filter(t => t['title'].includes(search)||t['todo'].includes(search));
+    let searchTask = tasks.filter(t => t['title'].toLowerCase().includes(search.toLowerCase())||t['todo'].toLowerCase().includes(search.toLowerCase()));
     
     doneDiv.innerHTML = '';
     inProgressDiv.innerHTML = '';
@@ -165,7 +165,7 @@ function searchTasks(){
 
     let todo = searchTask.filter(t => t['status'] == 'open')
     for (let i = 0; i < todo.length; i++) {
-        const element = todo[i];
+        let element = todo[i];
         toDoDiv.innerHTML += cardHTML(element)
     }
 
