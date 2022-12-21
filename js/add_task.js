@@ -1,9 +1,10 @@
 'use strict'
 
 let selectedCategoryColor;
-let assignedPersons = [];
 let showCategoryList = false;
 let showContactList = false;
+let assignedPersons = [];
+let priority;
 
 // Toggles dropdown action (open / close) for the category Selection and the task assignment
 // Action Depends on the actual global boolean variable: showCategoryList / showContactList
@@ -55,7 +56,7 @@ function createCategoryHtml(i) {
 
 };
 
-// aborts New Category Dialogue
+// cancels New Category Dialogue
 
 function cancelNewCategory() {
     resetNewCategoryColorAndInput();
@@ -145,14 +146,17 @@ function setColor(i) {
 // changes the contact selection to select / unselect and pushes selected names to assignedContacts array.
 
 function toggleSelection(i) {
+    let firstName = document.getElementById(`firstName(${i})`).innerHTML;
+    let lastName = document.getElementById(`lastName(${i})`).innerHTML;
     let contactCheckedElement = document.getElementById(`contactChecked(${i})`);
     if (contactCheckedElement.style.display != "block") {
         contactCheckedElement.style.display = "block";
         selectContact(i);
     } else {
         contactCheckedElement.style.display = "none";
-        unselectContact(i);
+        unselectContact(firstName, lastName);
     }
+    renderNameCircles();
 };
 
 
@@ -161,16 +165,13 @@ function selectContact(i) {
     let lastName = document.getElementById(`lastName(${i})`).innerHTML;
     assignedPersons.push({
         'name' : `${firstName} ${lastName}`,
-        'initials' : `${firstName.charAt(0)}${lastName.charAt(0)}`
+        'initials' : `${firstName.charAt(0)}${lastName.charAt(0)}`,
     });
 };
 
 
-function unselectContact(i) {
-    let firstName = document.getElementById(`firstName(${i})`).innerHTML;
-    let lastName = document.getElementById(`lastName(${i})`).innerHTML;
-    let fullName = document.getElementById(`${firstName} ${lastName}`);
-
+function unselectContact(firstName, lastName) {
+    let fullName = `${firstName} ${lastName}`;
     assignedPersons.splice(findIndexOfContact(fullName), 1);
 };
 
@@ -194,7 +195,6 @@ function confirmMailAdress() {
 
 
 function findIndexFromMail(mailAdress) {
-    console.log(mailAdress);
     return contactData.map(contact => contact.mail).indexOf(mailAdress);
 };
 
@@ -206,14 +206,33 @@ function showMailNotFoundAlert(inputValue) {
 };
 
 
-function finishInvitationInput(contactIndex) {
+// cancels invitation dialogue
+
+function cancelInviteContact() {
+    document.getElementByIdm
+    toggleView_DropdownAndNewEntry('invitePersonInput', 'assignToDropdown','mailInput');
+};
+
+
+function finishInvitationInput(index) {
     assignedPersons.push({
-        'name' : `${contactData[contactIndex].name}`,
-        'initials' : `${contactData[contactIndex].initials}`
+        'name' : `${contactData[index].name}`,
+        'initials' : `${contactData[index].initials}`,
+        'color' : `${contactData[index].color}`
     });
     toggleView_DropdownAndNewEntry('invitePersonInput', 'assignToDropdown','mailInput');
-    toggleAssignDropdown();
+    renderNameCircles();
+};
 
+function renderNameCircles() {
+    let nameCirclesElement = document.getElementById('nameCircles');
+    nameCirclesElement.innerHTML = '';
+    for(let i = 0; i < assignedPersons.length; i++) {
+        nameCirclesElement.innerHTML += `
+        <span class="name-circle name-circle-letter" style="background-color:${assignedPersons[i].color}">
+        ${assignedPersons[i].initials}</span></span>
+        `
+    };
 };
 
 
@@ -227,6 +246,28 @@ function toggleView_DropdownAndNewEntry(invisibleElementID, visibleElementID, in
     inputFieldElement.focus();
 };
 
+
+function setPrio(priorityValue) {
+    let prioButtonElement = document.getElementById(`prioButton-${priorityValue}`);
+    if(priority != undefined) {
+       resetActivePrio();
+    }
+    priority = priorityValue;
+    prioButtonElement.classList.add('prioActive');
+    prioButtonElement.style.backgroundColor = `var(--prio-${priorityValue})`;
+};
+
+function resetActivePrio() {
+    let activePrioButtonElement = document.getElementById(`prioButton-${priority}`)
+        activePrioButtonElement.classList.remove('prioActive');
+        activePrioButtonElement.style.backgroundColor = `var(--main-white)`
+}
+
+
 function subtaskInput() {
-    
+
+};
+
+function createTask() {
+        showNotification()
 };
