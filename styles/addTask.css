@@ -168,7 +168,7 @@ section div:not(:first-of-type) label {
 
 .prioButtons {
     display: flex;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 
 .prioButtons>button {
@@ -183,8 +183,6 @@ section div:not(:first-of-type) label {
     height: 51px;
     width: 130px;
     padding: 0px 0px 0px 0px;
-    transition: transform 225ms;
-
 }
 
 .prioButtons>button>div {
@@ -194,7 +192,7 @@ section div:not(:first-of-type) label {
 
 }
 
-#prioMediumButton {
+#prioButton-medium {
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -205,6 +203,14 @@ section div:not(:first-of-type) label {
     box-shadow: var(--main-shadow);
     transform: scale(1.1);
     transition: transform 225ms;
+}
+
+.prioActive {
+    color: white;
+}
+
+.prioActive img {
+    filter: brightness(0%) invert(120%)
 }
 
 .submitAndClearButtons {
@@ -228,7 +234,7 @@ section div:not(:first-of-type) label {
     margin-left: 10px;
 }
 
-.dotShadow{
+.dotShadow {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
 }
 
@@ -339,6 +345,15 @@ section div:not(:first-of-type) label {
 
 }
 
+#nameCircles {
+    display: flex;
+    margin-top: 5px;
+}
+
+#nameCircles span {
+    margin: 0px;
+}
+
 
 #mailNotFoundAlert {
     display: none;
@@ -346,7 +361,6 @@ section div:not(:first-of-type) label {
     font-size: 14px;
 }
 
-.initialDot
 
 .subtaskInput .confirmOrCancel {
     display: none;
