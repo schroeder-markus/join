@@ -29,8 +29,6 @@ let contactData = [
   },
 ];
 
-
-
 function editContact(contactID) {
   document.querySelector(".edit-contact-container").style.display = "flex";
   document.querySelector("#submit-name").value = contactData[contactID].name;
@@ -179,7 +177,6 @@ function showContactData(contactID) {
 </div>
     `;
 }
-
 
 let selectedContainer = null;
 
