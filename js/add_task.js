@@ -1,23 +1,24 @@
 'use strict'
 
-let selectedCategoryColor;
+let selectedCategoryColor = "";
 let showCategoryList = false;
 let showContactList = false;
 
-let category;
+let category ="";
 let assignedPersons = [];
-let date;
-let priority;
+let date = "";
+let priority = "";
 let subtasks = [];
 
 let formValidation = true;
+
 
 // Toggle dropdown action (open / close) for the category Selection and the task assignment
 // Action Depends on the actual global boolean variable: showCategoryList / showContactList
 
 function toggleCategoryDropdown() {
     showCategoryList = !showCategoryList;
-
+    deleteAlert('categoryAlert');
     let dropdownContainer = document.getElementById('categoryDropdown');
 
     if (showCategoryList) {
@@ -31,7 +32,7 @@ function toggleCategoryDropdown() {
 
 function toggleAssignDropdown() {
     showContactList = !showContactList;
-
+    deleteAlert('assignAlert');
     let dropdownContainer = document.getElementById('assignToDropdown');
 
     if (showContactList) {
@@ -75,7 +76,7 @@ function cancelNewCategory() {
 function resetNewCategoryColorAndInput() {
     let categoryInputElement = document.querySelector('#newCategoryInput input');
     categoryInputElement.value = "";
-    selectedCategoryColor = undefined;
+    selectedCategoryColor = "";
 };
 
 
@@ -86,7 +87,7 @@ function resetNewCategoryColorAndInput() {
 function confirmNewCategory() {
     let categoryInputElement = document.querySelector('#newCategoryInput input');
 
-    if (selectedCategoryColor != undefined && categoryInputElement.value.length > 0) {
+    if (selectedCategoryColor.length > 0 && categoryInputElement.value.length > 0) {
         categories.push({
             'name': `${categoryInputElement.value}`,
             'color': `${selectedCategoryColor}`,
@@ -120,7 +121,7 @@ function setCategorySelectionAsInput(i) {
 function showColorRequiredAlert() {
     let colorSelAlertElement = document.getElementById('colorSelAlert');
 
-    if (selectedCategoryColor == undefined) {
+    if (selectedCategoryColor.length == 0) {
         colorSelAlertElement.style.display = "block";
     }
 };
@@ -255,8 +256,9 @@ function toggleView_DropdownAndNewEntry(invisibleElementID, visibleElementID, in
 
 
 function setPrio(priorityValue) {
+    deleteAlert('priorityAlert');
     let prioButtonElement = document.getElementById(`prioButton-${priorityValue}`);
-    if (priority != undefined) {
+    if (priority.length > 0) {
         resetActivePrio();
     }
     priority = priorityValue;
@@ -266,6 +268,7 @@ function setPrio(priorityValue) {
 
 function resetActivePrio() {
     let activePrioButtonElement = document.getElementById(`prioButton-${priority}`)
+    priority;
     activePrioButtonElement.classList.remove('prioActive');
     activePrioButtonElement.style.backgroundColor = `var(--main-white)`
 }
@@ -279,7 +282,8 @@ function createTask() {
     showNotification()
 };
 
-// form validation and task creation
+// form validation and final task creation
+
 
 function addTask() {
     let titleInput = document.getElementById('title');
@@ -290,6 +294,7 @@ function addTask() {
     checkInput('description', descriptionInput.value);
     checkCategory();
     checkAssigned();
+    checkDueDate(dueDate.value);
     checkPriority();
 };
 
@@ -305,7 +310,7 @@ function checkInput(inputName, inputValue) {
 function checkCategory() {
     let alert = document.getElementById(`categoryAlert`);
 
-    if (category == undefined) {
+    if (category.length == 0) {
         formValidation == false;
         alert.innerHTML = 'This field is required';
     };
@@ -313,25 +318,36 @@ function checkCategory() {
 
 function checkAssigned() {
     let alert = document.getElementById(`assignAlert`);
-    console.log(assignedPersons);
 
     if (assignedPersons.length == 0) {
-        console.log(assignedPersons);
         formValidation == false;
         alert.innerHTML = 'You need to assign contacts';
     };
 };
 
-// DATE VALIDATION FUNCTION
+function checkDueDate(dueDateValue) {
+    let alert = document.getElementById('dateAlert');
+    let today = new Date();
+    let dueDate = new Date(`${dueDateValue}`);
+   
+
+    if (dueDateValue.length == 0 || dueDate <= today) {
+        formValidation == false;
+        alert.innerHTML = 'You need set a future date';
+    }
+};
+
 
 function checkPriority() {
     let alert = document.getElementById(`priorityAlert`);
 
-    if (priority == undefined) {
+    if (priority.length == 0) {
         formValidation == false;
         alert.innerHTML = "You need to choose a priority";
     };
 };
 
-
+function deleteAlert(alertID) {
+    document.getElementById(`${alertID}`).innerHTML ="";   
+}
 
