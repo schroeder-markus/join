@@ -3,10 +3,16 @@
 let selectedCategoryColor;
 let showCategoryList = false;
 let showContactList = false;
-let assignedPersons = [];
-let priority;
 
-// Toggles dropdown action (open / close) for the category Selection and the task assignment
+let category;
+let assignedPersons = [];
+let date;
+let priority;
+let subtasks = [];
+
+let formValidation = true;
+
+// Toggle dropdown action (open / close) for the category Selection and the task assignment
 // Action Depends on the actual global boolean variable: showCategoryList / showContactList
 
 function toggleCategoryDropdown() {
@@ -104,11 +110,12 @@ function finishNewCategory(categoryName) {
 // after a new category is successfully validated, the chosen name and color are set as value in the original category field.
 
 function setCategorySelectionAsInput(i) {
+    category = categories[i]['name'];
     let categoryInput = document.getElementById('categoryInput');
     categoryInput.innerHTML = `${createCategoryHtml(i)}`
 };
 
-// after a failed validation in the "new category"-dialogue, the selected color the "required Alert" shows.
+// after a failed validation in the "new category"-dialogue.
 
 function showColorRequiredAlert() {
     let colorSelAlertElement = document.getElementById('colorSelAlert');
@@ -164,8 +171,8 @@ function selectContact(i) {
     let firstName = document.getElementById(`firstName(${i})`).innerHTML;
     let lastName = document.getElementById(`lastName(${i})`).innerHTML;
     assignedPersons.push({
-        'name' : `${firstName} ${lastName}`,
-        'initials' : `${firstName.charAt(0)}${lastName.charAt(0)}`,
+        'name': `${firstName} ${lastName}`,
+        'initials': `${firstName.charAt(0)}${lastName.charAt(0)}`,
     });
 };
 
@@ -185,7 +192,7 @@ function findIndexOfContact(contactName) {
 function confirmMailAdress() {
     let mailInputElement = document.getElementById('mailInput');
     let contactIndex = findIndexFromMail(mailInputElement.value);
-    if( contactIndex == -1) {
+    if (contactIndex == -1) {
         showMailNotFoundAlert(mailInputElement.value);
     } else {
         finishInvitationInput(contactIndex);
@@ -201,8 +208,8 @@ function findIndexFromMail(mailAdress) {
 
 function showMailNotFoundAlert(inputValue) {
     let mailNotFoundAlertElement = document.getElementById('mailNotFoundAlert');
-        mailNotFoundAlertElement.innerHTML = `'${inputValue}' could not be found in contacts`;
-        mailNotFoundAlertElement.style.display = "block";
+    mailNotFoundAlertElement.innerHTML = `'${inputValue}' could not be found in contacts`;
+    mailNotFoundAlertElement.style.display = "block";
 };
 
 
@@ -210,24 +217,24 @@ function showMailNotFoundAlert(inputValue) {
 
 function cancelInviteContact() {
     document.getElementByIdm
-    toggleView_DropdownAndNewEntry('invitePersonInput', 'assignToDropdown','mailInput');
+    toggleView_DropdownAndNewEntry('invitePersonInput', 'assignToDropdown', 'mailInput');
 };
 
 
 function finishInvitationInput(index) {
     assignedPersons.push({
-        'name' : `${contactData[index].name}`,
-        'initials' : `${contactData[index].initials}`,
-        'color' : `${contactData[index].color}`
+        'name': `${contactData[index].name}`,
+        'initials': `${contactData[index].initials}`,
+        'color': `${contactData[index].color}`
     });
-    toggleView_DropdownAndNewEntry('invitePersonInput', 'assignToDropdown','mailInput');
+    toggleView_DropdownAndNewEntry('invitePersonInput', 'assignToDropdown', 'mailInput');
     renderNameCircles();
 };
 
 function renderNameCircles() {
     let nameCirclesElement = document.getElementById('nameCircles');
     nameCirclesElement.innerHTML = '';
-    for(let i = 0; i < assignedPersons.length; i++) {
+    for (let i = 0; i < assignedPersons.length; i++) {
         nameCirclesElement.innerHTML += `
         <span class="name-circle name-circle-letter" style="background-color:${assignedPersons[i].color}">
         ${assignedPersons[i].initials}</span></span>
@@ -249,8 +256,8 @@ function toggleView_DropdownAndNewEntry(invisibleElementID, visibleElementID, in
 
 function setPrio(priorityValue) {
     let prioButtonElement = document.getElementById(`prioButton-${priorityValue}`);
-    if(priority != undefined) {
-       resetActivePrio();
+    if (priority != undefined) {
+        resetActivePrio();
     }
     priority = priorityValue;
     prioButtonElement.classList.add('prioActive');
@@ -259,8 +266,8 @@ function setPrio(priorityValue) {
 
 function resetActivePrio() {
     let activePrioButtonElement = document.getElementById(`prioButton-${priority}`)
-        activePrioButtonElement.classList.remove('prioActive');
-        activePrioButtonElement.style.backgroundColor = `var(--main-white)`
+    activePrioButtonElement.classList.remove('prioActive');
+    activePrioButtonElement.style.backgroundColor = `var(--main-white)`
 }
 
 
@@ -269,5 +276,62 @@ function subtaskInput() {
 };
 
 function createTask() {
-        showNotification()
+    showNotification()
 };
+
+// form validation and task creation
+
+function addTask() {
+    let titleInput = document.getElementById('title');
+    let descriptionInput = document.getElementById('description');
+    let dueDate = document.getElementById('dueDate');
+
+    checkInput('title', titleInput.value);
+    checkInput('description', descriptionInput.value);
+    checkCategory();
+    checkAssigned();
+    checkPriority();
+};
+
+function checkInput(inputName, inputValue) {
+    let alert = document.getElementById(`${inputName}Alert`)
+
+    if (inputValue.length == 0) {
+        formValidation == false;
+        alert.innerHTML = 'This field is required';
+    };
+};
+
+function checkCategory() {
+    let alert = document.getElementById(`categoryAlert`);
+
+    if (category == undefined) {
+        formValidation == false;
+        alert.innerHTML = 'This field is required';
+    };
+};
+
+function checkAssigned() {
+    let alert = document.getElementById(`assignAlert`);
+    console.log(assignedPersons);
+
+    if (assignedPersons.length == 0) {
+        console.log(assignedPersons);
+        formValidation == false;
+        alert.innerHTML = 'You need to assign contacts';
+    };
+};
+
+// DATE VALIDATION FUNCTION
+
+function checkPriority() {
+    let alert = document.getElementById(`priorityAlert`);
+
+    if (priority == undefined) {
+        formValidation == false;
+        alert.innerHTML = "You need to choose a priority";
+    };
+};
+
+
+

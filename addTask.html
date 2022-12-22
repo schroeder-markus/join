@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles/aside.css">
     <link rel="stylesheet" href="styles/contacts.css">
     <title>Join - Add Task</title>
-    <script type="text/javascript src="./js/script.js" defer></script>
+    <script type="text/javascript" src="./js/script.js" defer></script>
     <script src="./mini_backend.js"></script>
 </head>
 
@@ -34,14 +34,14 @@
                         <div>
                             <label for="title">Title</label>
                             <input id="title" type="text" placeholder="Enter a title" required>
-                            <span class="requiredAlert"></span>
+                            <span id="titleAlert" class="requiredAlert"></span>
                         </div>
                         <!-- Description -->
                         <div>
                             <label for="description">Description</label>
                             <textarea id="description" class="descriptionTextArea" type="text"
                                 placeholder="Enter a description" required></textarea>
-                            <span class="requiredAlert"></span>
+                            <span id="descriptionAlert" class="requiredAlert"></span>
                         </div>
                         <!-- Category -->
                         <div readonly>
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                             <!--  -->
-                            <span class="requiredAlert"></span>
+                            <span id="categoryAlert" class="requiredAlert"></span>
                         </div>
                         <!-- Assign to -->
                         <div readonly>
@@ -144,17 +144,17 @@
                             </div>
                             <!--  -->
                             <span id="nameCircles"></span>
-                            <span class="requiredAlert"></span>
+                            <span id="assignAlert" class="requiredAlert"></span>
                         </div>
                     </section>
                     <section class="rightArea">
                         <!-- Due Date -->
                         <div>
                             <label for="dateInput">Due Date</label>
-                            <div class="inputContainer"><input class="input dateInput" type="text"
+                            <div class="inputContainer"><input id="dueDate" class="input dateInput" type="text"
                                     placeholder="Enter date" onfocus="(this.type='date')">
                             </div>
-                            <span class="requiredAlert"></span>
+                            <span id="dateAlert" class="requiredAlert"></span>
                         </div>
                         <!-- Priority -->
                         <div class="input">
@@ -176,7 +176,7 @@
                                     </div>
                                 </button>
                             </div>
-                            <span class="requiredAlert"></span>
+                            <span id="priorityAlert" class="requiredAlert"></span>
                         </div>
                         <!-- Subtasks -->
                         <div class="subtaskInput">
@@ -200,7 +200,7 @@
                         <section class="submitAndClearButtons">
                             <button id="clearButton" onclick="clearInputFields()">Clear<img
                                     src="img/icons-cancel.svg"></button>
-                            <button id="createButton" onclick="createTask()">Create Task<img
+                            <button id="createButton" onclick="addTask()">Create Task<img
                                     src="img/icons-check.svg"></button>
                         </section>
                     </section>
@@ -211,9 +211,6 @@
         </div>
     </main>
 
-
-
-    <script src="script.js" defer></script>
     <script src="includes.js" defer></script>
     <script src="js/add_task.js" defer></script>
     <script src="js/contacts.js" defer></script>

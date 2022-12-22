@@ -32,10 +32,6 @@ input, .dropdown {
     transition: height 225ms !important;
 }
 
-/* 
-#categoryDropdown {
-    overflow: hidden;
-} */
 
 .dropdown {
     display: flex;
@@ -116,7 +112,7 @@ label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 300;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 120%;
     height: 12px;
     margin-top: 8px;
