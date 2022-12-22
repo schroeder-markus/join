@@ -49,7 +49,7 @@
                             <div onclick="toggleCategoryDropdown()" id="categoryDropdown" class="dropdown">
                                 <span id="categoryInput" class="dropdownValue">Select Task Category</span>
                                 <img src="img/icon-dropdown.svg" alt="dropdownIcon">
-                                <div id="categories"></div>
+                                <div id="categories" class="scroll"></div>
                             </div>
                             <!-- Input for new category (display: none on default) -->
                             <div id="newCategoryInput" class="newEntryInput">
@@ -79,7 +79,7 @@
                                 <span onclick="toggleAssignDropdown()" id="assignToInput" class="dropdownValue">Select
                                     contacts to assign</span>
                                 <img onclick="toggleAssignDropdown()" src="img/icon-dropdown.svg" alt="dropdownIcon">
-                                <div id="contactSelection">
+                                <div id="contactSelection" class="scroll">
                                     <div><span onclick="toggleSelf()">You<div id="contactCheckbox()"
                                                 class="assignCheckbox">
                                                 <div class="assignChecked"></div>
@@ -182,7 +182,7 @@
                         <!-- Subtasks -->
                         <div class="subtaskInput">
                             <label for="subtaskInput">Subtasks</label>
-                            <div class="inputContainer"><input onfocus=subtaskInput() class="input"
+                            <div class="inputContainer"><input class="input"
                                     placeholder="Add new Subtask">
                                 <img src="img/icon-add-plus-dark.svg" alt="plusIcon">
                                 <!-- confirm / cancel Buttons (display: none on default) -->
@@ -199,9 +199,9 @@
                         </div>
                         <!-- submit Or Clear Buttons -->
                         <section class="submitAndClearButtons">
-                            <button id="clearButton" onclick="clearInputFields()">Clear<img
+                            <button id="clearButton" onclick="clearForm()">Clear<img
                                     src="img/icons-cancel.svg"></button>
-                            <button id="createButton" onclick="addTask()">Create Task<img
+                            <button id="createButton" onclick="createTask()">Create Task<img
                                     src="img/icons-check.svg"></button>
                         </section>
                     </section>

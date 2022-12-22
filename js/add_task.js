@@ -1,16 +1,19 @@
 'use strict'
 
-let selectedCategoryColor = "";
-let showCategoryList = false;
-let showContactList = false;
+let tasks = [];
 
-let category ="";
+let category = "";
 let assignedPersons = [];
 let date = "";
 let priority = "";
 let subtasks = [];
 
+let selectedCategoryColor = "";
+let showCategoryList = false;
+let showContactList = false;
+
 let formValidation = true;
+
 
 
 // Toggle dropdown action (open / close) for the category Selection and the task assignment
@@ -232,6 +235,7 @@ function finishInvitationInput(index) {
     renderNameCircles();
 };
 
+
 function renderNameCircles() {
     let nameCirclesElement = document.getElementById('nameCircles');
     nameCirclesElement.innerHTML = '';
@@ -258,25 +262,24 @@ function toggleView_DropdownAndNewEntry(invisibleElementID, visibleElementID, in
 function setPrio(priorityValue) {
     deleteAlert('priorityAlert');
     let prioButtonElement = document.getElementById(`prioButton-${priorityValue}`);
-    if (priority.length > 0) {
-        resetActivePrio();
-    }
+    resetActivePrio();
+
     priority = priorityValue;
     prioButtonElement.classList.add('prioActive');
     prioButtonElement.style.backgroundColor = `var(--prio-${priorityValue})`;
 };
 
+
 function resetActivePrio() {
-    let activePrioButtonElement = document.getElementById(`prioButton-${priority}`)
-    priority;
-    activePrioButtonElement.classList.remove('prioActive');
-    activePrioButtonElement.style.backgroundColor = `var(--main-white)`
-}
-
-
-function subtaskInput() {
+    if (priority.length > 0) {
+        let activePrioButtonElement = document.getElementById(`prioButton-${priority}`);
+        priority = "";
+        activePrioButtonElement.classList.remove('prioActive');
+        activePrioButtonElement.style.backgroundColor = `var(--main-white)`
+    }
 
 };
+
 
 function createTask() {
     showNotification()
@@ -285,7 +288,8 @@ function createTask() {
 // form validation and final task creation
 
 
-function addTask() {
+function createTask() {
+    formValidation = true;
     let titleInput = document.getElementById('title');
     let descriptionInput = document.getElementById('description');
     let dueDate = document.getElementById('dueDate');
@@ -296,13 +300,14 @@ function addTask() {
     checkAssigned();
     checkDueDate(dueDate.value);
     checkPriority();
+    generateTaskObject(titleInput.value, descriptionInput.value, dueDate.value);
 };
 
 function checkInput(inputName, inputValue) {
     let alert = document.getElementById(`${inputName}Alert`)
 
     if (inputValue.length == 0) {
-        formValidation == false;
+        formValidation = false;
         alert.innerHTML = 'This field is required';
     };
 };
@@ -311,7 +316,7 @@ function checkCategory() {
     let alert = document.getElementById(`categoryAlert`);
 
     if (category.length == 0) {
-        formValidation == false;
+        formValidation = false;
         alert.innerHTML = 'This field is required';
     };
 };
@@ -320,7 +325,7 @@ function checkAssigned() {
     let alert = document.getElementById(`assignAlert`);
 
     if (assignedPersons.length == 0) {
-        formValidation == false;
+        formValidation = false;
         alert.innerHTML = 'You need to assign contacts';
     };
 };
@@ -329,10 +334,10 @@ function checkDueDate(dueDateValue) {
     let alert = document.getElementById('dateAlert');
     let today = new Date();
     let dueDate = new Date(`${dueDateValue}`);
-   
+
 
     if (dueDateValue.length == 0 || dueDate <= today) {
-        formValidation == false;
+        formValidation = false;
         alert.innerHTML = 'You need set a future date';
     }
 };
@@ -342,12 +347,66 @@ function checkPriority() {
     let alert = document.getElementById(`priorityAlert`);
 
     if (priority.length == 0) {
-        formValidation == false;
+        formValidation = false;
         alert.innerHTML = "You need to choose a priority";
     };
 };
 
 function deleteAlert(alertID) {
-    document.getElementById(`${alertID}`).innerHTML ="";   
-}
+    document.getElementById(`${alertID}`).innerHTML = "";
+};
+
+function generateTaskObject(title, description, dueDate) {
+    tasks.push({
+        'title': title,
+        'description': description,
+        'category': category,
+        'assigned': assignedPersons,
+        'Due Date': dueDate,
+        'priority': priority,
+        'subtasks': subtasks,
+    });
+    console.log(tasks);
+    clearForm();
+};
+
+function clearForm() {
+    clearInputFields();
+    clearDescriptionField();
+    clearCategoryDropdown();
+    clearAssignDropdown();
+    resetActivePrio();
+
+};
+
+function clearInputFields() {
+    let inputFields = document.getElementsByTagName('input');
+    for (let i = 0; i < inputFields.length; i++) {
+        inputFields[i].value = "";
+    };
+};
+
+
+function clearDescriptionField() {
+    let descriptionInput = document.getElementById('description');
+    descriptionInput.value = "";
+};
+
+
+function clearCategoryDropdown() {
+    let categoryInput = document.getElementById('categoryInput');
+    categoryInput.innerHTML = `Select Task Category`;
+    category = "";
+    cancelNewCategory();
+};
+
+function clearAssignDropdown() {
+    let nameCircles = document.getElementById('nameCircles');
+    let assignChecks = document.getElementsByClassName('assignChecked');
+    nameCircles.innerHTML= "";
+    for(let i = 0; i < assignChecks.length; i++) {
+        assignChecks[i].style.display = "none";
+    };
+    
+};
 
