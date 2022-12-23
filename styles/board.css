@@ -208,13 +208,31 @@ span {
 .addtaskslide {
     position: absolute;
     z-index: 99;
-    top: -60px;
-    left: 50px;
-    background-color: white;
-    border-radius: 30px;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
     overflow-x: hidden;
     transition: 225ms all ease-in-out;
-    padding-bottom: 82px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(246, 247, 248, 0.5);
+    width: calc(100vw - 232px);
+}
+
+.submitAndClearButtons {
+    margin-bottom: 82px;
+}
+
+.addtaskh1 {
+    margin-left: 96px;
+}
+
+.slidediv {
+    border-radius: 30px;
+    background-color: white;
 }
 
 .showslide {
@@ -222,7 +240,7 @@ span {
 }
 
 .closeslide {
-    transform: translateX(2000px);
+    transform: translateX(8000px);
 }
 
 .inputcontainer {

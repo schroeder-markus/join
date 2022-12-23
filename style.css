@@ -135,6 +135,7 @@ aside {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     color: var(--aside-font-color);
     position: fixed !important;
     padding: 66px 20px;
@@ -143,9 +144,9 @@ aside {
 }
 
 main {
-    position: absolute;
+    position: relative;
     top: 90px;
-    left: 230px;
+    left: 232px;
     width: calc(100% - 310px);
     height: calc(100% - 90px);
 }
