@@ -230,6 +230,16 @@ span {
     margin-left: 16px;
 }
 
+.input {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    top: 10px;
+    right: 4px;
+}
+
 .searchsection {
     display: flex;
 }
@@ -348,5 +358,9 @@ span {
         width: 363px;
         height: 243px;
         align-items: flex-start;
+    }
+
+    .input-icon {
+        top: 26px;
     }
 }

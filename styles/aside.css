@@ -50,19 +50,19 @@ aside nav a {
     color: var(--aside-font-color);
 }
 
+aside nav a span {
+    height: 46px;
+    display: flex;
+    align-items: center;
+}
+
 aside nav a:hover {
     background-color: var(--main-dark-contrast);
 }
 
-.notice a:hover,
-.notice a:visited {
+.notice a:hover {
     background-color: var(--main-dark-contrast);
 }
-
-.notice a:active {
-    background-color: var(--main-dark-contrast);
-}
-
 
 .notice {
     display: flex;
@@ -86,17 +86,8 @@ aside nav a:hover {
     height: 46px;
     text-decoration: none;
     color: var(--aside-font-color);
+    height: 46px;
 }
-
-
-.nav-selected {
-    background-color: var(--main-dark);
-    border-radius: 10px;
-    color: var(--main-white);
-}
-
-
-
 
 .impressum {
     display: flex;
