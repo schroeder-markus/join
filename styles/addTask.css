@@ -32,10 +32,6 @@ input, .dropdown {
     transition: height 225ms !important;
 }
 
-/* 
-#categoryDropdown {
-    overflow: hidden;
-} */
 
 .dropdown {
     display: flex;
@@ -116,7 +112,7 @@ label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 300;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 120%;
     height: 12px;
     margin-top: 8px;
@@ -157,6 +153,10 @@ section div:not(:first-of-type) label {
     background-size: 20px;
     position: absolute;
     right: 5px;
+}
+
+.dateInput::-webkit-calendar-picker-indicator:hover {
+    cursor: pointer;
 }
 
 .subtaskInput img {
@@ -347,7 +347,7 @@ section div:not(:first-of-type) label {
 
 #nameCircles {
     display: flex;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 #nameCircles span {
@@ -364,4 +364,23 @@ section div:not(:first-of-type) label {
 
 .subtaskInput .confirmOrCancel {
     display: none;
+}
+
+
+.noteContainer {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 0px;
+    opacity: 0;
+    transition: all 1s;
+}
+
+
+.showNote {
+    opacity: 100;
+    bottom: 100px;
+    transition: all 1s;
+
 }

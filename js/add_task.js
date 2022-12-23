@@ -1,17 +1,23 @@
 "use strict";
 
-let selectedCategoryColor;
+let category = "";
+let assignedPersons = [];
+let date = "";
+let priority = "";
+let subtasks = [];
+
+let selectedCategoryColor = "";
 let showCategoryList = false;
 let showContactList = false;
-let assignedPersons = [];
-let priority;
 
-// Toggles dropdown action (open / close) for the category Selection and the task assignment
+let formValidation = true;
+
+// Toggle dropdown action (open / close) for the category Selection and the task assignment
 // Action Depends on the actual global boolean variable: showCategoryList / showContactList
 
 function toggleCategoryDropdown() {
   showCategoryList = !showCategoryList;
-
+  deleteAlert("categoryAlert");
   let dropdownContainer = document.getElementById("categoryDropdown");
 
   if (showCategoryList) {
@@ -24,7 +30,7 @@ function toggleCategoryDropdown() {
 
 function toggleAssignDropdown() {
   showContactList = !showContactList;
-
+  deleteAlert("assignAlert");
   let dropdownContainer = document.getElementById("assignToDropdown");
 
   if (showContactList) {
@@ -73,18 +79,18 @@ function cancelNewCategory() {
 function resetNewCategoryColorAndInput() {
   let categoryInputElement = document.querySelector("#newCategoryInput input");
   categoryInputElement.value = "";
-  selectedCategoryColor = undefined;
+  selectedCategoryColor = "";
 }
 
 // fired after clicking the check-button in "new Category"-dialogue.
 // checks if category name is filled and a color is selected.
-// success: finishes dialogue. fail: shows "required"-notification.
+// success: finishes dialogue. fail: shows "required"-Note.
 
 function confirmNewCategory() {
   let categoryInputElement = document.querySelector("#newCategoryInput input");
 
   if (
-    selectedCategoryColor != undefined &&
+    selectedCategoryColor.length > 0 &&
     categoryInputElement.value.length > 0
   ) {
     categories.push({
@@ -114,16 +120,17 @@ function finishNewCategory(categoryName) {
 // after a new category is successfully validated, the chosen name and color are set as value in the original category field.
 
 function setCategorySelectionAsInput(i) {
+  category = categories[i]["name"];
   let categoryInput = document.getElementById("categoryInput");
   categoryInput.innerHTML = `${createCategoryHtml(i)}`;
 }
 
-// after a failed validation in the "new category"-dialogue, the selected color the "required Alert" shows.
+// after a failed validation in the "new category"-dialogue.
 
 function showColorRequiredAlert() {
   let colorSelAlertElement = document.getElementById("colorSelAlert");
 
-  if (selectedCategoryColor == undefined) {
+  if (selectedCategoryColor.length == 0) {
     colorSelAlertElement.style.display = "block";
   }
 }
@@ -257,27 +264,155 @@ function toggleView_DropdownAndNewEntry(
 }
 
 function setPrio(priorityValue) {
+  deleteAlert("priorityAlert");
   let prioButtonElement = document.getElementById(
     `prioButton-${priorityValue}`
   );
-  if (priority != undefined) {
-    resetActivePrio();
-  }
+  resetActivePrio();
+
   priority = priorityValue;
   prioButtonElement.classList.add("prioActive");
   prioButtonElement.style.backgroundColor = `var(--prio-${priorityValue})`;
 }
 
 function resetActivePrio() {
-  let activePrioButtonElement = document.getElementById(
-    `prioButton-${priority}`
-  );
-  activePrioButtonElement.classList.remove("prioActive");
-  activePrioButtonElement.style.backgroundColor = `var(--main-white)`;
+  if (priority.length > 0) {
+    let activePrioButtonElement = document.getElementById(
+      `prioButton-${priority}`
+    );
+    priority = "";
+    activePrioButtonElement.classList.remove("prioActive");
+    activePrioButtonElement.style.backgroundColor = `var(--main-white)`;
+  }
 }
 
-function subtaskInput() {}
+function createTask() {
+  showNote();
+}
+
+// form validation and final task creation
 
 function createTask() {
-  showNotification();
+  formValidation = true;
+  let titleInput = document.getElementById("title");
+  let descriptionInput = document.getElementById("description");
+  let dueDate = document.getElementById("dueDate");
+
+  checkInput("title", titleInput.value);
+  checkInput("description", descriptionInput.value);
+  checkCategory();
+  checkAssigned();
+  checkDueDate(dueDate.value);
+  checkPriority();
+  generateTaskObject(titleInput.value, descriptionInput.value, dueDate.value);
+  showNote("taskAdded");
+}
+
+function checkInput(inputName, inputValue) {
+  let alert = document.getElementById(`${inputName}Alert`);
+
+  if (inputValue.length == 0) {
+    formValidation = false;
+    alert.innerHTML = "This field is required";
+  }
+}
+
+function checkCategory() {
+  let alert = document.getElementById(`categoryAlert`);
+
+  if (category.length == 0) {
+    formValidation = false;
+    alert.innerHTML = "This field is required";
+  }
+}
+
+function checkAssigned() {
+  let alert = document.getElementById(`assignAlert`);
+
+  if (assignedPersons.length == 0) {
+    formValidation = false;
+    alert.innerHTML = "You need to assign contacts";
+  }
+}
+
+function checkDueDate(dueDateValue) {
+  let alert = document.getElementById("dateAlert");
+  let today = new Date();
+  let dueDate = new Date(`${dueDateValue}`);
+
+  if (dueDateValue.length == 0 || dueDate <= today) {
+    formValidation = false;
+    alert.innerHTML = "You need set a future date";
+  }
+}
+
+function checkPriority() {
+  let alert = document.getElementById(`priorityAlert`);
+
+  if (priority.length == 0) {
+    formValidation = false;
+    alert.innerHTML = "You need to choose a priority";
+  }
+}
+
+function deleteAlert(alertID) {
+  document.getElementById(`${alertID}`).innerHTML = "";
+}
+
+function generateTaskObject(title, description, dueDate) {
+  tasks.push({
+    title: title,
+    description: description,
+    category: category,
+    assigned: assignedPersons,
+    "Due Date": dueDate,
+    priority: priority,
+    subtasks: subtasks,
+  });
+  saveTasks();
+  clearForm();
+}
+
+function saveTasks() {}
+
+function clearForm() {
+  clearInputFields();
+  clearDescriptionField();
+  clearCategoryDropdown();
+  clearAssignDropdown();
+  resetActivePrio();
+}
+
+function clearInputFields() {
+  let inputFields = document.getElementsByTagName("input");
+  for (let i = 0; i < inputFields.length; i++) {
+    inputFields[i].value = "";
+  }
+}
+
+function clearDescriptionField() {
+  let descriptionInput = document.getElementById("description");
+  descriptionInput.value = "";
+}
+
+function clearCategoryDropdown() {
+  let categoryInput = document.getElementById("categoryInput");
+  categoryInput.innerHTML = `Select Task Category`;
+  category = "";
+  cancelNewCategory();
+}
+
+function clearAssignDropdown() {
+  let nameCircles = document.getElementById("nameCircles");
+  let assignChecks = document.getElementsByClassName("assignChecked");
+  nameCircles.innerHTML = "";
+  for (let i = 0; i < assignChecks.length; i++) {
+    assignChecks[i].style.display = "none";
+  }
+}
+
+function showNote(noteID) {
+  let noteContainer = document.getElementById(noteID);
+  noteContainer.classList.add("showNote");
+  setTimeout(noteContainer.classList.remove("showNote"), 5000);
 }

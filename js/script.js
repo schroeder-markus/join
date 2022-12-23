@@ -2,6 +2,8 @@
 
 setURL('https://gruppe-406.developerakademie.net/smallest_backend_ever');
 
+let tasks = [];
+
 let categoryColors = [
   'var(--label-1)',
   'var(--label-2)',

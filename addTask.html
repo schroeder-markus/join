@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles/aside.css">
     <link rel="stylesheet" href="styles/contacts.css">
     <title>Join - Add Task</title>
-    <script type="text/javascript src="./js/script.js" defer></script>
+    <script type="text/javascript" src="./js/script.js" defer></script>
     <script src="./mini_backend.js"></script>
 </head>
 
@@ -25,23 +25,24 @@
     <div w3-include-html="includes/aside.html"></div>
     <!-- aside template END -->
     <main>
+        <div id="taskAdded" class="noteContainer"><img src="img/notification-task-added.svg" alt="noteTaskAdded"></div>
         <h1>Add Task</h1>
         <div id="addTaskFormContainer">
             <div class="inputFields">
-                <form class="addTaskForm">
+                <form onsubmit="return false" class="addTaskForm">
                     <section class="leftArea">
                         <!-- Title -->
                         <div>
                             <label for="title">Title</label>
-                            <input id="title" type="text" placeholder="Enter a title" required>
-                            <span class="requiredAlert"></span>
+                            <input oninput="deleteAlert('titleAlert')" id="title" type="text" placeholder="Enter a title">
+                            <span id="titleAlert" class="requiredAlert"></span>
                         </div>
                         <!-- Description -->
                         <div>
                             <label for="description">Description</label>
-                            <textarea id="description" class="descriptionTextArea" type="text"
-                                placeholder="Enter a description" required></textarea>
-                            <span class="requiredAlert"></span>
+                            <textarea oninput="deleteAlert('descriptionAlert')" id="description" class="descriptionTextArea" type="text"
+                                placeholder="Enter a description"></textarea>
+                            <span id="descriptionAlert" class="requiredAlert"></span>
                         </div>
                         <!-- Category -->
                         <div readonly>
@@ -49,7 +50,7 @@
                             <div onclick="toggleCategoryDropdown()" id="categoryDropdown" class="dropdown">
                                 <span id="categoryInput" class="dropdownValue">Select Task Category</span>
                                 <img src="img/icon-dropdown.svg" alt="dropdownIcon">
-                                <div id="categories"></div>
+                                <div id="categories" class="scroll"></div>
                             </div>
                             <!-- Input for new category (display: none on default) -->
                             <div id="newCategoryInput" class="newEntryInput">
@@ -70,7 +71,7 @@
                                 </div>
                             </div>
                             <!--  -->
-                            <span class="requiredAlert"></span>
+                            <span id="categoryAlert" class="requiredAlert"></span>
                         </div>
                         <!-- Assign to -->
                         <div readonly>
@@ -79,7 +80,7 @@
                                 <span onclick="toggleAssignDropdown()" id="assignToInput" class="dropdownValue">Select
                                     contacts to assign</span>
                                 <img onclick="toggleAssignDropdown()" src="img/icon-dropdown.svg" alt="dropdownIcon">
-                                <div id="contactSelection">
+                                <div id="contactSelection" class="scroll">
                                     <div><span onclick="toggleSelf()">You<div id="contactCheckbox()"
                                                 class="assignCheckbox">
                                                 <div class="assignChecked"></div>
@@ -143,18 +144,19 @@
                                 <span id="mailNotFoundAlert" class="requiredAlert"></span>
                             </div>
                             <!--  -->
+                            <span id="assignAlert" class="requiredAlert"></span>
                             <span id="nameCircles"></span>
-                            <span class="requiredAlert"></span>
+
                         </div>
                     </section>
                     <section class="rightArea">
                         <!-- Due Date -->
                         <div>
                             <label for="dateInput">Due Date</label>
-                            <div class="inputContainer"><input class="input dateInput" type="text"
+                            <div oninput="deleteAlert('dateAlert')" class="inputContainer"><input id="dueDate" class="input dateInput" type="text"
                                     placeholder="Enter date" onfocus="(this.type='date')">
                             </div>
-                            <span class="requiredAlert"></span>
+                            <span id="dateAlert" class="requiredAlert"></span>
                         </div>
                         <!-- Priority -->
                         <div class="input">
@@ -176,12 +178,12 @@
                                     </div>
                                 </button>
                             </div>
-                            <span class="requiredAlert"></span>
+                            <span id="priorityAlert" class="requiredAlert"></span>
                         </div>
                         <!-- Subtasks -->
                         <div class="subtaskInput">
                             <label for="subtaskInput">Subtasks</label>
-                            <div class="inputContainer"><input onfocus=subtaskInput() class="input"
+                            <div class="inputContainer"><input class="input"
                                     placeholder="Add new Subtask">
                                 <img src="img/icon-add-plus-dark.svg" alt="plusIcon">
                                 <!-- confirm / cancel Buttons (display: none on default) -->
@@ -198,7 +200,7 @@
                         </div>
                         <!-- submit Or Clear Buttons -->
                         <section class="submitAndClearButtons">
-                            <button id="clearButton" onclick="clearInputFields()">Clear<img
+                            <button id="clearButton" onclick="clearForm()">Clear<img
                                     src="img/icons-cancel.svg"></button>
                             <button id="createButton" onclick="createTask()">Create Task<img
                                     src="img/icons-check.svg"></button>
@@ -206,14 +208,10 @@
                     </section>
             </div>
             </form>
-            <div class="taskAddedNotification"><img src="img/notification-task-added.svg" alt="notificationTaskAdded">
-            </div>
+            
         </div>
     </main>
 
-
-
-    <script src="script.js" defer></script>
     <script src="includes.js" defer></script>
     <script src="js/add_task.js" defer></script>
     <script src="js/contacts.js" defer></script>
