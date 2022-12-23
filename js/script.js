@@ -2,7 +2,15 @@
 
 setURL('https://gruppe-406.developerakademie.net/smallest_backend_ever');
 
-let tasks = [];
+let tasks = [{
+  'title': 'Aufgabe 1',
+  'description': 'Beschreibung 1',
+  'category': 'sales',
+  'assigned': ["Ingo Hermsen", "Markus Schröder"],
+  'Due Date': '2022-12-31',
+  'priority': 'medium',
+  'subtasks': [],
+}];
 
 let categoryColors = [
   'var(--label-1)',
@@ -30,4 +38,11 @@ let categories = [
 
 function logOutClickAvatar() {
   document.querySelector(".logout-btn").classList.toggle("toggle-logout-btn")
-}
+};
+
+
+function showMessage(messageID) {
+  let noteContainer = document.getElementById(messageID);
+  noteContainer.classList.add('showMessage');
+  setTimeout(() => {noteContainer.classList.remove('showMessage')}, 3000);
+};

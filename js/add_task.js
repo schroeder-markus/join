@@ -276,13 +276,7 @@ function resetActivePrio() {
 
 };
 
-
-function createTask() {
-    showNote()
-};
-
-// form validation and final task creation
-
+// Add Task
 
 function createTask() {
     formValidation = true;
@@ -297,7 +291,7 @@ function createTask() {
     checkDueDate(dueDate.value);
     checkPriority();
     generateTaskObject(titleInput.value, descriptionInput.value, dueDate.value);
-    showNote('taskAdded');
+    showMessage('taskAdded');
 };
 
 function checkInput(inputName, inputValue) {
@@ -355,24 +349,29 @@ function deleteAlert(alertID) {
 
 
 function generateTaskObject(title, description, dueDate) {
-    tasks.push({
-        'title': title,
-        'description': description,
-        'category': category,
-        'assigned': assignedPersons,
-        'Due Date': dueDate,
-        'priority': priority,
-        'subtasks': subtasks,
-    });
-    saveTasks();
-    clearForm();
-
+    if (formValidation) {
+        tasks.push({
+            'title': title,
+            'description': description,
+            'category': category,
+            'assigned': assignedPersons,
+            'Due Date': dueDate,
+            'priority': priority,
+            'subtasks': subtasks,
+            'status' : 'todo'
+        });
+        clearForm();
+        saveTasks();
+    };
 };
 
 
 function saveTasks() {
-
+    let allTasksAsString = JSON.stringify(users);
+    backend.setItem('allTasks', allTasksAsString);
 };
+
+// clear formular
 
 
 function clearForm() {
@@ -409,18 +408,12 @@ function clearCategoryDropdown() {
 function clearAssignDropdown() {
     let nameCircles = document.getElementById('nameCircles');
     let assignChecks = document.getElementsByClassName('assignChecked');
-    nameCircles.innerHTML= "";
-    for(let i = 0; i < assignChecks.length; i++) {
+    assignedPersons = [];
+    nameCircles.innerHTML = "";
+    for (let i = 0; i < assignChecks.length; i++) {
         assignChecks[i].style.display = "none";
     };
-    
-};
 
-
-function showNote(noteID) {
-    let noteContainer = document.getElementById(noteID);
-    noteContainer.classList.add('showNote');
-    setTimeout(noteContainer.classList.remove('showNote'), 5000);
 };
 
 

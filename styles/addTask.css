@@ -164,6 +164,7 @@ section div:not(:first-of-type) label {
     right: 0px;
     top: 10px;
     padding-right: 10px;
+    cursor: pointer;
 }
 
 .prioButtons {
@@ -366,21 +367,3 @@ section div:not(:first-of-type) label {
     display: none;
 }
 
-
-.noteContainer {
-    width: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    bottom: 0px;
-    opacity: 0;
-    transition: all 1s;
-}
-
-
-.showNote {
-    opacity: 100;
-    bottom: 100px;
-    transition: all 1s;
-
-}

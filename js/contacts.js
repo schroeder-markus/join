@@ -103,6 +103,8 @@ function addNewContact() {
   document.querySelector("#newContactSubmitColor").value = "";
   createContactList();
   closeNewContact();
+  showMessage('contact-created')
+
 }
 
 function createContactList() {
