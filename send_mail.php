@@ -3,7 +3,7 @@
 ########### CONFIG ###############
 
 $recipient = 'ilja.gaus@googlemail.com';
-#$redirect = 'index.html';
+# $redirect = 'index.html';
 
 ########### CONFIG END ###########
 
@@ -42,22 +42,23 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $email = $_POST['email'];
         
         $message = "Hello,\n
-        \nFollow this link to reset your JOIN password for your " . $email . "\n
+        \nFollow this link to reset your JOIN password for your " . $email . " account.\n
         \nhttps://gruppe-406.developerakademie.net/join/reset-password.html?email=" . $email . "\n
-        \nIf you didn't ask to reset your password, you can ignore this email. \n
+        \nIf you didn't ask to reset your password, you can ignore this email.\n
         \nThanks,\n
         \nYour Join-Team\n";
 
         $recipient = $email;
         $subject = "Reset your password for JOIN app";
-        $headers = "From: noreply@https://gruppe-406.developerakademie.net/join/";
+        $headers = "From:  noreply@https://gruppe-406.developerakademie.net/join/";
 
         $result = mail($recipient, $subject, $message, $headers);
         print($result);
-        #header("Location: " . $redirect); 
+        # header("Location: " . $redirect); 
 
         break;
     default: //Reject any non POST or OPTIONS requests.
         header("Allow: POST", true, 405);
         exit;
 }
+

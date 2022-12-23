@@ -110,7 +110,7 @@ function onPageLoad() {
   }
 
   function action(formData) {
-    const input = 'https://gruppe-406.developerakademie.net/send_mail.php';
+    const input = 'https://gruppe-406.developerakademie.net/join/send_mail.php';
     const requestInit = {
         method: 'post',
         body: formData

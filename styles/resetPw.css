@@ -1,0 +1,8 @@
+.no-match {
+    color: var( --field-required);
+    font-size: 12px;
+}
+
+.confirm-password {
+    border-color: var(--field-required);
+}
