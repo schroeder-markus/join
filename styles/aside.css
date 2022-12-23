@@ -89,6 +89,13 @@ aside nav a:hover {
 }
 
 
+.nav-selected {
+    background-color: var(--main-dark);
+    border-radius: 10px;
+    color: var(--main-white);
+}
+
+
 
 
 .impressum {
@@ -101,4 +108,3 @@ aside nav a:hover {
     height: 46px;
     padding: 0;
 }
-
