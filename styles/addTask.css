@@ -214,12 +214,14 @@ section div:not(:first-of-type) label {
 }
 
 #subtasks {
-    margin-top: 15px;
+    margin-top: 10px;
+    height: 180px;
 }
 
 .subtask {
     display: flex;
     width: 250px;
+    margin-bottom: 5px;
 }
 
 .subtask > img{
@@ -227,7 +229,6 @@ section div:not(:first-of-type) label {
 }
 
 .submitAndClearButtons {
-    margin-top: 200px;
     display: flex;
     justify-content: flex-end;
 }

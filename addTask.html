@@ -185,11 +185,12 @@
                         <!-- Subtasks -->
                         <div class="subtaskInput">
                             <label for="subtaskInput">Subtasks</label>
-                            <div class="inputContainer"><input oninput="deleteAlert('subtaskAlert')" id="subtask" class="input" placeholder="Add new Subtask">
+                            <div class="inputContainer"><input oninput="deleteAlert('subtaskAlert')" id="subtask"
+                                    class="input" placeholder="Add new Subtask">
                                 <img onclick="addSubtask()" src="img/icon-add-plus-dark.svg" alt="plusIcon">
                             </div>
-                            <div id="subtasks"></div>
                             <span id="subtaskAlert" class="requiredAlert"></span>
+                            <div id="subtasks"></div>
                             <!-- submit Or Clear Buttons -->
                             <section class="submitAndClearButtons">
                                 <button id="clearButton" onclick="clearForm()">Clear<img

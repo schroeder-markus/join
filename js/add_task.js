@@ -294,7 +294,7 @@ function addSubtask() {
         let subtaskAlert = document.getElementById('subtaskAlert');
         subtaskAlert.innerHTML = 'Please enter at least 5 characters';
     } else {
-        subtasks.push({'name': subtaskInputField.value, 'done': false})
+        subtasks.push({ 'name': subtaskInputField.value, 'done': false })
         renderSubtasksHTML();
         subtaskInputField.value = '';
     };
@@ -306,21 +306,26 @@ function renderSubtasksHTML() {
     subtasksElement.innerHTML = '';
     for (let i = 0; i < subtasks.length; i++) {
         subtasksElement.innerHTML += `
-      <span  class="subtask"><img onclick="toggleSubtaskSelection(${i})" id="box(${i})" src="img/icon-check-empty.svg" alt="">
+      <span  class="subtask"><img onclick="toggleSubtaskSelection(${i})" id="box(${i})" src="${getCheckboxIcon(i)}" alt="">
       <div>${subtasks[i].name}</div></span>
       `
     };
 };
 
+
 function toggleSubtaskSelection(index) {
     let checkBox = document.getElementById(`box(${index})`);
     subtasks[index].done = !subtasks[index].done;
-    if(!subtasks[index].done) {
-        checkBox.src = 'img/icon-check-empty.svg';
-    } else {
-        checkBox.src = 'img/icon-check-ok.svg';
-    }
+    checkBox.src = getCheckboxIcon(index);
+};
 
+
+function getCheckboxIcon(index) {
+    if (!subtasks[index].done) {
+        return 'img/icon-check-empty.svg';
+    } else {
+        return 'img/icon-check-ok.svg';
+    }
 };
 
 // Add Task
@@ -432,6 +437,7 @@ function clearForm() {
     clearAssignDropdown();
     clearSubtasks();
     resetActivePrio();
+    clearAllAlerts();
 };
 
 function clearInputFields() {
@@ -472,3 +478,10 @@ function clearSubtasks() {
     subtasksElement.innerHTML = '';
     subtasks = [];
 };
+
+function clearAllAlerts() {
+    let alertElements = document.getElementsByClassName('requiredAlert');
+    for (let i = 0; i < alertElements.length; i++) {
+        alertElements[i].innerHTML = '';
+    };
+}
