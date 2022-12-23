@@ -264,14 +264,13 @@ span {
     border-radius: 10px;
 }
 
-h1 {
-    margin: 0;
-}
+
 
 @media(max-width:750px) {
     .inputcontainer {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        position: relative;
     }
 
     .content {
@@ -316,5 +315,28 @@ h1 {
 
     .card {
         margin-bottom: 24px;
+    }
+
+    .mobileh1 {
+        margin: 0;
+        font-size: 47px;
+    }
+
+    .searchinput {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .addtaskboard {
+        position: absolute;
+        right: 0;
+        top: -12px;
+        height: 40px;
+        width: 40px;
+        margin-right: 0;
+    }
+
+    .addtaskboard span {
+        display: none;
     }
 }

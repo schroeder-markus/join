@@ -238,10 +238,14 @@ main {
         z-index: 30;
     }
 
+    h1 {
+        font-size: 47px;
+    }
+
     .headerlogo {
         display: flex;
-        width: 32px ;
-        height: 39.02px ;
+        width: 32px;
+        height: 39.02px;
     }
 
     .header-nav {
@@ -279,7 +283,7 @@ main {
     aside nav a {
         display: flex;
         padding: 8px !important;
-        width: unset ;
+        width: unset;
         flex-direction: column;
         justify-content: center !important;
         align-items: center !important;

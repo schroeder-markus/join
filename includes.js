@@ -8,7 +8,7 @@ async function init() {
 
 async function includeHTML() {
     let file;
-    let includeElements = document.querySelectorAll('[w3-include-html]');
+    let includeElements     = document.querySelectorAll('[w3-include-html]');
     for (let i = 0; i < includeElements.length; i++) {
       const element = includeElements[i];
       file = element.getAttribute("w3-include-html"); // "includes/header.html"
