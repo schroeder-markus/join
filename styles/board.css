@@ -46,7 +46,7 @@ h2 {
     margin-top: 24px;
 }
 
-.card:hover{
+.card:hover {
     cursor: pointer;
 }
 
@@ -294,7 +294,7 @@ button span {
     z-index: -1;
 }
 
-.d-none{
+.d-none {
     display: none;
 }
 
@@ -383,6 +383,11 @@ button span {
         width: 363px;
         height: 243px;
         align-items: flex-start;
+    }
+
+    .highlight {
+        width: 363px;
+        height: 243px;
     }
 
     .input-icon {
