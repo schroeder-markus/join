@@ -230,8 +230,24 @@ span {
     margin-left: 16px;
 }
 
+.input {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    top: 10px;
+    right: 4px;
+}
+
 .searchsection {
     display: flex;
+}
+
+button span {
+    color: var(--main-white);
+    font-weight: 700;
+    font-size: 21px;
 }
 
 .addtaskboard {
@@ -264,14 +280,15 @@ span {
     border-radius: 10px;
 }
 
-h1 {
-    margin: 0;
-}
+
 
 @media(max-width:750px) {
     .inputcontainer {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        position: relative;
+        width: 363px;
+        margin: 0;
     }
 
     .content {
@@ -311,10 +328,45 @@ h1 {
     }
 
     .header {
-        width: 239px;
+        width: 363px;
+        align-items: center;
+        margin: 0;
     }
 
     .card {
         margin-bottom: 24px;
+    }
+
+    .mobileh1 {
+        margin: 0;
+        font-size: 47px;
+    }
+
+    .searchinput {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .addtaskboard {
+        position: absolute;
+        right: 0;
+        top: -12px;
+        height: 40px;
+        width: 40px;
+        margin-right: 0;
+    }
+
+    .addtaskboard span {
+        display: none;
+    }
+
+    .card {
+        width: 363px;
+        height: 243px;
+        align-items: flex-start;
+    }
+
+    .input-icon {
+        top: 26px;
     }
 }

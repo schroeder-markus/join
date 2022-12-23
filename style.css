@@ -227,23 +227,10 @@ main {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
-.messageContainer {
-    width: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    bottom: 0px;
-    opacity: 0;
-    transition: all 1s;
+.currentnav {
+    background-color: var(--main-dark);
+    color: var(--main-white);
 }
-
-.showMessage {
-    opacity: 100;
-    bottom: 100px;
-    transition: all 1s;
-
-}
-
 
 
 @media(max-width:750px) {
@@ -256,10 +243,14 @@ main {
         z-index: 30;
     }
 
+    h1 {
+        font-size: 47px;
+    }
+
     .headerlogo {
         display: flex;
-        width: 32px ;
-        height: 39.02px ;
+        width: 32px;
+        height: 39.02px;
     }
 
     .header-nav {
@@ -297,7 +288,7 @@ main {
     aside nav a {
         display: flex;
         padding: 8px !important;
-        width: unset ;
+        width: unset;
         flex-direction: column;
         justify-content: center !important;
         align-items: center !important;

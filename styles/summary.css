@@ -314,8 +314,8 @@ h2 {
     }
 
     h1{
+        margin: 0;
         font-size: 47px;
-        margin-top: 0;
     }
 
     .numbers {
