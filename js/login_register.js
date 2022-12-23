@@ -27,6 +27,7 @@ function hideSuccesSubmit() {
 function signUp() {
     document.getElementById('submit').classList.remove('d-none');
     document.getElementById('login').classList.add('d-none');
+    document.getElementById('fmp').classList.add('d-none');
 }
 
 /**
