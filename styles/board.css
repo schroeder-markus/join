@@ -244,6 +244,12 @@ span {
     display: flex;
 }
 
+button span {
+    color: var(--main-white);
+    font-weight: 700;
+    font-size: 21px;
+}
+
 .addtaskboard {
     display: flex;
     flex-direction: row;
