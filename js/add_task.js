@@ -1,7 +1,5 @@
 'use strict'
 
-let tasks = [];
-
 let category = "";
 let assignedPersons = [];
 let date = "";
@@ -13,8 +11,6 @@ let showCategoryList = false;
 let showContactList = false;
 
 let formValidation = true;
-
-
 
 // Toggle dropdown action (open / close) for the category Selection and the task assignment
 // Action Depends on the actual global boolean variable: showCategoryList / showContactList
@@ -85,7 +81,7 @@ function resetNewCategoryColorAndInput() {
 
 // fired after clicking the check-button in "new Category"-dialogue.
 // checks if category name is filled and a color is selected.
-// success: finishes dialogue. fail: shows "required"-notification.
+// success: finishes dialogue. fail: shows "required"-Note.
 
 function confirmNewCategory() {
     let categoryInputElement = document.querySelector('#newCategoryInput input');
@@ -276,13 +272,13 @@ function resetActivePrio() {
         priority = "";
         activePrioButtonElement.classList.remove('prioActive');
         activePrioButtonElement.style.backgroundColor = `var(--main-white)`
-    }
+    };
 
 };
 
 
 function createTask() {
-    showNotification()
+    showNote()
 };
 
 // form validation and final task creation
@@ -301,6 +297,7 @@ function createTask() {
     checkDueDate(dueDate.value);
     checkPriority();
     generateTaskObject(titleInput.value, descriptionInput.value, dueDate.value);
+    showNote('taskAdded');
 };
 
 function checkInput(inputName, inputValue) {
@@ -356,6 +353,7 @@ function deleteAlert(alertID) {
     document.getElementById(`${alertID}`).innerHTML = "";
 };
 
+
 function generateTaskObject(title, description, dueDate) {
     tasks.push({
         'title': title,
@@ -366,9 +364,16 @@ function generateTaskObject(title, description, dueDate) {
         'priority': priority,
         'subtasks': subtasks,
     });
-    console.log(tasks);
+    saveTasks();
     clearForm();
+
 };
+
+
+function saveTasks() {
+
+};
+
 
 function clearForm() {
     clearInputFields();
@@ -400,6 +405,7 @@ function clearCategoryDropdown() {
     cancelNewCategory();
 };
 
+
 function clearAssignDropdown() {
     let nameCircles = document.getElementById('nameCircles');
     let assignChecks = document.getElementsByClassName('assignChecked');
@@ -409,4 +415,13 @@ function clearAssignDropdown() {
     };
     
 };
+
+
+function showNote(noteID) {
+    let noteContainer = document.getElementById(noteID);
+    noteContainer.classList.add('showNote');
+    setTimeout(noteContainer.classList.remove('showNote'), 5000);
+};
+
+
 
