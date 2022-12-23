@@ -127,6 +127,8 @@ function startDragging(id) {
 }
 
 function dragHighlight(id) {
+    tasks[currentDraggedElement]['status'] = 0;
+    updateTasks();
     if (!document.getElementById(id).innerHTML.includes(`<div id="highlight${id}" class="highlight"></div>`)) {
         document.getElementById(id).innerHTML += `<div id="highlight${id}" class="highlight"></div>`;
     }
