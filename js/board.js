@@ -126,6 +126,12 @@ function startDragging(id) {
     currentDraggedElement = id;
 }
 
+function dragHighlight(id) {
+    if (!document.getElementById(id).innerHTML.includes(`<div id="highlight${id}" class="highlight"></div>`)) {
+        document.getElementById(id).innerHTML += `<div id="highlight${id}" class="highlight"></div>`;
+    }
+}
+
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -138,26 +144,26 @@ function moveTo(category) {
 }
 
 
-function openSlide(){
+function openSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.remove('closeslide')
 }
 
 
-function closeSlide(){
+function closeSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.add('closeslide')
 }
 
-function searchTasks(){
+function searchTasks() {
     let search = document.getElementById('searchtask');
     search = search.value;
     let toDoDiv = document.getElementById('tododiv');
     let awaitingFeedbackDiv = document.getElementById('awaitingfeedbackdiv');
     let inProgressDiv = document.getElementById('inprogressdiv');
     let doneDiv = document.getElementById('donediv');
-    let searchTask = tasks.filter(t => t['title'].toLowerCase().includes(search.toLowerCase())||t['todo'].toLowerCase().includes(search.toLowerCase()));
-    
+    let searchTask = tasks.filter(t => t['title'].toLowerCase().includes(search.toLowerCase()) || t['todo'].toLowerCase().includes(search.toLowerCase()));
+
     doneDiv.innerHTML = '';
     inProgressDiv.innerHTML = '';
     awaitingFeedbackDiv.innerHTML = '';

@@ -46,6 +46,10 @@ h2 {
     margin-top: 24px;
 }
 
+.card:hover{
+    cursor: pointer;
+}
+
 .todo,
 .inprogress,
 .awaitingfeedback,
@@ -280,6 +284,20 @@ button span {
     border-radius: 10px;
 }
 
+.highlight {
+    width: 250px;
+    height: 239px;
+    border-radius: 30px;
+    border: 1px dashed black;
+    margin-top: 24px;
+    position: relative;
+    z-index: -1;
+}
+
+.d-none{
+    display: none;
+}
+
 
 
 @media(max-width:750px) {
@@ -300,6 +318,7 @@ button span {
         height: fit-content;
         display: flex;
         justify-content: center;
+        flex-direction: column;
     }
 
     main,
