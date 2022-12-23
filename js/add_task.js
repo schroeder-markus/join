@@ -25,8 +25,8 @@ function toggleCategoryDropdown() {
     dropdownContainer.classList.add("showCategories");
   } else {
     dropdownContainer.classList.remove("showCategories");
-  }
-}
+  };
+};
 
 function toggleAssignDropdown() {
   showContactList = !showContactList;
@@ -37,8 +37,8 @@ function toggleAssignDropdown() {
     dropdownContainer.classList.add("showContactSelection");
   } else {
     dropdownContainer.classList.remove("showContactSelection");
-  }
-}
+  };
+};
 
 // render functions for Dropdown Lists.
 // renders "New Category" plus categories from category-array with a for-loop.
@@ -53,14 +53,14 @@ function renderCategoryList() {
     )}</span></div>`;
   }
   renderColorSelection();
-}
+};
 
 // creates an html element from given category Id (from categories array).
 // Then it returns the span element back to the original render function, including a span with the assigned category color as background-Color.
 
 function createCategoryHtml(i) {
   return `${categories[i]["name"]}<span class="colorDot" style="background-color:${categories[i]["color"]}">`;
-}
+};
 
 // cancels New Category Dialogue
 
@@ -71,7 +71,7 @@ function cancelNewCategory() {
     "categoryDropdown",
     "catNameInput"
   );
-}
+};
 
 // resets selectable color for new Categories and empties the 'new Category' input field for further attempts.
 // fired after cancelling OR finishing new category.
@@ -80,7 +80,7 @@ function resetNewCategoryColorAndInput() {
   let categoryInputElement = document.querySelector("#newCategoryInput input");
   categoryInputElement.value = "";
   selectedCategoryColor = "";
-}
+};
 
 // fired after clicking the check-button in "new Category"-dialogue.
 // checks if category name is filled and a color is selected.
@@ -101,8 +101,8 @@ function confirmNewCategory() {
     resetNewCategoryColorAndInput();
   } else {
     showColorRequiredAlert();
-  }
-}
+  };
+};
 // finishes the 'New Category'-dialogue after a SUCCESSFUL validation check for color and Input Value (included in confirmNewCategory())
 
 function finishNewCategory(categoryName) {
@@ -115,7 +115,7 @@ function finishNewCategory(categoryName) {
     "catNameInput"
   );
   setCategorySelectionAsInput(categoryIndex);
-}
+};
 
 // after a new category is successfully validated, the chosen name and color are set as value in the original category field.
 
@@ -123,7 +123,7 @@ function setCategorySelectionAsInput(i) {
   category = categories[i]["name"];
   let categoryInput = document.getElementById("categoryInput");
   categoryInput.innerHTML = `${createCategoryHtml(i)}`;
-}
+};
 
 // after a failed validation in the "new category"-dialogue.
 
@@ -132,8 +132,8 @@ function showColorRequiredAlert() {
 
   if (selectedCategoryColor.length == 0) {
     colorSelAlertElement.style.display = "block";
-  }
-}
+  };
+};
 
 // renders Color Selection Buttons for new Categorys (visible after click on "New Category" in dropdown).
 
@@ -145,9 +145,8 @@ function renderColorSelection() {
         <button onclick="setColor(${i})" type="button" id="dot${i}" class="colorDot"
         style="background-color:${categoryColors[i]}" name="color"></button>
         `;
-  }
-}
-
+  };
+};
 // sets the chosen color for a new category as selected and then highlights the selection with a shadow class (dotShadow).
 
 function setColor(i) {
@@ -157,7 +156,7 @@ function setColor(i) {
   colorDotElement.classList.add("dotShadow");
   selectedCategoryColor = categoryColors[i];
   colorSelAlertElement.style.display = "none";
-}
+};
 
 // changes the contact selection to select / unselect and pushes selected names to assignedContacts array.
 
@@ -171,9 +170,9 @@ function toggleSelection(i) {
   } else {
     contactCheckedElement.style.display = "none";
     unselectContact(firstName, lastName);
-  }
+  };
   renderNameCircles();
-}
+};
 
 function selectContact(i) {
   let firstName = document.getElementById(`firstName(${i})`).innerHTML;
@@ -182,16 +181,16 @@ function selectContact(i) {
     name: `${firstName} ${lastName}`,
     initials: `${firstName.charAt(0)}${lastName.charAt(0)}`,
   });
-}
+};
 
 function unselectContact(firstName, lastName) {
   let fullName = `${firstName} ${lastName}`;
   assignedPersons.splice(findIndexOfContact(fullName), 1);
-}
+};
 
 function findIndexOfContact(contactName) {
   return assignedPersons.map((contact) => contact.name).indexOf(contactName);
-}
+};
 
 function confirmMailAdress() {
   let mailInputElement = document.getElementById("mailInput");
@@ -200,29 +199,28 @@ function confirmMailAdress() {
     showMailNotFoundAlert(mailInputElement.value);
   } else {
     finishInvitationInput(contactIndex);
-  }
-}
+  };
+};
 
 function findIndexFromMail(mailAdress) {
   return contactData.map((contact) => contact.mail).indexOf(mailAdress);
-}
+};
 
 function showMailNotFoundAlert(inputValue) {
   let mailNotFoundAlertElement = document.getElementById("mailNotFoundAlert");
   mailNotFoundAlertElement.innerHTML = `'${inputValue}' could not be found in contacts`;
   mailNotFoundAlertElement.style.display = "block";
-}
+};
 
 // cancels invitation dialogue
 
 function cancelInviteContact() {
-  document.getElementByIdm;
   toggleView_DropdownAndNewEntry(
     "invitePersonInput",
     "assignToDropdown",
     "mailInput"
   );
-}
+};
 
 function finishInvitationInput(index) {
   assignedPersons.push({
@@ -236,7 +234,7 @@ function finishInvitationInput(index) {
     "mailInput"
   );
   renderNameCircles();
-}
+};
 
 function renderNameCircles() {
   let nameCirclesElement = document.getElementById("nameCircles");
@@ -246,8 +244,8 @@ function renderNameCircles() {
         <span class="name-circle name-circle-letter" style="background-color:${assignedPersons[i].color}">
         ${assignedPersons[i].initials}</span></span>
         `;
-  }
-}
+  };
+};
 
 function toggleView_DropdownAndNewEntry(
   invisibleElementID,
@@ -261,7 +259,7 @@ function toggleView_DropdownAndNewEntry(
   invisibleElement.style.display = "none";
   visibleElement.style.display = "block";
   inputFieldElement.focus();
-}
+};
 
 function setPrio(priorityValue) {
   deleteAlert("priorityAlert");
@@ -273,7 +271,7 @@ function setPrio(priorityValue) {
   priority = priorityValue;
   prioButtonElement.classList.add("prioActive");
   prioButtonElement.style.backgroundColor = `var(--prio-${priorityValue})`;
-}
+};
 
 function resetActivePrio() {
     if (priority.length > 0) {
@@ -282,7 +280,6 @@ function resetActivePrio() {
         activePrioButtonElement.classList.remove('prioActive');
         activePrioButtonElement.style.backgroundColor = `var(--main-white)`
     };
-
 };
 
 // Add Task
@@ -300,8 +297,9 @@ function createTask() {
     checkDueDate(dueDate.value);
     checkPriority();
     generateTaskObject(titleInput.value, descriptionInput.value, dueDate.value);
-    showMessage('taskAdded');
+
 };
+
 
 function checkInput(inputName, inputValue) {
   let alert = document.getElementById(`${inputName}Alert`);
@@ -310,7 +308,8 @@ function checkInput(inputName, inputValue) {
     formValidation = false;
     alert.innerHTML = "This field is required";
   }
-}
+};
+
 
 function checkCategory() {
   let alert = document.getElementById(`categoryAlert`);
@@ -318,8 +317,9 @@ function checkCategory() {
   if (category.length == 0) {
     formValidation = false;
     alert.innerHTML = "This field is required";
-  }
-}
+  };
+};
+
 
 function checkAssigned() {
   let alert = document.getElementById(`assignAlert`);
@@ -327,8 +327,9 @@ function checkAssigned() {
   if (assignedPersons.length == 0) {
     formValidation = false;
     alert.innerHTML = "You need to assign contacts";
-  }
-}
+  };
+};
+
 
 function checkDueDate(dueDateValue) {
   let alert = document.getElementById("dateAlert");
@@ -338,8 +339,9 @@ function checkDueDate(dueDateValue) {
   if (dueDateValue.length == 0 || dueDate <= today) {
     formValidation = false;
     alert.innerHTML = "You need set a future date";
-  }
-}
+  };
+};
+
 
 function checkPriority() {
   let alert = document.getElementById(`priorityAlert`);
@@ -347,12 +349,14 @@ function checkPriority() {
   if (priority.length == 0) {
     formValidation = false;
     alert.innerHTML = "You need to choose a priority";
-  }
-}
+  };
+};
+
 
 function deleteAlert(alertID) {
   document.getElementById(`${alertID}`).innerHTML = "";
-}
+};
+
 
 function generateTaskObject(title, description, dueDate) {
     if (formValidation) {
@@ -367,13 +371,14 @@ function generateTaskObject(title, description, dueDate) {
             'status' : 'todo'
         });
         clearForm();
+        showMessage('taskAdded');
         saveTasks();
     };
 };
 
 
 function saveTasks() {
-    let allTasksAsString = JSON.stringify(users);
+    let allTasksAsString = JSON.stringify(tasks);
     backend.setItem('allTasks', allTasksAsString);
 };
 
@@ -386,26 +391,29 @@ function clearForm() {
   clearCategoryDropdown();
   clearAssignDropdown();
   resetActivePrio();
-}
+};
 
 function clearInputFields() {
   let inputFields = document.getElementsByTagName("input");
   for (let i = 0; i < inputFields.length; i++) {
     inputFields[i].value = "";
   }
-}
+};
+
 
 function clearDescriptionField() {
   let descriptionInput = document.getElementById("description");
   descriptionInput.value = "";
-}
+};
+
 
 function clearCategoryDropdown() {
   let categoryInput = document.getElementById("categoryInput");
   categoryInput.innerHTML = `Select Task Category`;
   category = "";
   cancelNewCategory();
-}
+};
+
 
 function clearAssignDropdown() {
     let nameCircles = document.getElementById('nameCircles');
@@ -415,8 +423,4 @@ function clearAssignDropdown() {
     for (let i = 0; i < assignChecks.length; i++) {
         assignChecks[i].style.display = "none";
     };
-
 };
-
-
-
