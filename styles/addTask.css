@@ -158,15 +158,6 @@ section div:not(:first-of-type) label {
 .dateInput::-webkit-calendar-picker-indicator:hover {
     cursor: pointer;
 }
-
-.subtaskInput img {
-    position: absolute;
-    right: 0px;
-    top: 10px;
-    padding-right: 10px;
-    cursor: pointer;
-}
-
 .prioButtons {
     display: flex;
     margin-bottom: 12px;
@@ -212,6 +203,27 @@ section div:not(:first-of-type) label {
 
 .prioActive img {
     filter: brightness(0%) invert(120%)
+}
+
+.subtaskInput > .inputContainer img {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+#subtasks {
+    margin-top: 15px;
+}
+
+.subtask {
+    display: flex;
+    width: 250px;
+}
+
+.subtask > img{
+    margin-right: 10px;
 }
 
 .submitAndClearButtons {

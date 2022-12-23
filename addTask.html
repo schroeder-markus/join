@@ -34,14 +34,15 @@
                         <!-- Title -->
                         <div>
                             <label for="title">Title</label>
-                            <input oninput="deleteAlert('titleAlert')" id="title" type="text" placeholder="Enter a title">
+                            <input oninput="deleteAlert('titleAlert')" id="title" type="text"
+                                placeholder="Enter a title">
                             <span id="titleAlert" class="requiredAlert"></span>
                         </div>
                         <!-- Description -->
                         <div>
                             <label for="description">Description</label>
-                            <textarea oninput="deleteAlert('descriptionAlert')" id="description" class="descriptionTextArea" type="text"
-                                placeholder="Enter a description"></textarea>
+                            <textarea oninput="deleteAlert('descriptionAlert')" id="description"
+                                class="descriptionTextArea" type="text" placeholder="Enter a description"></textarea>
                             <span id="descriptionAlert" class="requiredAlert"></span>
                         </div>
                         <!-- Category -->
@@ -153,8 +154,9 @@
                         <!-- Due Date -->
                         <div>
                             <label for="dateInput">Due Date</label>
-                            <div oninput="deleteAlert('dateAlert')" class="inputContainer"><input id="dueDate" class="input dateInput" type="text"
-                                    placeholder="Enter date" onfocus="(this.type='date')">
+                            <div oninput="deleteAlert('dateAlert')" class="inputContainer"><input id="dueDate"
+                                    class="input dateInput" type="text" placeholder="Enter date"
+                                    onfocus="(this.type='date')">
                             </div>
                             <span id="dateAlert" class="requiredAlert"></span>
                         </div>
@@ -183,32 +185,22 @@
                         <!-- Subtasks -->
                         <div class="subtaskInput">
                             <label for="subtaskInput">Subtasks</label>
-                            <div class="inputContainer"><input class="input"
-                                    placeholder="Add new Subtask">
-                                <img src="img/icon-add-plus-dark.svg" alt="plusIcon">
-                                <!-- confirm / cancel Buttons (display: none on default) -->
-                                <div class="confirmOrCancel">
-                                    <div onclick="cancelInput()"><img src="img/icon-x.svg" alt="cancelIcon" required>
-                                    </div>
-                                    <div onclick="confirmNewCategory()"><img src="img/icon-check-dark.svg"
-                                            alt="checkIcon">
-                                    </div>
-                                </div>
-                                <!--  -->
+                            <div class="inputContainer"><input oninput="deleteAlert('subtaskAlert')" id="subtask" class="input" placeholder="Add new Subtask">
+                                <img onclick="addSubtask()" src="img/icon-add-plus-dark.svg" alt="plusIcon">
                             </div>
-                            <!--  -->
-                        </div>
-                        <!-- submit Or Clear Buttons -->
-                        <section class="submitAndClearButtons">
-                            <button id="clearButton" onclick="clearForm()">Clear<img
-                                    src="img/icons-cancel.svg"></button>
-                            <button id="createButton" onclick="createTask()">Create Task<img
-                                    src="img/icons-check.svg"></button>
-                        </section>
+                            <div id="subtasks"></div>
+                            <span id="subtaskAlert" class="requiredAlert"></span>
+                            <!-- submit Or Clear Buttons -->
+                            <section class="submitAndClearButtons">
+                                <button id="clearButton" onclick="clearForm()">Clear<img
+                                        src="img/icons-cancel.svg"></button>
+                                <button id="createButton" onclick="createTask()">Create Task<img
+                                        src="img/icons-check.svg"></button>
+                            </section>
                     </section>
             </div>
             </form>
-            
+
         </div>
     </main>
 
