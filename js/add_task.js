@@ -422,13 +422,15 @@ function generateTaskObject(title, description, dueDate) {
     };
 };
 
-function saveTasks() {
+async function saveTasks() {
     let allTasksAsString = JSON.stringify(tasks);
-    backend.setItem('allTasks', allTasksAsString);
+    await backend.setItem('allTasks', allTasksAsString);
 };
 
-// clear formular
-
+function loadTasks() {
+    let allTasksAsString = backend.getItem('allTasks');
+    tasks = JSON.parse(allTasksAsString) || [];
+};
 
 function clearForm() {
     clearInputFields();
