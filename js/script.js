@@ -2,15 +2,7 @@
 
 setURL("https://gruppe-406.developerakademie.net/smallest_backend_ever");
 
-let tasks = [{
-  'title': 'Aufgabe 1',
-  'description': 'Beschreibung 1',
-  'category': 'sales',
-  'assigned': ["Ingo Hermsen", "Markus Schröder"],
-  'Due Date': '2022-12-31',
-  'priority': 'medium',
-  'subtasks': [],
-}];
+let tasks = [];
 
 let categoryColors = [
   "var(--label-1)",
