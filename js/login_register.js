@@ -1,4 +1,5 @@
 let users = [];
+let allUsers = [];
 checkYoN = false;
 
 /**
@@ -6,7 +7,7 @@ checkYoN = false;
  */
 async function usersFromServer() {
     await downloadFromServer();
-    users = JSON.parse(backend.getItem('allUsers')) || [];
+    allUsers = JSON.parse(backend.getItem('allUsers')) || [];
   }
 
 /**
@@ -54,7 +55,12 @@ function addUser() {
     let name = document.getElementById('submit-name');
     let email = document.getElementById('submit-email');
     let password = document.getElementById('submit-password');
-    users.push({name: name.value, email: email.value, password: password.value})
+    let user = {
+        'name': name.value,
+        'email': email.value,
+        'password': password.value
+    };
+    users.push(user);
     let allUsersAsString = JSON.stringify(users);
     backend.setItem('allUsers', allUsersAsString);
     document.getElementById('submit-success').classList.remove('d-none');
