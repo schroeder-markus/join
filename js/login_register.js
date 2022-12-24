@@ -1,15 +1,20 @@
 let users = [];
-let allUsers = [];
 checkYoN = false;
 
 /**
  * This function loads allUsers from backend and parses them to users
  */
-async function usersFromServer() {
+/*async function usersFromServer() {
     await downloadFromServer();
+    
     allUsers = JSON.parse(backend.getItem('allUsers')) || [];
+  }*/
+  async function usersFromServer() {
+    await downloadFromServer();
+    let allUsersAsString = backend.getItem('allUsers');
+    users = JSON.parse(allUsersAsString);
+    console.log('loaded all users', users)
   }
-
 /**
  * This function hides the signup-container
  */
@@ -128,4 +133,3 @@ function onPageLoad() {
         requestInit
     );
   }
-
