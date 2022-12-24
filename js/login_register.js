@@ -51,7 +51,7 @@ function moveToLogin() {
 /**
  * This function collects all values from the signup-field and stors them in the backend (allUsers)
  */
-function addUser() {
+async function addUser() {
     let name = document.getElementById('submit-name');
     let email = document.getElementById('submit-email');
     let password = document.getElementById('submit-password');
@@ -62,7 +62,7 @@ function addUser() {
     };
     users.push(user);
     let allUsersAsString = JSON.stringify(users);
-    backend.setItem('allUsers', allUsersAsString);
+    await backend.setItem('allUsers', allUsersAsString);
     document.getElementById('submit-success').classList.remove('d-none');
     backToLogIn();
   }
