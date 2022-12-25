@@ -293,9 +293,7 @@ body {
 }
 
 .new-contact-container {
-    top: 600px;
-    left: 50px;
-    position: absolute;
+    position: relative;
     width: 1212px;
     height: 594px;
     background: #FFFFFF;
@@ -478,9 +476,6 @@ body {
     stroke: var(--task-blue);
 }
 
-.new-contact-container {
-    display: none;
-}
 
 .edit-contact-container {
     display: none;
