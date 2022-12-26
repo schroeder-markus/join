@@ -406,7 +406,7 @@ function deleteAlert(alertID) {
 
 function generateTaskObject(title, description, dueDate) {
     if (formValidation) {
-        tasks.push({
+        allTasks.push({
             'title': title,
             'description': description,
             'category': category,
@@ -423,14 +423,14 @@ function generateTaskObject(title, description, dueDate) {
 };
 
 async function saveTasks() {
-    let allTasksAsString = JSON.stringify(tasks);
+    let allTasksAsString = JSON.stringify(allTasks);
     await backend.setItem('allTasks', allTasksAsString);
 };
 
 async function loadTasks() {
     await downloadFromServer();
     let allTasksAsJson = await backend.getItem('allTasks');
-    tasks = JSON.parse(allTasksAsJson) || [];
+    allTasks = JSON.parse(allTasksAsJson) || [];
 };
 
 function clearForm() {
