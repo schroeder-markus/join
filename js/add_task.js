@@ -427,9 +427,10 @@ async function saveTasks() {
     await backend.setItem('allTasks', allTasksAsString);
 };
 
-function loadTasks() {
-    let allTasksAsString = backend.getItem('allTasks');
-    tasks = JSON.parse(allTasksAsString) || [];
+async function loadTasks() {
+    await downloadFromServer();
+    let allTasksAsJson = await backend.getItem('allTasks');
+    tasks = JSON.parse(allTasksAsJson) || [];
 };
 
 function clearForm() {
