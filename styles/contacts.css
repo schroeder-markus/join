@@ -140,11 +140,11 @@ body {
 } */
 
 .scroll::-webkit-scrollbar-button:end:increment {
-    background-image: url(/img/icon-arrow-down-scroll.svg);
+    background-image: url("../img/icon-arrow-down-scroll.svg");
 }
 
 .scroll::-webkit-scrollbar-button:start:decrement {
-    background-image: url(/img/icon-arrow-up-scroll.svg)
+    background-image: url("../img/icon-arrow-up-scroll.svg")
 }
 
 .contact-container-right {
