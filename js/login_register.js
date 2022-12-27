@@ -4,20 +4,23 @@ checkYoN = false;
 /**
  * This function loads allUsers from backend and parses them to users
  */
+
 /*async function usersFromServer() {
     await downloadFromServer();
     
     allUsers = JSON.parse(backend.getItem('allUsers')) || [];
   }*/
-  async function usersFromServer() {
+
+async function usersFromServer() {
     await downloadFromServer();
     let allUsersAsString = backend.getItem('allUsers');
     users = JSON.parse(allUsersAsString);
     console.log('loaded all users', users)
-  }
+}
+
 /**
- * This function hides the signup-container
- */
+* This function hides the signup-container
+*/
 function backToLogIn() {
     document.getElementById('submit').classList.add('d-none');
     document.getElementById('login').classList.remove('d-none');
@@ -70,13 +73,13 @@ async function addUser() {
     await backend.setItem('allUsers', allUsersAsString);
     document.getElementById('submit-success').classList.remove('d-none');
     backToLogIn();
-  }
+}
 
-  function enterSummary() {
+function enterSummary() {
     window.location.href = "summary.html";
-  }
+}
 
-  function logIn() {
+function logIn() {
     let email = document.getElementById('login-email');
     let password = document.getElementById('login-password');
 
@@ -109,19 +112,20 @@ function onPageLoad() {
         checkYoN = false;
     }
     document.getElementById('remember').checked = checkYoN;
-  }
+}
 
-  async function sendEmail(event) {
+async function sendEmail(event) {
     event.preventDefault(); // prevent default form action
     let formData = new FormData(event.target) //Create a formdata based on our form element in html
     let response = await action(formData);
-    if (response.ok) 
+    if (response.ok)
         alert('Email was sent!')
-    else 
-        alert('No Email sent')
-  }
+    else
+        alert('No Email sent');
+    slideInIndex();
+}
 
-  function action(formData) {
+function action(formData) {
     const input = 'https://gruppe-406.developerakademie.net/join/send_mail.php';
     const requestInit = {
         method: 'post',
@@ -132,4 +136,22 @@ function onPageLoad() {
         input,
         requestInit
     );
-  }
+}
+
+
+function slideInIndex() {
+    let formWrapper = document.getElementById('formWrapper');
+    let grayBgIndex = document.getElementById('grayBgIndex');
+    formWrapper.innerHTML += `
+        <div class="send-email">
+            <img src="img/send_check.svg" alt="send">
+            <span>An E-Mail has been sent to you</span>
+        </div>`;
+    grayBgIndex.classList.remove('d-none');
+    setTimeout(goToResetPw, 1600);
+}
+
+function goToResetPw() {
+    window.location.href = "reset-password.html";
+}
+

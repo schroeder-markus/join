@@ -17,6 +17,7 @@ function getEmailUrlParameter() {
 function onSubmit(event) {
     event.preventDefault();
     checkPassword();
+    slideIn();
 }
 
 
@@ -37,4 +38,20 @@ function checkPassword() {
         confPassword.value = '';
     }
 
+}
+
+
+function slideIn() {
+    let resetPwContainer = document.getElementById('resetPWContainer');
+    let grayBg = document.getElementById('grayBg');
+    resetPwContainer.innerHTML += `
+    <div class="reset-pw">
+        <span>You reset your password</span>
+    </div>`;
+    grayBg.classList.remove('d-none');
+    setTimeout(goToLogin, 1600);
+}
+
+function goToLogin() {
+    window.location.href = "index.html";
 }

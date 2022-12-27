@@ -1,8 +1,71 @@
 .no-match {
-    color: var( --field-required);
+    color: var(--field-required);
     font-size: 12px;
 }
 
 .confirm-password {
     border-color: var(--field-required);
+}
+
+.reset-pw {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    margin-top: -37px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 326px;
+    height: 74px;
+    background: #2A3647;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    animation: slide-in 500ms ease-in-out;
+    z-index: 200;
+}
+
+.reset-pw span{
+    color: white;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 120%;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateY(1000%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.grayBg {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    visibility: hidden;
+    animation-name: reveal;
+    animation-delay: 400ms;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
 }

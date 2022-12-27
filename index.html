@@ -24,11 +24,12 @@
             <img src="img/join-logo.svg" alt="Join">
         </div>
         <div class="background"></div>
+        <div id="grayBgIndex" class="grayBgIndex d-none"></div>
         <div class="sign-up-box">
             <span>Not a Join user?</span>
             <button class="sign-up-btn" onclick="signUp()">Sign up</button>
         </div>
-        <div class="form-wrapper">
+        <div id="formWrapper" class="form-wrapper">
             <!-- Log in field-->
             <form onsubmit="logIn(); return false" id="login">
                 <div class="login-field">
@@ -102,6 +103,7 @@
                     <div class="log-in-btn-container">
                         <button type="submit" class="sign-up-btn">Send me the email</button>
                     </div>
+                    
                 </div>
             </form>
         </div>
