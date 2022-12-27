@@ -45,3 +45,7 @@ async function loadTasks() {
   let allTasksAsJson = backend.getItem('allTasks');
   allTasks = JSON.parse(allTasksAsJson) || [];
 };
+
+function init(){
+  loadTasks();
+}
