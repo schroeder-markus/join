@@ -38,3 +38,10 @@ function showMessage(messageID) {
   noteContainer.classList.add('showMessage');
   setTimeout(() => {noteContainer.classList.remove('showMessage')}, 3000);
 };
+
+
+async function loadTasks() {
+  await downloadFromServer();
+  let allTasksAsJson = backend.getItem('allTasks');
+  allTasks = JSON.parse(allTasksAsJson) || [];
+};

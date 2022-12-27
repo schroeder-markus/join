@@ -427,11 +427,6 @@ async function saveTasks() {
     await backend.setItem('allTasks', allTasksAsString);
 };
 
-async function loadTasks() {
-    await downloadFromServer();
-    let allTasksAsJson = await backend.getItem('allTasks');
-    allTasks = JSON.parse(allTasksAsJson) || [];
-};
 
 function clearForm() {
     clearInputFields();
