@@ -11,15 +11,15 @@
         <link rel="stylesheet" href="styles/addTask.css">
         <link rel="stylesheet" href="styles/aside.css">
         <link rel="stylesheet" href="styles/board.css">
-        <script src="js/add_task.js"></script>
         <script src="./js/script.js" defer></script>
         <script src="includes.js" defer></script>
-        <script src="js/board.js"></script>
-        <script src="js/add_task.js"></script>
+        <script src="js/add_task.js" defer></script>
+        <script src="js/board.js" defer></script>
         <title>Join - Board</title>
+        <script src="mini_backend.js"></script>
     </head>
 
-    <body onload="init(),updateTasks()">
+    <body onload="init()">
         <!-- header template -->
         <div w3-include-html="includes/header.html"></div>
         <!-- header template END -->
@@ -65,7 +65,7 @@
                                 <rect x="1" y="1" width="28" height="28" rx="9" stroke="#2A3647" stroke-width="2" />
                             </svg>
                         </div>
-                        <div id="tododiv" ondrop="moveTo('open')"
+                        <div id="tododiv" ondrop="moveTo('todo')"
                             ondragover="allowDrop(event), dragHighlight('tododiv')" ondragleave="updateTasks()"
                             class="draganddrop">
 
@@ -247,20 +247,20 @@
                     </div>
                 </div>
             </div>
-            <div class="cardinformation">
+            <!--<div class="cardinformation">
                 <div class="infomationcategory">Marketing</div>
                 <div class="informationtitle">Call Potential Clients</div>
                 <div>Make the products better bla bla</div>
                 <div class="informationdate">
-                   <span>Due Date:</span><span> 34.03.2023</span>
+                    <span>Due Date:</span><span> 34.03.2023</span>
                 </div>
                 <div>
-                    <span>Priority:</span> 
+                    <span>Priority:</span>
                     div
                 </div>
                 <div>Assigned to:</div>
 
-            </div>
+            </div>-->
 
         </main>
 
