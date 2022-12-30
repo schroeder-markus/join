@@ -149,7 +149,7 @@ section div:not(:first-of-type) label {
 }
 
 .dateInput::-webkit-calendar-picker-indicator {
-    background: url(./img/icon-date-picker.svg) no-repeat;
+    background: url("../img/icon-date-picker.svg") no-repeat;
     background-size: 20px;
     position: absolute;
     right: 5px;
