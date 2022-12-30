@@ -13,6 +13,28 @@ let showContactList = false;
 
 let formValidation = true;
 
+
+// Init functions for add Task site
+
+function initAddTask() {
+    loadTasks();
+    renderCategoryList();
+    addReturnKeyEventListener();
+};
+
+
+function addReturnKeyEventListener() {
+    let mainArea = document.getElementsByTagName('main')[0];
+    console.log(mainArea);
+    mainArea.addEventListener('keypress', e => {
+        if (e.key === 'Enter') {
+            console.log('Enter-Taste gedrückt');
+            e.preventDefault();
+            createTask();
+        };
+    })
+};
+
 // Toggle dropdown action (open / close) for the category Selection and the task assignment
 // Action Depends on the actual global boolean variable: showCategoryList / showContactList
 
@@ -425,6 +447,7 @@ function generateTaskObject(title, description, dueDate) {
     };
 };
 
+
 async function saveTasks() {
     let allTasksAsString = JSON.stringify(allTasks);
     await backend.setItem('allTasks', allTasksAsString);
@@ -441,6 +464,7 @@ function clearForm() {
     resetActivePrio();
     clearAllAlerts();
 };
+
 
 function clearInputFields() {
     let inputFields = document.getElementsByTagName("input");
@@ -480,6 +504,7 @@ function clearSubtasks() {
     subtasksElement.innerHTML = '';
     subtasks = [];
 };
+
 
 function clearAllAlerts() {
     let alertElements = document.getElementsByClassName('requiredAlert');
