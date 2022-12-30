@@ -113,10 +113,10 @@ async function sendEmail(event) {
     let formData = new FormData(event.target) //Create a formdata based on our form element in html
     let response = await action(formData);
     if (response.ok)
-        alert('Email was sent!')
+        slideInIndex();
     else
         alert('No Email sent');
-    slideInIndex();
+
 }
 
 function action(formData) {
@@ -136,13 +136,15 @@ function action(formData) {
 function slideInIndex() {
     let formWrapper = document.getElementById('formWrapper');
     let grayBgIndex = document.getElementById('grayBgIndex');
+    let sendEmailContainer = document.getElementById('send-email');
     formWrapper.innerHTML += `
-        <div class="send-email">
+        <div id="send-email" class="send-email">
             <img src="img/send_check.svg" alt="send">
             <span>An E-Mail has been sent to you</span>
         </div>`;
     grayBgIndex.classList.remove('d-none');
-    setTimeout(goToResetPw, 1600);
+    setTimeout(grayBgIndex.classList.add('d-none'), 1600);
+    setTimeout(sendEmailContainer.classList.add('d-none'), 1600);
 }
 
 function goToResetPw() {

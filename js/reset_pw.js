@@ -1,15 +1,9 @@
-let email = '';
-
-
-function onResetPageLoad() {
-    email = getEmailUrlParameter();
-}
 
 
 function getEmailUrlParameter() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const email = urlParams.get('email');
+    let queryString = window.location.search;
+    let urlParams = new URLSearchParams(queryString);
+    let email = urlParams.get('email');
     return email;
 }
 
@@ -52,6 +46,15 @@ function slideIn() {
     setTimeout(goToLogin, 1600);
 }
 
+
 function goToLogin() {
     window.location.href = "index.html";
 }
+
+
+function checkIfEmailExists() {
+    let emailsInBackend = backend;
+    console.log(emailsInBackend);
+}
+
+//let user = users.find(u => u.email == email.value && u.password == password.value);
