@@ -5,6 +5,7 @@ let assignedPersons = [];
 let date = "";
 let priority = "";
 let subtasks = [];
+let lastTaskID = 0;
 
 let selectedCategoryColor = "";
 let showCategoryList = false;
@@ -406,7 +407,9 @@ function deleteAlert(alertID) {
 
 function generateTaskObject(title, description, dueDate) {
     if (formValidation) {
+        lastTaskID++;
         allTasks.push({
+            'taskID' : lastTaskID,
             'title': title,
             'description': description,
             'category': category,
@@ -425,6 +428,7 @@ function generateTaskObject(title, description, dueDate) {
 async function saveTasks() {
     let allTasksAsString = JSON.stringify(allTasks);
     await backend.setItem('allTasks', allTasksAsString);
+    await backend.setItem('lastTaskID', lastTaskID)
 };
 
 
@@ -482,4 +486,4 @@ function clearAllAlerts() {
     for (let i = 0; i < alertElements.length; i++) {
         alertElements[i].innerHTML = '';
     };
-}
+};
