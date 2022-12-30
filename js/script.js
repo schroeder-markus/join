@@ -49,4 +49,4 @@ async function loadTasks() {
 
 function init(){
   loadTasks();
-}
+};
