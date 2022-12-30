@@ -58,7 +58,7 @@ h2 {
 }
 
 main {
-    width: calc(100%-232px);
+    width:100%;
 }
 
 .headline {
