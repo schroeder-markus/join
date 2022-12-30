@@ -38,6 +38,13 @@ let currentDraggedElement;
     }
 ];*/
 
+async function renderTasks() {
+    await downloadFromServer();
+    let allTasksAsJson = backend.getItem('allTasks');
+    allTasks = JSON.parse(allTasksAsJson) || [];
+    updateTasks();
+};
+
 
 function updateTasks() {
     let toDoDiv = document.getElementById('tododiv')
@@ -46,8 +53,8 @@ function updateTasks() {
     toDoDiv.innerHTML = '';
 
     for (let i = 0; i < open.length; i++) {
-        const element = open[i];
-        toDoDiv.innerHTML += cardHTML(element)
+        const task = open[i];
+        toDoDiv.innerHTML += cardHTML(task)
     }
 
     let inProgressDiv = document.getElementById('inprogressdiv')
@@ -98,7 +105,7 @@ function cardHTML(allTasks) {
     </div>
     <div class="cardfooter">
         <div class="userbox">
-            <div class="user" id="user">${allTasks['initials']}</div>
+            <div class="user" id="user">${allTasks['assigned'][0]['initials']}</div>
         </div>
         <svg width="32" height="33" viewBox="0 0 32 33" fill="none"
             xmlns="http://www.w3.org/2000/svg">
@@ -143,6 +150,7 @@ function allowDrop(ev) {
 function moveTo(category) {
     allTasks[currentDraggedElement]['status'] = category;
     updateTasks();
+    saveTasks();
 }
 
 
@@ -164,7 +172,7 @@ function searchTasks() {
     let awaitingFeedbackDiv = document.getElementById('awaitingfeedbackdiv');
     let inProgressDiv = document.getElementById('inprogressdiv');
     let doneDiv = document.getElementById('donediv');
-    let searchTask = allTasks.filter(t => t['title'].toLowerCase().includes(search.toLowerCase()) || t['todo'].toLowerCase().includes(search.toLowerCase()));
+    let searchTask = allTasks.filter(t => t['title'].toLowerCase().includes(search.toLowerCase()) || t['description'].toLowerCase().includes(search.toLowerCase()));
 
     doneDiv.innerHTML = '';
     inProgressDiv.innerHTML = '';
@@ -196,3 +204,9 @@ function searchTasks() {
     }
 
 }
+
+async function saveTasks() {
+    let allTasksAsString = JSON.stringify(allTasks);
+    await backend.setItem('allTasks', allTasksAsString);
+    await backend.setItem('lastTaskID', lastTaskID)
+};
