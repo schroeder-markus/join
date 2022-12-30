@@ -136,15 +136,13 @@ function action(formData) {
 function slideInIndex() {
     let formWrapper = document.getElementById('formWrapper');
     let grayBgIndex = document.getElementById('grayBgIndex');
-    let sendEmailContainer = document.getElementById('send-email');
     formWrapper.innerHTML += `
         <div id="send-email" class="send-email">
             <img src="img/send_check.svg" alt="send">
             <span>An E-Mail has been sent to you</span>
         </div>`;
     grayBgIndex.classList.remove('d-none');
-    setTimeout(grayBgIndex.classList.add('d-none'), 1600);
-    setTimeout(sendEmailContainer.classList.add('d-none'), 1600);
+    //setTimeout(grayBgIndex.classList.add('d-none'), 1600);
 }
 
 function goToResetPw() {
