@@ -1,42 +1,3 @@
-let currentDraggedElement;
-/*let tasks = [
-    {
-        'id': 0,
-        'category': 'Handson',
-        'title': 'Load Battery',
-        'todo': 'Change Button color from yellow to green',
-        'user': 'BB',
-        'priority': 'High',
-        'status': 'open',
-    },
-    {
-        'id': 1,
-        'category': 'Design',
-        'title': 'Change Button color',
-        'todo': 'Do Button color from yellow to green',
-        'user': 'BB',
-        'priority': 'High',
-        'status': 'inprogress',
-    },
-    {
-        'id': 2,
-        'category': 'marketing',
-        'title': 'SEO',
-        'todo': 'Make Button color from yellow to green',
-        'user': 'BB',
-        'priority': 'High',
-        'status': 'awaitingfeedback',
-    },
-    {
-        'id': 3,
-        'category': 'Programming',
-        'title': 'Container',
-        'todo': 'Delete Button color from yellow to green',
-        'user': 'BB',
-        'priority': 'High',
-        'status': 'done',
-    }
-];*/
 
 async function renderTasks() {
     await downloadFromServer();
@@ -97,7 +58,7 @@ function cardHTML(allTasks) {
     </div>
     <div class="cardcontent">
         <h3 id="title">${allTasks['title']}</h3>
-        <span id="todo">${allTasks['description']}</span>
+        <span class="span" id="todo">${allTasks['description']}</span>
     </div>
     <div class="progressbardiv">
         <div class="progressbar"></div>

@@ -58,7 +58,7 @@ h2 {
 }
 
 main {
-    width:100%;
+    width: calc(100%-232px);
 }
 
 .headline {
@@ -107,7 +107,7 @@ h1 {
     margin-left: 16px;
 }
 
-/*span {
+.span {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -115,7 +115,6 @@ h1 {
     line-height: 120%;
     color: #A8A8A8;
 }
-*/
 
 .progressbardiv {
     display: flex;
