@@ -97,6 +97,7 @@ input, .dropdown {
 }
 
 .addTaskForm {
+    max-width: 1000px;
     display: flex;
 }
 
@@ -116,7 +117,7 @@ label {
     margin-top: 8px;
 }
 
-form > section {
+form>section {
     width: 50%;
 }
 
@@ -160,6 +161,7 @@ section div:not(:first-of-type) label {
 .dateInput::-webkit-calendar-picker-indicator:hover {
     cursor: pointer;
 }
+
 .prioButtons {
     display: flex;
     margin-bottom: 12px;
@@ -207,7 +209,7 @@ section div:not(:first-of-type) label {
     filter: brightness(0%) invert(120%)
 }
 
-.subtaskInput > .inputContainer img {
+.subtaskInput>.inputContainer img {
     position: absolute;
     right: 0px;
     top: 10px;
@@ -226,7 +228,7 @@ section div:not(:first-of-type) label {
     margin-bottom: 5px;
 }
 
-.subtask > img{
+.subtask>img {
     margin-right: 10px;
 }
 
@@ -383,17 +385,19 @@ section div:not(:first-of-type) label {
     display: none;
 }
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1340px) {
     form {
         flex-direction: column;
+        width: 80%;
     }
 
-    form > section {
-        width: 75%;
+    form>section {
+        width: unset;
+        max-width: 80%;
         border: unset !important;
     }
 
-    form > section, section > div {
+    form>section, section>div {
         padding: 0px !important;
     }
 
@@ -401,4 +405,24 @@ section div:not(:first-of-type) label {
         height: unset;
         min-height: 60px;
     }
+}
+
+@media only screen and (max-width: 750px) {
+    h1 {
+        margin: 82px 0 40px 0;
+    }
+
+    form {
+        align-items: center;
+    }
+
+    #addTaskFormContainer {
+        width: 90%;
+    }
+
+    form>section {
+        width: 100%;
+        max-width: unset;
+    }
+
 }
