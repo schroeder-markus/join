@@ -95,8 +95,10 @@ function startDragging(id) {
 }
 
 function dragHighlight(id) {
+    let currentDraggedStatus = allTasks[currentDraggedElement]['status']
     allTasks[currentDraggedElement]['status'] = 0;
     updateTasks();
+    allTasks[currentDraggedElement]['status'] = currentDraggedStatus;
     if (!document.getElementById(id).innerHTML.includes(`<div id="highlight${id}" class="highlight"></div>`)) {
         document.getElementById(id).innerHTML += `<div id="highlight${id}" class="highlight"></div>`;
     }
