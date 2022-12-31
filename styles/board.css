@@ -104,7 +104,7 @@ h3 {
 }
 
 h1 {
-    margin-left: 16px;
+    margin-left: 0;
 }
 
 .span {
@@ -233,6 +233,11 @@ h1 {
 .slidediv {
     border-radius: 30px;
     background-color: white;
+        padding: 0 80px;
+}
+
+.slidediv h1{
+        margin-left: 100px;
 }
 
 .showslide {
@@ -347,6 +352,18 @@ button span {
     font-weight: 700;
     font-size: 61px;
     line-height: 120%;
+}
+
+.sales{
+    background-color: #0090E0;
+}
+
+.backoffice{
+    background-color: #03CF40;
+}
+
+.accounting{
+    background-color: #EE01D6;
 }
 
 

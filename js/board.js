@@ -54,7 +54,7 @@ function updateTasks() {
 function cardHTML(allTasks) {
     return ` <div draggable="true" ondragstart="startDragging(${allTasks['taskID']})" class="card">
     <div class="title">
-        <div class="headline" id="category">${allTasks['category']}</div>
+        <div class="headline ${allTasks['category']}" id="category">${allTasks['category']}</div>
     </div>
     <div class="cardcontent">
         <h3 id="title">${allTasks['title']}</h3>
