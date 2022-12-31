@@ -1,44 +1,44 @@
-let contactData = [
-  {
-    name: "Daniela Faber",
-    mail: "DanielaFaber@einrot.com",
-    phone: 0911719268,
-    initials: "DF",
-    color: "#6666ff"
-  },
-  {
-    name: "Sabrina Trommler",
-    mail: "SabrinaTrommler@cuvox.de",
-    phone: 08841281030,
-    initials: "ST",
-    color: "#009900"
-  },
-  {
-    name: "Sandra Reiter",
-    mail: "SabrinaTrommler@cuvox.de",
-    phone: 08841281030,
-    initials: "SR",
-    color: "#cc6600"
-  },
-  {
-    name: "Mario Moeller",
-    mail: "MarioMoeller@cuvox.de",
-    phone: 06541620484,
-    initials: "MM",
-    color: "#cc00cc"
-  },
+let allContacts = [
+  // {
+  //   name: "Daniela Faber",
+  //   mail: "DanielaFaber@einrot.com",
+  //   phone: 0911719268,
+  //   initials: "DF",
+  //   color: "#6666ff"
+  // },
+  // {
+  //   name: "Sabrina Trommler",
+  //   mail: "SabrinaTrommler@cuvox.de",
+  //   phone: 08841281030,
+  //   initials: "ST",
+  //   color: "#009900"
+  // },
+  // {
+  //   name: "Sandra Reiter",
+  //   mail: "SabrinaTrommler@cuvox.de",
+  //   phone: 08841281030,
+  //   initials: "SR",
+  //   color: "#cc6600"
+  // },
+  // {
+  //   name: "Mario Moeller",
+  //   mail: "MarioMoeller@cuvox.de",
+  //   phone: 06541620484,
+  //   initials: "MM",
+  //   color: "#cc00cc"
+  // },
 ];
 
 function editContact(contactID) {
   document.querySelector(".edit-contact-container").style.display = "flex";
-  document.querySelector("#submit-name").value = contactData[contactID].name;
-  document.querySelector("#submit-email").value = contactData[contactID].mail;
-  document.querySelector("#submit-phone").value = contactData[contactID].phone;
-  document.querySelector("#submit-color").value = contactData[contactID].color;
+  document.querySelector("#submit-name").value = allContacts[contactID].name;
+  document.querySelector("#submit-email").value = allContacts[contactID].mail;
+  document.querySelector("#submit-phone").value = allContacts[contactID].phone;
+  document.querySelector("#submit-color").value = allContacts[contactID].color;
   document.querySelector(
     "#name-circle-letter-edit"
-  ).innerHTML = `${contactData[contactID].initials}`;
-  document.querySelector(".name-circle-large-edit").style.backgroundColor = `${contactData[contactID].color}`;
+  ).innerHTML = `${allContacts[contactID].initials}`;
+  document.querySelector(".name-circle-large-edit").style.backgroundColor = `${allContacts[contactID].color}`;
   let saveBtn = document.querySelector(".save-btn");
   let saveBtnClicked = false;
   saveBtn.addEventListener("click", () => {
@@ -51,15 +51,16 @@ function editContact(contactID) {
 }
 
 function saveContactChange(contactID) {
-  contactData[contactID].name = document.querySelector("#submit-name").value;
-  contactData[contactID].mail = document.querySelector("#submit-email").value;
-  contactData[contactID].phone = document.querySelector("#submit-phone").value;
-  contactData[contactID].color = document.querySelector("#submit-color").value;
-  contactData[contactID].initials = document
+  allContacts[contactID].name = document.querySelector("#submit-name").value;
+  allContacts[contactID].mail = document.querySelector("#submit-email").value;
+  allContacts[contactID].phone = document.querySelector("#submit-phone").value;
+  allContacts[contactID].color = document.querySelector("#submit-color").value;
+  allContacts[contactID].initials = document
     .querySelector("#submit-name")
     .value.split(" ")
     .map((n) => n[0])
     .join("");
+  saveAllContacts()  
   createContactList();
   showContactData(contactID);
   closeEditContact();
@@ -96,7 +97,8 @@ function addNewContact() {
       .join(""),
   };
 
-  contactData.push(newContactData);
+  allContacts.push(newContactData);
+  saveAllContacts()
   document.querySelector("#newContactSubmitName").value = "";
   document.querySelector("#newContactSubmitEmail").value = "";
   document.querySelector("#newContactSubmitPhone").value = "";
@@ -107,13 +109,37 @@ function addNewContact() {
 
 }
 
+// function saveAllContacts() {
+//     let allContactsAsString = JSON.stringify(allContacts) //JSON for all Contacts
+//     localStorage.setItem("allContacts", allContactsAsString)
+// }
+
+// function loadAllContacts() {
+//   let allContactsAsString = localStorage.getItem("allContacts");
+//   allContacts = JSON.parse(allContactsAsString);
+//   console.log(allContactsAsString)
+// }
+
+async function saveAllContacts() {
+  let allContactsAsString = JSON.stringify(allContacts);
+  await backend.setItem('allContacts', allContactsAsString);
+};
+
+async function loadAllContacts() {
+    await downloadFromServer();
+    let allContactsAsJson = backend.getItem('allContacts');
+    allContacts = JSON.parse(allContactsAsJson) || [];
+    createContactList();
+};
+
 function createContactList() {
+  // loadAllContacts()
   document.querySelector(".contacts-list").innerHTML = ``;
   let initials = new Set();
 
   // Erstelle ein Set von Initialen aus den Namen der Kontakte
-  for (let i = 0; i < contactData.length; i++) {
-    initials.add(contactData[i]["name"][0].toUpperCase());
+  for (let i = 0; i < allContacts.length; i++) {
+    initials.add(allContacts[i]["name"][0].toUpperCase());
   }
 
   // Wandle das Set in ein Array um und sortiere es
@@ -128,19 +154,19 @@ function createContactList() {
                 </div>
                 <div class="divider"></div>
               </div>`;
-    for (let i = 0; i < contactData.length; i++) {
-      if (contactData[i]["name"][0].toUpperCase() === initial) {
+    for (let i = 0; i < allContacts.length; i++) {
+      if (allContacts[i]["name"][0].toUpperCase() === initial) {
         document.querySelector(".contacts-list").innerHTML += `
         <div class="contact-names contact-names-hov" onclick="showContactData(${i}), selectContainer(this)">
-        <div class="name-circle" style="background-color: ${contactData[i]["color"]};">
-          <span class="name-circle-letter">${contactData[i]["name"]
+        <div class="name-circle" style="background-color: ${allContacts[i]["color"]};">
+          <span class="name-circle-letter">${allContacts[i]["name"]
             .split(" ")
             .map((n) => n[0])
             .join("")}</span>
         </div>
         <div class="name-fullname">
-          <span class="name-contact-name">${contactData[i]["name"]}</span>
-          <span class="name-contact-mail">${contactData[i]["mail"]}</span>
+          <span class="name-contact-name">${allContacts[i]["name"]}</span>
+          <span class="name-contact-mail">${allContacts[i]["mail"]}</span>
         </div>
       </div>  
         `;
@@ -152,11 +178,11 @@ function createContactList() {
 function showContactData(contactID) {
   document.querySelector(".contact-detail-container").innerHTML = `
     <div class="contact-detail-name">
-    <div class="name-circle-large" style="background-color: ${contactData[contactID]["color"]};">
-      <span class="name-circle-letter-large">${contactData[contactID].initials}</span>
+    <div class="name-circle-large" style="background-color: ${allContacts[contactID]["color"]};">
+      <span class="name-circle-letter-large">${allContacts[contactID].initials}</span>
     </div>
     <div class="contact-detail-fullname">
-      <span class="contact-detail-contactname">${contactData[contactID].name}</span>
+      <span class="contact-detail-contactname">${allContacts[contactID].name}</span>
       <span class="contact-detail-addtask"><img src="img/icon-plus-addtask.svg" alt=""><span>Add Task </span>
   </div>
 </div>
@@ -170,11 +196,11 @@ function showContactData(contactID) {
   </div>
   <div class="contact-details">
     <span class="contact-bold">E-Mail</span>
-    <span class="contact-detail-data-mail">${contactData[contactID].mail}</span>
+    <span class="contact-detail-data-mail">${allContacts[contactID].mail}</span>
   </div>
   <div class="contact-details">
     <span class="contact-bold">Phone</span>
-    <span class="contact-detail-data-phone">${contactData[contactID].phone}</span>
+    <span class="contact-detail-data-phone">${allContacts[contactID].phone}</span>
   </div>
 </div>
     `;
