@@ -513,3 +513,84 @@ main{
 }
 
 
+
+
+
+/* Style for Mobiel */
+
+@media screen and (max-width: 1280px) {
+    .contact-container-left {
+        min-width: 380px;
+    }
+
+    .contact-headline-container {
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+
+    .contact-detail-container {
+        margin-left: 10px;
+        margin-top: 20px;
+
+    }
+}
+
+@media screen and (max-width: 1130px) {
+    .contact-headline-container {
+        flex-direction: column;
+        height: unset;
+    }
+
+    .pipe {
+        display: none;
+    }
+
+    .contact-detail-name {
+        flex-direction: column;
+        height: unset;
+    }
+    .contact-detail-fullname {
+        margin-left: unset;
+    }
+    .contact-detail-contactname {
+        text-align: center;
+        max-width: 300px;
+        
+
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .contact-container-left {
+        min-width: 300px;
+    }
+
+    .contacts-list {
+        width: 280px;
+    }
+
+    .contact-letter {
+        width: 225px;
+    }
+    
+    .contact-information {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-around;
+    }
+    .add-new-contact {
+        position: absolute;
+        right: 200px;
+        bottom: 70px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .contact-headline-container {
+        width: 280px;
+    }
+    .contact-detail-name {
+        width: 280px;
+    }
+}

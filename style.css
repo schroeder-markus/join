@@ -62,6 +62,7 @@ header {
     background-color: var(--main-white);
     box-shadow: var(--main-shadow);
     position: absolute;
+    position: fixed;
     z-index: 9;
 }
 
