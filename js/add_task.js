@@ -366,7 +366,6 @@ function createTask() {
     checkDueDate(dueDate.value);
     checkPriority();
     generateTaskObject(titleInput.value, descriptionInput.value, dueDate.value);
-
 };
 
 

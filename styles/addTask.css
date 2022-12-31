@@ -370,7 +370,7 @@ section div:not(:first-of-type) label {
 }
 
 #nameCircles span {
-    margin: 0px;
+    margin: 0px 0px 24px 0px;
 }
 
 
@@ -403,13 +403,13 @@ section div:not(:first-of-type) label {
 
     #subtasks {
         height: unset;
-        min-height: 60px;
+        min-height: 30px;
     }
 }
 
 @media only screen and (max-width: 750px) {
     h1 {
-        margin: 82px 0 40px 0;
+        margin: 70px 0 40px 0px;
     }
 
     form {
@@ -417,7 +417,9 @@ section div:not(:first-of-type) label {
     }
 
     #addTaskFormContainer {
+        overflow-y: auto;
         width: 90%;
+        margin-bottom: 30px;
     }
 
     form>section {
@@ -425,4 +427,10 @@ section div:not(:first-of-type) label {
         max-width: unset;
     }
 
+}
+
+@media only screen and (max-width: 550px) {
+    form {
+
+    }
 }
