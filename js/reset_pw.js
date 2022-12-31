@@ -1,4 +1,5 @@
-
+let newPassword;
+let mailToFind = getEmailUrlParameter();
 
 function getEmailUrlParameter() {
     let queryString = window.location.search;
@@ -11,7 +12,6 @@ function getEmailUrlParameter() {
 function onSubmit(event) {
     event.preventDefault();
     checkPassword();
-    slideIn();
 }
 
 
@@ -24,6 +24,9 @@ function checkPassword() {
         console.log('cool pw confirmed');
         noMatchSpan.classList.add('d-none');
         confPassword.classList.remove('confirm-password');
+        newPassword = resetPassword.value;
+        setPW();
+        slideIn();
         resetPassword.value = '';
         confPassword.value = '';
     } else {
@@ -57,4 +60,9 @@ function checkIfEmailExists() {
     console.log(emailsInBackend);
 }
 
-//let user = users.find(u => u.email == email.value && u.password == password.value);
+async function setPW() {
+    let index = users.findIndex(user => user.email === mailToFind);
+    users[index].password = newPassword;
+    let allUsersAsString = JSON.stringify(users);
+    await backend.setItem('allUsers', allUsersAsString);
+}
