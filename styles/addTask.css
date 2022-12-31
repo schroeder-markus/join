@@ -16,7 +16,7 @@ main {
 /* Form */
 
 input, .dropdown, .descriptionTextArea {
-    width: 422px;
+    width: 100%;
     padding-left: 21px;
     border-style: none;
     border: 1px solid #D1D1D1;
@@ -94,8 +94,6 @@ input, .dropdown {
 
 #addTaskFormContainer {
     margin-left: 100px;
-    margin-right: 100px;
-
 }
 
 .addTaskForm {
@@ -116,6 +114,10 @@ label {
     line-height: 120%;
     height: 12px;
     margin-top: 8px;
+}
+
+form > section {
+    width: 50%;
 }
 
 section>div {
@@ -173,7 +175,7 @@ section div:not(:first-of-type) label {
     background-color: var(--main-white);
     border-radius: 10px;
     height: 51px;
-    width: 130px;
+    width: 175px;
     padding: 0px 0px 0px 0px;
 }
 
@@ -229,6 +231,7 @@ section div:not(:first-of-type) label {
 }
 
 .submitAndClearButtons {
+    margin-top: 24px;
     display: flex;
     justify-content: flex-end;
 }
@@ -380,3 +383,22 @@ section div:not(:first-of-type) label {
     display: none;
 }
 
+@media only screen and (max-width: 1250px) {
+    form {
+        flex-direction: column;
+    }
+
+    form > section {
+        width: 75%;
+        border: unset !important;
+    }
+
+    form > section, section > div {
+        padding: 0px !important;
+    }
+
+    #subtasks {
+        height: unset;
+        min-height: 60px;
+    }
+}

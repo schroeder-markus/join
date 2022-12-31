@@ -407,7 +407,7 @@ function checkDueDate(dueDateValue) {
 
     if (dueDateValue.length == 0 || dueDate <= today) {
         formValidation = false;
-        alert.innerHTML = "You need set a future date";
+        alert.innerHTML = "You need to set a future date";
     };
 };
 

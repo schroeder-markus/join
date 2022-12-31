@@ -2,6 +2,10 @@ body {
     position: relative;
 }
 
+main{
+    width: 100%;
+}
+
 .main-container {
     margin-left: 0;
     margin-top: 0;
@@ -485,6 +489,27 @@ body {
     background-color: var(--main-dark);
     border-radius: 10px;
     color: var(--main-white);
+}
+
+.addtaskslide {
+    position: absolute;
+    z-index: 99;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    overflow-x: hidden;
+    transition: 225ms all ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(246, 247, 248, 0.5);
+    width: calc(100vw - 232px);
+}
+
+.closeslide {
+    transform: translateX(8000px);
 }
 
 
