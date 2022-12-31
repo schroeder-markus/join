@@ -2,6 +2,10 @@ main {
     padding-left: 123px;
 }
 
+a{
+    text-decoration: none;
+}
+
 .headline {
     display: flex;
     align-items: center;
