@@ -15,7 +15,7 @@
     <script src="includes.js" defer></script>
     <script src="mini_backend.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/add_task.js" ></script>
+    <script src="js/add_task.js"></script>
     <script src="js/contacts.js" defer></script>
 
 </head>
@@ -32,8 +32,9 @@
         <div id="taskAdded" class="messageContainer"><img src="img/message-task-added.svg" alt="successMessage"></div>
         <h1>Add Task</h1>
         <div id="addTaskFormContainer">
-            <div class="inputFields">
-                <form onsubmit="return false" class="addTaskForm">
+
+            <form onsubmit="return false" class="addTaskForm">
+                <div class="inputFields">
                     <section class="leftArea">
                         <!-- Title -->
                         <div>
@@ -196,17 +197,17 @@
                             <span id="subtaskAlert" class="requiredAlert"></span>
                             <div id="subtasks"></div>
                             <!-- submit Or Clear Buttons -->
-                            <section class="submitAndClearButtons">
-                                <button id="clearButton" onclick="clearForm()">Clear<img
-                                        src="img/icons-cancel.svg"></button>
-                                <button id="createButton" onclick="createTask()">Create Task<img
-                                        src="img/icons-check.svg"></button>
-                            </section>
+
                     </section>
-            </div>
+
+                </div>
+                <section class="submitAndClearButtons">
+                    <button id="clearButton" onclick="clearForm()">Clear<img src="img/icons-cancel.svg"></button>
+                    <button id="createButton" onclick="createTask()">Create Task<img src="img/icons-check.svg"></button>
+                </section>
             </form>
 
-        </div>
+
     </main>
 
 

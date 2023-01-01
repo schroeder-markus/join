@@ -67,7 +67,8 @@ function generateAvatar(currentUserName) {
   `
 }
 
-function init(){
+async function init(){
+  await includeHTML();
   loadTasks();
   updateTasks();
   loadCurrentUser();

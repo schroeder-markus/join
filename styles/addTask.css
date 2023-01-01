@@ -2,6 +2,7 @@
 
 main {
     width: unset;
+    margin-left: 40px;
 }
 
 
@@ -83,15 +84,16 @@ input, .dropdown {
     border-bottom: 1px solid #D1D1D1;
 }
 
-
-
-#addTaskFormContainer {
-    margin-left: 100px;
-}
-
 .addTaskForm {
     max-width: 1000px;
+}
+
+.inputFields {
     display: flex;
+}
+
+.inputFields > section {
+    width: 50%;
 }
 
 label {
@@ -108,10 +110,6 @@ label {
     line-height: 120%;
     height: 12px;
     margin-top: 8px;
-}
-
-form>section {
-    width: 50%;
 }
 
 section>div {
@@ -376,50 +374,4 @@ section div:not(:first-of-type) label {
 
 .subtaskInput .confirmOrCancel {
     display: none;
-}
-
-@media only screen and (max-width: 1340px) {
-    form {
-        flex-direction: column;
-        width: 80%;
-    }
-
-    form>section {
-        width: unset;
-        max-width: 80%;
-        border: unset !important;
-    }
-
-    form>section, section>div {
-        padding: 0px !important;
-    }
-
-    #subtasks {
-        height: unset;
-        min-height: 30px;
-    }
-}
-
-@media only screen and (max-width: 750px) {
-
-    form {
-        align-items: center;
-    }
-
-    #addTaskFormContainer {
-        width: 90%;
-        margin-bottom: 30px;
-    }
-
-    form>section {
-        width: 100%;
-        max-width: unset;
-    }
-
-}
-
-@media only screen and (max-width: 550px) {
-    form {
-
-    }
 }
