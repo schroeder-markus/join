@@ -29,7 +29,8 @@ let categories = [
 ];
 
 function logOutClickAvatar() {
-  document.querySelector(".logout-btn").classList.toggle("toggle-logout-btn")
+  document.querySelector(".logout-btn").classList.toggle("toggle-logout-btn");
+  localStorage.clear();
 };
 
 
@@ -58,7 +59,6 @@ async function loadCurrentUser(){
 
 function generateAvatar(currentUserName) {
   let initials = currentUserName.split(" ").map((n) => n[0]).join("");
-  console.log(initials)
   document.querySelector(".user-avatar-header").style.display = "none";
   document.querySelector(".header-nav-user-container").innerHTML = `
   <div class="name-circle-header">
@@ -70,6 +70,7 @@ function generateAvatar(currentUserName) {
 function init(){
   loadTasks();
   updateTasks();
+  loadCurrentUser();
 };
 
 
