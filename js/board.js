@@ -1,4 +1,3 @@
-
 async function renderTasks() {
     await downloadFromServer();
     let allTasksAsJson = backend.getItem('allTasks');
@@ -47,7 +46,6 @@ function updateTasks() {
         const task = done[i];
         doneDiv.innerHTML += cardHTML(task)
     }
-
 }
 
 
@@ -90,9 +88,47 @@ function cardHTML(allTasks) {
 }
 
 
+function renderCardInformation(){
+
+}
+
+
+function cardInformationHTML() {
+    return `<div class="cardinformation">
+                <svg class="closebutton" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.9614 7.65381L7.65367 22.9616" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                    <path d="M22.8169 23.106L7.50914 7.7982" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                </svg>
+
+                <svg class="editbutton" width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="57" height="57" rx="10" fill="#2A3647" />
+                    <path
+                        d="M20.9449 35.5155L25.7643 38.4404L38.4074 17.6083C38.694 17.1362 38.5435 16.5211 38.0714 16.2346L34.9618 14.3474C34.4897 14.0608 33.8746 14.2113 33.5881 14.6834L20.9449 35.5155Z"
+                        fill="white" />
+                    <path d="M20.3599 36.4792L25.1792 39.4041L20.4506 41.6889L20.3599 36.4792Z" fill="white" />
+                </svg>
+
+
+                <div class="infomationcategory">Marketing</div>
+                <div class="informationtitle">Call Potential Clients</div>
+                <div>Make the products better bla bla</div>
+                <div class="informationdate">
+                    <span class="cardinformationspan">Due Date:</span><span> 34.03.2023</span>
+                </div>
+                <div>
+                    <span class="cardinformationspan">Priority:</span>
+                </div>
+                <div>
+                    <span class="cardinformationspan"> Assigned to:</span>
+                </div>
+            </div>`
+}
+
+
 function startDragging(id) {
     currentDraggedElement = id;
 }
+
 
 function dragHighlight(id) {
     let currentDraggedStatus = allTasks[currentDraggedElement]['status']
@@ -127,6 +163,7 @@ function closeSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.add('closeslide')
 }
+
 
 function searchTasks() {
     let search = document.getElementById('searchtask');
@@ -167,6 +204,7 @@ function searchTasks() {
     }
 
 }
+
 
 async function saveTasks() {
     let allTasksAsString = JSON.stringify(allTasks);

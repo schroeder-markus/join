@@ -233,11 +233,11 @@ h1 {
 .slidediv {
     border-radius: 30px;
     background-color: white;
-        padding: 0 80px;
+    padding: 0 80px;
 }
 
-.slidediv h1{
-        margin-left: 100px;
+.slidediv h1 {
+    margin-left: 100px;
 }
 
 .showslide {
@@ -329,12 +329,22 @@ button span {
     gap: 25px;
     position: relative;
     width: 623px;
-    height: 824px;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
 }
 
+.closebutton {
+    position: absolute;
+    top: 34px;
+    right: 50px;
+}
+
+.editbutton {
+    position: absolute;
+    bottom: 34px;
+    right: 50px;
+}
 
 .infomationcategory {
     display: flex;
@@ -342,10 +352,11 @@ button span {
     align-items: center;
     padding: 4px 36.5px;
     gap: 10px;
-    width: 142px;
     height: 40px;
     background: #FC71FF;
     border-radius: 8px;
+    color: white;
+    font-size: 27px;
 }
 
 .informationtitle {
@@ -354,15 +365,25 @@ button span {
     line-height: 120%;
 }
 
-.sales{
+.infomationdescription {
+    font-size: 21px;
+    color: black;
+}
+
+.cardinformationspan {
+    font-weight: 700;
+    font-size: 21px;
+}
+
+.sales {
     background-color: #0090E0;
 }
 
-.backoffice{
+.backoffice {
     background-color: #03CF40;
 }
 
-.accounting{
+.accounting {
     background-color: #EE01D6;
 }
 
