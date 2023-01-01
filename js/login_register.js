@@ -1,6 +1,5 @@
 let users = [];
 checkYoN = false;
-let currentUser = [];
 
 
 /**
@@ -101,8 +100,9 @@ function getActualUser() {
     let email = document.getElementById('login-email');
     let actualUser = email.value;
     let index = users.findIndex(user => user.email === actualUser);
-    currentUser = users[index];
-    localStorage.setItem(currentUser);
+    let user = users[index];
+    let currentUserAsString = JSON.stringify(user);
+    localStorage.setItem('currentUser', currentUserAsString);
 }
 
 
@@ -118,6 +118,7 @@ function onPageLoad() {
     }
     document.getElementById('remember').checked = checkYoN;
 }
+
 
 async function sendEmail(event) {
     event.preventDefault(); // prevent default form action
