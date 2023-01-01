@@ -33,33 +33,46 @@ function sortCards(){
 }
 
 
-function updateTasks() { 
-    sortCards();
-    clearCards();
-
-
+function updateOpen(){
     for (let i = 0; i < open.length; i++) {
         const task = open[i];
         toDoDiv.innerHTML += cardHTML(task)
     }
-    
+}
 
+
+function updateInProgress(){
     for (let i = 0; i < inProgress.length; i++) {
         const task = inProgress[i];
         inProgressDiv.innerHTML += cardHTML(task)
     }
+}
 
-    
+
+function updateAwaitingFeedback(){
     for (let i = 0; i < awaitingFeedback.length; i++) {
         const task = awaitingFeedback[i];
         awaitingFeedbackDiv.innerHTML += cardHTML(task)
     }
+}
 
-    
+
+function updateDone(){
     for (let i = 0; i < done.length; i++) {
         const task = done[i];
         doneDiv.innerHTML += cardHTML(task)
     }
+}
+
+
+function updateTasks() { 
+    sortCards();
+    clearCards();
+    updateOpen();
+    updateInProgress();
+    updateAwaitingFeedback();
+    updateDone();
+
 }
 
 
@@ -176,13 +189,13 @@ function moveTo(category) {
 
 function openSlide() {
     let taskSlide = document.getElementById('taskslide');
-    taskSlide.classList.remove('closeslide')
+    taskSlide.classList.remove('closeslide');
 }
 
 
 function closeSlide() {
     let taskSlide = document.getElementById('taskslide');
-    taskSlide.classList.add('closeslide')
+    taskSlide.classList.add('closeslide');
 }
 
 
@@ -216,7 +229,6 @@ function searchTasks() {
         const task = done[i];
         doneDiv.innerHTML += cardHTML(task)
     }
-
 }
 
 
