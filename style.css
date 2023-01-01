@@ -108,6 +108,23 @@ input {
     object-fit: cover;
 }
 
+.name-circle-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    margin-left: 25px;
+    /* margin-right: 25px; */
+    background-color: var(--main-dark);
+    border: 3px solid var(--main-blue);
+}
+
+.name-circle-header {
+    color: var(--main-white);
+}
+
 .logout-btn {
     display: flex;
     justify-content: center;

@@ -52,14 +52,24 @@ async function loadCurrentUser(){
   if (currentUser) {
     let currentUserName = currentUser.name
     console.log(currentUserName)
+    generateAvatar(currentUserName)
   }
 }
 
-function generateAvatar() {
-  
+function generateAvatar(currentUserName) {
+  let initials = currentUserName.split(" ").map((n) => n[0]).join("");
+  console.log(initials)
+  document.querySelector(".user-avatar-header").style.display = "none";
+  document.querySelector(".header-nav-user-container").innerHTML = `
+  <div class="name-circle-header">
+      <span class="name-circle-header-span">${initials}</span>
+    </div>
+  `
 }
 
 function init(){
   loadTasks();
   updateTasks();
 };
+
+
