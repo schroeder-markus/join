@@ -82,7 +82,6 @@ function greetUser(currentUserName) {
 }
 
 async function init(){
-  await downloadFromServer();
   await includeHTML();
   loadTasks();
   updateTasks();
