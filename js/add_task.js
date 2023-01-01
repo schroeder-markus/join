@@ -20,6 +20,7 @@ function initAddTask() {
     loadTasks();
     renderCategoryList();
     addReturnKeyEventListener();
+    loadCurrentUser();
 };
 
 

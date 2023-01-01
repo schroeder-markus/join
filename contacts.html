@@ -11,16 +11,16 @@
     <link rel="stylesheet" href="styles/aside.css" />
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/contacts.css" />
-
-
-    <title>Join</title>
     <script src="js/script.js" defer></script>
     <script src="js/board.js"></script>
     <script src="./mini_backend.js"></script>
     <script src="./js/contacts.js" defer></script>
+
+    <title>Join</title>
+
   </head>
 
-  <body onload="init(), createContactList(), loadAllContacts()">
+  <body onload="init(),createContactList(), loadAllContacts(),loadCurrentUser()">
     <div class="test">
       <!-- header template -->
       <div w3-include-html="includes/header.html"></div>

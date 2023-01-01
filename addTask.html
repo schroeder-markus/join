@@ -12,15 +12,15 @@
     <link rel="stylesheet" href="styles/aside.css">
     <link rel="stylesheet" href="styles/contacts.css">
     <title>Join - Add Task</title>
+    <script src="./js/script.js" defer></script>
     <script src="includes.js" defer></script>
     <script src="mini_backend.js"></script>
-    <script src="js/script.js"></script>
     <script src="js/add_task.js"></script>
     <script src="js/contacts.js" defer></script>
 
 </head>
 
-<body onload="init(), initAddTask()">
+<body onload="init(), initAddTask(),loadCurrentUser()">
     <!-- header template -->
     <div w3-include-html="includes/header.html"></div>
     <!-- header template END -->

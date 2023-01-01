@@ -49,6 +49,7 @@ async function loadTasks() {
 };
 
 async function loadCurrentUser(){
+  await downloadFromServer();
   const currentUserJson = localStorage.getItem("currentUser");
   const currentUser = await JSON.parse(currentUserJson);
   if (currentUser) {
@@ -81,10 +82,11 @@ function greetUser(currentUserName) {
 }
 
 async function init(){
+  await downloadFromServer();
   await includeHTML();
   loadTasks();
   updateTasks();
-  loadCurrentUser();
+  await loadCurrentUser();
 };
 
 

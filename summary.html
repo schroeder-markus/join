@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="styles/aside.css" />
     <link rel="stylesheet" href="styles/summary.css" />
-    <script src="./js/script.js" defer></script>
+    <script src="js/script.js" defer></script>
     <script src="includes.js" defer></script>
     <script src="js/summary.js" defer></script>
     <title>Join</title>
     <script src="./mini_backend.js"></script>
   </head>
 
-  <body onload="init()">
+  <body onload="init(),loadCurrentUser()">
     <!-- header template -->
     <div w3-include-html="includes/header.html"></div>
     <!-- header template END -->
