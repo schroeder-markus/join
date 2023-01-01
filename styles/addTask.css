@@ -417,7 +417,6 @@ section div:not(:first-of-type) label {
     }
 
     #addTaskFormContainer {
-        overflow-y: auto;
         width: 90%;
         margin-bottom: 30px;
     }
