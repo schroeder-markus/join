@@ -25,10 +25,8 @@ function initAddTask() {
 
 function addReturnKeyEventListener() {
     let mainArea = document.getElementsByTagName('main')[0];
-    console.log(mainArea);
     mainArea.addEventListener('keypress', e => {
         if (e.key === 'Enter') {
-            console.log('Enter-Taste gedrückt');
             e.preventDefault();
             createTask();
         };
