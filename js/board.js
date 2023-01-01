@@ -6,6 +6,7 @@ let open;
 let inProgress;
 let awaitingFeedback;
 let done;
+let searchTask;
 
 
 async function renderTasks() {
@@ -62,14 +63,15 @@ function updateTasks() {
 }
 
 
-function cardHTML(allTasks) {
-    return ` <div draggable="true" onclick="renderCardInformation()" ondragstart="startDragging(${allTasks['taskID']})" class="card">
+function cardHTML(task){
+    let position = allTasks.map(object => object.taskID).indexOf(task['taskID']);
+    return ` <div draggable="true" onclick="renderCardInformation(${position})" ondragstart="startDragging(${task['taskID']})" class="card">
     <div class="title">
-        <div class="headline ${allTasks['category']}" id="category">${allTasks['category']}</div>
+        <div class="headline ${task['category']}">${task['category']}</div>
     </div>
     <div class="cardcontent">
-        <h3 id="title">${allTasks['title']}</h3>
-        <span class="span" id="todo">${allTasks['description']}</span>
+        <h3 id="title">${task['title']}</h3>
+        <span class="span" id="todo">${task['description']}</span>
     </div>
     <div class="progressbardiv">
         <div class="progressbar"></div>
@@ -77,7 +79,7 @@ function cardHTML(allTasks) {
     </div>
     <div class="cardfooter">
         <div class="userbox">
-            <div class="user" id="user">${allTasks['assigned'][0]['initials']}</div>
+            <div class="user" id="user">${task['assigned'][0]['initials']}</div>
         </div>
         <svg width="32" height="33" viewBox="0 0 32 33" fill="none"
             xmlns="http://www.w3.org/2000/svg">
@@ -101,38 +103,44 @@ function cardHTML(allTasks) {
 }
 
 
-function renderCardInformation() {
+function renderCardInformation(position) {
+    document.getElementById('board').innerHTML += cardInformationHTML(position);
+}
 
+function closeCardInformation(position){
+    document.getElementById(`cardinformation${position}`).remove();
 }
 
 
-function cardInformationHTML() {
-    return `<div class="cardinformation">
-                <svg class="closebutton" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.9614 7.65381L7.65367 22.9616" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
-                    <path d="M22.8169 23.106L7.50914 7.7982" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
-                </svg>
+function cardInformationHTML(position) {
+    return `<div id="cardinformation${position}" class="openinfo">
+                <div class="cardinformation">
+                    <svg onclick="closeCardInformation(${position})" class="closebutton" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.9614 7.65381L7.65367 22.9616" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                        <path d="M22.8169 23.106L7.50914 7.7982" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                    </svg>
 
-                <svg class="editbutton" width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="editbutton" width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="57" height="57" rx="10" fill="#2A3647" />
                     <path
                         d="M20.9449 35.5155L25.7643 38.4404L38.4074 17.6083C38.694 17.1362 38.5435 16.5211 38.0714 16.2346L34.9618 14.3474C34.4897 14.0608 33.8746 14.2113 33.5881 14.6834L20.9449 35.5155Z"
                         fill="white" />
                     <path d="M20.3599 36.4792L25.1792 39.4041L20.4506 41.6889L20.3599 36.4792Z" fill="white" />
-                </svg>
+                    </svg>
 
 
-                <div class="infomationcategory">Marketing</div>
-                <div class="informationtitle">Call Potential Clients</div>
-                <div>Make the products better bla bla</div>
-                <div class="informationdate">
-                    <span class="cardinformationspan">Due Date:</span><span> 34.03.2023</span>
-                </div>
-                <div>
-                    <span class="cardinformationspan">Priority:</span>
-                </div>
-                <div>
-                    <span class="cardinformationspan"> Assigned to:</span>
+                    <div class="infomationcategory ${allTasks[position]['category']}">${allTasks[position]['category']}</div>
+                    <div class="informationtitle">${allTasks[position]['title']}</div>
+                    <div>${allTasks[position]['description']}</div>
+                    <div class="informationdate">
+                        <span class="cardinformationspan">Due Date:</span><span>${allTasks[position]['Due Date']}</span>
+                    </div>
+                    <div>
+                        <span class="cardinformationspan">Priority:</span>
+                    </div>
+                    <div>
+                        <span class="cardinformationspan"> Assigned to:</span>
+                    </div>
                 </div>
             </div>`
 }
@@ -181,7 +189,7 @@ function closeSlide() {
 function searchTasks() {
     let search = document.getElementById('searchtask');
     search = search.value;
-    let searchTask = allTasks.filter(t => t['title'].toLowerCase().includes(search.toLowerCase()) || t['description'].toLowerCase().includes(search.toLowerCase()));
+    searchTask = allTasks.filter(t => t['title'].toLowerCase().includes(search.toLowerCase()) || t['description'].toLowerCase().includes(search.toLowerCase()));
 
     clearCards();
 

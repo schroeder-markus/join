@@ -222,6 +222,23 @@ h1 {
     width: calc(100vw - 232px);
 }
 
+
+.openinfo {
+    position: absolute;
+    z-index: 99;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    transition: 225ms all ease-in-out;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(246, 247, 248, 0.5);
+    width: calc(100vw - 232px);
+}
+
 .submitAndClearButtons {
     margin-bottom: 82px;
 }
@@ -329,6 +346,7 @@ button span {
     gap: 25px;
     position: relative;
     width: 623px;
+    height: 824px;
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
