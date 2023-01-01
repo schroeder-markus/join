@@ -73,7 +73,8 @@ function greetUser(currentUserName) {
   // Good morning, good afternoon, good evening.
 }
 
-function init(){
+async function init(){
+  await includeHTML();
   loadTasks();
   updateTasks();
   loadCurrentUser();

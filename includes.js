@@ -1,11 +1,5 @@
 'use strict'
 
-async function init() {
-  await includeHTML();
-  await loadTasks();
-
-};
-
 
 async function includeHTML() {
     let file;
