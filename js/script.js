@@ -70,7 +70,14 @@ function generateAvatar(currentUserName) {
 
 function greetUser(currentUserName) {
   document.querySelector(".greetname").innerHTML = `${currentUserName}`;
-  // Good morning, good afternoon, good evening.
+  const currentTime = new Date().getHours();
+  if (currentTime < 12) {
+    document.querySelector(".greet-daytime").innerHTML = `Good morning,`;
+  } else if (currentTime < 18) {
+    document.querySelector(".greet-daytime").innerHTML = `Good afternoon,`;
+  } else {
+    document.querySelector(".greet-daytime").innerHTML = `Good evening,`;
+  }
 }
 
 async function init(){
