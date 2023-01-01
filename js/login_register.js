@@ -1,5 +1,6 @@
 let users = [];
 checkYoN = false;
+let currentUser = [];
 
 
 /**
@@ -76,7 +77,6 @@ function enterSummary() {
 function logIn() {
     let email = document.getElementById('login-email');
     let password = document.getElementById('login-password');
-
     let user = users.find(u => u.email == email.value && u.password == password.value);
 
     if (user) {
@@ -93,7 +93,18 @@ function logIn() {
     } else {
         document.getElementById('alarm').classList.remove('d-none');
     }
+    getActualUser();
 }
+
+
+function getActualUser() {
+    let email = document.getElementById('login-email');
+    let actualUser = email.value;
+    let index = users.findIndex(user => user.email === actualUser);
+    currentUser = users[index];
+    localStorage.setItem(currentUser);
+}
+
 
 function onPageLoad() {
     let email = document.getElementById('login-email');
@@ -142,10 +153,7 @@ function slideInIndex() {
             <span>An E-Mail has been sent to you</span>
         </div>`;
     grayBgIndex.classList.remove('d-none');
-    //setTimeout(grayBgIndex.classList.add('d-none'), 1600);
 }
 
-function goToResetPw() {
-    window.location.href = "reset-password.html";
-}
+
 
