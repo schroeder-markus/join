@@ -49,11 +49,12 @@ async function loadTasks() {
 };
 
 async function loadCurrentUser(){
-  const currentUser = JSON.parse(localStorage.getItem("currentUser")); //Holt sich das JSON mit dem aktuelleun user
+  const currentUserJson = localStorage.getItem("currentUser");
+  const currentUser = await JSON.parse(currentUserJson);
   if (currentUser) {
     let currentUserName = currentUser.name
-    console.log(currentUserName)
     generateAvatar(currentUserName)
+    greetUser(currentUserName)
   }
 }
 
@@ -65,6 +66,11 @@ function generateAvatar(currentUserName) {
       <span class="name-circle-header-span">${initials}</span>
     </div>
   `
+}
+
+function greetUser(currentUserName) {
+  document.querySelector(".greetname").innerHTML = `${currentUserName}`;
+  // Good morning, good afternoon, good evening.
 }
 
 function init(){

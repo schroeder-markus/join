@@ -396,7 +396,7 @@ main{
     top: 600px;
     left: 50px;
     position: absolute;
-    width: 1212px;
+    max-width: 1212px;
     height: 594px;
     background: #FFFFFF;
     border-radius: 30px;
@@ -533,6 +533,7 @@ main{
         margin-top: 20px;
 
     }
+
 }
 
 @media screen and (max-width: 1130px) {
