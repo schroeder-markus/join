@@ -1,3 +1,13 @@
+let toDoDiv = document.getElementById('tododiv');
+let inProgressDiv = document.getElementById('inprogressdiv');
+let awaitingFeedbackDiv = document.getElementById('awaitingfeedbackdiv');
+let doneDiv = document.getElementById('donediv');
+let open;
+let inProgress;
+let awaitingFeedback;
+let done;
+
+
 async function renderTasks() {
     await downloadFromServer();
     let allTasksAsJson = backend.getItem('allTasks');
@@ -6,42 +16,45 @@ async function renderTasks() {
 };
 
 
-function updateTasks() {
-    let toDoDiv = document.getElementById('tododiv')
-    let open = allTasks.filter(t => t['status'] == 'todo')
-
+function clearCards(){
     toDoDiv.innerHTML = '';
+    inProgressDiv.innerHTML = '';
+    awaitingFeedbackDiv.innerHTML = '';
+    doneDiv.innerHTML = '';
+}
+
+
+function sortCards(){
+    open = allTasks.filter(t => t['status'] == 'todo');
+    inProgress = allTasks.filter(t => t['status'] == 'inprogress');
+    awaitingFeedback = allTasks.filter(t => t['status'] == 'awaitingfeedback');
+    done = allTasks.filter(t => t['status'] == 'done');
+}
+
+
+function updateTasks() { 
+    sortCards();
+    clearCards();
+
 
     for (let i = 0; i < open.length; i++) {
         const task = open[i];
         toDoDiv.innerHTML += cardHTML(task)
     }
 
-    let inProgressDiv = document.getElementById('inprogressdiv')
-    let inProgress = allTasks.filter(t => t['status'] == 'inprogress')
-
-    inProgressDiv.innerHTML = '';
-
+    
     for (let i = 0; i < inProgress.length; i++) {
         const task = inProgress[i];
         inProgressDiv.innerHTML += cardHTML(task)
     }
 
-    let awaitingFeedbackDiv = document.getElementById('awaitingfeedbackdiv')
-    let awaitingFeedback = allTasks.filter(t => t['status'] == 'awaitingfeedback')
-
-    awaitingFeedbackDiv.innerHTML = '';
-
+    
     for (let i = 0; i < awaitingFeedback.length; i++) {
         const task = awaitingFeedback[i];
         awaitingFeedbackDiv.innerHTML += cardHTML(task)
     }
 
-    let doneDiv = document.getElementById('donediv')
-    let done = allTasks.filter(t => t['status'] == 'done')
-
-    doneDiv.innerHTML = '';
-
+    
     for (let i = 0; i < done.length; i++) {
         const task = done[i];
         doneDiv.innerHTML += cardHTML(task)
@@ -88,7 +101,7 @@ function cardHTML(allTasks) {
 }
 
 
-function renderCardInformation(){
+function renderCardInformation() {
 
 }
 
@@ -168,16 +181,9 @@ function closeSlide() {
 function searchTasks() {
     let search = document.getElementById('searchtask');
     search = search.value;
-    let toDoDiv = document.getElementById('tododiv');
-    let awaitingFeedbackDiv = document.getElementById('awaitingfeedbackdiv');
-    let inProgressDiv = document.getElementById('inprogressdiv');
-    let doneDiv = document.getElementById('donediv');
     let searchTask = allTasks.filter(t => t['title'].toLowerCase().includes(search.toLowerCase()) || t['description'].toLowerCase().includes(search.toLowerCase()));
 
-    doneDiv.innerHTML = '';
-    inProgressDiv.innerHTML = '';
-    awaitingFeedbackDiv.innerHTML = '';
-    toDoDiv.innerHTML = '';
+    clearCards();
 
     let todo = searchTask.filter(t => t['status'] == 'todo')
     for (let i = 0; i < todo.length; i++) {
