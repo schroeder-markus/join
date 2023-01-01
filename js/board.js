@@ -41,8 +41,8 @@ function updateTasks() {
         const task = open[i];
         toDoDiv.innerHTML += cardHTML(task)
     }
-
     
+
     for (let i = 0; i < inProgress.length; i++) {
         const task = inProgress[i];
         inProgressDiv.innerHTML += cardHTML(task)
@@ -63,7 +63,7 @@ function updateTasks() {
 
 
 function cardHTML(allTasks) {
-    return ` <div draggable="true" ondragstart="startDragging(${allTasks['taskID']})" class="card">
+    return ` <div draggable="true" onclick="renderCardInformation()" ondragstart="startDragging(${allTasks['taskID']})" class="card">
     <div class="title">
         <div class="headline ${allTasks['category']}" id="category">${allTasks['category']}</div>
     </div>
