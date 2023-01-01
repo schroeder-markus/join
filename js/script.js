@@ -47,6 +47,18 @@ async function loadTasks() {
   lastTaskID = backend.getItem('lastTaskID');
 };
 
+async function loadCurrentUser(){
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")); //Holt sich das JSON mit dem aktuelleun user
+  if (currentUser) {
+    let currentUserName = currentUser.name
+    console.log(currentUserName)
+  }
+}
+
+function generateAvatar() {
+  
+}
+
 function init(){
   loadTasks();
   updateTasks();
