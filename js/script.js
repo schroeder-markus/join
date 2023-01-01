@@ -84,8 +84,7 @@ function greetUser(currentUserName) {
 async function init(){
   await includeHTML();
   loadTasks();
-  updateTasks();
-  await loadCurrentUser();
+  loadCurrentUser();
 };
 
 
