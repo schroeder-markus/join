@@ -234,6 +234,7 @@ main{
     font-size: 16px;
     line-height: 120%;
     color: var(--task-blue);
+    cursor: pointer;
 }
 
 .contact-detail-addtask > img {
@@ -578,9 +579,11 @@ main{
     }
     .add-new-contact {
         position: absolute;
-        right: 200px;
-        bottom: 70px;
+        right: 50px;
+        bottom: 100px;
     }
+
+    
 }
 
 @media screen and (max-width: 880px) {
@@ -589,5 +592,150 @@ main{
     }
     .contact-detail-name {
         width: 280px;
+    }
+
+    .contact-headline-container {
+        margin-left: 20px;
+        margin-top: 80px;
+    }
+
+    .contact-detail-container {
+        margin-left: 20px;
+        margin-top: 10px;
+
+    }
+
+    .add-new-contact {
+        bottom: unset;
+        top: 100px;
+        right: 50px;
+    }
+
+    .contact-container-left {
+        position: ;
+    }
+
+    .main-container {
+        height: 100%;
+    }
+
+
+        header {
+            height: 80px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 30;
+        }
+    
+        h1 {
+            font-size: 47px;
+        }
+    
+        .headerlogo {
+            display: flex;
+            width: 32px;
+            height: 39.02px;
+        }
+    
+        .header-nav {
+            padding-right: 25px;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 25px;
+            margin: 0;
+            width: 100vw;
+        }
+    
+        main {
+            margin-top: 80px;
+            position: unset;
+            padding: 0;
+            padding-left: 0px !important;
+            width: 100%;
+            display: flex;
+            height: calc(100% - 160px);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        aside {
+            height: 80px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            flex-direction: row;
+            width: 100vw;
+            padding: 0;
+        }
+    
+        aside nav a {
+            display: flex;
+            padding: 8px !important;
+            width: unset;
+            flex-direction: column;
+            justify-content: center !important;
+            align-items: center !important;
+            height: 100% !important;
+        }
+    
+        aside nav a img {
+            margin: 0 !important;
+        }
+    
+    
+        aside nav {
+            flex-direction: row !important;
+            align-items: center !important;
+            padding: 0px !important;
+            gap: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            justify-content: space-around !important;
+    
+        }
+    
+        .notice {
+            display: none !important;
+        }
+    
+        .display-none {
+            display: none !important;
+        }
+    
+        .asidelogo {
+            display: none !important;
+        }
+    
+        .icon-4 {
+            height: 28px !important;
+            width: 24px !important;
+        }
+    }
+
+
+@media screen and (max-width: 600px) {
+    .main-container {
+        width: 100vw;
+    }
+    
+    .contact-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .contacts-list {
+        margin-top: 80px;
+    }
+    
+    .contact-container-left {
+        
+        width: 100%;
+    }
+
+    .contact-container-right {
+        display: none;
     }
 }

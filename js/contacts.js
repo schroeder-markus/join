@@ -183,7 +183,7 @@ function showContactData(contactID) {
     </div>
     <div class="contact-detail-fullname">
       <span class="contact-detail-contactname">${allContacts[contactID].name}</span>
-      <span class="contact-detail-addtask"><img src="img/icon-plus-addtask.svg" alt=""><span>Add Task </span>
+      <span class="contact-detail-addtask" onclick="window.location.href='./addTask.html'"><img src="img/icon-plus-addtask.svg" alt=""><span>Add Task </span>
   </div>
 </div>
 <div class="contact-detail-data">
