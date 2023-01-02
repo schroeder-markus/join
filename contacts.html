@@ -70,7 +70,7 @@
                   <div class="blue-line"></div>
                 </div>
                 <div class="new-contact-right">
-                  <div class="close-contact-input" onclick="cancelContact(), closeSlide()">
+                  <div class="close-contact-input" onclick="closeSlide()">
                     <img src="img/icon-x.svg" alt="close Button">
                   </div>
                   <div class="contact-avatar-area">
@@ -79,7 +79,7 @@
                     </div>
                   </div>
                   <div class="contact-form-area">
-                    <form onsubmit="addNewContact(); return false;" id="submit" class="">
+                    <form onsubmit="addNewContact(),closeSlide(); return false;" id="submit" class="">
                       <div id="sign_up_field" class="login-field">
                         <div class="input-pics">
                           <input class="input" id="newContactSubmitName" placeholder="Name" type="text" required>

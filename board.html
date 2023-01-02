@@ -8,8 +8,8 @@
         <link rel="icon" type="image/x-icon" href="img/favicon.png">
         <link rel="stylesheet" href="styles/font.css">
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="styles/addTask.css">
         <link rel="stylesheet" href="styles/aside.css">
+        <link rel="stylesheet" href="styles/addTask.css">
         <link rel="stylesheet" href="styles/board.css">
         <script src="mini_backend.js"></script>
         <script src="js/script.js" defer></script>
@@ -119,6 +119,48 @@
                         <div id="donediv" class="draganddrop" ondrop="moveTo('done')"
                             ondragover="allowDrop(event), dragHighlight('donediv')" ondragleave="updateTasks()">
 
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cardinformation" class="openinfo d-none">
+                    <div class="cardinformation">
+                        <svg onclick="closeCardInformation()" class="closebutton" width="31" height="31" viewBox="0 0 31 31"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.9614 7.65381L7.65367 22.9616" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                            <path d="M22.8169 23.106L7.50914 7.7982" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                
+                        <svg class="editbutton" onclick="editCard()" width="57" height="57" viewBox="0 0 57 57" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect width="57" height="57" rx="10" fill="#2A3647" />
+                            <path
+                                d="M20.9449 35.5155L25.7643 38.4404L38.4074 17.6083C38.694 17.1362 38.5435 16.5211 38.0714 16.2346L34.9618 14.3474C34.4897 14.0608 33.8746 14.2113 33.5881 14.6834L20.9449 35.5155Z"
+                                fill="white" />
+                            <path d="M20.3599 36.4792L25.1792 39.4041L20.4506 41.6889L20.3599 36.4792Z" fill="white" />
+                        </svg>
+                
+                
+                        <div id="infocategory" class="infomationcategory ${allTasks[position]['category']}"></div>
+                        <div id="infotitle" class="informationtitle"></div>
+                        <div id="infodescription" class="description"></div>
+                        <div class="informationdate">
+                            <span  class="cardinformationspan">Due Date:</span><span id="infoduedate"></span>
+                        </div>
+                        <div class="prioritycard">
+                            <span class="cardinformationspan">Priority:</span><img id="priorotyimg" src="img/card${allTasks[position]['priority']}.svg"
+                                alt="">
+                        </div>
+                        <div id="assignedto">
+                            <span class="cardinformationspan"> Assigned to:</span>
+                            <div class="assignedtoinformation">
+                                <div class="intitialinformation">BB</div>
+                                <div class="nameinformation">Boubkir Benamar</div>
+                            </div>
+                            <div class="assignedtoinformation">
+                                <div class="intitialinformation">BB</div>
+                                <div class="nameinformation">Boubkir Benamar</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -318,10 +360,7 @@
                     </div>
                 </div>
             </div>
-
         </main>
-
-
     </body>
 
 </html>
