@@ -1,32 +1,5 @@
 let allContacts = [
-  // {
-  //   name: "Daniela Faber",
-  //   mail: "DanielaFaber@einrot.com",
-  //   phone: 0911719268,
-  //   initials: "DF",
-  //   color: "#6666ff"
-  // },
-  // {
-  //   name: "Sabrina Trommler",
-  //   mail: "SabrinaTrommler@cuvox.de",
-  //   phone: 08841281030,
-  //   initials: "ST",
-  //   color: "#009900"
-  // },
-  // {
-  //   name: "Sandra Reiter",
-  //   mail: "SabrinaTrommler@cuvox.de",
-  //   phone: 08841281030,
-  //   initials: "SR",
-  //   color: "#cc6600"
-  // },
-  // {
-  //   name: "Mario Moeller",
-  //   mail: "MarioMoeller@cuvox.de",
-  //   phone: 06541620484,
-  //   initials: "MM",
-  //   color: "#cc00cc"
-  // },
+
 ];
 
 function editContact(contactID) {
@@ -176,6 +149,7 @@ function createContactList() {
 }
 
 function showContactData(contactID) {
+  checkSize()
   document.querySelector(".contact-detail-container").innerHTML = `
     <div class="contact-detail-name">
     <div class="name-circle-large" style="background-color: ${allContacts[contactID]["color"]};">
@@ -206,6 +180,13 @@ function showContactData(contactID) {
     `;
 }
 
+function checkSize() {
+  if (window.innerWidth < 600) {
+    document.querySelector(".contact-container-left").style.display = "none";
+    document.querySelector("#createButton").style.display = "none";
+  }
+}
+
 let selectedContainer = null;
 
   function selectContainer(container) {
@@ -218,3 +199,9 @@ let selectedContainer = null;
     selectedContainer = container;
     selectedContainer.classList.add('selected');
   }
+
+  window.addEventListener('resize', function() {
+    if (window.innerWidth < 600) {
+      // document.querySelector(".contact-container-right").style.display = "none";
+    }
+  });
