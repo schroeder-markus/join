@@ -90,7 +90,7 @@ function cardHTML(task){
         <span>1/2 Done</span>
     </div>
     <div class="cardfooter">
-        <div class="userbox">
+        <div id="userbox${task}" class="userbox">
             <div class="user" id="user">${task['assigned'][0]['initials']}</div>
         </div>
         <svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -114,57 +114,38 @@ function cardHTML(task){
 </div>`
 }
 
+function renderUser(position){
+    document.getElementById('assignedto').innerHTML = '';
+    for (let i = 0; i < allTasks[position]['assigned'].length; i++) {
+        const element = allTasks[position]['assigned'][i];
+        document.getElementById('assignedto').innerHTML += `                            
+                            <div class="assignedtoinformation">
+                                <div class="intitialinformation">${element['initials']}</div>
+                                <div class="nameinformation">${element['name']}</div>
+                            </div>`;
+    }
+}
+
 
 function renderCardInformation(position) {
-    document.getElementById('board').innerHTML += cardInformationHTML(position);
+    document.getElementById('cardinformation').classList.remove('d-none');
+    document.getElementById('infocategory').innerHTML = `${allTasks[position]['category']}`;
+    document.getElementById('infocategory').classList.add(`${allTasks[position]['category']}`);
+    document.getElementById('infotitle').innerHTML = `${allTasks[position]['title']}`;
+    document.getElementById('infodescription').innerHTML = `${allTasks[position]['description']}`;
+    document.getElementById('infoduedate').innerHTML = `${allTasks[position]['Due Date']}`;
+    document.getElementById('priorotyimg').src = `img/card${allTasks[position]['priority']}.svg`;
+    renderUser(position);
 }
 
-function closeCardInformation(position){
-    document.getElementById(`cardinformation${position}`).remove();
+
+function editCard(){
+    
 }
 
-
-function cardInformationHTML(position) {
-    return `<div id="cardinformation${position}" class="openinfo">
-                <div class="cardinformation">
-                    <svg onclick="closeCardInformation(${position})" class="closebutton" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22.9614 7.65381L7.65367 22.9616" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
-                        <path d="M22.8169 23.106L7.50914 7.7982" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-
-                    <svg class="editbutton" width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="57" height="57" rx="10" fill="#2A3647" />
-                    <path
-                        d="M20.9449 35.5155L25.7643 38.4404L38.4074 17.6083C38.694 17.1362 38.5435 16.5211 38.0714 16.2346L34.9618 14.3474C34.4897 14.0608 33.8746 14.2113 33.5881 14.6834L20.9449 35.5155Z"
-                        fill="white" />
-                    <path d="M20.3599 36.4792L25.1792 39.4041L20.4506 41.6889L20.3599 36.4792Z" fill="white" />
-                    </svg>
-
-
-                    <div class="infomationcategory ${allTasks[position]['category']}">${allTasks[position]['category']}</div>
-                    <div class="informationtitle">${allTasks[position]['title']}</div>
-                    <div class="description">${allTasks[position]['description']}</div>
-                    <div class="informationdate">
-                        <span class="cardinformationspan">Due Date:</span><span>${allTasks[position]['Due Date']}</span>
-                    </div>
-                    <div class="prioritycard">
-                        <span class="cardinformationspan">Priority:</span><img src="img/card${allTasks[position]['priority']}.svg" alt="">
-                    </div>
-                    <div id="assignedto">
-                        <span class="cardinformationspan"> Assigned to:</span>
-                        <div class="assignedtoinformation">
-                            <div class="intitialinformation">BB</div>
-                            <div class="nameinformation">Boubkir Benamar</div>
-                        </div>
-                                                <div class="assignedtoinformation">
-                            <div class="intitialinformation">BB</div>
-                            <div class="nameinformation">Boubkir Benamar</div>
-                        </div>
-                    </div>
-                </div>
-            </div>`
+function closeCardInformation(){
+    document.getElementById('cardinformation').classList.add('d-none');
 }
-
 
 function startDragging(id) {
     currentDraggedElement = id;

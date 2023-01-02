@@ -364,6 +364,28 @@ button span {
     right: 50px;
 }
 
+.name-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    margin-left: 25px;
+    margin-right: 25px;
+    background-color: lightseagreen;
+    border: 2px solid var(--main-white);
+    color: var(--main-white);
+}
+
+.closebutton:hover,
+.editbutton:hover, 
+.editbutton:hover>rect{
+    cursor: pointer;
+    fill: #29ABE2;
+}
+
+
 .infomationcategory {
     display: flex;
     flex-direction: row;
