@@ -1,6 +1,4 @@
-let allContacts = [
-
-];
+let allContacts = [];
 
 function editContact(contactID) {
   document.querySelector(".edit-contact-container").style.display = "flex";
@@ -82,17 +80,6 @@ function addNewContact() {
 
 }
 
-// function saveAllContacts() {
-//     let allContactsAsString = JSON.stringify(allContacts) //JSON for all Contacts
-//     localStorage.setItem("allContacts", allContactsAsString)
-// }
-
-// function loadAllContacts() {
-//   let allContactsAsString = localStorage.getItem("allContacts");
-//   allContacts = JSON.parse(allContactsAsString);
-//   console.log(allContactsAsString)
-// }
-
 async function saveAllContacts() {
   let allContactsAsString = JSON.stringify(allContacts);
   await backend.setItem('allContacts', allContactsAsString);
@@ -106,7 +93,6 @@ async function loadAllContacts() {
 };
 
 function createContactList() {
-  // loadAllContacts()
   document.querySelector(".contacts-list").innerHTML = ``;
   let initials = new Set();
 
