@@ -338,6 +338,7 @@ button span {
     display: none;
 }
 
+.editcardinformation,
 .cardinformation {
     display: flex;
     flex-direction: column;
@@ -350,6 +351,12 @@ button span {
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
+}
+
+.cardinformation form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
 .closebutton {
@@ -379,8 +386,8 @@ button span {
 }
 
 .closebutton:hover,
-.editbutton:hover, 
-.editbutton:hover>rect{
+.editbutton:hover,
+.editbutton:hover>rect {
     cursor: pointer;
     fill: #29ABE2;
 }

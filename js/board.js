@@ -140,7 +140,135 @@ function renderCardInformation(position) {
 
 
 function editCard(){
-    
+    document.getElementById('cardinformation').innerHTML = `
+            <div class="cardinformation">
+                <svg class="editbutton" onclick="editCard()" width="57" height="57" viewBox="0 0 57 57" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <rect width="57" height="57" rx="10" fill="#2A3647" />
+                    <path
+                        d="M20.9449 35.5155L25.7643 38.4404L38.4074 17.6083C38.694 17.1362 38.5435 16.5211 38.0714 16.2346L34.9618 14.3474C34.4897 14.0608 33.8746 14.2113 33.5881 14.6834L20.9449 35.5155Z"
+                        fill="white" />
+                    <path d="M20.3599 36.4792L25.1792 39.4041L20.4506 41.6889L20.3599 36.4792Z" fill="white" />
+                </svg>
+                <form onsubmit="return false" class="addTaskForm">
+                    <!-- Title -->
+                    <div>
+                        <label for="title">Title</label>
+                        <input oninput="deleteAlert('titleAlert')" id="title" type="text" placeholder="Enter a title">
+                        <span id="titleAlert" class="requiredAlert"></span>
+                    </div>
+                    <!-- Description -->
+                    <div>
+                        <label for="description">Description</label>
+                        <textarea oninput="deleteAlert('descriptionAlert')" id="description" class="descriptionTextArea"
+                            type="text" placeholder="Enter a description"></textarea>
+                        <span id="descriptionAlert" class="requiredAlert"></span>
+                    </div>
+                    <!-- Due Date -->
+                    <div>
+                        <label for="dateInput">Due Date</label>
+                        <div oninput="deleteAlert('dateAlert')" class="inputContainer"><input id="dueDate"
+                                class="input dateInput" type="text" placeholder="Enter date"
+                                onfocus="(this.type='date')">
+                        </div>
+                        <span id="dateAlert" class="requiredAlert"></span>
+                    </div>
+                    <!-- Priority -->
+                    <div class="input">
+                        <label>Prio</label>
+                        <div class="prioButtons">
+                            <button onclick="setPrio('urgent')" type="button" id="prioButton-urgent">Urgent
+                                <div>
+                                    <img src="img/prio-urgent.svg" alt="prioUrgentArrow">
+                                </div>
+                            </button>
+                            <button onclick="setPrio('medium')" type="button" id="prioButton-medium">Medium
+                                <div>
+                                    <img src="img/prio-medium.svg" alt="prioMediumArrow">
+                                </div>
+                            </button>
+                            <button onclick="setPrio('low')" type="button" id="prioButton-low">Low
+                                <div>
+                                    <img src="img/prio-low.svg" alt="prioLowArrow">
+                                </div>
+                            </button>
+                        </div>
+                        <span id="priorityAlert" class="requiredAlert"></span>
+                    </div>
+                    <!-- Assign to -->
+                    <div readonly>
+                        <label for="assignToDropdown">Assign to</label>
+                        <div id="assignToDropdown" class="dropdown">
+                            <span onclick="toggleAssignDropdown()" id="assignToInput" class="dropdownValue">Select
+                                contacts to assign</span>
+                            <img onclick="toggleAssignDropdown()" src="img/icon-dropdown.svg" alt="dropdownIcon">
+                            <div id="contactSelection" class="scroll">
+                                <div><span onclick="toggleSelf()">You<div id="contactCheckbox()" class="assignCheckbox">
+                                            <div class="assignChecked"></div>
+                                        </div></span></div>
+                                <div><span onclick="toggleSelection(0)">
+                                        <div id="contact(0)">
+                                            <div class="assignName"><span id="firstName(0)">Markus</span><span
+                                                    id="lastName(0)">Schröder</span></div>
+                                        </div>
+                                        <div class="assignCheckbox">
+                                            <div id="contactChecked(0)" class="assignChecked"></div>
+                                        </div>
+                                    </span></div>
+                                <div><span onclick="toggleSelection(1)">
+                                        <div id="contact(1)">
+                                            <div class="assignName"><span id="firstName(1)">Boubkir</span><span
+                                                    id="lastName(1)">Benamar</span></div>
+                                        </div>
+                                        <div class="assignCheckbox">
+                                            <div id="contactChecked(1)" class="assignChecked"></div>
+                                        </div>
+                                    </span></div>
+                                <div><span onclick="toggleSelection(2)">
+                                        <div id="contact(2)">
+                                            <div class="assignName"><span id="firstName(2)">Ilja</span><span
+                                                    id="lastName(2)">Gaus-Gerbeth</span></div>
+                                        </div>
+                                        <div class="assignCheckbox">
+                                            <div id="contactChecked(2)" class="assignChecked"></div>
+                                        </div>
+                                    </span></div>
+                                <div><span onclick="toggleSelection(3)">
+                                        <div id="contact(3)">
+                                            <div class="assignName"><span id="firstName(3)">Ingo</span><span
+                                                    id="lastName(3)">Hermsen</span></div>
+                                        </div>
+                                        <div class="assignCheckbox">
+                                            <div id="contactChecked(3)" class="assignChecked"></div>
+                                        </div>
+                                    </span></div>
+                                <div><span
+                                        onclick="toggleView_DropdownAndNewEntry('assignToDropdown','invitePersonInput', 'mailInput')">Invite
+                                        new Contact<img src="img/icon-contacts-dark.svg" alt="contactIconDark"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Input for new Contact (display: none on default) -->
+                        <div id="invitePersonInput" class="newEntryInput">
+                            <div><input id="mailInput" type="email" placeholder="Contact email" onfocus="this.value=''">
+                                <div class="confirmOrCancel">
+                                    <div onclick="cancelInviteContact()"><img src="img/icon-x.svg" alt="cancelIcon"
+                                            required>
+                                    </div>
+                                    <div onclick="confirmMailAdress()"><img src="img/icon-check-dark.svg"
+                                            alt="checkIcon">
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="mailNotFoundAlert" class="requiredAlert"></span>
+                        </div>
+                        <!--  -->
+                        <span id="assignAlert" class="requiredAlert"></span>
+                        <span id="nameCircles"></span>
+                    </div>
+            </form>
+        </div>`
 }
 
 function closeCardInformation(){
