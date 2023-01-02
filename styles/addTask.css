@@ -90,7 +90,7 @@ input, .dropdown {
 }
 
 #formWrapper {
-    width: 60%;
+    width: 1000px;
     display: flex;
     position: relative;
 }
@@ -177,7 +177,7 @@ section div:not(:first-of-type) label {
     background-color: var(--main-white);
     border-radius: 10px;
     height: 51px;
-    min-width: 110px;
+    min-width: 120px;
     padding: 0px 0px 0px 0px;
 }
 
@@ -384,28 +384,26 @@ section div:not(:first-of-type) label {
     display: none;
 }
 
-@media only screen and (max-width: 1650px) {
-    #formWrapper {
-        width: 65%;
-    }
-}
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1276px) {
     .addTaskForm {
         flex-direction: column;
     }
 
     .addTaskForm>section {
-        /* width: 50%; */
+        width: 40%;
         padding: 0px;
         border-right: unset;
     }
 
-}
 
-@media only screen and (max-width: 1000px) {
-    .addTaskForm>section {
-        width: 70%;
+    .prioButtons button {
+        font-size: 18px;
+        flex-direction: column
+    }
+
+    .prioButtons button div {
+        margin: 10px 0px 0px 0px;
     }
 
 }
@@ -415,39 +413,37 @@ section div:not(:first-of-type) label {
         height: unset;
         justify-content: unset;
         align-items: unset;
+        margin-bottom: 80px;
+    }
+
+    #formWrapper {
+        width: unset;
     }
 
     .addTaskForm>section {
-        width: 90%;
+        width: 60%;
+    }
+
+}
+
+@media only screen and (max-width: 695px) {
+    .prioButtons button {
+        min-width: 95px;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 550px) {
+    .addTaskForm>section {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 440px) {
     main {
-        margin-left: 30px;
+        margin-left: 10px;
     }
 
     .addTaskForm>section {
         width: 100%;
     }
-}
-
-@media only screen and (max-width: 540px) {
-    #formWrapper {
-        width: 90%;
-    }
-}
-
-@media only screen and (max-width: 450px) {
-
-    .prioButtons button {
-        font-size: 18px;
-        min-width: 85px;
-        flex-direction: column
-    }
-
-    .prioButtons button div {
-        margin: 10px 0px 0px 0px;
-    }
-
 }
