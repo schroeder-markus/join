@@ -442,6 +442,7 @@ function generateTaskObject(title, description, dueDate) {
         clearForm();
         showMessage('taskAdded');
         saveTasks();
+        setTimeout(() => {window.location.href = "board.html"}, 4000);
     };
 };
 

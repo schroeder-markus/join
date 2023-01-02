@@ -22,7 +22,6 @@ input, .dropdown, .descriptionTextArea {
 
 input, .dropdown {
     height: 38px;
-    border-radius: 5px;
     transition: height 225ms !important;
 }
 
@@ -417,7 +416,7 @@ section div:not(:first-of-type) label {
     }
 
     #formWrapper {
-        width: unset;
+        width: 700px;
     }
 
     .addTaskForm>section {
@@ -426,24 +425,35 @@ section div:not(:first-of-type) label {
 
 }
 
-@media only screen and (max-width: 695px) {
-    .prioButtons button {
-        min-width: 95px;
-    }
-}
-
-@media only screen and (max-width: 550px) {
-    .addTaskForm>section {
-        width: 80%;
-    }
-}
-
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 480px) {
     main {
         margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #formWrapper {
+        max-width: 400px;
     }
 
     .addTaskForm>section {
         width: 100%;
     }
+}
+
+@media only screen and (max-width: 430px) {
+
+    #formWrapper {
+        max-width: 320px;
+    }
+
+    .addTaskForm>section {
+        width: 100%;
+    }
+
+    
+    .prioButtons button {
+   min-width: 100px;
+    }
+
 }
