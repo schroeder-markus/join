@@ -611,10 +611,6 @@ main{
         right: 50px;
     }
 
-    .contact-container-left {
-        position: ;
-    }
-
     .main-container {
         height: 100%;
     }
@@ -733,9 +729,36 @@ main{
     .contact-container-left {
         
         width: 100%;
+        /* display: none; */
     }
 
     .contact-container-right {
-        display: none;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        /* display: none; */
+    }
+
+    .contact-headline-container {
+        width: 100%;
+    }
+    .contact-detail-name {
+        width: 100%;
+    }
+
+    .contact-headline-container {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 80px;
+    }
+
+    .contact-detail-container {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 10px;
+    }
+
+    .contact-detail-data {
+        width: 100%;
     }
 }
