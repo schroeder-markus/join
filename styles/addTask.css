@@ -100,7 +100,7 @@ input, .dropdown {
     display: flex;
 }
 
-.addTaskForm > section {
+.addTaskForm>section {
     width: 50%;
 }
 
@@ -177,7 +177,7 @@ section div:not(:first-of-type) label {
     background-color: var(--main-white);
     border-radius: 10px;
     height: 51px;
-    min-width: 120px;
+    min-width: 110px;
     padding: 0px 0px 0px 0px;
 }
 
@@ -219,7 +219,6 @@ section div:not(:first-of-type) label {
 
 #subtasks {
     margin-top: 10px;
-    height: 180px;
 }
 
 .subtask {
@@ -385,9 +384,9 @@ section div:not(:first-of-type) label {
     display: none;
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1650px) {
     #formWrapper {
-        width: 80%;
+        width: 65%;
     }
 }
 
@@ -396,19 +395,16 @@ section div:not(:first-of-type) label {
         flex-direction: column;
     }
 
-    .addTaskForm > section {
-        width: 50%;
+    .addTaskForm>section {
+        /* width: 50%; */
         padding: 0px;
         border-right: unset;
     }
 
-    #subtasks {
-        height: 80px;
-    }
 }
 
 @media only screen and (max-width: 1000px) {
-    .addTaskForm > section {
+    .addTaskForm>section {
         width: 70%;
     }
 
@@ -417,20 +413,41 @@ section div:not(:first-of-type) label {
 @media only screen and (max-width: 750px) {
     main {
         height: unset;
+        justify-content: unset;
         align-items: unset;
     }
 
-    .addTaskForm > section {
+    .addTaskForm>section {
         width: 90%;
     }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 600px) {
     main {
-        justify-content: unset;
         margin-left: 30px;
     }
-    .addTaskForm > section {
-        width: unset;
+
+    .addTaskForm>section {
+        width: 100%;
     }
+}
+
+@media only screen and (max-width: 540px) {
+    #formWrapper {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+
+    .prioButtons button {
+        font-size: 18px;
+        min-width: 85px;
+        flex-direction: column
+    }
+
+    .prioButtons button div {
+        margin: 10px 0px 0px 0px;
+    }
+
 }
