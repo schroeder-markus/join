@@ -18,7 +18,7 @@ function editContact(contactID) {
     if (!saveBtnClicked) {
       saveContactChange(contactID);
       saveBtnClicked = true;
-    }
+    };
     saveBtn.removeEventListener("click", () => {});
   });
 }
@@ -202,6 +202,6 @@ let selectedContainer = null;
 
   window.addEventListener('resize', function() {
     if (window.innerWidth < 600) {
-      // document.querySelector(".contact-container-right").style.display = "none";
+      document.querySelector(".contact-container-right").style.display = "none";
     }
   });
