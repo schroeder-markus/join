@@ -405,6 +405,54 @@ button span {
     background-color: #EE01D6;
 }
 
+.assignedtoinformation {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.intitialinformation {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 8px;
+    gap: 10px;
+    width: 45px;
+    height: 45px;
+    color: #FFFFFF;
+    background: #9327FF;
+    border: 2px solid #FFFFFF;
+    border-radius: 58px;
+}
+
+.nameinformation {
+    text-align: center;
+    font-size: 21px;
+}
+
+#assignedto {
+    gap: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.informationdate {
+    gap: 25px;
+    display: flex;
+    font-size: 21px;
+}
+
+.description {
+    font-size: 21px;
+}
+
+.prioritycard {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
 
 @media(max-width:750px) {
     .inputcontainer {

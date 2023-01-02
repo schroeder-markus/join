@@ -72,7 +72,6 @@ function updateTasks() {
     updateInProgress();
     updateAwaitingFeedback();
     updateDone();
-
 }
 
 
@@ -144,15 +143,23 @@ function cardInformationHTML(position) {
 
                     <div class="infomationcategory ${allTasks[position]['category']}">${allTasks[position]['category']}</div>
                     <div class="informationtitle">${allTasks[position]['title']}</div>
-                    <div>${allTasks[position]['description']}</div>
+                    <div class="description">${allTasks[position]['description']}</div>
                     <div class="informationdate">
                         <span class="cardinformationspan">Due Date:</span><span>${allTasks[position]['Due Date']}</span>
                     </div>
-                    <div>
-                        <span class="cardinformationspan">Priority:</span>
+                    <div class="prioritycard">
+                        <span class="cardinformationspan">Priority:</span><img src="img/card${allTasks[position]['priority']}.svg" alt="">
                     </div>
-                    <div>
+                    <div id="assignedto">
                         <span class="cardinformationspan"> Assigned to:</span>
+                        <div class="assignedtoinformation">
+                            <div class="intitialinformation">BB</div>
+                            <div class="nameinformation">Boubkir Benamar</div>
+                        </div>
+                                                <div class="assignedtoinformation">
+                            <div class="intitialinformation">BB</div>
+                            <div class="nameinformation">Boubkir Benamar</div>
+                        </div>
                     </div>
                 </div>
             </div>`
