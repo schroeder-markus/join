@@ -107,6 +107,23 @@ input {
     object-fit: cover;
 }
 
+.name-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    margin-left: 25px;
+    margin-right: 25px;
+    background-color: lightseagreen;
+    border: 2px solid var(--main-white);
+}
+
+.name-circle-letter {
+    color: var(--main-white);
+}
+
 .name-circle-header {
     display: flex;
     justify-content: center;
