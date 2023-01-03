@@ -194,6 +194,26 @@ function toggleSelection(i) {
     renderNameCircles();
 };
 
+async function toggleUserSelection() {
+    let currentUserName = await JSON.parse(localStorage.getItem('currentUser'));
+    let userCheckedElement = document.getElementById(`userChecked`);
+    if (userCheckedElement.style.display != "block") {
+        userCheckedElement.style.display = "block";
+        selectUser(currentUserName.name)
+    } else {
+        userCheckedElement.style.display = "none";
+        unselectUser(currentUserName.name);
+    };
+    renderNameCircles();
+};
+
+function selectUser(userName) {
+    assignedPersons.push({
+        name: `${userName}`,
+        initials: `${userName.split(" ").map((n) => n[0]).join("")}`
+    })
+};
+
 
 function selectContact(i) {
     let firstName = document.getElementById(`firstName(${i})`).innerHTML;
@@ -202,6 +222,11 @@ function selectContact(i) {
         name: `${firstName} ${lastName}`,
         initials: `${firstName.charAt(0)}${lastName.charAt(0)}`,
     });
+};
+
+
+function unselectUser(userName) {
+    assignedPersons.splice(findIndexOfContact(userName), 1)
 };
 
 
@@ -433,7 +458,7 @@ function generateTaskObject(title, description, dueDate) {
     if (formValidation) {
         lastTaskID++;
         allTasks.push({
-            'taskID' : lastTaskID,
+            'taskID': lastTaskID,
             'title': title,
             'description': description,
             'category': category,
@@ -446,7 +471,7 @@ function generateTaskObject(title, description, dueDate) {
         clearForm();
         showMessage('taskAdded');
         saveTasks();
-        setTimeout(() => {window.location.href = "board.html"}, 4000);
+        setTimeout(() => { window.location.href = "board.html" }, 4000);
     };
 };
 

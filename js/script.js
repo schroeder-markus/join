@@ -57,7 +57,7 @@ async function loadCurrentUser(){
     generateAvatar(currentUserName)
     greetUser(currentUserName)
   }
-}
+};
 
 function generateAvatar(currentUserName) {
   let initials = currentUserName.split(" ").map((n) => n[0]).join("");
@@ -67,7 +67,7 @@ function generateAvatar(currentUserName) {
       <span class="name-circle-header-span">${initials}</span>
     </div>
   `
-}
+};
 
 function greetUser(currentUserName) {
   document.querySelector(".greetname").innerHTML = `${currentUserName}`;
@@ -79,12 +79,10 @@ function greetUser(currentUserName) {
   } else {
     document.querySelector(".greet-daytime").innerHTML = `Good evening,`;
   }
-}
+};
 
 async function init(){
   await includeHTML();
   loadTasks();
   loadCurrentUser();
 };
-
-

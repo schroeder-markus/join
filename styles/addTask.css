@@ -336,7 +336,6 @@ section div:not(:first-of-type) label {
     padding-right: 15px;
 }
 
-
 .assignCheckbox {
     display: flex;
     align-items: center;
@@ -365,7 +364,7 @@ section div:not(:first-of-type) label {
 }
 
 #nameCircles span {
-    margin: 0px 0px 24px 0px;
+    margin: 0px -10px 24px 0px;
 }
 
 #mailNotFoundAlert {
