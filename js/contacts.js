@@ -48,10 +48,10 @@ function createContact() {
 function closeEditContact() {
   document.querySelector(".edit-contact-container").style.display = "none";
 }
-/*
+
 function closeNewContact() {
   document.querySelector(".new-contact-container").style.display = "none";
-}*/
+}
 
 // Add Contacts
 
@@ -125,7 +125,7 @@ function createContactList() {
         </div>
         <div class="name-fullname">
           <span class="name-contact-name">${allContacts[i]["name"]}</span>
-          <span class="name-contact-mail">${allContacts[i]["mail"]}</span>
+          <span class="name-contact-mail cut">${allContacts[i]["mail"]}</span>
         </div>
       </div>  
         `;
@@ -169,8 +169,17 @@ function showContactData(contactID) {
 function checkSize() {
   if (window.innerWidth < 600) {
     document.querySelector(".contact-container-left").style.display = "none";
+    document.querySelector(".contact-container-right").style.display = "flex";
     document.querySelector("#createButton").style.display = "none";
+    document.querySelector(".close-icon").style.display = "flex";
   }
+}
+
+function closeDetailView() {
+  document.querySelector(".contact-container-left").style.display = "flex";
+  document.querySelector(".contact-container-right").style.display = "none";  
+  document.querySelector(".close-icon").style.display = "none";
+  document.querySelector("#createButton").style.display = "flex";
 }
 
 let selectedContainer = null;
@@ -185,9 +194,3 @@ let selectedContainer = null;
     selectedContainer = container;
     selectedContainer.classList.add('selected');
   }
-
-  window.addEventListener('resize', function() {
-    if (window.innerWidth < 600) {
-      document.querySelector(".contact-container-right").style.display = "none";
-    }
-  });
