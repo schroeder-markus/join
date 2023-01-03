@@ -180,59 +180,40 @@ function setColor(i) {
 
 // changes the contact selection to select / unselect and pushes selected names to assignedContacts array.
 
-function toggleSelection(i) {
-    let firstName = document.getElementById(`firstName(${i})`).innerHTML;
-    let lastName = document.getElementById(`lastName(${i})`).innerHTML;
+async function toggleSelection(i) {
+    let contactName = await findName(i);
     let contactCheckedElement = document.getElementById(`contactChecked(${i})`);
     if (contactCheckedElement.style.display != "block") {
         contactCheckedElement.style.display = "block";
-        selectContact(i);
+        selectContact(contactName);
     } else {
         contactCheckedElement.style.display = "none";
-        unselectContact(firstName, lastName);
+        unselectContact(contactName);
     };
     renderNameCircles();
 };
 
-async function toggleUserSelection() {
-    let currentUserName = await JSON.parse(localStorage.getItem('currentUser'));
-    let userCheckedElement = document.getElementById(`userChecked`);
-    if (userCheckedElement.style.display != "block") {
-        userCheckedElement.style.display = "block";
-        selectUser(currentUserName.name)
+
+async function findName(i) {
+    if (i == 0) {
+        return await JSON.parse(localStorage.getItem('currentUser')).name;
     } else {
-        userCheckedElement.style.display = "none";
-        unselectUser(currentUserName.name);
-    };
-    renderNameCircles();
-};
+        return document.getElementById(`contact(${i})`).innerHTML
+    }
 
-function selectUser(userName) {
-    assignedPersons.push({
-        name: `${userName}`,
-        initials: `${userName.split(" ").map((n) => n[0]).join("")}`
-    })
 };
 
 
-function selectContact(i) {
-    let firstName = document.getElementById(`firstName(${i})`).innerHTML;
-    let lastName = document.getElementById(`lastName(${i})`).innerHTML;
+function selectContact(contactName) {
     assignedPersons.push({
-        name: `${firstName} ${lastName}`,
-        initials: `${firstName.charAt(0)}${lastName.charAt(0)}`,
+        name: `${contactName}`,
+        initials: `${contactName.split(" ").map((n) => n[0]).join("")}`,
     });
 };
 
 
-function unselectUser(userName) {
-    assignedPersons.splice(findIndexOfContact(userName), 1)
-};
-
-
-function unselectContact(firstName, lastName) {
-    let fullName = `${firstName} ${lastName}`;
-    assignedPersons.splice(findIndexOfContact(fullName), 1);
+function unselectContact(contactName) {
+    assignedPersons.splice(findIndexOfContact(contactName), 1);
 };
 
 
@@ -241,19 +222,36 @@ function findIndexOfContact(contactName) {
 };
 
 
-function confirmMailAdress() {
+async function confirmMailAdress() {
+    let contacts = await JSON.parse(backend.getItem('allContacts'))
+    console.log(contacts);
     let mailInputElement = document.getElementById("mailInput");
-    let contactIndex = findIndexFromMail(mailInputElement.value);
+    let contactIndex = findIndexFromMail(contacts, mailInputElement.value);
     if (contactIndex == -1) {
         showMailNotFoundAlert(mailInputElement.value);
     } else {
-        finishInvitationInput(contactIndex);
+        finishInvitationInput(contacts, contactIndex);
     };
 };
 
 
-function findIndexFromMail(mailAdress) {
-    return contactData.map((contact) => contact.mail).indexOf(mailAdress);
+function findIndexFromMail(contacts, mailAdress) {
+    return contacts.map((contact) => contact.mail).indexOf(mailAdress);
+};
+
+
+function finishInvitationInput(contacts, index) {
+    assignedPersons.push({
+        name: `${contacts[index].name}`,
+        initials: `${contacts[index].initials}`,
+        color: `${contacts[index].color}`,
+    });
+    toggleView_DropdownAndNewEntry(
+        "invitePersonInput",
+        "assignToDropdown",
+        "mailInput"
+    );
+    renderNameCircles();
 };
 
 
@@ -273,20 +271,6 @@ function cancelInviteContact() {
     );
 };
 
-
-function finishInvitationInput(index) {
-    assignedPersons.push({
-        name: `${contactData[index].name}`,
-        initials: `${contactData[index].initials}`,
-        color: `${contactData[index].color}`,
-    });
-    toggleView_DropdownAndNewEntry(
-        "invitePersonInput",
-        "assignToDropdown",
-        "mailInput"
-    );
-    renderNameCircles();
-};
 
 
 function renderNameCircles() {

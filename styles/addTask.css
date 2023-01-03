@@ -313,14 +313,6 @@ section div:not(:first-of-type) label {
 
 /* assign contacts */
 
-.assignName {
-    display: flex;
-}
-
-.assignName span {
-    padding: 0px 6px 0px 0px !important;
-}
-
 .showContactSelection {
     height: 192px;
 }
