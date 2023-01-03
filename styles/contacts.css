@@ -509,6 +509,22 @@ main{
     transform: translateX(8000px);
 }
 
+.close-icon {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    display: none;
+}
+
+.cut {
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 
 
 
@@ -581,6 +597,10 @@ main{
         position: absolute;
         right: 50px;
         bottom: 100px;
+    }
+
+    .cut {
+        max-width: 150px;
     }
 
     
@@ -709,6 +729,7 @@ main{
             height: 28px !important;
             width: 24px !important;
         }
+
     }
 
 
@@ -736,8 +757,9 @@ main{
         display: flex;
         align-items: center;
         flex-direction: column;
-        /* display: none; */
+        display: none;
     }
+
 
     .contact-headline-container {
         width: 100%;

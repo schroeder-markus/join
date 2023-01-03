@@ -70,6 +70,7 @@ main {
     justify-content: center;
     align-items: center;
     padding: 0 12px;
+    color: white;
 }
 
 .headline span {
@@ -180,6 +181,7 @@ h1 {
     border: 1px solid #FFFFFF;
     border-radius: 58px;
     margin: 0px -6px;
+    color: white;
 }
 
 .cardfooter svg {
@@ -222,6 +224,12 @@ h1 {
     width: calc(100vw - 232px);
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .openinfo {
     position: absolute;
@@ -251,10 +259,11 @@ h1 {
     border-radius: 30px;
     background-color: white;
     padding: 0 80px;
+    padding-top: 40px;
 }
 
 .slidediv h1 {
-    margin-left: 100px;
+    margin-bottom: 40px;
 }
 
 .showslide {
@@ -338,7 +347,36 @@ button span {
     display: none;
 }
 
-.editcardinformation,
+.editcardinformation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 50px;
+    padding-top: 100px;
+    padding-right: 86px;
+    gap: 25px;
+    position: relative;
+    width: 623px;
+    height: 824px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+.addTaskForm {
+    width: 100%;
+    display: flex;
+    gap: 25px;
+}
+
+.editform {
+    gap: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+
 .cardinformation {
     display: flex;
     flex-direction: column;
@@ -369,6 +407,7 @@ button span {
     position: absolute;
     bottom: 34px;
     right: 50px;
+    z-index: 99;
 }
 
 .name-circle {

@@ -124,32 +124,33 @@
                 </div>
 
                 <div id="cardinformation" class="openinfo d-none">
-                    <div class="cardinformation">
-                        <svg onclick="closeCardInformation()" class="closebutton" width="31" height="31" viewBox="0 0 31 31"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22.9614 7.65381L7.65367 22.9616" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
-                            <path d="M22.8169 23.106L7.50914 7.7982" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                    <div id="editcard" class="cardinformation">
+                        <svg onclick="closeCardInformation()" class="closebutton" width="31" height="31"
+                            viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.9614 7.65381L7.65367 22.9616" stroke="#2A3647" stroke-width="2"
+                                stroke-linecap="round" />
+                            <path d="M22.8169 23.106L7.50914 7.7982" stroke="#2A3647" stroke-width="2"
+                                stroke-linecap="round" />
                         </svg>
-                
-                        <svg class="editbutton" onclick="editCard()" width="57" height="57" viewBox="0 0 57 57" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
+
+                        <svg class="editbutton" onclick="editCard()" width="57" height="57" viewBox="0 0 57 57"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="57" height="57" rx="10" fill="#2A3647" />
                             <path
                                 d="M20.9449 35.5155L25.7643 38.4404L38.4074 17.6083C38.694 17.1362 38.5435 16.5211 38.0714 16.2346L34.9618 14.3474C34.4897 14.0608 33.8746 14.2113 33.5881 14.6834L20.9449 35.5155Z"
                                 fill="white" />
                             <path d="M20.3599 36.4792L25.1792 39.4041L20.4506 41.6889L20.3599 36.4792Z" fill="white" />
                         </svg>
-                
-                
-                        <div id="infocategory" class="infomationcategory ${allTasks[position]['category']}"></div>
+
+
+                        <div id="infocategory" class="infomationcategory"></div>
                         <div id="infotitle" class="informationtitle"></div>
                         <div id="infodescription" class="description"></div>
                         <div class="informationdate">
-                            <span  class="cardinformationspan">Due Date:</span><span id="infoduedate"></span>
+                            <span class="cardinformationspan">Due Date:</span><span id="infoduedate"></span>
                         </div>
                         <div class="prioritycard">
-                            <span class="cardinformationspan">Priority:</span><img id="priorotyimg" src="img/card${allTasks[position]['priority']}.svg"
-                                alt="">
+                            <span class="cardinformationspan">Priority:</span><img id="priorotyimg" src="" alt="">
                         </div>
                         <div id="assignedto">
                             <span class="cardinformationspan"> Assigned to:</span>
@@ -163,199 +164,197 @@
 
                 <div class="addtaskslide closeslide" id="taskslide">
                     <div class="slidediv">
-                        <div id="taskAdded" class="messageContainer"><img src="img/message-task-added.svg"
-                                alt="successMessage"></div>
                         <h1>Add Task</h1>
-                        <div id="addTaskFormContainer">
-                            <div class="inputFields">
-                                <form onsubmit="return false" class="addTaskForm">
-                                    <section class="leftArea">
-                                        <!-- Title -->
-                                        <div>
-                                            <label for="title">Title</label>
-                                            <input oninput="deleteAlert('titleAlert')" id="title" type="text"
-                                                placeholder="Enter a title">
-                                            <span id="titleAlert" class="requiredAlert"></span>
-                                        </div>
-                                        <!-- Description -->
-                                        <div>
-                                            <label for="description">Description</label>
-                                            <textarea oninput="deleteAlert('descriptionAlert')" id="description"
-                                                class="descriptionTextArea" type="text"
-                                                placeholder="Enter a description"></textarea>
-                                            <span id="descriptionAlert" class="requiredAlert"></span>
-                                        </div>
-                                        <!-- Category -->
-                                        <div readonly>
-                                            <label for="categoryDropdown">Category</label>
-                                            <div onclick="toggleCategoryDropdown()" id="categoryDropdown"
-                                                class="dropdown">
-                                                <span id="categoryInput" class="dropdownValue">Select Task
-                                                    Category</span>
-                                                <img src="img/icon-dropdown.svg" alt="dropdownIcon">
-                                                <div id="categories" class="scroll"></div>
-                                            </div>
-                                            <!-- Input for new category (display: none on default) -->
-                                            <div id="newCategoryInput" class="newEntryInput">
-                                                <div><input id="catNameInput" type="text"
-                                                        placeholder="New category name" onfocus="this.value=''">
-                                                    <div class="confirmOrCancel">
-                                                        <div onclick="cancelNewCategory()"><img src="img/icon-x.svg"
-                                                                alt="cancelIcon" required>
-                                                        </div>
-                                                        <div onclick="confirmNewCategory()"><img
-                                                                src="img/icon-check-dark.svg" alt="checkIcon">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="colorSelWrapper">
-                                                    <span id="colorSelection"></span>
-                                                    <span id="colorSelAlert" class="requiredAlert">Select a Color</span>
-                                                </div>
-                                            </div>
-                                            <!--  -->
-                                            <span id="categoryAlert" class="requiredAlert"></span>
-                                        </div>
-                                        <!-- Assign to -->
-                                        <div readonly>
-                                            <label for="assignToDropdown">Assign to</label>
-                                            <div id="assignToDropdown" class="dropdown">
-                                                <span onclick="toggleAssignDropdown()" id="assignToInput"
-                                                    class="dropdownValue">Select
-                                                    contacts to assign</span>
-                                                <img onclick="toggleAssignDropdown()" src="img/icon-dropdown.svg"
-                                                    alt="dropdownIcon">
-                                                <div id="contactSelection" class="scroll">
-                                                    <div><span onclick="toggleSelf()">You<div id="contactCheckbox()"
-                                                                class="assignCheckbox">
-                                                                <div class="assignChecked"></div>
-                                                            </div></span></div>
-                                                    <div><span onclick="toggleSelection(0)">
-                                                            <div id="contact(0)">
-                                                                <div class="assignName"><span
-                                                                        id="firstName(0)">Markus</span><span
-                                                                        id="lastName(0)">Schröder</span></div>
-                                                            </div>
-                                                            <div class="assignCheckbox">
-                                                                <div id="contactChecked(0)" class="assignChecked"></div>
-                                                            </div>
-                                                        </span></div>
-                                                    <div><span onclick="toggleSelection(1)">
-                                                            <div id="contact(1)">
-                                                                <div class="assignName"><span
-                                                                        id="firstName(1)">Boubkir</span><span
-                                                                        id="lastName(1)">Benamar</span></div>
-                                                            </div>
-                                                            <div class="assignCheckbox">
-                                                                <div id="contactChecked(1)" class="assignChecked"></div>
-                                                            </div>
-                                                        </span></div>
-                                                    <div><span onclick="toggleSelection(2)">
-                                                            <div id="contact(2)">
-                                                                <div class="assignName"><span
-                                                                        id="firstName(2)">Ilja</span><span
-                                                                        id="lastName(2)">Gaus-Gerbeth</span></div>
-                                                            </div>
-                                                            <div class="assignCheckbox">
-                                                                <div id="contactChecked(2)" class="assignChecked"></div>
-                                                            </div>
-                                                        </span></div>
-                                                    <div><span onclick="toggleSelection(3)">
-                                                            <div id="contact(3)">
-                                                                <div class="assignName"><span
-                                                                        id="firstName(3)">Ingo</span><span
-                                                                        id="lastName(3)">Hermsen</span></div>
-                                                            </div>
-                                                            <div class="assignCheckbox">
-                                                                <div id="contactChecked(3)" class="assignChecked"></div>
-                                                            </div>
-                                                        </span></div>
-                                                    <div><span
-                                                            onclick="toggleView_DropdownAndNewEntry('assignToDropdown','invitePersonInput', 'mailInput')">Invite
-                                                            new Contact<img src="img/icon-contacts-dark.svg"
-                                                                alt="contactIconDark"></span></div>
-                                                </div>
-                                            </div>
+                        <div id="taskAdded" class="messageContainer"><img src="img/message-task-added.svg"
+                                alt="successMessage">
+                        </div>
+                        <div id="formWrapper">
 
-                                            <!-- Input for new Contact (display: none on default) -->
-                                            <div id="invitePersonInput" class="newEntryInput">
-                                                <div><input id="mailInput" type="email" placeholder="Contact email"
-                                                        onfocus="this.value=''">
-                                                    <div class="confirmOrCancel">
-                                                        <div onclick="cancelInviteContact()"><img src="img/icon-x.svg"
-                                                                alt="cancelIcon" required>
-                                                        </div>
-                                                        <div onclick="confirmMailAdress()"><img
-                                                                src="img/icon-check-dark.svg" alt="checkIcon">
-                                                        </div>
+                            <form onsubmit="createTask(), closeSlide();return false" class="addTaskForm">
+                                <section class="leftArea">
+                                    <!-- Title -->
+                                    <div>
+                                        <label for="title">Title</label>
+                                        <input oninput="deleteAlert('titleAlert')" id="title" type="text"
+                                            placeholder="Enter a title">
+                                        <span id="titleAlert" class="requiredAlert"></span>
+                                    </div>
+                                    <!-- Description -->
+                                    <div>
+                                        <label for="description">Description</label>
+                                        <textarea oninput="deleteAlert('descriptionAlert')" id="description"
+                                            class="descriptionTextArea" type="text"
+                                            placeholder="Enter a description"></textarea>
+                                        <span id="descriptionAlert" class="requiredAlert"></span>
+                                    </div>
+                                    <!-- Category -->
+                                    <div readonly>
+                                        <label for="categoryDropdown">Category</label>
+                                        <div onclick="toggleCategoryDropdown()" id="categoryDropdown" class="dropdown">
+                                            <span id="categoryInput" class="dropdownValue">Select Task Category</span>
+                                            <img src="img/icon-dropdown.svg" alt="dropdownIcon">
+                                            <div id="categories" class="scroll"></div>
+                                        </div>
+                                        <!-- Input for new category (display: none on default) -->
+                                        <div id="newCategoryInput" class="newEntryInput">
+                                            <div><input id="catNameInput" type="text" placeholder="New category name"
+                                                    onfocus="this.value=''">
+                                                <div class="confirmOrCancel">
+                                                    <div onclick="cancelNewCategory()"><img src="img/icon-x.svg"
+                                                            alt="cancelIcon" required>
+                                                    </div>
+                                                    <div onclick="confirmNewCategory()"><img
+                                                            src="img/icon-check-dark.svg" alt="checkIcon">
                                                     </div>
                                                 </div>
-                                                <span id="mailNotFoundAlert" class="requiredAlert"></span>
                                             </div>
-                                            <!--  -->
-                                            <span id="assignAlert" class="requiredAlert"></span>
-                                            <span id="nameCircles"></span>
+                                            <div class="colorSelWrapper">
+                                                <span id="colorSelection"></span>
+                                                <span id="colorSelAlert" class="requiredAlert">Select a Color</span>
+                                            </div>
+                                        </div>
+                                        <!--  -->
+                                        <span id="categoryAlert" class="requiredAlert"></span>
+                                    </div>
+                                    <!-- Assign to -->
+                                    <div readonly>
+                                        <label for="assignToDropdown">Assign to</label>
+                                        <div id="assignToDropdown" class="dropdown">
+                                            <span onclick="toggleAssignDropdown()" id="assignToInput"
+                                                class="dropdownValue">Select
+                                                contacts to assign</span>
+                                            <img onclick="toggleAssignDropdown()" src="img/icon-dropdown.svg"
+                                                alt="dropdownIcon">
+                                            <div id="contactSelection" class="scroll">
+                                                <div><span onclick="toggleSelf()">You<div id="contactCheckbox()"
+                                                            class="assignCheckbox">
+                                                            <div class="assignChecked"></div>
+                                                        </div></span></div>
+                                                <div><span onclick="toggleSelection(0)">
+                                                        <div id="contact(0)">
+                                                            <div class="assignName"><span
+                                                                    id="firstName(0)">Markus</span><span
+                                                                    id="lastName(0)">Schröder</span></div>
+                                                        </div>
+                                                        <div class="assignCheckbox">
+                                                            <div id="contactChecked(0)" class="assignChecked"></div>
+                                                        </div>
+                                                    </span></div>
+                                                <div><span onclick="toggleSelection(1)">
+                                                        <div id="contact(1)">
+                                                            <div class="assignName"><span
+                                                                    id="firstName(1)">Boubkir</span><span
+                                                                    id="lastName(1)">Benamar</span></div>
+                                                        </div>
+                                                        <div class="assignCheckbox">
+                                                            <div id="contactChecked(1)" class="assignChecked"></div>
+                                                        </div>
+                                                    </span></div>
+                                                <div><span onclick="toggleSelection(2)">
+                                                        <div id="contact(2)">
+                                                            <div class="assignName"><span
+                                                                    id="firstName(2)">Ilja</span><span
+                                                                    id="lastName(2)">Gaus-Gerbeth</span></div>
+                                                        </div>
+                                                        <div class="assignCheckbox">
+                                                            <div id="contactChecked(2)" class="assignChecked"></div>
+                                                        </div>
+                                                    </span></div>
+                                                <div><span onclick="toggleSelection(3)">
+                                                        <div id="contact(3)">
+                                                            <div class="assignName"><span
+                                                                    id="firstName(3)">Ingo</span><span
+                                                                    id="lastName(3)">Hermsen</span></div>
+                                                        </div>
+                                                        <div class="assignCheckbox">
+                                                            <div id="contactChecked(3)" class="assignChecked"></div>
+                                                        </div>
+                                                    </span></div>
+                                                <div><span
+                                                        onclick="toggleView_DropdownAndNewEntry('assignToDropdown','invitePersonInput', 'mailInput')">Invite
+                                                        new Contact<img src="img/icon-contacts-dark.svg"
+                                                            alt="contactIconDark"></span>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                        </div>
-                                    </section>
-                                    <section class="rightArea">
-                                        <!-- Due Date -->
-                                        <div>
-                                            <label for="dateInput">Due Date</label>
-                                            <div oninput="deleteAlert('dateAlert')" class="inputContainer"><input
-                                                    id="dueDate" class="input dateInput" type="text"
-                                                    placeholder="Enter date" onfocus="(this.type='date')">
-                                            </div>
-                                            <span id="dateAlert" class="requiredAlert"></span>
-                                        </div>
-                                        <!-- Priority -->
-                                        <div class="input">
-                                            <label>Prio</label>
-                                            <div class="prioButtons">
-                                                <button onclick="setPrio('urgent')" type="button"
-                                                    id="prioButton-urgent">Urgent
-                                                    <div>
-                                                        <img src="img/prio-urgent.svg" alt="prioUrgentArrow">
+                                        <!-- Input for new Contact (display: none on default) -->
+                                        <div id="invitePersonInput" class="newEntryInput">
+                                            <div><input id="mailInput" type="email" placeholder="Contact email"
+                                                    onfocus="this.value=''">
+                                                <div class="confirmOrCancel">
+                                                    <div onclick="cancelInviteContact()"><img src="img/icon-x.svg"
+                                                            alt="cancelIcon" required>
                                                     </div>
-                                                </button>
-                                                <button onclick="setPrio('medium')" type="button"
-                                                    id="prioButton-medium">Medium
-                                                    <div>
-                                                        <img src="img/prio-medium.svg" alt="prioMediumArrow">
+                                                    <div onclick="confirmMailAdress()"><img
+                                                            src="img/icon-check-dark.svg" alt="checkIcon">
                                                     </div>
-                                                </button>
-                                                <button onclick="setPrio('low')" type="button" id="prioButton-low">Low
-                                                    <div>
-                                                        <img src="img/prio-low.svg" alt="prioLowArrow">
-                                                    </div>
-                                                </button>
+                                                </div>
                                             </div>
-                                            <span id="priorityAlert" class="requiredAlert"></span>
+                                            <span id="mailNotFoundAlert" class="requiredAlert"></span>
                                         </div>
-                                        <!-- Subtasks -->
-                                        <div class="subtaskInput">
-                                            <label for="subtaskInput">Subtasks</label>
-                                            <div class="inputContainer"><input oninput="deleteAlert('subtaskAlert')"
-                                                    id="subtask" class="input" placeholder="Add new Subtask">
-                                                <img onclick="addSubtask()" src="img/icon-add-plus-dark.svg"
-                                                    alt="plusIcon">
-                                            </div>
-                                            <span id="subtaskAlert" class="requiredAlert"></span>
-                                            <div id="subtasks"></div>
-                                            <!-- submit Or Clear Buttons -->
-                                            <section class="submitAndClearButtons">
-                                                <button id="clearButton" onclick="closeSlide()">Cancel<img
-                                                        src="img/icons-cancel.svg"></button>
-                                                <button id="createButton" onclick="createTask()">Create Task<img
-                                                        src="img/icons-check.svg"></button>
-                                            </section>
-                                    </section>
-                            </div>
+                                        <!--  -->
+                                        <span id="assignAlert" class="requiredAlert"></span>
+                                        <span id="nameCircles"></span>
+
+                                    </div>
+                                </section>
+                                <section class="rightArea">
+                                    <!-- Due Date -->
+                                    <div>
+                                        <label for="dateInput">Due Date</label>
+                                        <div oninput="deleteAlert('dateAlert')" class="inputContainer"><input
+                                                id="dueDate" class="input dateInput" type="text"
+                                                placeholder="Enter date" onfocus="(this.type='date')">
+                                        </div>
+                                        <span id="dateAlert" class="requiredAlert"></span>
+                                    </div>
+                                    <!-- Priority -->
+                                    <div class="input">
+                                        <label>Prio</label>
+                                        <div class="prioButtons">
+                                            <button onclick="setPrio('urgent')" type="button"
+                                                id="prioButton-urgent">Urgent
+                                                <div>
+                                                    <img src="img/prio-urgent.svg" alt="prioUrgentArrow">
+                                                </div>
+                                            </button>
+                                            <button onclick="setPrio('medium')" type="button"
+                                                id="prioButton-medium">Medium
+                                                <div>
+                                                    <img src="img/prio-medium.svg" alt="prioMediumArrow">
+                                                </div>
+                                            </button>
+                                            <button onclick="setPrio('low')" type="button" id="prioButton-low">Low
+                                                <div>
+                                                    <img src="img/prio-low.svg" alt="prioLowArrow">
+                                                </div>
+                                            </button>
+                                        </div>
+                                        <span id="priorityAlert" class="requiredAlert"></span>
+                                    </div>
+                                    <!-- Subtasks -->
+                                    <div class="subtaskInput">
+                                        <label for="subtaskInput">Subtasks</label>
+                                        <div class="inputContainer"><input oninput="deleteAlert('subtaskAlert')"
+                                                id="subtask" class="input" placeholder="Add new Subtask">
+                                            <img onclick="addSubtask()" src="img/icon-add-plus-dark.svg" alt="plusIcon">
+                                        </div>
+                                        <span id="subtaskAlert" class="requiredAlert"></span>
+                                        <div id="subtasks"></div>
+                                        <!-- submit Or Clear Buttons -->
+
+                                        <div class="submitAndClearButtons">
+                                            <button id="clearButton" onclick="clearForm(),closeSlide()">Cancel<img
+                                                    src="img/icons-cancel.svg"></button>
+                                            <button type="submit" id="createButton" onclick="">Create Task<img
+                                                    src="img/icons-check.svg"></button>
+                                        </div>
+                                </section>
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
         </main>
     </body>
 
