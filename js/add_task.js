@@ -50,6 +50,7 @@ function toggleCategoryDropdown() {
     };
 };
 
+
 function toggleAssignDropdown() {
     showContactList = !showContactList;
     deleteAlert("assignAlert");
@@ -111,10 +112,7 @@ function resetNewCategoryColorAndInput() {
 function confirmNewCategory() {
     let categoryInputElement = document.querySelector("#newCategoryInput input");
 
-    if (
-        selectedCategoryColor.length > 0 &&
-        categoryInputElement.value.length > 0
-    ) {
+    if (selectedCategoryColor.length > 0 && categoryInputElement.value.length > 0) {
         categories.push({
             name: `${categoryInputElement.value}`,
             color: `${selectedCategoryColor}`,
@@ -250,6 +248,7 @@ function cancelInviteContact() {
     );
 };
 
+
 function finishInvitationInput(index) {
     assignedPersons.push({
         name: `${contactData[index].name}`,
@@ -264,6 +263,7 @@ function finishInvitationInput(index) {
     renderNameCircles();
 };
 
+
 function renderNameCircles() {
     let nameCirclesElement = document.getElementById("nameCircles");
     nameCirclesElement.innerHTML = '';
@@ -274,6 +274,7 @@ function renderNameCircles() {
         `;
     };
 };
+
 
 function toggleView_DropdownAndNewEntry(
     invisibleElementID,
@@ -289,6 +290,7 @@ function toggleView_DropdownAndNewEntry(
     inputFieldElement.focus();
 };
 
+
 function setPrio(priorityValue) {
     deleteAlert("priorityAlert");
     let prioButtonElement = document.getElementById(
@@ -301,6 +303,7 @@ function setPrio(priorityValue) {
     prioButtonElement.style.backgroundColor = `var(--prio-${priorityValue})`;
 };
 
+
 function resetActivePrio() {
     if (priority.length > 0) {
         let activePrioButtonElement = document.getElementById(`prioButton-${priority}`);
@@ -309,6 +312,7 @@ function resetActivePrio() {
         activePrioButtonElement.style.backgroundColor = `var(--main-white)`
     };
 };
+
 
 function addSubtask() {
     let subtaskInputField = document.getElementById('subtask');

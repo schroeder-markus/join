@@ -6,7 +6,6 @@ main {
 }
 
 
-
 /* Form */
 
 input, .dropdown, .descriptionTextArea {
@@ -34,15 +33,6 @@ input, .dropdown {
     overflow: hidden;
 }
 
-.showCategories {
-    height: 192px;
-}
-
-#categories {
-    max-height: 152px;
-    overflow-y: scroll;
-}
-
 .dropdown:hover {
     cursor: pointer;
 }
@@ -64,6 +54,15 @@ input, .dropdown {
     background-color: #D1D1D1;
 }
 
+.showCategories {
+    height: 192px;
+}
+
+#categories {
+    max-height: 152px;
+    overflow-y: scroll;
+}
+
 
 .descriptionTextArea {
     padding-top: 12px;
@@ -81,11 +80,6 @@ input, .dropdown {
     border-right: 1px solid #D1D1D1;
     border-top: 1px solid #D1D1D1;
     border-bottom: 1px solid #D1D1D1;
-}
-
-.messageContainer {
-    bottom: 0px;
-    width: 80%;
 }
 
 #formWrapper {
@@ -107,6 +101,7 @@ label {
     display: inline-block;
     margin-bottom: 8px;
 }
+
 
 .requiredAlert {
     color: var(--field-required);
@@ -316,6 +311,8 @@ section div:not(:first-of-type) label {
     font-size: 14px;
 }
 
+/* assign contacts */
+
 .assignName {
     display: flex;
 }
@@ -371,18 +368,19 @@ section div:not(:first-of-type) label {
     margin: 0px 0px 24px 0px;
 }
 
-
 #mailNotFoundAlert {
     display: none;
     margin: 0px 0px 10px 0px;
     font-size: 14px;
 }
 
+/* subtask Input */
 
 .subtaskInput .confirmOrCancel {
     display: none;
 }
 
+/* media queries */
 
 @media only screen and (max-width: 1276px) {
     .addTaskForm {
