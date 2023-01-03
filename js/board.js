@@ -37,6 +37,7 @@ function sortCards() {
 function updateOpen() {
     for (let i = 0; i < open.length; i++) {
         const task = open[i];
+        const userId = `open${open[i]}`
         toDoDiv.innerHTML += cardHTML(task)
     }
 }
@@ -92,7 +93,7 @@ function cardHTML(task) {
         <div class="headline ${task['category']}">${task['category']}</div>
     </div>
     <div class="cardcontent">
-        <h3 id="title">${task['title']}</h3>
+        <h3>${task['title']}</h3>
         <span class="span" id="todo">${task['description']}</span>
     </div>
     <div class="progressbardiv">
@@ -155,7 +156,15 @@ function renderCardInformation(position) {
 function editCard() {
     document.getElementById('editcard').classList.add('editcardinformation');
     document.getElementById('editcard').classList.remove('cardinformation');
-    document.getElementById('editcard').innerHTML = `<div class="center">
+    document.getElementById('editcard').innerHTML = editCardHTML();
+    document.getElementById(`edittitle${currentTask}`).value = allTasks[currentTask]['title'];
+    document.getElementById(`editdescription${currentTask}`).value = allTasks[currentTask]['description'];
+    document.getElementById(`editduedate${currentTask}`).value = allTasks[currentTask]['Due Date'];
+
+}
+
+function editCardHTML(){
+    return `<div class="center">
                         <svg onclick="closeCardInformation()" class="closebutton" width="31" height="31" viewBox="0 0 31 31"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.9614 7.65381L7.65367 22.9616" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
@@ -167,7 +176,7 @@ function editCard() {
                             <path d="M53 30.5L59 36.5L69 24.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
 
-                    <form onsubmit="return false" class="addTaskForm">
+                    <form onsubmit="return false" class="editform">
                     <!-- Title -->
                     <div>
                         <label for="title">Title</label>
@@ -286,11 +295,6 @@ function editCard() {
                     </div>
             </form>
         </div>`
-
-    document.getElementById(`edittitle${currentTask}`).value = allTasks[currentTask]['title'];
-    document.getElementById(`editdescription${currentTask}`).value = allTasks[currentTask]['description'];
-    document.getElementById(`editduedate${currentTask}`).value = allTasks[currentTask]['Due Date'];
-
 }
 
 function saveEditedTasks() {
@@ -305,7 +309,12 @@ function saveEditedTasks() {
 
 function closeCardInformation() {
     document.getElementById('cardinformation').classList.add('d-none');
-    document.getElementById('cardinformation').innerHTML = ` <div id="editcard" class="cardinformation">
+    document.getElementById('cardinformation').innerHTML = infoCardHTML();
+}
+
+
+function infoCardHTML(){
+    return ` <div id="editcard" class="cardinformation">
                         <svg onclick="closeCardInformation()" class="closebutton" width="31" height="31" viewBox="0 0 31 31"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.9614 7.65381L7.65367 22.9616" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
@@ -339,8 +348,9 @@ function closeCardInformation() {
                                 <div class="nameinformation">Boubkir Benamar</div>
                             </div>
                         </div>
-                    </div>`;
+                    </div>`
 }
+
 
 function startDragging(id) {
     currentDraggedElement = id;
