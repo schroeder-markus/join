@@ -124,7 +124,7 @@
                 </div>
 
                 <div id="cardinformation" class="openinfo d-none">
-                    <div class="cardinformation">
+                    <div id="editcard" class="cardinformation">
                         <svg onclick="closeCardInformation()" class="closebutton" width="31" height="31" viewBox="0 0 31 31"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.9614 7.65381L7.65367 22.9616" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
@@ -141,14 +141,14 @@
                         </svg>
                 
                 
-                        <div id="infocategory" class="infomationcategory ${allTasks[position]['category']}"></div>
+                        <div id="infocategory" class="infomationcategory"></div>
                         <div id="infotitle" class="informationtitle"></div>
                         <div id="infodescription" class="description"></div>
                         <div class="informationdate">
                             <span  class="cardinformationspan">Due Date:</span><span id="infoduedate"></span>
                         </div>
                         <div class="prioritycard">
-                            <span class="cardinformationspan">Priority:</span><img id="priorotyimg" src="img/card${allTasks[position]['priority']}.svg"
+                            <span class="cardinformationspan">Priority:</span><img id="priorotyimg" src=""
                                 alt="">
                         </div>
                         <div id="assignedto">
