@@ -56,9 +56,11 @@ aside nav a span {
     align-items: center;
 }
 
-aside nav a:hover {
+aside nav a:hover,
+.aside-nav-focus {
     background-color: var(--main-dark-contrast);
 }
+
 
 .notice a:hover {
     background-color: var(--main-dark-contrast);

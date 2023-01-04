@@ -28,6 +28,7 @@ let categories = [
   },
 ];
 
+
 function logOutClickAvatar() {
   document.querySelector(".logout-btn").classList.toggle("toggle-logout-btn");
   localStorage.clear();
@@ -37,7 +38,7 @@ function logOutClickAvatar() {
 function showMessage(messageID) {
   let noteContainer = document.getElementById(messageID);
   noteContainer.classList.add('showMessage');
-  setTimeout(() => {noteContainer.classList.remove('showMessage')}, 3000);
+  setTimeout(() => { noteContainer.classList.remove('showMessage') }, 3000);
 };
 
 
@@ -48,7 +49,7 @@ async function loadTasks() {
   lastTaskID = backend.getItem('lastTaskID');
 };
 
-async function loadCurrentUser(){
+async function loadCurrentUser() {
   await downloadFromServer();
   const currentUserJson = localStorage.getItem("currentUser");
   const currentUser = await JSON.parse(currentUserJson);
@@ -81,8 +82,15 @@ function greetUser(currentUserName) {
   }
 };
 
-async function init(){
-  await includeHTML();
+function init() {
   loadTasks();
   loadCurrentUser();
+};
+
+
+async function activatePage(iconID) {
+    await includeHTML();
+    let navEntry = document.getElementById(`icon-${iconID}`);
+    navEntry.classList.add('aside-nav-focus');
+    init();
 };
