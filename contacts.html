@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,11 +14,8 @@
     <script src="js/script.js" defer></script>
     <script src="js/board.js"></script>
     <script src="js/contacts.js" defer></script>
-
     <title>Join</title>
-
   </head>
-
   <body onload="init(),createContactList(), loadAllContacts(),loadCurrentUser()">
     <div>
       <!-- header template -->
@@ -29,20 +25,14 @@
       <!-- aside template -->
       <div w3-include-html="includes/aside.html"></div>
       <!-- aside template END -->
-      <main>
+      <div>
         <div id="contact-created" class="messageContainer"><img src="img/message-contact-created.svg"
             alt="successMessage"></div>
-        <div class="main-container">
+        <main class="main-container">
           <div class="contact-container">
             <img class="close-icon" src="img/icon-x.svg" onclick="closeDetailView(this)">
             <div class="contact-container-left scroll">
               <div class="contacts-list">
-                <div class="contact-letter">
-                  <div>
-                    <span>A</span>
-                  </div>
-                  <div class="divider"></div>
-                </div>
                 <div class="contact-list">
                 </div>
               </div>
@@ -98,7 +88,6 @@
                           <input class="input" value="#2A3647" id="newContactSubmitColor" placeholder="Favorite Color"
                             type="color" required>
                         </div>
-
                         <div class="log-in-btn-container">
                           <button class="sign-up-btn cancel-btn" onclick="closeSlide()">
                             <svg id="icon-x" width="13" height="13" viewBox="0 0 13 13" fill=""
@@ -137,7 +126,6 @@
                       <span id="name-circle-letter-edit" class="name-circle-letter-large">AB</span>
                     </div>
                   </div>
-
                 </div>
                 <div class="contact-form-area">
                   <form onsubmit="; return false;" id="submit" class="">
@@ -171,10 +159,9 @@
                   src="img/icons-add-contact.svg"></button>
             </div>
           </div>
-      </main>
+        </main>
       <script src="includes.js" defer></script>
       <script src="js/add_task.js" defer></script>
     </div>
   </body>
-
 </html>

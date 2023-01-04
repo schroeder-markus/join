@@ -10,11 +10,10 @@ function editContact(contactID) {
     "#name-circle-letter-edit"
   ).innerHTML = `${allContacts[contactID].initials}`;
   document.querySelector(".name-circle-large-edit").style.backgroundColor = `${allContacts[contactID].color}`;
-  document.querySelector(".add-new-contact").style.display = "none";
-  saveButton()
-};
+  removeEventlistenerOnSave(contactID);
+}
 
-function saveButton() {
+function removeEventlistenerOnSave(contactID) {
   let saveBtn = document.querySelector(".save-btn");
   let saveBtnClicked = false;
   saveBtn.addEventListener("click", () => {
@@ -24,6 +23,7 @@ function saveButton() {
     };
     saveBtn.removeEventListener("click", () => {});
   });
+  document.querySelector(".add-new-contact").style.display = "none";
 }
 
 function saveContactChange(contactID) {
@@ -36,10 +36,6 @@ function saveContactChange(contactID) {
     .value.split(" ")
     .map((n) => n[0])
     .join("");
-  saveContactData();
-}
-
-function saveContactData() {
   saveAllContacts()  
   createContactList();
   showContactData(contactID);
@@ -57,7 +53,6 @@ function createContact() {
 
 function closeEditContact() {
   document.querySelector(".edit-contact-container").style.display = "none";
-  document.querySelector(".add-new-contact").style.display = "unset";
 }
 
 function closeNewContact() {
@@ -79,13 +74,17 @@ function addNewContact() {
 
   allContacts.push(newContactData);
   saveAllContacts()
+  resetContactValue()
+  createContactList();
+  closeNewContact();
+  showMessage('contact-created')
+}
+
+function resetContactValue() {
   document.querySelector("#newContactSubmitName").value = "";
   document.querySelector("#newContactSubmitEmail").value = "";
   document.querySelector("#newContactSubmitPhone").value = "";
   document.querySelector("#newContactSubmitColor").value = "";
-  createContactList();
-  closeNewContact();
-  showMessage('contact-created');
 }
 
 async function saveAllContacts() {
@@ -105,20 +104,30 @@ function createContactList() {
   let initials = new Set();
   for (let i = 0; i < allContacts.length; i++) {
     initials.add(allContacts[i]["name"][0].toUpperCase());
-  };
+  }
   initials = Array.from(initials).sort();
-
   for (let initial of initials) {
-    document.querySelector(".contacts-list").innerHTML += `
+    document.querySelector(".contacts-list").innerHTML += contactLetterHtml(initial)
+    for (let i = 0; i < allContacts.length; i++) {
+      if (allContacts[i]["name"][0].toUpperCase() === initial) {
+        document.querySelector(".contacts-list").innerHTML += contactlistHtml(i, allContacts)
+      }
+    }
+  }
+}
+
+function contactLetterHtml(initial) {
+  return `
     <div class="contact-letter">
                 <div>
                   <span>${initial}</span>
                 </div>
                 <div class="divider"></div>
               </div>`;
-    for (let i = 0; i < allContacts.length; i++) {
-      if (allContacts[i]["name"][0].toUpperCase() === initial) {
-        document.querySelector(".contacts-list").innerHTML += `
+}
+
+function contactlistHtml(i, allContacts) {
+  return `
         <div class="contact-names contact-names-hov" onclick="showContactData(${i}), selectContainer(this)">
         <div class="name-circle" style="background-color: ${allContacts[i]["color"]};">
           <span class="name-circle-letter">${allContacts[i]["name"]
@@ -132,14 +141,15 @@ function createContactList() {
         </div>
       </div>  
         `;
-      }
-    }
-  }
 }
 
 function showContactData(contactID) {
   checkSize()
-  document.querySelector(".contact-detail-container").innerHTML = `
+  document.querySelector(".contact-detail-container").innerHTML = contactDetailHtml(contactID)
+}
+
+function contactDetailHtml (contactID) {
+  return `
     <div class="contact-detail-name">
     <div class="name-circle-large" style="background-color: ${allContacts[contactID]["color"]};">
       <span class="name-circle-letter-large">${allContacts[contactID].initials}</span>
@@ -199,7 +209,6 @@ let selectedContainer = null;
       selectedContainer.classList.remove('selected');
       selectedContainer.classList.add("contact-names-hov")
     }
-
     container.classList.remove('contact-names-hov')
     selectedContainer = container;
     selectedContainer.classList.add('selected');
