@@ -4,18 +4,14 @@
 
     --main-dark: #2A3647;
     --main-dark-contrast: #091931;
-
     --main-bg-color: #f6f7f8;
-
     --main-white: #ffffff;
     --main-black: #000000;
     --main-blue: #42abe2;
     --main-gray: #d5d5d5;
-
     --prio-urgent: #ff3d00;
     --prio-medium: #ffa800;
     --prio-low: #7ae229;
-
     --field-required: #ff8190;
     --field-wrong-msg: #ff001f;
 
@@ -32,7 +28,6 @@
 
     --main-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     --sub-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-
     --aside-font-color: #cdcdcd;
 }
 
@@ -65,17 +60,13 @@ header {
     z-index: 9;
 }
 
-.headerlogo {
-    display: none;
-}
-
+.headerlogo {display: none;}
 
 textarea,
 input {
     font-family: 'Inter', 'Courier New', Courier, monospace;
     font-size: 16px;
 }
-
 
 .header-nav {
     display: flex;
@@ -120,9 +111,7 @@ input {
     border: 2px solid var(--main-white);
 }
 
-.name-circle-letter {
-    color: var(--main-white);
-}
+.name-circle-letter {color: var(--main-white);}
 
 .name-circle-header {
     cursor: pointer;
@@ -136,9 +125,7 @@ input {
     border: 3px solid var(--main-blue);
 }
 
-.name-circle-header {
-    color: var(--main-white);
-}
+.name-circle-header {color: var(--main-white);}
 
 .logout-btn {
     display: flex;
@@ -156,9 +143,7 @@ input {
     cursor: pointer;
 }
 
-.toggle-logout-btn {
-    display: none;
-}
+.toggle-logout-btn {display: none;}
 
 aside {
     width: 232px;
@@ -191,9 +176,7 @@ main {
     height: calc(100% - 80px);
 }
 
-.content-container {
-    margin-right: 124px;
-}
+.content-container {margin-right: 124px;}
 
 .content-title {
     display: flex;
@@ -208,9 +191,7 @@ main {
     width: 37px;
 }
 
-.datenschutz-content {
-    padding-bottom: 5rem;
-}
+.datenschutz-content {padding-bottom: 5rem;}
 
 #clearButton {
     color: var(--main-dark);
@@ -281,9 +262,7 @@ main {
     opacity: 100;
     bottom: 100px;
     transition: all 1s;
-
 }
-
 
 @media(max-width:750px) {
     header {
@@ -295,9 +274,7 @@ main {
         z-index: 30;
     }
 
-    h1 {
-        font-size: 47px;
-    }
+    h1 {font-size: 47px;}
 
     .headerlogo {
         display: flex;
@@ -347,10 +324,7 @@ main {
         height: 100% !important;
     }
 
-    aside nav a img {
-        margin: 0 !important;
-    }
-
+    aside nav a img {margin: 0 !important;}
 
     aside nav {
         flex-direction: row !important;
@@ -363,17 +337,11 @@ main {
 
     }
 
-    .notice {
-        display: none !important;
-    }
+    .notice {display: none !important;}
 
-    .display-none {
-        display: none !important;
-    }
+    .display-none {display: none !important;}
 
-    .asidelogo {
-        display: none !important;
-    }
+    .asidelogo {display: none !important;}
 
     .icon-4 {
         height: 28px !important;
