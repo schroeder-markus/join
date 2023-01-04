@@ -10,6 +10,11 @@ function editContact(contactID) {
     "#name-circle-letter-edit"
   ).innerHTML = `${allContacts[contactID].initials}`;
   document.querySelector(".name-circle-large-edit").style.backgroundColor = `${allContacts[contactID].color}`;
+  document.querySelector(".add-new-contact").style.display = "none";
+  saveButton()
+};
+
+function saveButton() {
   let saveBtn = document.querySelector(".save-btn");
   let saveBtnClicked = false;
   saveBtn.addEventListener("click", () => {
@@ -19,7 +24,6 @@ function editContact(contactID) {
     };
     saveBtn.removeEventListener("click", () => {});
   });
-  document.querySelector(".add-new-contact").style.display = "none";
 }
 
 function saveContactChange(contactID) {
@@ -32,6 +36,10 @@ function saveContactChange(contactID) {
     .value.split(" ")
     .map((n) => n[0])
     .join("");
+  saveContactData();
+}
+
+function saveContactData() {
   saveAllContacts()  
   createContactList();
   showContactData(contactID);
@@ -56,8 +64,6 @@ function closeNewContact() {
   document.querySelector(".new-contact-container").style.display = "none";
 }
 
-// Add Contacts
-
 function addNewContact() {
   let newContactData = {
     name: document.querySelector("#newContactSubmitName").value,
@@ -79,8 +85,7 @@ function addNewContact() {
   document.querySelector("#newContactSubmitColor").value = "";
   createContactList();
   closeNewContact();
-  showMessage('contact-created')
-
+  showMessage('contact-created');
 }
 
 async function saveAllContacts() {
@@ -98,16 +103,11 @@ async function loadAllContacts() {
 function createContactList() {
   document.querySelector(".contacts-list").innerHTML = ``;
   let initials = new Set();
-
-  // Erstelle ein Set von Initialen aus den Namen der Kontakte
   for (let i = 0; i < allContacts.length; i++) {
     initials.add(allContacts[i]["name"][0].toUpperCase());
-  }
-
-  // Wandle das Set in ein Array um und sortiere es
+  };
   initials = Array.from(initials).sort();
 
-  // Erstelle eine Liste der Kontakte nach Initialen sortiert
   for (let initial of initials) {
     document.querySelector(".contacts-list").innerHTML += `
     <div class="contact-letter">
