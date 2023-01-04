@@ -37,13 +37,13 @@ function saveContactChange(contactID) {
   closeEditContact();
 }
 
-/*function cancelContact() {
-  document.querySelector(".new-contact-container").style.display = "none";
+function cancelContact() {
+  document.querySelector(".new-contact").style.display = "none";
 }
 
 function createContact() {
   document.querySelector(".new-contact-container").style.display = "flex";
-}*/
+}
 
 function closeEditContact() {
   document.querySelector(".edit-contact-container").style.display = "none";
