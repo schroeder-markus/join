@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+}
+
 body {
     position: relative;
 }
@@ -377,7 +382,7 @@ main{
 /* Edit Contact */
 
 .edit-contact-container {
-    top: 100px;
+    top: 10px;
     position: absolute;
     max-width: 1212px;
     width: 90%;
@@ -629,7 +634,7 @@ main{
 
     .new-contact-left {
         height: 30%;
-        min-height: 250px;
+        min-height: 150px;
         width: 100%;
         border-top-right-radius: 30px;
         border-bottom-left-radius: 0px;
@@ -644,6 +649,9 @@ main{
         margin-top: 16px;
     }
 
+    .blue-line {
+        display: none;
+    }
 
 
     .new-contact-right {
@@ -652,6 +660,7 @@ main{
         bottom: 0;
         left: 0;
         border-bottom-left-radius: 30px;
+        border-top-right-radius: 0px;
         flex-direction: column
     }
 
@@ -676,7 +685,7 @@ main{
         display: flex;
         align-items: center;
         height: 30%;
-        min-height: 250px;
+        min-height: 150px;
         width: 100%;
         border-top-right-radius: 30px;
         border-bottom-left-radius: 0px;
@@ -692,6 +701,7 @@ main{
         bottom: 0;
         left: 0;
         border-bottom-left-radius: 30px;
+        border-top-right-radius: 0px;
         flex-direction: column;
     }
 
@@ -699,10 +709,22 @@ main{
         text-align: center;
     }
 
+    .new-contact-headline {
+        font-size: 32px;
+    }
+
+    .edit-contact-headline {
+        font-size: 32px;
+    }
+
 
 }
 
 @media screen and (max-width: 880px) {
+    .edit-contact-container {
+        top: 100px;
+    }
+    
     .contact-headline-container {
         width: 280px;
     }
@@ -830,6 +852,12 @@ main{
             width: 100% !important;
         }
 
+        .login-field {
+            gap: 10px;
+            min-width: unset;
+            width: 280px !important;
+        }
+
     }
 
 
@@ -893,4 +921,23 @@ main{
         display: inline-block;
     }
 
+    .edit-contact-container {
+        width: 90%;
+    }
+
+    .input {
+        width: 250px !important;
+    }
+
+    .close-contact-input {
+        top: 10px;
+    }
+
+    .new-contact-subline {
+        display: none;
+    }
+
+    .cancel-btn {
+        display: none;
+    }
 }
