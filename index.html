@@ -48,8 +48,10 @@
                     <div id="submit-success" class="d-none">Your registration was submitted successfully!</div>
                     <div id="alarm" class="d-none">Wrong E-Mail or Password!</div>
                     <div class="checkbox-container">
-                        <input id="remember" type="checkbox">
-                        <label for="remember">Remember me</label>
+                        <div class="checkbox-input-label">
+                            <input id="remember" type="checkbox">
+                            <label for="remember">Remember me</label>
+                        </div>
                         <a type="button" onclick="moveToFmP()">Forgot my Password</a>
                     </div>
                     <div class="log-in-btn-container">
@@ -58,6 +60,10 @@
                     </div>
                 </div>
             </form>
+            <div class="sign-up-box-mobile">
+                <span>Not a Join user?</span>
+                <button class="sign-up-btn" onclick="signUp()">Sign up</button>
+            </div>
             <!-- Sign up field -->
             <form onsubmit="addUser(); return false;" id="submit" class="d-none">
                 <div id="sign_up_field" class="login-field">

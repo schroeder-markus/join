@@ -103,6 +103,7 @@ form p {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
         visibility: visible;
@@ -120,6 +121,23 @@ form p {
     z-index: 1;
     font-family: 'Inter', 'sans serif';
     font-weight: 400;
+}
+
+.sign-up-box-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Inter', 'sans serif';
+    font-weight: 400;
+    display: none;
+    position: absolute;
+    bottom: 60px;
+}
+
+.sign-up-box-mobile button {
+    width: unset;
+    margin-left: 32px;
+    display: unset !important;
 }
 
 .sign-up-btn {
@@ -250,6 +268,7 @@ form p {
 }
 
 .checkbox-container {
+    display: flex;
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
@@ -318,7 +337,7 @@ form p {
     z-index: 200;
 }
 
-.send-email span{
+.send-email span {
     color: white;
     width: 330px;
     height: 28px;
@@ -333,8 +352,87 @@ form p {
         transform: translateY(1000%);
         opacity: 0;
     }
+
     100% {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@media(max-width: 660px) {
+    .login-field {
+        min-width: unset;
+        width: 372px;
+        height: 573px;
+        box-sizing: unset;
+        justify-content: space-around;
+        padding: 15px 0px;
+    }
+
+    .login-h1 {
+        margin-bottom: 16px;
+    }
+
+    .login-field h1 {
+        margin-top: 44px;
+        font-size: 47px;
+    }
+
+    .input {
+        width: 327px;
+        height: 41px;
+    }
+
+    .log-in-btn-container {
+        flex-direction: column;
+    }
+
+    .checkbox-container {
+        flex-direction: column-reverse;
+        align-self: baseline;
+        padding: 0 29px;
+        gap: 24px;
+    }
+
+    .checkbox-container input {
+        margin-left: 0;
+    }
+
+    .checkbox-container a {
+        margin-left: 0px;
+    }
+
+    .sign-up-btn {
+        width: 180px;
+        height: 51px;
+    }
+
+    .guest-log-in-btn {
+        width: 180px;
+        height: 51px;
+    }
+
+    .sign-up-box-mobile {
+        display: unset;
+    }
+
+    .sign-up-box {
+        display: none;
+    }
+
+    @keyframes shrink {
+        0% {
+            width: 150px;
+            left: 50%;
+            margin-left: -100px;
+            top: 50%;
+            margin-top: -120px;
+        }
+    
+        100% {
+            width: 60px;
+            left: 140px;
+            top: 160px;
+        }
     }
 }
