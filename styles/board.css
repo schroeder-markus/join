@@ -366,7 +366,6 @@
     .addTaskForm {
         width: 100%;
         display: flex;
-        gap: 25px;
     }
 
     .editform {
@@ -521,41 +520,27 @@
         gap: 25px;
     }
 
-    @media(max-width: 1500px) {
+    .addtaskslide #formWrapper {
+        width: 100%;
+    }
+
+    @media(max-width:1240px) {
         .addtaskslide {
             justify-content: left;
+            align-items: flex-start;
         }
 
-        .addTaskForm {
-            flex-direction: row;
+        .slidediv {
+            padding-left: 40px;
+            padding-right: 40px;
         }
+    }
 
-        .addTaskForm .leftArea {
-            padding-right: 30px;
-        }
-
-        .addTaskForm .rightArea {
-            padding-left: 30px;
-        }
-
-        #formWrapper {
+    @media(max-width:950px) {
+        .slidediv {
             width: 100%;
         }
     }
-
-    @media(max-width: 1320px) {
-        .addTaskForm .prioButtons button {
-            min-width: 70px;
-            flex-direction: column; 
-        }
-
-        .prioButtons button div {
-            margin: 0px;
-            margin-top: 8px;
-        }
-    }
-
-
 
     @media(max-width:750px) {
         .inputcontainer {
@@ -649,5 +634,20 @@
 
         .input-icon {
             top: 26px;
+        }
+
+        .addtaskslide {
+            z-index: 0;
+            position: absolute;
+            top: 80px;
+            bottom: 80px;
+            left: 0px;
+            right: 0px;
+            width: 100%;
+
+        }
+
+        .submitAndClearButtons {
+            margin-bottom: 50px;
         }
     }

@@ -306,12 +306,14 @@ function moveTo(category) {
 function openSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.remove('closeslide');
+    document.getElementsByTagName('body')[0].style.overflowY = 'hidden'
 }
 
 
 function closeSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.add('closeslide');
+    document.getElementsByTagName('body')[0].style.overflowY = 'scroll'
 }
 
 
