@@ -62,6 +62,7 @@ async function loadCurrentUser() {
 
 function generateAvatar(currentUserName) {
   let initials = currentUserName.split(" ").map((n) => n[0]).join("");
+  if(document.querySelector(".user-avatar-header") !== null) {
   document.querySelector(".user-avatar-header").style.display = "none";
   document.querySelector(".header-nav-user-container").innerHTML = `
   <div class="name-circle-header">
@@ -69,8 +70,10 @@ function generateAvatar(currentUserName) {
     </div>
   `
 };
+}
 
 function greetUser(currentUserName) {
+  if(document.querySelector(".greetname") !== null) {
   document.querySelector(".greetname").innerHTML = `${currentUserName}`;
   const currentTime = new Date().getHours();
   if (currentTime < 12) {
@@ -81,6 +84,7 @@ function greetUser(currentUserName) {
     document.querySelector(".greet-daytime").innerHTML = `Good evening,`;
   }
 };
+}
 
 function init() {
   loadTasks();
