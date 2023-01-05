@@ -7,7 +7,6 @@ let inProgress;
 let awaitingFeedback;
 let done;
 let searchTask;
-let currentTask;
 
 
 async function renderTasks() {
@@ -18,7 +17,7 @@ async function renderTasks() {
 };
 
 
-function clearCards() {
+function clearCards(){
     toDoDiv.innerHTML = '';
     inProgressDiv.innerHTML = '';
     awaitingFeedbackDiv.innerHTML = '';
@@ -26,7 +25,7 @@ function clearCards() {
 }
 
 
-function sortCards() {
+function sortCards(){
     open = allTasks.filter(t => t['status'] == 'todo');
     inProgress = allTasks.filter(t => t['status'] == 'inprogress');
     awaitingFeedback = allTasks.filter(t => t['status'] == 'awaitingfeedback');
@@ -34,16 +33,15 @@ function sortCards() {
 }
 
 
-function updateOpen() {
+function updateOpen(){
     for (let i = 0; i < open.length; i++) {
         const task = open[i];
-        const userId = `open${open[i]}`
         toDoDiv.innerHTML += cardHTML(task)
     }
 }
 
 
-function updateInProgress() {
+function updateInProgress(){
     for (let i = 0; i < inProgress.length; i++) {
         const task = inProgress[i];
         inProgressDiv.innerHTML += cardHTML(task)
@@ -51,7 +49,7 @@ function updateInProgress() {
 }
 
 
-function updateAwaitingFeedback() {
+function updateAwaitingFeedback(){
     for (let i = 0; i < awaitingFeedback.length; i++) {
         const task = awaitingFeedback[i];
         awaitingFeedbackDiv.innerHTML += cardHTML(task)
@@ -59,7 +57,7 @@ function updateAwaitingFeedback() {
 }
 
 
-function updateDone() {
+function updateDone(){
     for (let i = 0; i < done.length; i++) {
         const task = done[i];
         doneDiv.innerHTML += cardHTML(task)
@@ -67,7 +65,7 @@ function updateDone() {
 }
 
 
-function updateTasks() {
+function updateTasks() { 
     sortCards();
     clearCards();
     updateOpen();
@@ -76,24 +74,15 @@ function updateTasks() {
     updateDone();
 }
 
-function renderCardUser(task) {
-    document.getElementById(`userbox${task}`).innerHTML += ``;
-    for (let i = 0; i < task['assigned'].length; i++) {
-        const element = task[i];
-        document.getElementById(`userbox${task}`).innerHTML += ` <div class="user" id="user">${element['initials']}</div>`;
 
-    }
-}
-
-
-function cardHTML(task) {
+function cardHTML(task){
     let position = allTasks.map(object => object.taskID).indexOf(task['taskID']);
     return ` <div draggable="true" onclick="renderCardInformation(${position})" ondragstart="startDragging(${task['taskID']})" class="card">
     <div class="title">
         <div class="headline ${task['category']}">${task['category']}</div>
     </div>
     <div class="cardcontent">
-        <h3>${task['title']}</h3>
+        <h3 id="title">${task['title']}</h3>
         <span class="span" id="todo">${task['description']}</span>
     </div>
     <div class="progressbardiv">
@@ -125,7 +114,7 @@ function cardHTML(task) {
 </div>`
 }
 
-function renderUser(position) {
+function renderUser(position){
     document.getElementById('assignedto').innerHTML = '';
     for (let i = 0; i < allTasks[position]['assigned'].length; i++) {
         const element = allTasks[position]['assigned'][i];
@@ -147,53 +136,38 @@ function renderCardInformation(position) {
     document.getElementById('infoduedate').innerHTML = `${allTasks[position]['Due Date']}`;
     document.getElementById('priorotyimg').src = `img/card${allTasks[position]['priority']}.svg`;
     renderUser(position);
-    currentTask = position;
 }
 
 
-
-
-function editCard() {
-    document.getElementById('editcard').classList.add('editcardinformation');
-    document.getElementById('editcard').classList.remove('cardinformation');
-    document.getElementById('editcard').innerHTML = editCardHTML();
-    document.getElementById(`edittitle${currentTask}`).value = allTasks[currentTask]['title'];
-    document.getElementById(`editdescription${currentTask}`).value = allTasks[currentTask]['description'];
-    document.getElementById(`editduedate${currentTask}`).value = allTasks[currentTask]['Due Date'];
-
-}
-
-function editCardHTML(){
-    return `<div class="center">
-                        <svg onclick="closeCardInformation()" class="closebutton" width="31" height="31" viewBox="0 0 31 31"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22.9614 7.65381L7.65367 22.9616" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
-                            <path d="M22.8169 23.106L7.50914 7.7982" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                        <svg onclick="saveEditedTasks()" class="editbutton" width="83" height="61" viewBox="0 0 83 61" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="83" height="61" rx="10" fill="#2A3647"/>
-                            <path d="M25.3622 30.3636C25.3622 32.0291 25.0465 33.446 24.4151 34.6143C23.7887 35.7827 22.9336 36.6751 21.8498 37.2915C20.771 37.9031 19.5579 38.2088 18.2106 38.2088C16.8533 38.2088 15.6353 37.9006 14.5565 37.2841C13.4776 36.6676 12.625 35.7752 11.9986 34.6069C11.3722 33.4386 11.0589 32.0241 11.0589 30.3636C11.0589 28.6982 11.3722 27.2812 11.9986 26.1129C12.625 24.9446 13.4776 24.0547 14.5565 23.4432C15.6353 22.8267 16.8533 22.5185 18.2106 22.5185C19.5579 22.5185 20.771 22.8267 21.8498 23.4432C22.9336 24.0547 23.7887 24.9446 24.4151 26.1129C25.0465 27.2812 25.3622 28.6982 25.3622 30.3636ZM22.0884 30.3636C22.0884 29.2848 21.9268 28.375 21.6037 27.6342C21.2855 26.8935 20.8356 26.3317 20.2539 25.9489C19.6722 25.5661 18.9911 25.3746 18.2106 25.3746C17.43 25.3746 16.7489 25.5661 16.1673 25.9489C15.5856 26.3317 15.1332 26.8935 14.81 27.6342C14.4918 28.375 14.3327 29.2848 14.3327 30.3636C14.3327 31.4425 14.4918 32.3523 14.81 33.093C15.1332 33.8338 15.5856 34.3956 16.1673 34.7784C16.7489 35.1612 17.43 35.3526 18.2106 35.3526C18.9911 35.3526 19.6722 35.1612 20.2539 34.7784C20.8356 34.3956 21.2855 33.8338 21.6037 33.093C21.9268 32.3523 22.0884 31.4425 22.0884 30.3636ZM30.5731 34.7038L30.5805 30.8931H31.0429L34.7119 26.5455H38.3586L33.4292 32.3026H32.676L30.5731 34.7038ZM27.6945 38V22.7273H30.8714V38H27.6945ZM34.8536 38L31.4829 33.011L33.6008 30.7663L38.5748 38H34.8536Z" fill="white"/>
-                            <path d="M53 30.5L59 36.5L69 24.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-
-                    <form onsubmit="return false" class="editform">
+function editCard(){
+    document.getElementById('cardinformation').innerHTML = `
+            <div class="cardinformation">
+                <svg class="editbutton" onclick="editCard()" width="57" height="57" viewBox="0 0 57 57" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <rect width="57" height="57" rx="10" fill="#2A3647" />
+                    <path
+                        d="M20.9449 35.5155L25.7643 38.4404L38.4074 17.6083C38.694 17.1362 38.5435 16.5211 38.0714 16.2346L34.9618 14.3474C34.4897 14.0608 33.8746 14.2113 33.5881 14.6834L20.9449 35.5155Z"
+                        fill="white" />
+                    <path d="M20.3599 36.4792L25.1792 39.4041L20.4506 41.6889L20.3599 36.4792Z" fill="white" />
+                </svg>
+                <form onsubmit="return false" class="addTaskForm">
                     <!-- Title -->
                     <div>
                         <label for="title">Title</label>
-                        <input oninput="deleteAlert('titleAlert')" id="edittitle${currentTask}" type="text" placeholder="Enter a title">
+                        <input oninput="deleteAlert('titleAlert')" id="title" type="text" placeholder="Enter a title">
                         <span id="titleAlert" class="requiredAlert"></span>
                     </div>
                     <!-- Description -->
                     <div>
                         <label for="description">Description</label>
-                        <textarea oninput="deleteAlert('descriptionAlert')" id="editdescription${currentTask}" class="descriptionTextArea"
+                        <textarea oninput="deleteAlert('descriptionAlert')" id="description" class="descriptionTextArea"
                             type="text" placeholder="Enter a description"></textarea>
                         <span id="descriptionAlert" class="requiredAlert"></span>
                     </div>
                     <!-- Due Date -->
                     <div>
                         <label for="dateInput">Due Date</label>
-                        <div oninput="deleteAlert('dateAlert')" class="inputContainer"><input id="editduedate${currentTask}"
+                        <div oninput="deleteAlert('dateAlert')" class="inputContainer"><input id="dueDate"
                                 class="input dateInput" type="text" placeholder="Enter date"
                                 onfocus="(this.type='date')">
                         </div>
@@ -297,60 +271,9 @@ function editCardHTML(){
         </div>`
 }
 
-function saveEditedTasks() {
-    allTasks[currentTask]['title'] = document.getElementById(`edittitle${currentTask}`).value;
-    allTasks[currentTask]['description'] = document.getElementById(`editdescription${currentTask}`).value
-    allTasks[currentTask]['Due Date'] = document.getElementById(`editduedate${currentTask}`).value
-    saveTasks();
-    updateTasks();
-    closeCardInformation();
-
-}
-
-function closeCardInformation() {
+function closeCardInformation(){
     document.getElementById('cardinformation').classList.add('d-none');
-    document.getElementById('cardinformation').innerHTML = infoCardHTML();
 }
-
-
-function infoCardHTML(){
-    return ` <div id="editcard" class="cardinformation">
-                        <svg onclick="closeCardInformation()" class="closebutton" width="31" height="31" viewBox="0 0 31 31"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22.9614 7.65381L7.65367 22.9616" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
-                            <path d="M22.8169 23.106L7.50914 7.7982" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                
-                        <svg class="editbutton" onclick="editCard()" width="57" height="57" viewBox="0 0 57 57" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <rect width="57" height="57" rx="10" fill="#2A3647" />
-                            <path
-                                d="M20.9449 35.5155L25.7643 38.4404L38.4074 17.6083C38.694 17.1362 38.5435 16.5211 38.0714 16.2346L34.9618 14.3474C34.4897 14.0608 33.8746 14.2113 33.5881 14.6834L20.9449 35.5155Z"
-                                fill="white" />
-                            <path d="M20.3599 36.4792L25.1792 39.4041L20.4506 41.6889L20.3599 36.4792Z" fill="white" />
-                        </svg>
-                
-                
-                        <div id="infocategory" class="infomationcategory"></div>
-                        <div id="infotitle" class="informationtitle"></div>
-                        <div id="infodescription" class="description"></div>
-                        <div class="informationdate">
-                            <span  class="cardinformationspan">Due Date:</span><span id="infoduedate"></span>
-                        </div>
-                        <div class="prioritycard">
-                            <span class="cardinformationspan">Priority:</span><img id="priorotyimg" src=""
-                                alt="">
-                        </div>
-                        <div id="assignedto">
-                            <span class="cardinformationspan"> Assigned to:</span>
-                            <div class="assignedtoinformation">
-                                <div class="intitialinformation">BB</div>
-                                <div class="nameinformation">Boubkir Benamar</div>
-                            </div>
-                        </div>
-                    </div>`
-}
-
 
 function startDragging(id) {
     currentDraggedElement = id;

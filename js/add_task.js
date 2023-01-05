@@ -272,7 +272,6 @@ function cancelInviteContact() {
 };
 
 
-
 function renderNameCircles() {
     let nameCirclesElement = document.getElementById("nameCircles");
     nameCirclesElement.innerHTML = '';
