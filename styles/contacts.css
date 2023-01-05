@@ -13,6 +13,7 @@ main {width: 100%;}
 .main-container > * {user-select: none;}
 
 .contact-container {
+    margin-bottom: 50px;
     display: flex;
     height: 100%;
 }
