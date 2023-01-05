@@ -248,7 +248,7 @@ main {
 
 .messageContainer {
     bottom: 0px;
-    display: flex;  
+    display: none;
     justify-content: center;
     opacity: 0;
     position: absolute;

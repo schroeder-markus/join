@@ -37,8 +37,9 @@ function logOutClickAvatar() {
 
 function showMessage(messageID) {
   let noteContainer = document.getElementById(messageID);
+  noteContainer.style.display = "flex";
   noteContainer.classList.add('showMessage');
-  setTimeout(() => { noteContainer.classList.remove('showMessage') }, 3000);
+  setTimeout(() => { noteContainer.style.display = "none"; noteContainer.classList.remove('showMessage') }, 3000);
 };
 
 
