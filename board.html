@@ -174,15 +174,15 @@
                     <!-- Title -->
                     <div>
                         <label for="title">Title</label>
-                        <input oninput="deleteAlert('titleAlert')" id="title" type="text" placeholder="Enter a title">
-                        <span id="titleAlert" class="requiredAlert"></span>
+                        <input oninput="deleteAlert('titleAlert')" id="newTitle" type="text" placeholder="Enter a title">
+                        <span id="newTitleAlert" class="requiredAlert"></span>
                     </div>
                     <!-- Description -->
                     <div>
                         <label for="description">Description</label>
-                        <textarea oninput="deleteAlert('descriptionAlert')" id="description" class="descriptionTextArea"
+                        <textarea oninput="deleteAlert('descriptionAlert')" id="newDescription" class="descriptionTextArea"
                             type="text" placeholder="Enter a description"></textarea>
-                        <span id="descriptionAlert" class="requiredAlert"></span>
+                        <span id="newDescriptionAlert" class="requiredAlert"></span>
                     </div>
                     <!-- Category -->
                     <div readonly>
@@ -302,17 +302,17 @@
                     <div class="input">
                         <label>Prio</label>
                         <div class="prioButtons">
-                            <button onclick="setPrio('urgent')" type="button" id="prioButton-urgent">Urgent
+                            <button onclick="changePrio('urgent')" type="button" id="currentTaskPrio-urgent">Urgent
                                 <div>
                                     <img src="img/prio-urgent.svg" alt="prioUrgentArrow">
                                 </div>
                             </button>
-                            <button onclick="setPrio('medium')" type="button" id="prioButton-medium">Medium
+                            <button onclick="changePrio('medium')" type="button" id="currentTaskPrio-medium">Medium
                                 <div>
                                     <img src="img/prio-medium.svg" alt="prioMediumArrow">
                                 </div>
                             </button>
-                            <button onclick="setPrio('low')" type="button" id="prioButton-low">Low
+                            <button onclick="changePrio('low')" type="button" id="currentTaskPrio-low">Low
                                 <div>
                                     <img src="img/prio-low.svg" alt="prioLowArrow">
                                 </div>

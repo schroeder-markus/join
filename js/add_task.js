@@ -366,12 +366,12 @@ function getCheckboxIcon(index) {
 
 function createTask() {
     formValidation = true;
-    let titleInput = document.getElementById("title");
-    let descriptionInput = document.getElementById("description");
+    let titleInput = document.getElementById("newTitle");
+    let descriptionInput = document.getElementById("newDescription");
     let dueDate = document.getElementById("dueDate");
 
-    checkInput('title', titleInput.value);
-    checkInput('description', descriptionInput.value);
+    checkInput('newTitle', titleInput.value);
+    checkInput('newDescription', descriptionInput.value);
     checkCategory();
     checkAssigned();
     checkDueDate(dueDate.value);
@@ -494,7 +494,7 @@ function clearInputFields() {
 
 
 function clearDescriptionField() {
-    let descriptionInput = document.getElementById("description");
+    let descriptionInput = document.getElementById("newDescription");
     descriptionInput.value = "";
 };
 

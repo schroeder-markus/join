@@ -416,33 +416,27 @@ section div:not(:first-of-type) label {
 
 @media only screen and (max-width: 480px) {
     main {
-        margin-left: 10px;
+        margin-left: 20px;
     }
 }
 
 @media only screen and (max-width: 450px) {
+    main {
+        margin-left: 15px;
+    }
+
     #formWrapper {
-        max-width: 400px;
+        width: auto;
     }
 
     .addTaskForm>section {
-        width: 100%;
+        width: auto;
     }
 }
 
 @media only screen and (max-width: 430px) {
-
-    #formWrapper {
-        max-width: 320px;
-    }
-
-    .addTaskForm>section {
-        width: 100%;
-    }
-
-    
     .prioButtons button {
-   min-width: 100px;
+        min-width: 100px;
     }
 
 }

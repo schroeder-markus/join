@@ -134,7 +134,7 @@ function renderCardInformation(position) {
     document.getElementById('infotitle').innerHTML = `${allTasks[position]['title']}`;
     document.getElementById('infodescription').innerHTML = `${allTasks[position]['description']}`;
     document.getElementById('infoduedate').innerHTML = `${allTasks[position]['Due Date']}`;
-    document.getElementById('priorotyimg').src = `img/card${allTasks[position]['priority']}.svg`;
+    document.getElementById('priorityimg').src = `img/card${allTasks[position]['priority']}.svg`;
     renderUser(position);
 }
 
