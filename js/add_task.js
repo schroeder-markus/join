@@ -455,8 +455,16 @@ function generateTaskObject(title, description, dueDate) {
         clearForm();
         showMessage('taskAdded');
         saveTasks();
-        setTimeout(() => { window.location.href = "board.html" }, 4000);
+        finishTask();
     };
+};
+
+function finishTask() {
+        if (window.location.href.indexOf('board.html') > -1) {
+            closeSlide();
+        } else {
+            setTimeout(() => { window.location.href = "board.html" }, 4000);
+        };
 };
 
 
