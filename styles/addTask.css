@@ -1,8 +1,8 @@
 /* Basics */
 
 main {
-    width: unset;
-    margin-left: 40px;
+    width: calc(100vw - 232px);
+    padding: 0px 40px 0px 40px;
 }
 
 
@@ -83,7 +83,7 @@ input, .dropdown {
 }
 
 #formWrapper {
-    width: 1000px;
+    width: 80%;
     display: flex;
     position: relative;
 }
@@ -159,6 +159,7 @@ section div:not(:first-of-type) label {
     display: flex;
     justify-content: space-between;
     margin-bottom: 12px;
+    width: 100%;
 }
 
 .prioButtons>button {
@@ -171,7 +172,7 @@ section div:not(:first-of-type) label {
     background-color: var(--main-white);
     border-radius: 10px;
     height: 51px;
-    min-width: 120px;
+    width: 120px;
     padding: 0px 0px 0px 0px;
 }
 
@@ -373,70 +374,60 @@ section div:not(:first-of-type) label {
 
 /* media queries */
 
-@media only screen and (max-width: 1276px) {
-    .addTaskForm {
+@media only screen and (max-width: 1440px) {
+
+    .prioButtons button {
+        width: 100px;
+        font-size: 18px;
+    } 
+}
+
+@media only screen and (max-width: 1290px) {
+    #formWrapper {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1046px) {
+    .prioButtons button {
         flex-direction: column;
     }
 
-    .addTaskForm>section {
-        width: 40%;
-        padding: 0px;
-        border-right: unset;
-    }
-
-
-    .prioButtons button {
-        font-size: 18px;
-        flex-direction: column
-    }
-
     .prioButtons button div {
-        margin: 10px 0px 0px 0px;
+        margin: 5px 0px 0px 0px;
     }
+}
 
+@media only screen and (max-width: 950px) {
+    .addTaskForm {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .addTaskForm > section {
+        padding: 0px;
+        border: unset;
+        width: 80%;
+    }
 }
 
 @media only screen and (max-width: 750px) {
     main {
-        height: unset;
-        justify-content: unset;
-        align-items: unset;
+        width: 100%;
+        padding: 0px 60px 0px 60px !important;
         margin-bottom: 80px;
     }
-
-    #formWrapper {
-        width: 700px;
-    }
-
-    .addTaskForm>section {
-        width: 60%;
-    }
-
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 490px) {
     main {
-        margin-left: 20px;
+        width: 100%;
+        padding: 0px 15px 0px 15px !important;
+    }
+
+    .addTaskForm > section {
+        width: 100%;
     }
 }
+  
 
-@media only screen and (max-width: 450px) {
-    main {
-        margin-left: 15px;
-    }
-
-    #formWrapper {
-        width: auto;
-    }
-
-    .addTaskForm>section {
-        width: auto;
-    }
-}
-
-@media only screen and (max-width: 430px) {
-    .prioButtons button {
-        min-width: 100px;
-    }
-
-}
