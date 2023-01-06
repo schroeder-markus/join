@@ -13,6 +13,7 @@ let currentTask;
 async function renderTasks() {
     await downloadFromServer();
     let allTasksAsJson = backend.getItem('allTasks');
+    lastTaskID = backend.getItem('lastTaskID')
     allTasks = JSON.parse(allTasksAsJson) || [];
     updateTasks();
 };
@@ -37,7 +38,6 @@ function sortCards() {
 function updateOpen() {
     for (let i = 0; i < open.length; i++) {
         const task = open[i];
-        const userId = `open${open[i]}`
         toDoDiv.innerHTML += cardHTML(task)
     }
 }
