@@ -121,7 +121,7 @@ function renderCardUser(position) {
         const element = allTasks[position]['assigned'][i];
         assignedHTML += `<div class="user" id="user">${element['initials']}</div>`;
     }
-    assignedHTML;
+    return assignedHTML;
 }
 
 function renderUser(position) {
