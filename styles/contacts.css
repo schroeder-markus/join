@@ -536,7 +536,10 @@ main {width: 100%;}
 @media screen and (max-width: 1024px) {
     .contact-container-left {min-width: 300px;}
 
-    .contacts-list {width: 280px;}
+    .contacts-list {
+        width: 280px;
+        margin-top: 90px;
+    }
 
     .contact-letter {width: 225px;}
     
