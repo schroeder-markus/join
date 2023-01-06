@@ -51,6 +51,10 @@ form p {
     z-index: 120;
 }
 
+.white-logo {
+    opacity: 0;
+}
+
 @keyframes shrink {
     0% {
         width: 200px;
@@ -360,6 +364,24 @@ form p {
 }
 
 @media(max-width: 660px) {
+    .background {
+        background-color: var(--main-dark);
+    }
+
+    .white-logo {
+        opacity: 1;
+        animation: fade-out 500ms forwards;
+    }
+
+    @keyframes fade-out {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
     .login-field {
         min-width: unset;
         width: 372px;
@@ -428,7 +450,7 @@ form p {
             top: 50%;
             margin-top: -120px;
         }
-    
+
         100% {
             width: 60px;
             left: 140px;
