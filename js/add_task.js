@@ -439,10 +439,11 @@ function deleteAlert(alertID) {
 
 function generateTaskObject(title, description, dueDate) {
     if (formValidation) {
-        if(lastTaskID === null){
+        if (lastTaskID === null) {
             lastTaskID = 0;
-        }else
-        lastTaskID++;
+        } else {
+            lastTaskID++;
+        }
         allTasks.push({
             'taskID': lastTaskID,
             'title': title,
@@ -462,11 +463,11 @@ function generateTaskObject(title, description, dueDate) {
 };
 
 function finishTask() {
-        if (window.location.href.indexOf('board.html') > -1) {
-            closeSlide();
-        } else {
-            setTimeout(() => { window.location.href = "board.html" }, 4000);
-        };
+    if (window.location.href.indexOf('board.html') > -1) {
+        closeSlide();
+    } else {
+        setTimeout(() => { window.location.href = "board.html" }, 4000);
+    };
 };
 
 
