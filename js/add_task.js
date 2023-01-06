@@ -439,11 +439,7 @@ function deleteAlert(alertID) {
 
 function generateTaskObject(title, description, dueDate) {
     if (formValidation) {
-        if (lastTaskID === null) {
-            lastTaskID = 0;
-        } else {
-            lastTaskID++;
-        }
+        lastTaskID++;
         allTasks.push({
             'taskID': lastTaskID,
             'title': title,

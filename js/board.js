@@ -13,7 +13,7 @@ let currentTask;
 async function renderTasks() {
     await downloadFromServer();
     let allTasksAsJson = backend.getItem('allTasks');
-    lastTaskID = backend.getItem('lastTaskID')
+    lastTaskID = backend.getItem('lastTaskID') || -1;
     allTasks = JSON.parse(allTasksAsJson) || [];
     updateTasks();
 };
