@@ -76,16 +76,6 @@ function updateTasks() {
     updateDone();
 }
 
-function renderCardUser(task) {
-    document.getElementById(`userbox${task}`).innerHTML += ``;
-    for (let i = 0; i < task['assigned'].length; i++) {
-        const element = task[i];
-        document.getElementById(`userbox${task}`).innerHTML += ` <div class="user" id="user">${element['initials']}</div>`;
-
-    }
-}
-
-
 function cardHTML(task) {
     let position = allTasks.map(object => object.taskID).indexOf(task['taskID']);
     return ` <div draggable="true" onclick="renderCardInformation(${position})" ondragstart="startDragging(${task['taskID']})" class="card">
@@ -101,8 +91,8 @@ function cardHTML(task) {
         <span>1/2 Done</span>
     </div>
     <div class="cardfooter">
-        <div id="userbox${task}" class="userbox">
-            <div class="user" id="user">${task['assigned'][0]['initials']}</div>
+        <div id="userbox${position}" class="userbox">
+            ${renderCardUser(position)}
         </div>
         <svg width="32" height="33" viewBox="0 0 32 33" fill="none"
             xmlns="http://www.w3.org/2000/svg">
@@ -123,6 +113,15 @@ function cardHTML(task) {
         </svg>
     </div>
 </div>`
+}
+
+function renderCardUser(position) {
+    let assignedHTML = '';
+    for (let i = 0; i < allTasks[position]['assigned'].length; i++) {
+        const element = allTasks[position]['assigned'][i];
+        assignedHTML += `<div class="user" id="user">${element['initials']}</div>`;
+    }
+    assignedHTML;
 }
 
 function renderUser(position) {
