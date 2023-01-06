@@ -5,7 +5,7 @@ let assignedPersons = [];
 let date = "";
 let priority = "";
 let subtasks = [];
-let lastTaskID = 0;
+let lastTaskID = -1;
 
 let selectedCategoryColor = "";
 let showCategoryList = false;
