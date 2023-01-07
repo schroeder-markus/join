@@ -3,7 +3,7 @@ main {
     width: 100%;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -313,6 +313,11 @@ h2 {
 
 @media(max-width:950px) {
 
+    main{
+        height:100vh;
+        margin-top: 0;
+    }
+
     .showroom {
         display: flex;
         flex-direction: column;
@@ -333,6 +338,9 @@ h2 {
     .inprogress {
         width: 110px;
         height: 110px;
+        line-height: normal;
+        gap: 0;
+
     }
 
     .infos {
@@ -388,37 +396,37 @@ h2 {
         height: 68px;
     }
 
-    .display-none{
+    .display-none {
         display: none;
     }
 }
 
-@media(max-width:750px){
-        .headline {
-                justify-content: center;
-                align-items: flex-start;
-                height: unset;
-                width: 360px;
-                flex-direction: column;
-                margin-left: 15px;
-                margin-top: 0;
-                margin-right: 0;
-                margin-bottom: 0;
-                gap: 1;
-            }
-        
-            .headline img {
-                order: 1;
-                transform: rotate(90deg);
-                margin-left: 30px;
-            }
-        
-            .headline span {
-                font-size: 21px;
-            }
-        
-            h1 {
-                margin: 0;
-                font-size: 47px;
-            }
+@media(max-width:750px) {
+    .headline {
+        justify-content: center;
+        align-items: flex-start;
+        height: unset;
+        width: 360px;
+        flex-direction: column;
+        margin-left: 15px;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        gap: 1;
+    }
+
+    .headline img {
+        order: 1;
+        transform: rotate(90deg);
+        margin-left: 30px;
+    }
+
+    .headline span {
+        font-size: 21px;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 47px;
+    }
 }

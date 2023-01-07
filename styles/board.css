@@ -115,6 +115,7 @@
         font-size: 16px;
         line-height: 120%;
         color: #A8A8A8;
+        overflow: hidden;
     }
 
     .progressbardiv {
@@ -543,6 +544,10 @@
     }
 
     @media(max-width:750px) {
+        body{
+            line-height: normal;
+        }
+        
         .inputcontainer {
             flex-direction: column;
             align-items: flex-start;
@@ -587,6 +592,7 @@
             display: flex;
             flex-direction: column;
         }
+
 
         .header {
             width: 363px;
