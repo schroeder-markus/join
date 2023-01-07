@@ -53,6 +53,7 @@ function createContact() {
 
 function closeEditContact() {
   document.querySelector(".edit-contact-container").style.display = "none";
+  document.querySelector(".add-new-contact").style.display = "unset";
 }
 
 function closeNewContact() {
