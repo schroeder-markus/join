@@ -43,6 +43,18 @@ function saveContactChange(contactID) {
   document.querySelector(".add-new-contact").style.display = "unset";
 }
 
+function openEditSlide() {
+  let editContainer = document.getElementById('edit-container');
+  editContainer.classList.remove('closeslide');
+}
+
+
+function closeEditSlide() {
+  let editContainer = document.getElementById('edit-container');
+  editContainer.classList.add('closeslide');
+}
+
+
 function cancelContact() {
   document.querySelector(".new-contact").style.display = "none";
 }
@@ -51,10 +63,6 @@ function createContact() {
   document.querySelector(".new-contact-container").style.display = "flex";
 }
 
-function closeEditContact() {
-  document.querySelector(".edit-contact-container").style.display = "none";
-  document.querySelector(".add-new-contact").style.display = "unset";
-}
 
 function closeNewContact() {
   document.querySelector(".new-contact-container").style.display = "none";
@@ -170,7 +178,7 @@ function contactDetailHtml (contactID) {
       <path d="M20.3599 36.4792L25.1792 39.4041L20.4506 41.6889L20.3599 36.4792Z" fill="white"></path>
       </svg>
     </div>
-    <div class="edit-contact" onclick="editContact(${contactID})">
+    <div class="edit-contact" onclick="editContact(${contactID}),openEditSlide()">
       <img src="img/pencil-no-bg.svg" alt="">
       <span>Edit Contact</span>
     </div>
