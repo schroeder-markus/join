@@ -38,13 +38,13 @@
                     <!-- Title -->
                     <div>
                         <label for="title">Title</label>
-                        <input oninput="deleteAlert('titleAlert')" id="newTitle" type="text" placeholder="Enter a title">
+                        <input onsubmit="deleteAlert('titleAlert')" id="newTitle" type="text" placeholder="Enter a title">
                         <span id="newTitleAlert" class="requiredAlert"></span>
                     </div>
                     <!-- Description -->
                     <div>
                         <label for="description">Description</label>
-                        <textarea oninput="deleteAlert('descriptionAlert')" id="newDescription" class="descriptionTextArea"
+                        <textarea onsubmit="deleteAlert('descriptionAlert')" id="newDescription" class="descriptionTextArea"
                             type="text" placeholder="Enter a description"></textarea>
                         <span id="newDescriptionAlert" class="requiredAlert"></span>
                     </div>
@@ -156,7 +156,7 @@
                     <!-- Due Date -->
                     <div>
                         <label for="dateInput">Due Date</label>
-                        <div oninput="deleteAlert('dateAlert')" class="inputContainer"><input id="dueDate"
+                        <div onsubmit="deleteAlert('dateAlert')" class="inputContainer"><input id="dueDate"
                                 class="input dateInput" type="text" placeholder="Enter date"
                                 onfocus="(this.type='date')">
                         </div>
@@ -187,7 +187,7 @@
                     <!-- Subtasks -->
                     <div class="subtaskInput">
                         <label for="subtaskInput">Subtasks</label>
-                        <div class="inputContainer"><input oninput="deleteAlert('subtaskAlert')" id="subtask"
+                        <div class="inputContainer"><input onsubmit="deleteAlert('subtaskAlert')" id="subtask"
                                 class="input" placeholder="Add new Subtask">
                             <img onclick="addSubtask()" src="img/icon-add-plus-dark.svg" alt="plusIcon">
                         </div>
