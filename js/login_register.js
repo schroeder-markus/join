@@ -64,6 +64,11 @@ function moveToLogin() {
     document.getElementById('signUpBoxMobile').classList.remove('d-none');
 }
 
+
+function moveToFmPfromReset() {
+    window.location.href = "index.html";
+}
+
 /**
  * This function collects all values from the signup-field and stors them in the backend (allUsers)
  */

@@ -69,3 +69,9 @@
         visibility: visible;
     }
 }
+
+@media(max-width: 660px) {
+    h1 {
+        margin-bottom: 9px !important;
+    }
+}

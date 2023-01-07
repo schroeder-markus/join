@@ -364,6 +364,31 @@ form p {
     }
 }
 
+@media (max-width: 1023px) {
+    @keyframes shrink {
+        0% {
+            width: 150px;
+            left: 50%;
+            margin-left: -100px;
+            top: 50%;
+            margin-top: -120px;
+        }
+
+        100% {
+            width: 86px;
+            left: 180px;
+            top: 150px;
+        }
+    }
+}
+
+@media(max-width: 830px) {
+    .login-h1 h1 {
+        font-size: 44px;
+    }
+}
+
+
 @media(max-width: 660px) {
 
     .login-field {
@@ -382,6 +407,10 @@ form p {
     .login-field h1 {
         margin-top: 44px;
         font-size: 47px;
+    }
+
+    form p {
+        font-size: 19px;
     }
 
     .input {
@@ -424,7 +453,7 @@ form p {
     }
 
     .sign-up-box-mobile {
-        display:inherit;
+        display: inherit;
     }
 
     .sign-up-box {
@@ -457,6 +486,19 @@ form p {
     }
 
     #back-btn {
+        width: 27px;
+        left: 23px;
+        top: 22px;
+    }
+
+    #signUpBackBtn {
+        width: 27px;
+        left: 23px;
+        top: 22px;
+    }
+
+    #resetPwBackBtn {
+        width: 27px;
         left: 23px;
         top: 22px;
     }
