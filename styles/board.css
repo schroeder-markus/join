@@ -58,7 +58,7 @@
     }
 
     main {
-        width: calc(100%-232px);
+        width: unset
     }
 
     .headline {
