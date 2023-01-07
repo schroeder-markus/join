@@ -18,6 +18,10 @@ async function usersFromServer() {
 function backToLogIn() {
     document.getElementById('submit').classList.add('d-none');
     document.getElementById('login').classList.remove('d-none');
+    document.getElementById('fmp').classList.add('d-none');
+    document.getElementById('signUpBox').classList.remove('d-none');
+    document.getElementById('signUpBoxMobile').classList.add('sign-up-box-mobile');
+    document.getElementById('signUpBoxMobile').classList.remove('d-none');
 }
 
 
@@ -31,6 +35,9 @@ function signUp() {
     document.getElementById('submit').classList.remove('d-none');
     document.getElementById('login').classList.add('d-none');
     document.getElementById('fmp').classList.add('d-none');
+    document.getElementById('signUpBox').classList.add('d-none');
+    document.getElementById('signUpBoxMobile').classList.remove('sign-up-box-mobile');
+    document.getElementById('signUpBoxMobile').classList.add('d-none');
 }
 
 /**
@@ -39,7 +46,10 @@ function signUp() {
 function moveToFmP() {
     document.getElementById('login').classList.add('d-none');
     document.getElementById('fmp').classList.remove('d-none');
-
+    document.getElementById('submit').classList.add('d-none');
+    document.getElementById('signUpBox').classList.add('d-none');
+    document.getElementById('signUpBoxMobile').classList.remove('sign-up-box-mobile');
+    document.getElementById('signUpBoxMobile').classList.add('d-none');
 }
 
 /**
@@ -48,6 +58,10 @@ function moveToFmP() {
 function moveToLogin() {
     document.getElementById('fmp').classList.add('d-none');
     document.getElementById('login').classList.remove('d-none');
+    document.getElementById('submit').classList.add('d-none');
+    document.getElementById('signUpBox').classList.remove('d-none');
+    document.getElementById('signUpBoxMobile').classList.add('sign-up-box-mobile');
+    document.getElementById('signUpBoxMobile').classList.remove('d-none');
 }
 
 /**

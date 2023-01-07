@@ -9,7 +9,7 @@ form p {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 .margin-bottom {
@@ -53,6 +53,7 @@ form p {
 
 .white-logo {
     opacity: 0;
+    visibility: inherit;
 }
 
 @keyframes shrink {
@@ -135,7 +136,7 @@ form p {
     font-weight: 400;
     display: none;
     position: absolute;
-    bottom: 60px;
+    bottom: 25px;
 }
 
 .sign-up-box-mobile button {
@@ -364,31 +365,14 @@ form p {
 }
 
 @media(max-width: 660px) {
-    .background {
-        background-color: var(--main-dark);
-    }
-
-    .white-logo {
-        opacity: 1;
-        animation: fade-out 500ms forwards;
-    }
-
-    @keyframes fade-out {
-        0% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
 
     .login-field {
         min-width: unset;
-        width: 372px;
-        height: 573px;
+        width: 328px;
+        height: 430px;
         box-sizing: unset;
         justify-content: space-around;
-        padding: 15px 0px;
+        padding: 56px 0px;
     }
 
     .login-h1 {
@@ -401,8 +385,13 @@ form p {
     }
 
     .input {
-        width: 327px;
+        width: 288px;
         height: 41px;
+    }
+
+    .input-pics img {
+        top: 11px;
+        width: 17px;
     }
 
     .log-in-btn-container {
@@ -435,7 +424,7 @@ form p {
     }
 
     .sign-up-box-mobile {
-        display: unset;
+        display:inherit;
     }
 
     .sign-up-box {
@@ -452,9 +441,23 @@ form p {
         }
 
         100% {
-            width: 60px;
-            left: 140px;
-            top: 160px;
+            width: 54px;
+            left: 127px;
+            top: 138px;
         }
+    }
+
+    .FPH1 {
+        font-size: 40px !important;
+        line-height: 48px;
+    }
+
+    .blue-line {
+        width: 88px;
+    }
+
+    #back-btn {
+        left: 23px;
+        top: 22px;
     }
 }
