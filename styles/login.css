@@ -479,6 +479,7 @@ form p {
     .FPH1 {
         font-size: 40px !important;
         line-height: 48px;
+        margin-bottom: 13px;
     }
 
     .blue-line {
@@ -501,5 +502,20 @@ form p {
         width: 27px;
         left: 23px;
         top: 22px;
+    }
+
+    .fmp-form {
+        position: absolute;
+        bottom: -800px;
+        animation: slideUp .5s;
+        animation-timing-function: ease-in-out;
+     
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes slideUp {
+        100% {
+            bottom: 90px;
+        }
     }
 }
