@@ -293,21 +293,20 @@ function toggleView_DropdownAndNewEntry(
     let visibleElement = document.getElementById(visibleElementID);
     let inputFieldElement = document.getElementById(inputFieldID);
 
-    invisibleElement.style.display = "none";
-    visibleElement.style.display = "block";
+    invisibleElement.style.display = 'none';
+    visibleElement.style.display = 'block';
     inputFieldElement.focus();
 };
 
 
 function setPrio(priorityValue) {
-    deleteAlert("priorityAlert");
-    let prioButtonElement = document.getElementById(
-        `prioButton-${priorityValue}`
+    deleteAlert('priorityAlert');
+    let prioButtonElement = document.getElementById(`prioButton-${priorityValue}`
     );
     resetActivePrio();
 
     priority = priorityValue;
-    prioButtonElement.classList.add("prioActive");
+    prioButtonElement.classList.add('prioActive');
     prioButtonElement.style.backgroundColor = `var(--prio-${priorityValue})`;
 };
 

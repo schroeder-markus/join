@@ -8,6 +8,7 @@ let awaitingFeedback;
 let done;
 let searchTask;
 let currentTask;
+let currentPrio;
 
 
 async function renderTasks() {
@@ -159,8 +160,34 @@ function editCard() {
     document.getElementById(`edittitle${currentTask}`).value = allTasks[currentTask]['title'];
     document.getElementById(`editdescription${currentTask}`).value = allTasks[currentTask]['description'];
     document.getElementById(`editduedate${currentTask}`).value = allTasks[currentTask]['Due Date'];
-
+    highlightActivePriority(currentTask);
 }
+
+
+function highlightActivePriority(currentTask) {
+    currentPrio = allTasks[currentTask]['priority'];
+    let prioButtonElement = document.getElementById(`editPrioButton-${currentPrio}`);
+    prioButtonElement.classList.add('prioActive');
+    prioButtonElement.style.backgroundColor = `var(--prio-${currentPrio})`;
+}
+
+function editPrio(priority) {
+    if (currentPrio != priority) {
+        recentPrioButtonElement = document.getElementById(`editPrioButton-${currentPrio}`);
+        prioButtonElement = document.getElementById(`editPrioButton-${priority}`);
+        
+        recentPrioButtonElement.classList.remove('prioActive');
+        recentPrioButtonElement.style.backgroundColor = `var(--main-white)`;
+        
+        currentPrio = priority;
+        
+        prioButtonElement.classList.add('prioActive');
+        prioButtonElement.style.backgroundColor = `var(--prio-${currentPrio})`;
+
+        
+    }
+}
+
 
 function editCardHTML() {
     return `<div class="center">
@@ -202,17 +229,17 @@ function editCardHTML() {
                     <div class="input">
                         <label>Prio</label>
                         <div class="prioButtons">
-                            <button onclick="setPrio('urgent')" type="button" id="prioButton-urgent">Urgent
+                            <button onclick="editPrio('urgent')" type="button" id="editPrioButton-urgent">Urgent
                                 <div>
                                     <img src="img/prio-urgent.svg" alt="prioUrgentArrow">
                                 </div>
                             </button>
-                            <button onclick="setPrio('medium')" type="button" id="prioButton-medium">Medium
+                            <button onclick="editPrio('medium')" type="button" id="editPrioButton-medium">Medium
                                 <div>
                                     <img src="img/prio-medium.svg" alt="prioMediumArrow">
                                 </div>
                             </button>
-                            <button onclick="setPrio('low')" type="button" id="prioButton-low">Low
+                            <button onclick="editPrio('low')" type="button" id="editPrioButton-low">Low
                                 <div>
                                     <img src="img/prio-low.svg" alt="prioLowArrow">
                                 </div>
@@ -224,55 +251,56 @@ function editCardHTML() {
                     <div readonly>
                         <label for="assignToDropdown">Assign to</label>
                         <div id="assignToDropdown" class="dropdown">
-                            <span onclick="toggleAssignDropdown()" id="assignToInput" class="dropdownValue">Select
-                                contacts to assign</span>
-                            <img onclick="toggleAssignDropdown()" src="img/icon-dropdown.svg" alt="dropdownIcon">
-                            <div id="contactSelection" class="scroll">
-                                <div><span onclick="toggleSelf()">You<div id="contactCheckbox()" class="assignCheckbox">
-                                            <div class="assignChecked"></div>
-                                        </div></span></div>
-                                <div><span onclick="toggleSelection(0)">
-                                        <div id="contact(0)">
-                                            <div class="assignName"><span id="firstName(0)">Markus</span><span
-                                                    id="lastName(0)">Schröder</span></div>
-                                        </div>
-                                        <div class="assignCheckbox">
-                                            <div id="contactChecked(0)" class="assignChecked"></div>
-                                        </div>
-                                    </span></div>
-                                <div><span onclick="toggleSelection(1)">
-                                        <div id="contact(1)">
-                                            <div class="assignName"><span id="firstName(1)">Boubkir</span><span
-                                                    id="lastName(1)">Benamar</span></div>
-                                        </div>
-                                        <div class="assignCheckbox">
-                                            <div id="contactChecked(1)" class="assignChecked"></div>
-                                        </div>
-                                    </span></div>
-                                <div><span onclick="toggleSelection(2)">
-                                        <div id="contact(2)">
-                                            <div class="assignName"><span id="firstName(2)">Ilja</span><span
-                                                    id="lastName(2)">Gaus-Gerbeth</span></div>
-                                        </div>
-                                        <div class="assignCheckbox">
-                                            <div id="contactChecked(2)" class="assignChecked"></div>
-                                        </div>
-                                    </span></div>
-                                <div><span onclick="toggleSelection(3)">
-                                        <div id="contact(3)">
-                                            <div class="assignName"><span id="firstName(3)">Ingo</span><span
-                                                    id="lastName(3)">Hermsen</span></div>
-                                        </div>
-                                        <div class="assignCheckbox">
-                                            <div id="contactChecked(3)" class="assignChecked"></div>
-                                        </div>
-                                    </span></div>
-                                <div><span
-                                        onclick="toggleView_DropdownAndNewEntry('assignToDropdown','invitePersonInput', 'mailInput')">Invite
-                                        new Contact<img src="img/icon-contacts-dark.svg" alt="contactIconDark"></span>
+                    <span onclick="toggleAssignDropdown()" id="assignToInput" class="dropdownValue">Select
+                        contacts to assign</span>
+                    <img onclick="toggleAssignDropdown()" src="img/icon-dropdown.svg" alt="dropdownIcon">
+                    <div id="contactSelection" class="scroll">
+                        <div><span onclick="toggleSelection(0)">
+                                <div id="contact(0)">
+                                    You
                                 </div>
-                            </div>
+                                <div class="assignCheckbox">
+                                    <div id="contactChecked(0)" class="assignChecked"></div>
+                                </div>
+                            </span></div>
+                        <div><span onclick="toggleSelection(1)">
+                                <div id="contact(1)">
+                                    Markus Schröder
+                                </div>
+                                <div class="assignCheckbox">
+                                    <div id="contactChecked(1)" class="assignChecked"></div>
+                                </div>
+                            </span></div>
+                        <div><span onclick="toggleSelection(2)">
+                                <div id="contact(2)">
+                                    Boubkir Benamar
+                                </div>
+                                <div class="assignCheckbox">
+                                    <div id="contactChecked(2)" class="assignChecked"></div>
+                                </div>
+                            </span></div>
+                        <div><span onclick="toggleSelection(3)">
+                                <div id="contact(3)">
+                                    Ilja Gaus-Gerbeth
+                                </div>
+                                <div class="assignCheckbox">
+                                    <div id="contactChecked(3)" class="assignChecked"></div>
+                                </div>
+                            </span></div>
+                        <div><span onclick="toggleSelection(4)">
+                                <div id="contact(4)">
+                                    Ingo Hermsen
+                                </div>
+                                <div class="assignCheckbox">
+                                    <div id="contactChecked(4)" class="assignChecked"></div>
+                                </div>
+                            </span></div>
+                        <div><span
+                                onclick="toggleView_DropdownAndNewEntry('assignToDropdown','invitePersonInput', 'mailInput')">Invite
+                                new Contact<img src="img/icon-contacts-dark.svg" alt="contactIconDark"></span>
                         </div>
+                    </div>
+                </div>
 
                         <!-- Input for new Contact (display: none on default) -->
                         <div id="invitePersonInput" class="newEntryInput">
@@ -300,6 +328,8 @@ function saveEditedTasks() {
     allTasks[currentTask]['title'] = document.getElementById(`edittitle${currentTask}`).value;
     allTasks[currentTask]['description'] = document.getElementById(`editdescription${currentTask}`).value
     allTasks[currentTask]['Due Date'] = document.getElementById(`editduedate${currentTask}`).value
+    allTasks[currentTask]['priority'] = currentPrio
+    
     saveTasks();
     updateTasks();
     closeCardInformation();
