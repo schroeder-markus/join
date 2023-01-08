@@ -1,6 +1,11 @@
+.board{
+    max-width: 1400px;
+}
+    
     .content {
         display: flex;
-        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .content>* {
@@ -54,11 +59,7 @@
     .inprogress,
     .awaitingfeedback,
     .done {
-        width: 25%;
-    }
-
-    main {
-        width: unset
+        width: 350px;
     }
 
     .headline {
@@ -279,8 +280,9 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 32px;
-        margin-right: 16px;
-        margin-left: 16px;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 1400px;
     }
 
     .input {
@@ -543,7 +545,7 @@
         }
     }
 
-    @media(max-width:750px) {
+    @media(max-width:1080px) {
         body {
             line-height: normal;
         }
@@ -554,6 +556,7 @@
             position: relative;
             width: 363px;
             margin: 0;
+                margin-left: 28px;
         }
 
         .content {
@@ -570,7 +573,6 @@
 
         main,
         .main-container {
-            width: 100%;
             margin: 0;
             margin-top: 80px;
             display: flex;
@@ -657,4 +659,9 @@
         .submitAndClearButtons {
             margin-bottom: 50px;
         }
+    }
+
+
+    @media(max-width:400px){
+        
     }
