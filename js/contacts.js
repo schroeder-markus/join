@@ -173,7 +173,7 @@ function contactDetailHtml (contactID) {
 <div class="contact-detail-data">
   <div class="contact-information">
     <span>Contact Information</span>
-    <div class="edit-contact-mobile" onclick="editContact(${contactID})">
+    <div class="edit-contact-mobile" onclick="editContact(${contactID}), openEditSlide()">
       <svg class="editbutton" width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="57" height="57" rx="10" fill="#2A3647"></rect>
       <path d="M20.9449 35.5155L25.7643 38.4404L38.4074 17.6083C38.694 17.1362 38.5435 16.5211 38.0714 16.2346L34.9618 14.3474C34.4897 14.0608 33.8746 14.2113 33.5881 14.6834L20.9449 35.5155Z" fill="white"></path>
