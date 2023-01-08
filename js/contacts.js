@@ -39,7 +39,7 @@ function saveContactChange(contactID) {
   saveAllContacts()  
   createContactList();
   showContactData(contactID);
-  closeEditContact();
+  closeEditSlide();
   document.querySelector(".add-new-contact").style.display = "unset";
 }
 
@@ -50,6 +50,7 @@ function openEditSlide() {
 
 
 function closeEditSlide() {
+  console.log("Klick")
   let editContainer = document.getElementById('edit-container');
   editContainer.classList.add('closeslide');
 }
