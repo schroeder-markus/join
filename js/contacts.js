@@ -53,6 +53,7 @@ function closeEditSlide() {
   console.log("Klick")
   let editContainer = document.getElementById('edit-container');
   editContainer.classList.add('closeslide');
+  document.querySelector(".add-new-contact").style.display = "unset";
 }
 
 
