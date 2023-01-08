@@ -272,6 +272,21 @@ form p {
     opacity: 0.5;
 }
 
+.wrongEmailAlarm {
+    font-size: 12px;
+    text-align: left;
+    color: red;
+    position: absolute;
+    opacity: 0;
+    animation: showWP .5s forwards;
+}
+
+@keyframes showWP {
+    100% {
+        opacity: 1;
+    }
+}
+
 .checkbox-container {
     display: flex;
     font-weight: 400;
