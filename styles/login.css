@@ -530,7 +530,9 @@ form p {
 
     @keyframes slideUp {
         100% {
-            bottom: 90px;
+            top: 50%;
+            bottom: 50%;
+            margin-top: -243px;
         }
     }
 }

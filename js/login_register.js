@@ -92,9 +92,13 @@ function enterSummary() {
     window.location.href = "summary.html";
 }
 
+/**
+ * This function checks if User is submitted, checks if User wants to remember PW and Email, alarms if PW is wrong and sets an aktual User
+ */
 function logIn() {
     let email = document.getElementById('login-email');
     let password = document.getElementById('login-password');
+    let wrongPasswordAlarm = document.getElementById('alarm');
     let user = users.find(u => u.email == email.value && u.password == password.value);
 
     if (user) {
@@ -109,12 +113,16 @@ function logIn() {
         }
         window.location.href = "summary.html";
     } else {
-        document.getElementById('alarm').classList.remove('d-none');
+        password.value = '';
+        password.placeholder = 'Ups! Try again';
+        wrongPasswordAlarm.classList.remove('d-none');
     }
     getActualUser();
 }
 
-
+/**
+ * This function defines the actual User via emailvalue and safes the info in local storage
+ */
 function getActualUser() {
     let email = document.getElementById('login-email');
     let actualUser = email.value;
@@ -124,7 +132,9 @@ function getActualUser() {
     localStorage.setItem('currentUser', currentUserAsString);
 }
 
-
+/**
+ * This function finds out if checkbox input remains checked or unchecked
+ */
 function onPageLoad() {
     let email = document.getElementById('login-email');
     let password = document.getElementById('login-password');
