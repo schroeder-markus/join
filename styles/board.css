@@ -390,7 +390,7 @@
         align-items: flex-start;
         padding: 50px;
         gap: 25px;
-        position: relative;
+        position: fixed;
         width: 623px;
         height: 824px;
         background: #FFFFFF;
