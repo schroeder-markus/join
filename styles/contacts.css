@@ -428,16 +428,6 @@ main {
 }
 
 .edit-contact-right {
-    /* background-color: var(--main-white);
-    border-bottom-right-radius: 30px;
-    border-top-right-radius: 30px;
-    display: flex;
-    height: 100%;
-    left: 313px;
-    position: absolute;
-    text-align: left;
-    width: 70%; */
-
     background-color: var(--main-white);
     border-bottom-right-radius: 30px;
     border-top-right-radius: 30px;
