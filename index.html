@@ -21,8 +21,20 @@
 
     <div class="login-wrapper">
         <div class="login-logo">
-            <img src="img/join-logo.svg" alt="Join">
-            <!-- <img class="white-logo" src="img/join-logo-white.svg" alt="Join"> -->
+            <svg class="loginLogo" width="274" height="335" viewBox="0 0 274 335" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="logoColor" d="M196.314 0H135.623V69.8251H196.314V0Z" fill="#2A3647" />
+                <path
+                    class="logoColor" d="M135.623 126.614H196.315V225.091C196.592 248.787 189.848 272.031 176.94 291.868C164.195 311.141 139.591 334.072 94.0723 334.072C44.4917 334.072 15.5931 310.626 0 297.777L38.2825 250.554C53.5021 262.981 68.1615 273.204 94.3057 273.204C114.101 273.204 121.99 265.138 126.612 258.104C132.896 248.334 136.146 236.908 135.95 225.279L135.623 126.614Z"
+                    fill="#2A3647" />
+                <path d="M104.67 82.5332H43.9781V143.495H104.67V82.5332Z" fill="#29ABE2" />
+                <path
+                    class="logoColor" d="M228.108 305.467C228.108 318.456 221.525 325.444 212.328 325.444C203.131 325.444 197.108 317.143 197.108 306.123C197.108 295.103 203.318 286.381 212.842 286.381C222.366 286.381 228.108 294.962 228.108 305.467ZM204.158 305.983C204.158 313.814 207.286 319.582 212.655 319.582C218.024 319.582 221.058 313.486 221.058 305.514C221.058 298.526 218.257 291.961 212.655 291.961C207.053 291.961 204.158 298.292 204.158 305.983Z"
+                    fill="#2A3647" />
+                <path class="logoColor" d="M240.153 286.944V324.834H233.43V286.944H240.153Z" fill="#2A3647" />
+                <path
+                    class="logoColor" d="M247.436 324.834V286.944H254.905L262.935 302.56C265.002 306.643 266.842 310.838 268.444 315.127V315.127C268.024 310.438 267.837 305.045 267.837 299.042V286.944H274V324.834H267.044L258.92 308.89C256.77 304.702 254.853 300.397 253.178 295.994V295.994C253.178 300.684 253.505 305.983 253.505 312.501V324.787L247.436 324.834Z"
+                    fill="#2A3647" />
+            </svg>
         </div>
         <div class="background"></div>
         <div id="grayBgIndex" class="grayBgIndex d-none"></div>
@@ -68,8 +80,12 @@
             <!-- Sign up field -->
             <form onsubmit="addUser(); return false;" id="submit" class="d-none">
                 <div id="sign_up_field" class="login-field">
-                    <img type="button" id="signUpBackBtn" onclick="backToLogIn()" class="back-btn" src="img/arrow-left-line.svg"
-                        alt="go back">
+                    <svg type="button" id="signUpBackBtn" onclick="backToLogIn()" class="back-btn" width="37"
+                        height="37" viewBox="0 0 37 37" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path class="backPath"
+                            d="M12.0682 16.9582H29.2917C30.1431 16.9582 30.8333 17.6484 30.8333 18.4999C30.8333 19.3513 30.1431 20.0415 29.2917 20.0415H12.0682L19.2477 27.2211C19.8497 27.823 19.8497 28.799 19.2477 29.401C18.6457 30.003 17.6698 30.003 17.0678 29.401L7.58088 19.9141C6.79983 19.133 6.79983 17.8667 7.58088 17.0857L17.0678 7.59875C17.6698 6.99678 18.6457 6.99678 19.2477 7.59875C19.8497 8.20071 19.8497 9.1767 19.2477 9.77866L12.0682 16.9582Z"
+                            fill="#29ABE2" />
+                    </svg>
                     <div class="login-h1">
                         <h1>Sign up</h1>
                         <div class="blue-line"></div>
@@ -95,8 +111,12 @@
             <!-- Forgot Password  -->
             <form onsubmit="sendEmail(event);" id="fmp" class="fmp-form d-none">
                 <div class="login-field">
-                    <img type="button" id="back-btn" onclick="moveToLogin()" class="back-btn" src="img/arrow-left-line.svg"
-                        alt="go back">
+                    <svg type="button" id="signUpBackBtn" onclick="moveToLogin()" class="back-btn" width="37"
+                        height="37" viewBox="0 0 37 37" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path class="backPath"
+                            d="M12.0682 16.9582H29.2917C30.1431 16.9582 30.8333 17.6484 30.8333 18.4999C30.8333 19.3513 30.1431 20.0415 29.2917 20.0415H12.0682L19.2477 27.2211C19.8497 27.823 19.8497 28.799 19.2477 29.401C18.6457 30.003 17.6698 30.003 17.0678 29.401L7.58088 19.9141C6.79983 19.133 6.79983 17.8667 7.58088 17.0857L17.0678 7.59875C17.6698 6.99678 18.6457 6.99678 19.2477 7.59875C19.8497 8.20071 19.8497 9.1767 19.2477 9.77866L12.0682 16.9582Z"
+                            fill="#29ABE2" />
+                    </svg>
                     <div class="login-h1">
                         <h1 class="FPH1">I forgot my password</h1>
                         <div class="blue-line"></div>
@@ -110,7 +130,7 @@
                     <div class="log-in-btn-container">
                         <button type="submit" class="sign-up-btn">Send me the email</button>
                     </div>
-                    
+
                 </div>
             </form>
         </div>

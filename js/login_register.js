@@ -77,9 +77,7 @@ async function addUser() {
     let email = document.getElementById('submit-email');
     let password = document.getElementById('submit-password');
     let user = {
-        'name': name.value,
-        'email': email.value,
-        'password': password.value
+        'name': name.value, 'email': email.value, 'password': password.value
     };
     users.push(user);
     let allUsersAsString = JSON.stringify(users);

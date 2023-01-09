@@ -36,7 +36,7 @@ form p {
     display: flex;
 }
 
-.login-logo img {
+.loginLogo {
     width: 200px;
     object-fit: cover;
     animation: shrink 1s;
@@ -47,7 +47,7 @@ form p {
     left: 50%;
     margin-left: -100px;
     top: 50%;
-    margin-top: -120px;
+    margin-top: -167.5px;
     z-index: 120;
 }
 
@@ -62,15 +62,16 @@ form p {
         left: 50%;
         margin-left: -100px;
         top: 50%;
-        margin-top: -120px;
+        margin-top: -167.5px;
     }
 
     100% {
         width: 100px;
-        left: 180px;
-        top: 180px;
+        left: 177px;
+        top: 83px;
     }
 }
+
 
 .background {
     background-color: white;
@@ -386,13 +387,13 @@ form p {
             left: 50%;
             margin-left: -100px;
             top: 50%;
-            margin-top: -120px;
+            margin-top: -167.5px;
         }
 
         100% {
             width: 86px;
-            left: 180px;
-            top: 150px;
+            left: 177px;
+            top: 83px;
         }
     }
 }
@@ -405,6 +406,10 @@ form p {
 
 
 @media(max-width: 660px) {
+
+    .background {
+        background-color: var(--main-dark);
+    }
 
     .login-field {
         min-width: unset;
@@ -481,13 +486,25 @@ form p {
             left: 50%;
             margin-left: -100px;
             top: 50%;
-            margin-top: -120px;
+            margin-top: -167.5px;
         }
 
         100% {
             width: 54px;
-            left: 127px;
-            top: 138px;
+            left: 117px;
+            top: 53px;
+        }
+    }
+
+    .logoColor {
+        fill:var(--main-white);
+        animation: changeColor 0.5s forwards;
+        animation-delay: 1s;
+    }
+
+    @keyframes changeColor {
+        100% {
+            fill:var(--main-dark);
         }
     }
 
@@ -507,6 +524,10 @@ form p {
         top: 22px;
     }
 
+    .backPath {
+        fill: black;
+    }
+
     #signUpBackBtn {
         width: 27px;
         left: 23px;
@@ -524,7 +545,7 @@ form p {
         bottom: -800px;
         animation: slideUp .5s;
         animation-timing-function: ease-in-out;
-     
+
         animation-fill-mode: forwards;
     }
 
