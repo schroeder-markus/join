@@ -9,7 +9,7 @@ async function usersFromServer() {
     await downloadFromServer();
     let allUsersAsString = backend.getItem('allUsers') || [];
     users = JSON.parse(allUsersAsString);
-    console.log('loaded all users', users)
+    //console.log('loaded all users', users)
 }
 
 /**
