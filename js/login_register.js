@@ -22,6 +22,8 @@ function backToLogIn() {
     document.getElementById('signUpBox').classList.remove('d-none');
     document.getElementById('signUpBoxMobile').classList.add('sign-up-box-mobile');
     document.getElementById('signUpBoxMobile').classList.remove('d-none');
+    document.getElementById('alarm').classList.add('d-none');
+    document.getElementById('login-password').placeholder = 'Password';
 }
 
 
@@ -38,6 +40,8 @@ function signUp() {
     document.getElementById('signUpBox').classList.add('d-none');
     document.getElementById('signUpBoxMobile').classList.remove('sign-up-box-mobile');
     document.getElementById('signUpBoxMobile').classList.add('d-none');
+    document.getElementById('alarm').classList.add('d-none');
+    document.getElementById('login-password').placeholder = 'Password';
 }
 
 /**
@@ -50,6 +54,8 @@ function moveToFmP() {
     document.getElementById('signUpBox').classList.add('d-none');
     document.getElementById('signUpBoxMobile').classList.remove('sign-up-box-mobile');
     document.getElementById('signUpBoxMobile').classList.add('d-none');
+    document.getElementById('alarm').classList.add('d-none');
+    document.getElementById('login-password').placeholder = 'Password';
 }
 
 /**
@@ -62,6 +68,7 @@ function moveToLogin() {
     document.getElementById('signUpBox').classList.remove('d-none');
     document.getElementById('signUpBoxMobile').classList.add('sign-up-box-mobile');
     document.getElementById('signUpBoxMobile').classList.remove('d-none');
+    document.getElementById('login-password').placeholder = 'Password';
 }
 
 

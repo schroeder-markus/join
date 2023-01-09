@@ -217,6 +217,10 @@ form p {
     margin-bottom: 4px;
 }
 
+#submit-success {
+    padding: 0 29px;
+}
+
 .guest-log-in-btn {
     display: flex;
     flex-direction: row;
@@ -404,6 +408,19 @@ form p {
     }
 }
 
+@media (max-height: 670px) {
+    .login-responsive {
+        padding: 12px 0 !important;
+        gap: 24px !important;
+    }
+    .signup-responsive {
+        gap: 24px !important;
+    }
+    .fp-responsive {
+        padding: 59px 0px !important;
+    }
+}
+
 
 @media(max-width: 660px) {
 
@@ -414,10 +431,11 @@ form p {
     .login-field {
         min-width: unset;
         width: 328px;
-        height: 430px;
+        max-height: 532px;
         box-sizing: unset;
         justify-content: space-around;
         padding: 56px 0px;
+        gap: 35px;
     }
 
     .login-h1 {
@@ -425,7 +443,7 @@ form p {
     }
 
     .login-field h1 {
-        margin-top: 44px;
+        margin-top: 29px;
         font-size: 47px;
     }
 
@@ -531,7 +549,7 @@ form p {
     #signUpBackBtn {
         width: 27px;
         left: 23px;
-        top: 22px;
+        top: 13px;
         z-index: 121;
     }
 
