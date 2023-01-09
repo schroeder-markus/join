@@ -225,6 +225,7 @@
         width: calc(100vw - 232px);
     }
 
+
     .center {
         display: flex;
         justify-content: center;
@@ -322,6 +323,10 @@
         font-size: 21px;
         color: white;
         gap: 10px;
+    }
+
+    .addtaskboard {
+        cursor: pointer;
     }
 
     .searchinput {
@@ -629,6 +634,10 @@
 
         .addtaskboard span {
             display: none;
+        }
+
+        .addtaskboard:hover {
+            cursor: pointer;
         }
 
         .card {

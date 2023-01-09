@@ -361,7 +361,7 @@ function getCheckboxIcon(index) {
     }
 };
 
-// Add Task
+// form validation 
 
 function createTask() {
     formValidation = true;

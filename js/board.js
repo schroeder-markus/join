@@ -139,6 +139,7 @@ function renderUser(position) {
 
 
 function renderCardInformation(position) {
+    document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
     document.getElementById('cardinformation').classList.remove('d-none');
     document.getElementById('infocategory').innerHTML = `${allTasks[position]['category']}`;
     document.getElementById('infocategory').classList.add(`${allTasks[position]['category']}`);
@@ -339,6 +340,7 @@ function saveEditedTasks() {
 function closeCardInformation() {
     document.getElementById('cardinformation').classList.add('d-none');
     document.getElementById('cardinformation').innerHTML = infoCardHTML();
+    document.getElementsByTagName('body')[0].style.overflowY = 'scroll';
 }
 
 
@@ -412,12 +414,15 @@ function moveTo(category) {
 function openSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.remove('closeslide');
+    document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
 }
 
 
 function closeSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.add('closeslide');
+    document.getElementsByTagName('body')[0].style.overflowY = 'scroll';
+
 }
 
 
@@ -440,9 +445,9 @@ function searchTasks() {
         inProgressDiv.innerHTML += cardHTML(task)
     }
 
-    let awaitinFeedback = searchTask.filter(t => t['status'] == 'awaitingfeedback')
-    for (let i = 0; i < awaitinFeedback.length; i++) {
-        const task = awaitinFeedback[i];
+    let awaitingFeedback = searchTask.filter(t => t['status'] == 'awaitingfeedback')
+    for (let i = 0; i < awaitingFeedback.length; i++) {
+        const task = awaitingFeedback[i];
         awaitingFeedbackDiv.innerHTML += cardHTML(task)
     }
 
