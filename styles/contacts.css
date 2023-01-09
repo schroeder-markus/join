@@ -860,6 +860,10 @@ main {
         justify-content: center;
     }
 
+    .input {
+        width: 350px !important;
+    }
+
 }
 
 @media screen and (max-width: 600px) {
@@ -930,7 +934,7 @@ main {
     }
 
     .input {
-        width: 250px !important;
+        width: 300px !important;
     }
 
     .close-contact-input {

@@ -48,13 +48,11 @@ function openEditSlide() {
   editContainer.classList.remove('closeslide');
 }
 
-
 function closeEditSlide() {
   let editContainer = document.getElementById('edit-container');
   editContainer.classList.add('closeslide');
   document.querySelector(".add-new-contact").style.display = "unset";
 }
-
 
 function cancelContact() {
   document.querySelector(".new-contact").style.display = "none";
@@ -63,7 +61,6 @@ function cancelContact() {
 function createContact() {
   document.querySelector(".new-contact-container").style.display = "flex";
 }
-
 
 function closeNewContact() {
   document.querySelector(".new-contact-container").style.display = "none";
