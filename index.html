@@ -45,7 +45,7 @@
         <div id="formWrapper" class="form-wrapper">
             <!-- Log in field-->
             <form onsubmit="logIn(); return false" id="login">
-                <div class="login-field">
+                <div class="login-responsive login-field">
                     <div class="login-h1">
                         <h1>Log in</h1>
                         <div class="blue-line"></div>
@@ -79,7 +79,7 @@
             </div>
             <!-- Sign up field -->
             <form onsubmit="addUser(); return false;" id="submit" class="d-none">
-                <div id="sign_up_field" class="login-field">
+                <div id="sign_up_field" class="signup-responsive login-field">
                     <svg type="button" id="signUpBackBtn" onclick="backToLogIn()" class="back-btn" width="37"
                         height="37" viewBox="0 0 37 37" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path class="backPath"
@@ -110,7 +110,7 @@
             </form>
             <!-- Forgot Password  -->
             <form onsubmit="sendEmail(event);" id="fmp" class="fmp-form d-none">
-                <div class="login-field">
+                <div class="fp-responsive login-field">
                     <svg type="button" id="signUpBackBtn" onclick="moveToLogin()" class="back-btn" width="37"
                         height="37" viewBox="0 0 37 37" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path class="backPath"
