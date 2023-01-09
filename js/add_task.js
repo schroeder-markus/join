@@ -23,7 +23,6 @@ function initAddTask() {
     loadCurrentUser();
 };
 
-
 function addReturnKeyEventListener() {
     let mainArea = document.getElementsByTagName('main')[0];
     mainArea.addEventListener('keypress', e => {
