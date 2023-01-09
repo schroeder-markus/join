@@ -672,6 +672,27 @@
     }
 
 
-    @media(max-width:400px){
-        
+    @media(max-width:750px){
+        .content > *{
+            margin:0;
+        }
+
+        .inputcontainer{
+            margin: 0;
+        }
     }
+
+
+          @media(max-width:450px) {
+            .card{
+                width: 320px;
+            }
+
+            .inputcontainer{
+                width: 330px;
+            }
+
+            .header{
+                width: 330px;
+            }
+          }
