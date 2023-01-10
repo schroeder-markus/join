@@ -294,6 +294,7 @@ form p {
 
 .checkbox-container {
     display: flex;
+    align-items: center;
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
@@ -304,6 +305,11 @@ form p {
     color: var(--main-blue);
     margin-left: 32px;
     cursor: pointer;
+}
+
+.checkbox-input-label {
+    display: flex;
+    align-items: center;
 }
 
 .checkbox-container input {
