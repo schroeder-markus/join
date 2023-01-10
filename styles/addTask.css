@@ -379,7 +379,7 @@ section div:not(:first-of-type) label {
     .prioButtons button {
         width: 100px;
         font-size: 18px;
-    } 
+    }
 }
 
 @media only screen and (max-width: 1290px) {
@@ -403,11 +403,16 @@ section div:not(:first-of-type) label {
         flex-direction: column;
         align-items: center;
     }
-    
-    .addTaskForm > section {
+
+    .addTaskForm>section {
         padding: 0px;
         border: unset;
         width: 80%;
+    }
+
+    .submitAndClearButtons {
+        justify-content: center;
+
     }
 }
 
@@ -417,6 +422,10 @@ section div:not(:first-of-type) label {
         padding: 0px 60px 0px 60px !important;
         margin-bottom: 80px;
     }
+
+    .submitAndClearButtons {
+        justify-content: space-between;
+    }
 }
 
 @media only screen and (max-width: 490px) {
@@ -425,9 +434,7 @@ section div:not(:first-of-type) label {
         padding: 0px 15px 0px 15px !important;
     }
 
-    .addTaskForm > section {
+    .addTaskForm>section {
         width: 100%;
     }
 }
-  
-

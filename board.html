@@ -178,14 +178,14 @@
                                     <!-- Title -->
                                     <div>
                                         <label for="title">Title</label>
-                                        <input onsubmit="deleteAlert('titleAlert')" id="newTitle" type="text"
+                                        <input onsubmit="deleteAlert('newTitleAlert')" oninput="deleteAlert('newTitleAlert')" id="newTitle" type="text"
                                             placeholder="Enter a title">
                                         <span id="newTitleAlert" class="requiredAlert"></span>
                                     </div>
                                     <!-- Description -->
                                     <div>
                                         <label for="description">Description</label>
-                                        <textarea onsubmit="deleteAlert('descriptionAlert')" id="newDescription"
+                                        <textarea onsubmit="deleteAlert('newDescriptionAlert')" oninput="deleteAlert('newDescriptionAlert')" id="newDescription"
                                             class="descriptionTextArea" type="text"
                                             placeholder="Enter a description"></textarea>
                                         <span id="newDescriptionAlert" class="requiredAlert"></span>

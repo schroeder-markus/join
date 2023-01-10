@@ -94,3 +94,173 @@ async function activatePage(iconID) {
   navEntry.classList.add('aside-nav-focus');
   loadCurrentUser();
 };
+
+// form validation for add Task 
+
+function createTask() {
+  formValidation = true;
+  let titleInput = document.getElementById("newTitle");
+  let descriptionInput = document.getElementById("newDescription");
+  let dueDate = document.getElementById("dueDate");
+
+  checkInput('newTitle', titleInput.value);
+  checkInput('newDescription', descriptionInput.value);
+  checkCategory();
+  checkAssigned();
+  checkDueDate(dueDate.value);
+  checkPriority();
+  generateTaskObject(titleInput.value, descriptionInput.value, dueDate.value);
+};
+
+
+function checkInput(inputName, inputValue) {
+  let alert = document.getElementById(`${inputName}Alert`);
+
+  if (inputValue.length == 0) {
+      formValidation = false;
+      alert.innerHTML = "This field is required";
+  }
+};
+
+
+function checkCategory() {
+  let alert = document.getElementById(`categoryAlert`);
+
+  if (category.length == 0) {
+      formValidation = false;
+      alert.innerHTML = "This field is required";
+  };
+};
+
+
+function checkAssigned() {
+  let alert = document.getElementById(`assignAlert`);
+
+  if (assignedPersons.length == 0) {
+      formValidation = false;
+      alert.innerHTML = "You need to assign contacts";
+  };
+};
+
+
+function checkDueDate(dueDateValue) {
+  let alert = document.getElementById("dateAlert");
+  let today = new Date();
+  let dueDate = new Date(`${dueDateValue}`);
+
+  if (dueDateValue.length == 0 || dueDate <= today) {
+      formValidation = false;
+      alert.innerHTML = "You need to set a future date";
+  };
+};
+
+
+function checkPriority() {
+  let alert = document.getElementById(`priorityAlert`);
+
+  if (priority.length == 0) {
+      formValidation = false;
+      alert.innerHTML = "You need to choose a priority";
+  };
+};
+
+
+function deleteAlert(alertID) {
+  document.getElementById(`${alertID}`).innerHTML = '';
+};
+
+
+function generateTaskObject(title, description, dueDate) {
+  if (formValidation) {
+      lastTaskID++;
+      allTasks.push({
+          'taskID': lastTaskID,
+          'title': title,
+          'description': description,
+          'category': category,
+          'assigned': assignedPersons,
+          'Due Date': dueDate,
+          'priority': priority,
+          'subtasks': subtasks,
+          'status': 'todo'
+      });
+      clearForm();
+      showMessage('taskAdded');
+      saveTasks();
+      finishTask();
+  };
+};
+
+function finishTask() {
+  if (window.location.href.indexOf('board.html') > -1) {
+      closeSlide();
+  } else {
+      setTimeout(() => { window.location.href = "board.html" }, 4000);
+  };
+};
+
+
+async function saveTasks() {
+  let allTasksAsString = JSON.stringify(allTasks);
+  await backend.setItem('allTasks', allTasksAsString);
+  await backend.setItem('lastTaskID', lastTaskID)
+};
+
+
+function clearForm() {
+  clearInputFields();
+  clearDescriptionField();
+  clearCategoryDropdown();
+  clearAssignDropdown();
+  clearSubtasks();
+  resetActivePrio();
+  clearAllAlerts();
+};
+
+
+function clearInputFields() {
+  let inputFields = document.getElementsByTagName("input");
+  for (let i = 0; i < inputFields.length; i++) {
+      inputFields[i].value = "";
+  }
+};
+
+
+function clearDescriptionField() {
+  let descriptionInput = document.getElementById("newDescription");
+  descriptionInput.value = "";
+};
+
+
+function clearCategoryDropdown() {
+  let categoryInput = document.getElementById("categoryInput");
+  categoryInput.innerHTML = `Select Task Category`;
+  category = "";
+  cancelNewCategory();
+};
+
+
+function clearAssignDropdown() {
+  let nameCircles = document.getElementById('nameCircles');
+  let assignChecks = document.getElementsByClassName('assignChecked');
+  assignedPersons = [];
+  nameCircles.innerHTML = '';
+  for (let i = 0; i < assignChecks.length; i++) {
+      assignChecks[i].style.display = "none";
+  };
+};
+
+
+function clearSubtasks() {
+  let subtasksElement = document.getElementById('subtasks');
+  subtasksElement.innerHTML = '';
+  subtasks = [];
+};
+
+
+function clearAllAlerts() {
+  let alertElements = document.getElementsByClassName('requiredAlert');
+  for (let i = 0; i < alertElements.length; i++) {
+      alertElements[i].innerHTML = '';
+  };
+};
