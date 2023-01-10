@@ -24,3 +24,14 @@ function renderSummary(toDo, inProgress, awaitingFeedback, urgent, upcoming, don
   document.getElementById('todo').innerHTML = toDo.length;
   document.getElementById('done').innerHTML = done.length;
 }
+
+function greetUserDaytime() {
+  const currentTime = new Date().getHours();
+    if (currentTime < 12) {
+      document.querySelector(".greet-daytime").innerHTML = `Good morning,`;
+    } else if (currentTime < 18) {
+      document.querySelector(".greet-daytime").innerHTML = `Good afternoon,`;
+    } else {
+      document.querySelector(".greet-daytime").innerHTML = `Good evening,`;
+    }
+}

@@ -17,7 +17,7 @@
     <title>Join - Summary</title>
   </head>
 
-  <body onload="activatePage(1), loadTasks()">
+  <body onload="activatePage(1), loadTasks(), greetUserDaytime()">
     <!-- header template -->
     <div w3-include-html="includes/header.html"></div>
     <!-- header template END -->
@@ -106,7 +106,7 @@
           </div>
         </div>
         <div class="greet display-none">
-          <h2 class="greet-daytime">Good morning,</h2>
+          <h2 class="greet-daytime"></h2>
           <span class="greetname">Guest User</span>
         </div>
       </div>
