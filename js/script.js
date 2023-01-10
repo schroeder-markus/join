@@ -63,8 +63,7 @@ async function loadCurrentUser() {
 
 function generateAvatar(currentUserName) {
   let initials = currentUserName.split(" ").map((n) => n[0]).join("");
-  if (document.querySelector(".user-avatar-header") !== null) {
-    document.querySelector(".user-avatar-header").style.display = "none";
+  if (currentUserName) {
     document.querySelector(".header-nav-user-container").innerHTML = `
   <div class="name-circle-header">
       <span class="name-circle-header-span">${initials}</span>
