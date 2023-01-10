@@ -880,9 +880,12 @@ main {
     }
 
     .add-new-contact {
-        bottom: unset;
-        right: 50px;
-        top: 100px;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    #createButton {
+        margin-left: 0;
     }
 
     .contact-detail-data {
