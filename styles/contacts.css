@@ -510,6 +510,14 @@ main {
     top: 620px;
 }
 
+input[type="color"] {
+	-webkit-appearance: none;
+
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding-right: 32px;
+}
+
 /* Style for Mobiel */
 
 @media screen and (max-width: 1280px) {
