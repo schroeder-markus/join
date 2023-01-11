@@ -47,7 +47,7 @@ async function loadTasks() {
   await downloadFromServer();
   let allTasksAsJson = backend.getItem('allTasks');
   allTasks = JSON.parse(allTasksAsJson) || [];
-  lastTaskID = backend.getItem('lastTaskID');
+  lastTaskID = backend.getItem('lastTaskID') || -1;
 };
 
 async function loadCurrentUser() {
