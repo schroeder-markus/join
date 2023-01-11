@@ -19,7 +19,7 @@
         <title>Join - Board</title>
     </head>
 
-    <body onload="activatePage(2), renderTasks()">
+    <body onload="activatePage(2), renderTasks(), emptySlideSpaceClickEvent()">
         <!-- header template -->
         <div w3-include-html="includes/header.html"></div>
         <!-- header template END -->
@@ -167,7 +167,7 @@
                 </div>
 
                 <div class="addtaskslide closeslide" id="taskslide">
-                    <div class="slidediv">
+                    <div id="taskslidediv" class="slidediv">
                         <h1>Add Task</h1>
                         <div id="taskAdded" class="messageContainer"><img src="img/message-task-added.svg"
                                 alt="successMessage">

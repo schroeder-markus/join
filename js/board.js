@@ -413,6 +413,7 @@ function moveTo(category) {
 
 function openSlide() {
     let taskSlide = document.getElementById('taskslide');
+    taskSlide.style.display = "flex";
     taskSlide.classList.remove('closeslide');
     document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
 }
@@ -420,6 +421,7 @@ function openSlide() {
 
 function closeSlide() {
     let taskSlide = document.getElementById('taskslide');
+    taskSlide.style.display = "none";
     taskSlide.classList.add('closeslide');
     document.getElementsByTagName('body')[0].style.overflowY = 'scroll';
 

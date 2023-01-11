@@ -28,6 +28,9 @@ let categories = [
   },
 ];
 
+function initClickEvents(){
+  logOutClickEvent();
+};
 
 function logOutClickAvatar() {
   document.querySelector(".logout-btn").classList.toggle("toggle-logout-btn");
@@ -40,6 +43,23 @@ function logOutClickEvent() {
     if (e.target.className !== "logout-btn" && e.target.className !== "name-circle-header-span" ) {
       logoutButtonElement.classList.add("toggle-logout-btn");
   }})
+};
+
+
+function emptySlideSpaceClickEvent() {
+  let taskSlideElement = document.getElementById('taskslide');
+  let taskSlideDivElement = document.getElementById('taskslidediv');
+  taskSlideElement.addEventListener("click", e => {
+    stop_propagation(taskSlideDivElement);
+    clearForm();
+    closeSlide();
+  })
+};
+
+function stop_propagation(element) {
+  element.addEventListener("click", e => {
+    e.stopPropagation();
+  })
 }
 
 
@@ -100,7 +120,7 @@ async function activatePage(iconID) {
   let navEntry = document.getElementById(`icon-${iconID}`);
   navEntry.classList.add('aside-nav-focus');
   loadCurrentUser();
-  logOutClickEvent();
+  initClickEvents();
 };
 
 // form validation for add Task 
