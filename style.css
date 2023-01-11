@@ -142,6 +142,10 @@ input {
     width: 120px;
 }
 
+.logout-btn:hover span {
+    font-weight: bold;
+}
+
 .toggle-logout-btn {display: none;}
 
 aside {

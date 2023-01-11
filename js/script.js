@@ -34,6 +34,14 @@ function logOutClickAvatar() {
   localStorage.clear();
 };
 
+function logOutClickEvent() {
+  let logoutButtonElement = document.querySelector(".logout-btn");
+  document.addEventListener("click", e => {
+    if (e.target.className !== "logout-btn" && e.target.className !== "name-circle-header-span" ) {
+      logoutButtonElement.classList.add("toggle-logout-btn");
+  }})
+}
+
 
 function showMessage(messageID) {
   let noteContainer = document.getElementById(messageID);
@@ -92,6 +100,7 @@ async function activatePage(iconID) {
   let navEntry = document.getElementById(`icon-${iconID}`);
   navEntry.classList.add('aside-nav-focus');
   loadCurrentUser();
+  logOutClickEvent();
 };
 
 // form validation for add Task 
