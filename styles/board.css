@@ -668,6 +668,11 @@ button span {
     .inputcontainer {
         margin: 0;
     }
+
+    .showroom {
+        margin-bottom: 90px;
+        margin-top: 90px;
+    }
 }
 
 @media(max-width:450px) {
