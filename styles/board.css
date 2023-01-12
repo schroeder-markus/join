@@ -250,6 +250,7 @@ h1 {
 }
 
 .slidediv {
+    position: relative;
     border-radius: 30px;
     background-color: white;
     padding: 0 80px;
@@ -258,6 +259,13 @@ h1 {
 
 .slidediv h1 {
     margin-bottom: 40px;
+}
+
+.closeBtnTask {
+    position: absolute;
+    top: 16px;
+    right: 32px;
+    cursor: pointer;
 }
 
 .showslide {
@@ -522,6 +530,8 @@ button span {
 .addtaskslide #formWrapper {
     width: 100%;
 }
+
+
 
 @media(max-width:1240px) {
     .addtaskslide {
