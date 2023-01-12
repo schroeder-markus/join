@@ -278,13 +278,11 @@ function clearAssignDropdown() {
   };
 };
 
-
 function clearSubtasks() {
   let subtasksElement = document.getElementById('subtasks');
   subtasksElement.innerHTML = '';
   subtasks = [];
 };
-
 
 function clearAllAlerts() {
   let alertElements = document.getElementsByClassName('requiredAlert');
@@ -292,3 +290,9 @@ function clearAllAlerts() {
       alertElements[i].innerHTML = '';
   };
 };
+
+function hideUserYouOnGuest() {
+  if(document.querySelector(".name-circle-header-span").textContent === "GU") {
+      document.querySelector(".user-you").style.display = "none"
+  }
+}
