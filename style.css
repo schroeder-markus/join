@@ -25,7 +25,7 @@
     --label-4: #f4f4f4;
     --label-5: #ff7a00;
     --label-6: #1fd7c1;
-    --label-7: #9327ff; 
+    --label-7: #9327ff;
     --label-8: #4e963d;
 }
 
@@ -58,7 +58,9 @@ header {
     z-index: 9;
 }
 
-.headerlogo {display: none;}
+.headerlogo {
+    display: none;
+}
 
 textarea,
 input {
@@ -110,7 +112,9 @@ input {
     width: 50px;
 }
 
-.name-circle-letter {color: var(--main-white);}
+.name-circle-letter {
+    color: var(--main-white);
+}
 
 .name-circle-header {
     align-items: center;
@@ -124,7 +128,9 @@ input {
     width: 50px;
 }
 
-.name-circle-header {color: var(--main-white);}
+.name-circle-header {
+    color: var(--main-white);
+}
 
 .logout-btn {
     align-items: center;
@@ -146,7 +152,9 @@ input {
     font-weight: bold;
 }
 
-.toggle-logout-btn {display: none;}
+.toggle-logout-btn {
+    display: none;
+}
 
 aside {
     align-items: center;
@@ -179,7 +187,9 @@ main {
     width: 100%;
 }
 
-.content-container {margin-right: 124px;}
+.content-container {
+    margin-right: 124px;
+}
 
 .content-title {
     align-items: center;
@@ -228,7 +238,9 @@ main {
     width: 37px;
 }
 
-.datenschutz-content {padding-bottom: 5rem;}
+.datenschutz-content {
+    padding-bottom: 5rem;
+}
 
 #clearButton {
     align-items: center;
@@ -311,7 +323,10 @@ main {
         z-index: 30;
     }
 
-    h1 {font-size: 47px;}
+    h1 {
+        font-size: 47px;
+        line-height: 112%;
+    }
 
     .headerlogo {
         display: flex;
@@ -361,7 +376,9 @@ main {
         width: unset;
     }
 
-    aside nav a img {margin: 0 !important;}
+    aside nav a img {
+        margin: 0 !important;
+    }
 
     aside nav {
         align-items: center !important;
@@ -374,11 +391,17 @@ main {
 
     }
 
-    .notice {display: none !important;}
+    .notice {
+        display: none !important;
+    }
 
-    .display-none {display: none !important;}
+    .display-none {
+        display: none !important;
+    }
 
-    .asidelogo {display: none !important;}
+    .asidelogo {
+        display: none !important;
+    }
 
     .icon-4 {
         height: 28px !important;
