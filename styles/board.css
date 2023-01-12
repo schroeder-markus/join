@@ -467,6 +467,11 @@ button span {
     font-size: 21px;
 }
 
+.subtaskinformationspan{
+        font-weight: 700;
+            font-size: 21px;
+}
+
 .sales {
     background-color: #0090E0;
 }

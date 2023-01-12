@@ -137,6 +137,16 @@ function renderUser(position) {
     }
 }
 
+function renderSubTasks(position){
+    document.getElementById('subtasks').innerHTML = '';
+    for (let i = 0; i < allTasks[position]['subtasks'].length; i++) {
+        const element = allTasks[position]['subtasks'][i];
+        document.getElementById('subtasks').innerHTML += `                            
+                              <div class="nameinformation">${element['name']}</div>
+                            `
+    }
+}
+
 
 function renderCardInformation(position) {
     document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
@@ -148,6 +158,7 @@ function renderCardInformation(position) {
     document.getElementById('infoduedate').innerHTML = `${allTasks[position]['Due Date']}`;
     document.getElementById('priorotyimg').src = `img/card${allTasks[position]['priority']}.svg`;
     renderUser(position);
+    renderSubTasks(position);
     currentTask = position;
 }
 
