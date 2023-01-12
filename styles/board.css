@@ -618,7 +618,7 @@ button span {
     .addtaskboard {
         position: absolute;
         right: 0;
-        top: -12px;
+        top: 12px;
         height: 40px;
         width: 40px;
         margin-right: 0;
