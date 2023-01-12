@@ -5,7 +5,7 @@ checkYoN = false;
 /**
  * This function loads allUsersAsString from backend and parses them to users
  */
-async function usersFromServer() {
+async function usersFromServer(name) {
     await downloadFromServer();
     let allUsersAsString = backend.getItem('allUsers') || [];
     users = JSON.parse(allUsersAsString);
@@ -26,10 +26,13 @@ function backToLogIn() {
     document.getElementById('login-password').placeholder = 'Password';
 }
 
-
+/**
+ * This function hides the submit-success-popup
+ */
 function hideSuccesSubmit() {
     document.getElementById('submit-success').classList.add('d-none');
 }
+
 /**
  * This function reveals the signup-container over the login-container
  */
@@ -72,9 +75,13 @@ function moveToLogin() {
 }
 
 
+/**
+ * This function moves the user from Reset-Password to index.html
+ */
 function moveToFmPfromReset() {
     window.location.href = "index.html";
 }
+
 
 /**
  * This function collects all values from the signup-field and stors them in the backend (allUsers)
@@ -93,9 +100,14 @@ async function addUser() {
     backToLogIn();
 }
 
+
+/**
+ * This function logs in a guest
+ */
 function enterSummary() {
     window.location.href = "summary.html";
 }
+
 
 /**
  * This function checks if User is submitted, checks if User wants to remember PW and Email, alarms if PW is wrong and sets an aktual User
@@ -125,6 +137,7 @@ function logIn() {
     getActualUser();
 }
 
+
 /**
  * This function defines the actual User via emailvalue and safes the info in local storage
  */
@@ -136,6 +149,7 @@ function getActualUser() {
     let currentUserAsString = JSON.stringify(user);
     localStorage.setItem('currentUser', currentUserAsString);
 }
+
 
 /**
  * This function finds out if checkbox input remains checked or unchecked
@@ -154,6 +168,11 @@ function onPageLoad() {
 }
 
 
+/**
+ * This function sends an email from browser
+ * 
+ * @param {string} event 
+ */
 async function sendEmail(event) {
     event.preventDefault(); // prevent default form action
     let formData = new FormData(event.target) //Create a formdata based on our form element in html
@@ -164,6 +183,8 @@ async function sendEmail(event) {
         alert('No Email sent');
 
 }
+
+
 
 function action(formData) {
     const input = 'https://gruppe-406.developerakademie.net/join/send_mail.php';
@@ -179,6 +200,9 @@ function action(formData) {
 }
 
 
+/**
+ * This function slides in a popup, if the user has successfull sent an email
+ */
 function slideInIndex() {
     let formWrapper = document.getElementById('formWrapper');
     let grayBgIndex = document.getElementById('grayBgIndex');

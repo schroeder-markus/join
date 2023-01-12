@@ -79,6 +79,7 @@ function updateTasks() {
 
 function cardHTML(task) {
     let position = allTasks.map(object => object.taskID).indexOf(task['taskID']);
+    //let doneSubTasks = allTasks[position].filter(t => t['subtasks'] == true);
     return ` <div draggable="true" onclick="renderCardInformation(${position})" ondragstart="startDragging(${task['taskID']})" class="card">
     <div class="title">
         <div class="headline ${task['category']}">${task['category']}</div>
@@ -89,7 +90,7 @@ function cardHTML(task) {
     </div>
     <div class="progressbardiv">
         <div class="progressbar"></div>
-        <span>1/${task['subtasks'].length} Done</span>
+        <span>5/${task['subtasks'].length} Done</span>
     </div>
     <div class="cardfooter">
         <div id="userbox${position}" class="userbox">
@@ -138,14 +139,43 @@ function renderUser(position) {
 }
 
 function renderSubTasks(position){
-    document.getElementById('subtasks').innerHTML = '';
+    document.getElementById('infosubtasks').innerHTML = '';
     for (let i = 0; i < allTasks[position]['subtasks'].length; i++) {
         const element = allTasks[position]['subtasks'][i];
-        document.getElementById('subtasks').innerHTML += `                            
-                              <div class="nameinformation">${element['name']}</div>
-                            `
+        document.getElementById('infosubtasks').innerHTML += `  
+                        <span  class="subtask"><img onclick="toggleSubtaskSelection1(${allTasks[position]['subtasks'][i]})" id="box(${i})" src="${getCheckboxIcon1(position,i)}" alt="">                          
+                        <div>${element['name']}</div></span>`
     }
 }
+
+
+function toggleSubtaskSelection1(i) {
+    let checkBox = document.getElementById(`box(${i})`);
+    allTasks[position]['subtasks'][i].done = !allTasks[position]['subtasks'][i].done;
+    checkBox.src = getCheckboxIcon1(i);
+};
+
+function getCheckboxIcon1(position, i) {
+    if (!allTasks[position]['subtasks'][i].done) {
+        return 'img/icon-check-empty.svg';
+    } else {
+        return 'img/icon-check-ok.svg';
+    }
+};
+
+
+function renderSubtasksHTML(position) {
+    let subtasksElement = document.getElementById('infosubtasks');
+    subtasksElement.innerHTML = '';
+    for (let i = 0; i < allTasks[position]['subtasks'].length; i++) {
+        let element = allTasks[position]['subtasks'][i];
+        subtasksElement.innerHTML += `
+                        <span  class="subtask"><img onclick="toggleSubtaskSelection(${i})" id="box(${i})" src="${getCheckboxIcon(i)}" alt="">
+                        <div>${element['name']}</div></span>`
+    };
+};
+
+
 
 
 function renderCardInformation(position) {
@@ -378,6 +408,12 @@ function infoCardHTML() {
                         <div id="infodescription" class="description"></div>
                         <div class="informationdate">
                             <span  class="cardinformationspan">Due Date:</span><span id="infoduedate"></span>
+                        </div>
+                        <div>
+                            <span class="subtaskinformationspan">Subtasks:</span>
+                            <div id="infosubtasks">
+                            
+                            </div>
                         </div>
                         <div class="prioritycard">
                             <span class="cardinformationspan">Priority:</span><img id="priorotyimg" src=""

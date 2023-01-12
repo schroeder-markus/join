@@ -1,6 +1,12 @@
 let newPassword;
 let mailToFind = getEmailUrlParameter();
 
+
+/**
+ * This function returns the email from queryString parameter
+ * 
+ * @returns 
+ */
 function getEmailUrlParameter() {
     let queryString = window.location.search;
     let urlParams = new URLSearchParams(queryString);
@@ -9,12 +15,20 @@ function getEmailUrlParameter() {
 }
 
 
+/**
+ * This function prevents form from reloading the page
+ * 
+ * @param {*} event 
+ */
 function onSubmit(event) {
     event.preventDefault();
     checkPassword();
 }
 
 
+/**
+ * This function checks if reset password and confirm password match
+ */
 function checkPassword() {
     let resetPassword = document.getElementById('reset-password');
     let confPassword = document.getElementById('confirm-password');
@@ -38,6 +52,9 @@ function checkPassword() {
 }
 
 
+/**
+ * This function slides in a popup if user resets password successfully
+ */
 function slideIn() {
     let resetPwContainer = document.getElementById('resetPWContainer');
     let grayBg = document.getElementById('grayBg');
@@ -50,16 +67,17 @@ function slideIn() {
 }
 
 
+/**
+ * This function moves the user back to login-page
+ */
 function goToLogin() {
     window.location.href = "index.html";
 }
 
 
-function checkIfEmailExists() {
-    let emailsInBackend = backend;
-    console.log(emailsInBackend);
-}
-
+/**
+ * This function sets the new password
+ */
 async function setPW() {
     let index = users.findIndex(user => user.email === mailToFind);
     users[index].password = newPassword;

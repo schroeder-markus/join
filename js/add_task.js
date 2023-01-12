@@ -82,9 +82,7 @@ function renderCategoryList() {
     dropList.innerHTML = '';
     dropList.innerHTML = `<div><span onclick="toggleView_DropdownAndNewEntry('categoryDropdown','newCategoryInput', 'catNameInput')">new category</span></div>`;
     for (let i = 0; i < categories.length; i++) {
-        dropList.innerHTML += `<div><span onclick="setCategorySelectionAsInput(${i})">${createCategoryHtml(
-            i
-        )}</span></div>`;
+        dropList.innerHTML += `<div><span onclick="setCategorySelectionAsInput(${i})">${createCategoryHtml(i)}</span></div>`;
     };
     renderColorSelection();
 };
