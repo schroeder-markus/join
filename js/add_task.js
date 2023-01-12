@@ -21,7 +21,13 @@ function initAddTask() {
     renderCategoryList();
     addReturnKeyEventListener();
     loadCurrentUser();
+    setCurrentDate();
 };
+
+function setCurrentDate() {
+    document.getElementById('dueDate').valueAsDate = new Date();
+
+}
 
 function addReturnKeyEventListener() {
     let mainArea = document.getElementsByTagName('main')[0];
@@ -322,9 +328,9 @@ function resetActivePrio() {
 
 function addSubtask() {
     let subtaskInputField = document.getElementById('subtask');
-    if (subtaskInputField.value.length < 5) {
+    if (subtaskInputField.value.length < 3) {
         let subtaskAlert = document.getElementById('subtaskAlert');
-        subtaskAlert.innerHTML = 'Please enter at least 5 characters';
+        subtaskAlert.innerHTML = 'Please enter at least 3 characters';
     } else {
         subtasks.push({ 'name': subtaskInputField.value, 'done': false })
         renderSubtasksHTML();

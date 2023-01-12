@@ -173,12 +173,13 @@ function checkAssigned() {
 
 function checkDueDate(dueDateValue) {
   let alert = document.getElementById("dateAlert");
-  let today = new Date();
-  let dueDate = new Date(`${dueDateValue}`);
+  alert.innerHTML = '';
+  let today = new Date().setHours(0, 0, 0, 0);
+  let dueDate = new Date(`${dueDateValue}`).setHours(0, 0, 0, 0);
 
-  if (dueDateValue.length == 0 || dueDate <= today) {
+  if (dueDateValue.length == 0 || dueDate < today) {
       formValidation = false;
-      alert.innerHTML = "You need to set a future date";
+      alert.innerHTML = "Invalid date. Select today or a future date.";
   };
 };
 

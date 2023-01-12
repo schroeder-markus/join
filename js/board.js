@@ -415,6 +415,7 @@ function openSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.remove('closeslide');
     document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
+    document.getElementById('dueDate').valueAsDate = new Date();
 }
 
 
