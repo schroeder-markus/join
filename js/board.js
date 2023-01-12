@@ -89,7 +89,7 @@ function cardHTML(task) {
     </div>
     <div class="progressbardiv">
         <div class="progressbar"></div>
-        <span>1/2 Done</span>
+        <span>1/${task['subtasks'].length} Done</span>
     </div>
     <div class="cardfooter">
         <div id="userbox${position}" class="userbox">
