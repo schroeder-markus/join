@@ -49,8 +49,8 @@ function logOutClickEvent() {
 function emptySlideSpaceClickEvent() {
   let taskSlideElement = document.getElementById('taskslide');
   let taskSlideDivElement = document.getElementById('taskslidediv');
+  stop_propagation(taskSlideDivElement);
   taskSlideElement.addEventListener("click", e => {
-    stop_propagation(taskSlideDivElement);
     clearForm();
     closeSlide();
   })

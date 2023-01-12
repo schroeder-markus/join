@@ -212,7 +212,7 @@ h1 {
     right: 0px;
     overflow-x: hidden;
     transition: 225ms all ease-in-out;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(246, 247, 248, 0.5);
