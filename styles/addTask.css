@@ -387,17 +387,7 @@ section div:not(:first-of-type) label {
         width: 100%;
     }
 }
-
-@media only screen and (max-width: 1046px) {
-    .prioButtons button {
-        flex-direction: column;
-    }
-
-    .prioButtons button div {
-        margin: 5px 0px 0px 0px;
-    }
-}
-
+    
 @media only screen and (max-width: 950px) {
     .addTaskForm {
         flex-direction: column;
@@ -412,9 +402,17 @@ section div:not(:first-of-type) label {
 
     .submitAndClearButtons {
         justify-content: center;
+    }
+    
+    .prioButtons button {
+        flex-direction: column;
+    }
 
+    .prioButtons button div {
+        margin: 5px 0px 0px 0px;
     }
 }
+
 
 @media only screen and (max-width: 750px) {
     main {

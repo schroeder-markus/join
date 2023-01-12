@@ -413,8 +413,9 @@ function moveTo(category) {
 
 function openSlide() {
     let taskSlide = document.getElementById('taskslide');
-    taskSlide.classList.remove('closeslide');
-    document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
+    taskSlide.style.display = 'flex';
+    setTimeout(() => {taskSlide.classList.remove('closeslide')}, 0);
+    document.getElementById('board').style.overflow = 'hidden';
     document.getElementById('dueDate').valueAsDate = new Date();
 }
 
@@ -422,8 +423,8 @@ function openSlide() {
 function closeSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.add('closeslide');
-    document.getElementsByTagName('body')[0].style.overflowY = 'scroll';
-
+    setTimeout(() => taskSlide.style.display = 'none', 0);
+    document.getElementById('board').style.overflow = 'scroll';
 }
 
 

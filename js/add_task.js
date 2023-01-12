@@ -18,14 +18,14 @@ let formValidation = true;
 
 function initAddTask() {
     loadTasks();
-    renderCategoryList();
+    renderDropdownContent()
     addReturnKeyEventListener();
     loadCurrentUser();
-    setCurrentDate();
+    setCurrentDate('dueDate');
 };
 
-function setCurrentDate() {
-    document.getElementById('dueDate').valueAsDate = new Date();
+function setCurrentDate(inputElement) {
+    document.getElementById(inputElement).valueAsDate = new Date();
 
 }
 
@@ -41,6 +41,12 @@ function addReturnKeyEventListener() {
 
 // Toggle dropdown action (open / close) for the category Selection and the task assignment
 // Action Depends on the actual global boolean variable: showCategoryList / showContactList
+
+function renderDropdownContent() {
+    renderCategoryList();
+    renderAssignSelf();
+
+};
 
 function toggleCategoryDropdown() {
     showCategoryList = !showCategoryList;
@@ -183,7 +189,20 @@ function setColor(i) {
     colorSelAlertElement.style.display = "none";
 };
 
-// changes the contact selection to select / unselect and pushes selected names to assignedContacts array.
+// renders self assignment entry "you" or not, depending on if guest login is active or not.
+
+function renderAssignSelf() {
+    let assignYouElement = document.querySelector('.user-you');
+    if(localStorage.getItem('currentUser') != null) {
+        assignYouElement.innerHTML = `
+        <span onclick="toggleSelection(0)"><div id="contact(0)">You</div>
+            <div class="assignCheckbox"><div id="contactChecked(0)"
+            class="assignChecked"></div></div></span>
+        `
+    }
+}
+
+// changes the assignment selection to select / unselect and pushes selected names to assignedContacts array.
 
 async function toggleSelection(i) {
     let contactName = await findName(i);
@@ -333,14 +352,14 @@ function addSubtask() {
         subtaskAlert.innerHTML = 'Please enter at least 3 characters';
     } else {
         subtasks.push({ 'name': subtaskInputField.value, 'done': false })
-        renderSubtasksHTML();
+        renderSubtasksHTML('subtasks');
         subtaskInputField.value = '';
     };
 };
 
 
-function renderSubtasksHTML() {
-    let subtasksElement = document.getElementById('subtasks');
+function renderSubtasksHTML(htmlElement) {
+    let subtasksElement = document.getElementById(htmlElement);
     subtasksElement.innerHTML = '';
     for (let i = 0; i < subtasks.length; i++) {
         subtasksElement.innerHTML += `

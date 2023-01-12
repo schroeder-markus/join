@@ -244,6 +244,7 @@ function clearForm() {
   clearSubtasks();
   resetActivePrio();
   clearAllAlerts();
+  setCurrentDate('dueDate');
 };
 
 
