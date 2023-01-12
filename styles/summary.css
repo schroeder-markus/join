@@ -444,3 +444,12 @@ h2 {
         align-items: center;
     }
 }
+
+@media(max-height:800px) {
+
+    main{
+        height:100vh;
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+}
