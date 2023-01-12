@@ -384,4 +384,3 @@ function getCheckboxIcon(index) {
         return 'img/icon-check-ok.svg';
     }
 };
-
