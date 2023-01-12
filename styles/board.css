@@ -457,7 +457,8 @@ button span {
 .informationtitle {
     font-weight: 700;
     font-size: 61px;
-    line-height: 120%;
+    line-height: 100%;
+    text-align: center;
 }
 
 .infomationdescription {
@@ -468,6 +469,11 @@ button span {
 .cardinformationspan {
     font-weight: 700;
     font-size: 21px;
+}
+
+.subtaskinformationspan{
+        font-weight: 700;
+            font-size: 21px;
 }
 
 .sales {
