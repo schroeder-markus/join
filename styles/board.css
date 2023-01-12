@@ -536,6 +536,13 @@ button span {
     align-items: center;
 }
 
+@media(max-height:900px) {
+    #editcard {
+        width: 500px;
+        height: 90%;
+    }
+}
+
 @media(max-width:950px) {
     .slidediv {
         width: 100%;
@@ -545,6 +552,8 @@ button span {
         width: 500px;
         height: 90%;
     }
+
+
 }
 
 
@@ -685,6 +694,7 @@ button span {
     #editcard {
         bottom: 32px;
     }
+
 }
 
 @media(max-width:750px) {
