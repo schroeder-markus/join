@@ -597,6 +597,8 @@ button span {
         width: 363px;
         align-items: center;
         margin: 0;
+        margin-bottom: 16px;
+        margin-top: 16px;
     }
 
     .card {
