@@ -255,7 +255,7 @@ function closeSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.add('closeslide');
     setTimeout(() => taskSlide.style.display = 'none', 0);
-    if (document.getElementById('board') != null){
+    if (document.getElementById('board') !== null){
     document.getElementById('board').style.overflow = 'scroll';
     }
 }

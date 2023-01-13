@@ -104,14 +104,6 @@ function editCardHTML() {
                         contacts to assign</span>
                     <img onclick="toggleAssignDropdown()" src="img/icon-dropdown.svg" alt="dropdownIcon">
                     <div id="contactSelection" class="scroll">
-                        <div><span onclick="toggleSelection(0)">
-                                <div id="contact(0)">
-                                    You
-                                </div>
-                                <div class="assignCheckbox">
-                                    <div id="contactChecked(0)" class="assignChecked"></div>
-                                </div>
-                            </span></div>
                         <div><span onclick="toggleSelection(1)">
                                 <div id="contact(1)">
                                     Markus Schröder

@@ -56,11 +56,12 @@ function emptySlideSpaceClickEvent() {
   })
 };
 
+
 function stop_propagation(element) {
   element.addEventListener("click", e => {
     e.stopPropagation();
   })
-}
+};
 
 
 function showMessage(messageID) {
