@@ -77,6 +77,16 @@ function updateTasks() {
     updateDone();
 }
 
+function countTrueSubtasks(task) {
+    let count = 0;
+        for (let i = 0; i < allTasks[task]['subtasks'].length; i++) {
+            if (allTasks[task]['subtasks'][i].done === true) {
+                count++;
+            }
+        }
+    return count;
+}
+
 function cardHTML(task) {
     let position = allTasks.map(object => object.taskID).indexOf(task['taskID']);
     //let doneSubTasks = allTasks[position].filter(t => t['subtasks'] == true);
@@ -90,7 +100,7 @@ function cardHTML(task) {
     </div>
     <div class="progressbardiv">
         <div class="progressbar"></div>
-        <span>5/${task['subtasks'].length} Done</span>
+        <span>${countTrueSubtasks(position)}/${task['subtasks'].length} Done</span>
     </div>
     <div class="cardfooter">
         <div id="userbox${position}" class="userbox">
