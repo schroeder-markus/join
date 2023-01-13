@@ -1,4 +1,4 @@
-let users = [];
+let users = [{ name: 'Test User', email: 'test@gmail.com', password: 'test' }];
 checkYoN = false;
 
 
