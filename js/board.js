@@ -116,17 +116,17 @@ function renderSubTasks(position){
     for (let i = 0; i < allTasks[position]['subtasks'].length; i++) {
         const element = allTasks[position]['subtasks'][i];
         document.getElementById('infosubtasks').innerHTML += `  
-                        <span  class="subtask"><img onclick="toggleSubtaskSelection1(${allTasks[position]['subtasks'][i]})" id="box(${i})" src="${getCheckboxIcon1(position,i)}" alt="">                          
+                        <span  class="subtask"><img onclick="toggleSubtaskSelection1(${i,position})" id="box(${i})" src="${getCheckboxIcon1(position,i)}" alt="">                          
                         <div>${element['name']}</div></span>`
     }
 }
 
 
-function toggleSubtaskSelection1(i) {
-    let checkBox = document.getElementById(`box(${i})`);
-    allTasks[position]['subtasks'][i].done = !allTasks[position]['subtasks'][i].done;
-    checkBox.src = getCheckboxIcon1(i);
-};
+// function toggleSubtaskSelection1(i,position) {
+//     let checkBox = document.getElementById(`box(${i})`);
+//     allTasks[position]['subtasks'][i].done = !allTasks[position]['subtasks'][i].done;
+//     checkBox.src = getCheckboxIcon1(position,i);
+// };
 
 
 function getCheckboxIcon1(position, i) {

@@ -68,7 +68,7 @@
                                     <rect x="1" y="1" width="28" height="28" rx="9" stroke="#2A3647" stroke-width="2" />
                                 </svg>
                             </div>
-                            <div id="tododiv" ondrop="moveTo('todo')"
+                            <div id="tododiv" ondrop="moveTo('todo')" ontouchstart="allowDrop(event)"
                                 ondragover="allowDrop(event), dragHighlight('tododiv')" ondragleave="updateTasks()"
                                 class="draganddrop">
 
@@ -187,14 +187,16 @@
                                     <!-- Title -->
                                     <div>
                                         <label for="title">Title</label>
-                                        <input onsubmit="deleteAlert('newTitleAlert')" oninput="deleteAlert('newTitleAlert')" id="newTitle" type="text"
+                                        <input onsubmit="deleteAlert('newTitleAlert')"
+                                            oninput="deleteAlert('newTitleAlert')" id="newTitle" type="text"
                                             placeholder="Enter a title">
                                         <span id="newTitleAlert" class="requiredAlert"></span>
                                     </div>
                                     <!-- Description -->
                                     <div>
                                         <label for="description">Description</label>
-                                        <textarea onsubmit="deleteAlert('newDescriptionAlert')" oninput="deleteAlert('newDescriptionAlert')" id="newDescription"
+                                        <textarea onsubmit="deleteAlert('newDescriptionAlert')"
+                                            oninput="deleteAlert('newDescriptionAlert')" id="newDescription"
                                             class="descriptionTextArea" type="text"
                                             placeholder="Enter a description"></textarea>
                                         <span id="newDescriptionAlert" class="requiredAlert"></span>
@@ -238,14 +240,7 @@
                                             <img onclick="toggleAssignDropdown()" src="img/icon-dropdown.svg"
                                                 alt="dropdownIcon">
                                             <div id="contactSelection" class="scroll">
-                                                <div><span onclick="toggleSelection(0)">
-                                                        <div id="contact(0)">
-                                                            You
-                                                        </div>
-                                                        <div class="assignCheckbox">
-                                                            <div id="contactChecked(0)" class="assignChecked"></div>
-                                                        </div>
-                                                    </span></div>
+                                                <div class="user-you"></div>
                                                 <div><span onclick="toggleSelection(1)">
                                                         <div id="contact(1)">
                                                             Markus Schröder
@@ -312,7 +307,8 @@
                                     <div>
                                         <label for="dateInput">Due Date</label>
                                         <div onsubmit="deleteAlert('dateAlert')" class="inputContainer"><input
-                                                id="dueDate" class="input dateInput" type="date">
+                                                id="dueDate" class="input dateInput" type="date"
+                                                placeholder="Enter date">
                                         </div>
                                         <span id="dateAlert" class="requiredAlert"></span>
                                     </div>
@@ -354,8 +350,8 @@
                                         <div class="submitAndClearButtons">
                                             <button id="clearButton" onclick="clearForm(),closeSlide()">Clear<img
                                                     src="img/icons-cancel.svg"></button>
-                                            <button id="createButton" onclick="createTask(),updateTasks()">Create
-                                                Task<img src="img/icons-check.svg"></button>
+                                            <button id="createButton" onclick="createTask(),updateTasks()">Create Task<img
+                                                    src="img/icons-check.svg"></button>
                                         </div>
                                 </section>
 
