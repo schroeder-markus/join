@@ -111,7 +111,7 @@ function renderUser(position) {
     }
 }
 
-function renderSubTasks(position){
+function renderSubTasks1(position){
     document.getElementById('infosubtasks').innerHTML = '';
     for (let i = 0; i < allTasks[position]['subtasks'].length; i++) {
         const element = allTasks[position]['subtasks'][i];
@@ -143,16 +143,16 @@ function getCheckboxIcon1(position, i) {
 };
 
 
-function renderSubtasksHTML(position) {
-    let subtasksElement = document.getElementById('infosubtasks');
-    subtasksElement.innerHTML = '';
-    for (let i = 0; i < allTasks[position]['subtasks'].length; i++) {
-        let element = allTasks[position]['subtasks'][i];
-        subtasksElement.innerHTML += `
-                        <span  class="subtask"><img onclick="toggleSubtaskSelection(${i})" id="box(${i})" src="${getCheckboxIcon(i)}" alt="">
-                        <div>${element['name']}</div></span>`
-    };
-};
+// function renderSubtasksHTML(position) {
+//     let subtasksElement = document.getElementById('infosubtasks');
+//     subtasksElement.innerHTML = '';
+//     for (let i = 0; i < allTasks[position]['subtasks'].length; i++) {
+//         let element = allTasks[position]['subtasks'][i];
+//         subtasksElement.innerHTML += `
+//                         <span  class="subtask"><img onclick="toggleSubtaskSelection(${i})" id="box(${i})" src="${getCheckboxIcon(i)}" alt="">
+//                         <div>${element['name']}</div></span>`
+//     };
+// };
 
 
 function renderCardInformation(position) {
@@ -165,7 +165,7 @@ function renderCardInformation(position) {
     document.getElementById('infoduedate').innerHTML = `${allTasks[position]['Due Date']}`;
     document.getElementById('priorotyimg').src = `img/card${allTasks[position]['priority']}.svg`;
     renderUser(position);
-    renderSubTasks(position);
+    renderSubTasks1(position);
     currentTask = position;
 }
 
