@@ -34,12 +34,7 @@ async function activatePage(iconID) {
   let navEntry = document.getElementById(`icon-${iconID}`);
   navEntry.classList.add('aside-nav-focus');
   loadCurrentUser();
-  initClickEvents();
-};
-
-
-function initClickEvents() {
-  logOutClickEvent();
+  addDocumentClickEvent();
 };
 
 
@@ -49,11 +44,11 @@ function logOutClickAvatar() {
 };
 
 
-function logOutClickEvent() {
+function addDocumentClickEvent() {
   let logoutButtonElement = document.querySelector(".logout-btn");
   document.addEventListener("click", e => {
-    if (e.target.className !== "logout-btn" && e.target.className !== "name-circle-header-span") {
-      logoutButtonElement.classList.add("toggle-logout-btn");
+    if (e.target.className !== "logout-btn" && e.target.className !== "name-circle-header" && e.target.className !== "name-circle-header-span") {
+      document.querySelector(".logout-btn").classList.add("toggle-logout-btn");
     }
   })
 };

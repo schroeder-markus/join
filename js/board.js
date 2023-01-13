@@ -149,6 +149,7 @@ function getCheckboxIcon1(position, i) {
 
 function renderCardInformation(position) {
     document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
+    document.getElementsByTagName('main')[0].style.overflowY = 'hidden';
     document.getElementById('cardinformation').classList.remove('d-none');
     document.getElementById('infocategory').innerHTML = `${allTasks[position]['category']}`;
     document.getElementById('infocategory').classList.add(`${allTasks[position]['category']}`);
@@ -246,9 +247,8 @@ function openSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.style.display = 'flex';
     setTimeout(() => {taskSlide.classList.remove('closeslide')}, 0);
-    if (document.getElementById('board') !== null){
-    document.getElementById('board').style.overflow = 'hidden';
-    }
+    document.getElementsByTagName('body')[0].style.overflow = 'hidden';
+    document.getElementsByTagName('main')[0].style.overflow = 'hidden';
     if (document.getElementById('dueDate') !== null){
     document.getElementById('dueDate').valueAsDate = new Date();
     }
