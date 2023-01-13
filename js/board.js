@@ -19,6 +19,10 @@ async function renderTasks() {
     updateTasks();
 };
 
+function setClickEvents() {
+    overlayClickEvent('taskslide', 'taskslidediv');
+    overlayClickEvent('cardinformation', 'editcard');
+}
 
 function clearCards() {
     toDoDiv.innerHTML = '';

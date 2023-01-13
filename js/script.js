@@ -28,37 +28,54 @@ let categories = [
   },
 ];
 
-function initClickEvents(){
+
+async function activatePage(iconID) {
+  await includeHTML();
+  let navEntry = document.getElementById(`icon-${iconID}`);
+  navEntry.classList.add('aside-nav-focus');
+  loadCurrentUser();
+  initClickEvents();
+};
+
+
+function initClickEvents() {
   logOutClickEvent();
 };
+
 
 function logOutClickAvatar() {
   document.querySelector(".logout-btn").classList.toggle("toggle-logout-btn");
   localStorage.clear();
 };
 
+
 function logOutClickEvent() {
   let logoutButtonElement = document.querySelector(".logout-btn");
   document.addEventListener("click", e => {
-    if (e.target.className !== "logout-btn" && e.target.className !== "name-circle-header-span" ) {
+    if (e.target.className !== "logout-btn" && e.target.className !== "name-circle-header-span") {
       logoutButtonElement.classList.add("toggle-logout-btn");
-  }})
+    }
+  })
 };
 
 
-function emptySlideSpaceClickEvent() {
-  let taskSlideElement = document.getElementById('taskslide');
-  let taskSlideDivElement = document.getElementById('taskslidediv');
-  stop_propagation(taskSlideDivElement);
-  taskSlideElement.addEventListener("click", e => {
-    clearForm();
-    closeSlide();
+function overlayClickEvent(backgroundID, foregroundID) {
+  let backgroundOverlay = document.getElementById(backgroundID);
+  let foregroundOverlay = document.getElementById(foregroundID);
+  stop_propagation(foregroundOverlay);
+  backgroundOverlay.addEventListener("click", e => {
+    if (backgroundID === 'cardinformation') {
+      closeCardInformation();
+    } else {
+      closeSlide();
+    }
   })
 };
 
 
 function stop_propagation(element) {
   element.addEventListener("click", e => {
+    console.log('i was here')
     e.stopPropagation();
   })
 };
@@ -115,15 +132,6 @@ function greetUser(currentUserName) {
   };
 };
 
-
-async function activatePage(iconID) {
-  await includeHTML();
-  let navEntry = document.getElementById(`icon-${iconID}`);
-  navEntry.classList.add('aside-nav-focus');
-  loadCurrentUser();
-  initClickEvents();
-};
-
 // form validation for add Task 
 
 function createTask() {
@@ -146,8 +154,8 @@ function checkInput(inputName, inputValue) {
   let alert = document.getElementById(`${inputName}Alert`);
 
   if (inputValue.length == 0) {
-      formValidation = false;
-      alert.innerHTML = "This field is required";
+    formValidation = false;
+    alert.innerHTML = "This field is required";
   }
 };
 
@@ -156,8 +164,8 @@ function checkCategory() {
   let alert = document.getElementById(`categoryAlert`);
 
   if (category.length == 0) {
-      formValidation = false;
-      alert.innerHTML = "This field is required";
+    formValidation = false;
+    alert.innerHTML = "This field is required";
   };
 };
 
@@ -166,8 +174,8 @@ function checkAssigned() {
   let alert = document.getElementById(`assignAlert`);
 
   if (assignedPersons.length == 0) {
-      formValidation = false;
-      alert.innerHTML = "You need to assign contacts";
+    formValidation = false;
+    alert.innerHTML = "You need to assign contacts";
   };
 };
 
@@ -179,8 +187,8 @@ function checkDueDate(dueDateValue) {
   let dueDate = new Date(`${dueDateValue}`).setHours(0, 0, 0, 0);
 
   if (dueDateValue.length == 0 || dueDate < today) {
-      formValidation = false;
-      alert.innerHTML = "Invalid date. Select today or a future date.";
+    formValidation = false;
+    alert.innerHTML = "Invalid date. Select today or a future date.";
   };
 };
 
@@ -189,8 +197,8 @@ function checkPriority() {
   let alert = document.getElementById(`priorityAlert`);
 
   if (priority.length == 0) {
-      formValidation = false;
-      alert.innerHTML = "You need to choose a priority";
+    formValidation = false;
+    alert.innerHTML = "You need to choose a priority";
   };
 };
 
@@ -202,30 +210,30 @@ function deleteAlert(alertID) {
 
 function generateTaskObject(title, description, dueDate) {
   if (formValidation) {
-      lastTaskID++;
-      allTasks.push({
-          'taskID': lastTaskID,
-          'title': title,
-          'description': description,
-          'category': category,
-          'assigned': assignedPersons,
-          'Due Date': dueDate,
-          'priority': priority,
-          'subtasks': subtasks,
-          'status': 'todo'
-      });
-      clearForm();
-      showMessage('taskAdded');
-      saveTasks();
-      finishTask();
+    lastTaskID++;
+    allTasks.push({
+      'taskID': lastTaskID,
+      'title': title,
+      'description': description,
+      'category': category,
+      'assigned': assignedPersons,
+      'Due Date': dueDate,
+      'priority': priority,
+      'subtasks': subtasks,
+      'status': 'todo'
+    });
+    clearForm();
+    showMessage('taskAdded');
+    saveTasks();
+    finishTask();
   };
 };
 
 function finishTask() {
   if (window.location.href.indexOf('board.html') > -1) {
-      closeSlide();
+    closeSlide();
   } else {
-      setTimeout(() => { window.location.href = "board.html" }, 4000);
+    setTimeout(() => { window.location.href = "board.html" }, 4000);
   };
 };
 
@@ -252,7 +260,7 @@ function clearForm() {
 function clearInputFields() {
   let inputFields = document.getElementsByTagName("input");
   for (let i = 0; i < inputFields.length; i++) {
-      inputFields[i].value = "";
+    inputFields[i].value = "";
   }
 };
 
@@ -277,7 +285,7 @@ function clearAssignDropdown() {
   assignedPersons = [];
   nameCircles.innerHTML = '';
   for (let i = 0; i < assignChecks.length; i++) {
-      assignChecks[i].style.display = "none";
+    assignChecks[i].style.display = "none";
   };
 };
 
@@ -290,12 +298,12 @@ function clearSubtasks() {
 function clearAllAlerts() {
   let alertElements = document.getElementsByClassName('requiredAlert');
   for (let i = 0; i < alertElements.length; i++) {
-      alertElements[i].innerHTML = '';
+    alertElements[i].innerHTML = '';
   };
 };
 
 function hideUserYouOnGuest() {
-  if(document.querySelector(".name-circle-header-span").textContent === "GU") {
-      document.querySelector(".user-you").style.display = "none"
+  if (document.querySelector(".name-circle-header-span").textContent === "GU") {
+    document.querySelector(".user-you").style.display = "none"
   }
 }
