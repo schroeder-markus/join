@@ -242,8 +242,10 @@ function openSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.style.display = 'flex';
     setTimeout(() => {taskSlide.classList.remove('closeslide')}, 0);
+    if(document.getElementById('board') != null) {
     document.getElementById('board').style.overflow = 'hidden';
     document.getElementById('dueDate').valueAsDate = new Date();
+    }
 }
 
 
@@ -251,7 +253,9 @@ function closeSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.add('closeslide');
     setTimeout(() => taskSlide.style.display = 'none', 0);
+    if(document.getElementById('board') != null) {
     document.getElementById('board').style.overflow = 'scroll';
+    }
 }
 
 
