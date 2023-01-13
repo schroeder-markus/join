@@ -1,6 +1,6 @@
 "use strict";
 
-setURL("https://boubkir-benamar.developerakademie.net/smallest_backend_ever");
+setURL("https://gruppe-406.developerakademie.net/smallest_backend_ever");
 
 let allTasks = [];
 
