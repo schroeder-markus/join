@@ -77,10 +77,10 @@ function updateTasks() {
     updateDone();
 }
 
-function countTrueSubtasks(task) {
+function countTrueSubtasks(position) {
     let count = 0;
-        for (let i = 0; i < allTasks[task]['subtasks'].length; i++) {
-            if (allTasks[task]['subtasks'][i].done === true) {
+        for (let i = 0; i < allTasks[position]['subtasks'].length; i++) {
+            if (allTasks[position]['subtasks'][i].done === true) {
                 count++;
             }
         }
@@ -99,7 +99,7 @@ function cardHTML(task) {
         <span class="span" id="todo">${task['description']}</span>
     </div>
     <div class="progressbardiv">
-        <div class="progressbar"></div>
+        <div class="progressbar"><div class="barinprogress" style="width:${countTrueSubtasks(position)/task['subtasks'].length*100}%"></div></div>
         <span>${countTrueSubtasks(position)}/${task['subtasks'].length} Done</span>
     </div>
     <div class="cardfooter">

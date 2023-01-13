@@ -50,6 +50,11 @@ h2 {
     margin-top: 24px;
 }
 
+.barinprogress{
+    background-color: #0090E0;
+    height: 8px;
+}
+
 .card:hover {
     cursor: pointer;
 }
