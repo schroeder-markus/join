@@ -51,7 +51,7 @@ h2 {
     margin-top: 24px;
 }
 
-.barinprogress{
+.barinprogress {
     background-color: #0090E0;
     height: 8px;
 }
@@ -142,7 +142,7 @@ h1 {
 }
 
 .progressbardiv span {
-    width: 51px;
+    width: 53px;
     height: 14px;
     font-family: 'Inter';
     font-style: normal;
@@ -477,9 +477,21 @@ button span {
     font-size: 21px;
 }
 
-.subtaskinformationspan{
-        font-weight: 700;
-            font-size: 21px;
+.subtaskinformationspan {
+    font-weight: 700;
+    font-size: 21px;
+}
+
+.subtaskinformation {
+    display: flex;
+    min-width: 245px;
+    gap: 26px;
+}
+
+.subtasks {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 10px;
 }
 
 .sales {

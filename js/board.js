@@ -119,7 +119,7 @@ function renderSubTasks1(position){
     for (let i = 0; i < allTasks[position]['subtasks'].length; i++) {
         const element = allTasks[position]['subtasks'][i];
         document.getElementById('infosubtasks').innerHTML += `  
-                        <span  class="subtask"><img onclick="toggleSubtaskSelection1(${position},${i})" id="box(${i})" src="${getCheckboxIcon1(position,i)}" alt="">                          
+                        <span  class="subtasks"><img onclick="toggleSubtaskSelection1(${position},${i})" id="box(${i})" src="${getCheckboxIcon1(position,i)}" alt="">                          
                         <div>${element['name']}</div></span>`
     }
 }

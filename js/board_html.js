@@ -190,7 +190,7 @@ function infoCardHTML() {
                         <div class="informationdate">
                             <span  class="cardinformationspan">Due Date:</span><span id="infoduedate"></span>
                         </div>
-                        <div>
+                        <div class="subtaskinformation">
                             <span class="subtaskinformationspan">Subtasks:</span>
                             <div id="infosubtasks">
                             
