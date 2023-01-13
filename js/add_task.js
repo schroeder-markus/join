@@ -191,7 +191,7 @@ function setColor(i) {
 
 function renderAssignSelf() {
     let assignYouElement = document.querySelector('.user-you');
-    if(localStorage.getItem('currentUser') != null) {
+    if(localStorage.getItem('currentUser') !== null) {
         assignYouElement.innerHTML = `
         <span onclick="toggleSelection(0)"><div id="contact(0)">You</div>
             <div class="assignCheckbox"><div id="contactChecked(0)"
@@ -205,7 +205,7 @@ function renderAssignSelf() {
 async function toggleSelection(i) {
     let contactName = await findName(i);
     let contactCheckedElement = document.getElementById(`contactChecked(${i})`);
-    if (contactCheckedElement.style.display != "block") {
+    if (contactCheckedElement.style.display !== "block") {
         contactCheckedElement.style.display = "block";
         selectContact(contactName);
     } else {

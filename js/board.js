@@ -242,11 +242,7 @@ function openSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.style.display = 'flex';
     setTimeout(() => {taskSlide.classList.remove('closeslide')}, 0);
-<<<<<<< HEAD
-    if(document.getElementById('board') != null) {
-=======
     if (document.getElementById('board') !== null){
->>>>>>> 1d8e2c577cc6507df19e3df2108a38b0f293c995
     document.getElementById('board').style.overflow = 'hidden';
     }
     if (document.getElementById('dueDate') !== null){
@@ -259,11 +255,7 @@ function closeSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.add('closeslide');
     setTimeout(() => taskSlide.style.display = 'none', 0);
-<<<<<<< HEAD
-    if(document.getElementById('board') != null) {
-=======
-    if (document.getElementById('board') != null){
->>>>>>> 1d8e2c577cc6507df19e3df2108a38b0f293c995
+    if (document.getElementById('board') !== null){
     document.getElementById('board').style.overflow = 'scroll';
     }
 }
