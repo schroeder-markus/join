@@ -59,7 +59,7 @@ function logOutClickEvent() {
 };
 
 
-function overlayClickEvent(backgroundID, foregroundID) {
+function addOverlayClickEvent(backgroundID, foregroundID) {
   let backgroundOverlay = document.getElementById(backgroundID);
   let foregroundOverlay = document.getElementById(foregroundID);
   stop_propagation(foregroundOverlay);
@@ -75,7 +75,6 @@ function overlayClickEvent(backgroundID, foregroundID) {
 
 function stop_propagation(element) {
   element.addEventListener("click", e => {
-    console.log('i was here')
     e.stopPropagation();
   })
 };

@@ -19,9 +19,8 @@ async function renderTasks() {
     updateTasks();
 };
 
-function setClickEvents() {
-    overlayClickEvent('taskslide', 'taskslidediv');
-    overlayClickEvent('cardinformation', 'editcard');
+function addClickEvents() {
+    addOverlayClickEvent('taskslide', 'taskslidediv');
 }
 
 function clearCards() {
@@ -157,6 +156,7 @@ function renderCardInformation(position) {
     document.getElementById('infodescription').innerHTML = `${allTasks[position]['description']}`;
     document.getElementById('infoduedate').innerHTML = `${allTasks[position]['Due Date']}`;
     document.getElementById('priorotyimg').src = `img/card${allTasks[position]['priority']}.svg`;
+    addOverlayClickEvent('cardinformation', 'editcard');
     renderUser(position);
     renderSubTasks1(position);
     currentTask = position;
