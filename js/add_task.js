@@ -27,7 +27,7 @@ function initAddTask() {
 function setCurrentDate(inputElement) {
     document.getElementById(inputElement).valueAsDate = new Date();
 
-}
+};
 
 function addReturnKeyEventListener() {
     let mainArea = document.getElementsByTagName('main')[0];
