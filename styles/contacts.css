@@ -861,7 +861,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
         display: flex;
         display: none;
         flex-direction: column;
-        margin-bottom: 0px;
+        margin-bottom: 60px;
     }
 
 
