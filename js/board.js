@@ -269,7 +269,6 @@ function searchTasks() {
     let search = document.getElementById('searchtask');
     search = search.value;
     searchTask = allTasks.filter(t => t['title'].toLowerCase().includes(search.toLowerCase()) || t['description'].toLowerCase().includes(search.toLowerCase()));
-
     clearCards();
 
     let todo = searchTask.filter(t => t['status'] == 'todo')
