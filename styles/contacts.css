@@ -352,21 +352,6 @@ main {
 }
 
 .edit-contact-left {
-    /* align-items: flex-start;
-    background-color: var(--main-dark);
-    border-bottom-left-radius: 30px;
-    border-top-left-radius: 30px;
-    flex-direction: column;
-    gap: 12px;
-    height: 594px;
-    isolation: isolate;
-    justify-content: center;
-    left: 0px;
-    padding: 66px 46px;
-    position: absolute;
-    top: 0px;
-    width: 30%; */
-
     align-items: flex-start;
     background-color: var(--main-dark);
     border-bottom-left-radius: 30px;
