@@ -21,7 +21,6 @@ main {
     width: 230px;
     height: 30px;
     font-size: 21px;
-    font-style: normal;
     font-weight: 700;
     margin-left: 16px;
 }
@@ -29,8 +28,6 @@ main {
 h2 {
     font-weight: 700;
     font-size: 21px;
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 700;
     font-size: 21px;
     line-height: 120%;
@@ -100,8 +97,6 @@ h2 {
 
 h3 {
     height: 19px;
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 120%;
@@ -114,9 +109,6 @@ h1 {
 }
 
 .span {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
     font-size: 16px;
     line-height: 120%;
     color: #A8A8A8;
@@ -144,9 +136,6 @@ h1 {
 .progressbardiv span {
     width: 53px;
     height: 14px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
     font-size: 12px;
     line-height: 120%;
     color: #000000;
@@ -580,10 +569,7 @@ button span {
         width: 500px;
         height: 90%;
     }
-
-
 }
-
 
 @media(max-width:1240px) {
     .addtaskslide {
@@ -596,8 +582,6 @@ button span {
         padding-right: 40px;
     }
 }
-
-
 
 @media(max-width:1080px) {
     body {
@@ -721,7 +705,6 @@ button span {
     #editcard {
         bottom: 32px;
     }
-
 }
 
 @media(max-width:750px) {

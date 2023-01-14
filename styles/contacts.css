@@ -20,6 +20,7 @@ main {
     margin-bottom: 90px;
     display: flex;
     height: 100%;
+    width: 100vw;
 }
 
 .contact-container-left {
@@ -222,9 +223,9 @@ main {
 }
 
 .add-new-contact {
-    bottom: 70px;
+    bottom: 130px;
     position: absolute;
-    right: 0;
+    right: 800px
 }
 
 .contact-bold {
