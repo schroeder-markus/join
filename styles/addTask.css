@@ -1,9 +1,4 @@
 /* Basics */
-
-body {
-    overflow-y: hidden;
-}
-
 main {
     width: calc(100vw - 232px);
     padding: 0px 40px 0px 40px;
@@ -390,7 +385,7 @@ section div:not(:first-of-type) label {
         width: 100%;
     }
 }
-    
+
 @media only screen and (max-width: 950px) {
     .addTaskForm {
         flex-direction: column;
@@ -406,7 +401,7 @@ section div:not(:first-of-type) label {
     .submitAndClearButtons {
         justify-content: center;
     }
-    
+
     .prioButtons button {
         flex-direction: column;
     }
@@ -418,6 +413,10 @@ section div:not(:first-of-type) label {
 
 
 @media only screen and (max-width: 750px) {
+    body {
+        overflow: hidden;
+    }
+
     main {
         height: calc(100vh - 160px);
         width: 100%;
