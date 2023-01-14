@@ -78,7 +78,7 @@ function stop_propagation(element) {
 function showMessage(messageID) {
   let noteContainer = document.getElementById(messageID);
   noteContainer.style.display = "flex";
-  noteContainer.classList.add('showMessage');
+  setTimeout(() => { noteContainer.classList.add('showMessage')}, 0)
   setTimeout(() => { noteContainer.style.display = "none"; noteContainer.classList.remove('showMessage') }, 3000);
 };
 
