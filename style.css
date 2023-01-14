@@ -349,7 +349,6 @@ main {
         display: flex;
         flex-direction: column;
         height: calc(100% - 160px);
-        justify-content: center;
         margin-top: 80px;
         padding-left: 0px !important;
         padding: 0;
