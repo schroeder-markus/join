@@ -212,6 +212,7 @@ function closeCardInformation() {
     document.getElementById('cardinformation').classList.add('d-none');
     document.getElementById('cardinformation').innerHTML = infoCardHTML();
     document.getElementsByTagName('body')[0].style.overflowY = 'scroll';
+    document.getElementsByTagName('main')[0].style.overflowY = 'scroll';
 }
 
 
