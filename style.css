@@ -147,6 +147,8 @@ input {
     position: absolute;
     right: 30px;
     width: 120px;
+    display: flex;
+    flex-direction: column;
 }
 
 .logout-btn:hover span {
@@ -154,6 +156,10 @@ input {
 }
 
 .toggle-logout-btn {
+    display: none;
+}
+
+.logout-mobile {
     display: none;
 }
 
@@ -407,5 +413,18 @@ main {
     .icon-4 {
         height: 28px !important;
         width: 24px !important;
+    }
+
+    .logout-btn {
+        height: 100px;
+        line-height: 1.5rem;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        padding-left: 16px;
+
+    }
+
+    .logout-mobile {
+        display: flex;
     }
 }
