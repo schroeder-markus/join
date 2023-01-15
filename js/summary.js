@@ -20,10 +20,16 @@ function renderSummary(toDo, inProgress, awaitingFeedback, urgent, upcoming, don
   document.getElementById('tasksinprogress').innerHTML = inProgress.length;
   document.getElementById('awaitingfeedback').innerHTML = awaitingFeedback.length;
   document.getElementById('urgent').innerHTML = urgent.length;
-  document.getElementById('nextdeadline').innerHTML = new Date(upcoming[0]['Due Date']).toGMTString().slice(0,16);
   document.getElementById('todo').innerHTML = toDo.length;
   document.getElementById('done').innerHTML = done.length;
+  upcomingDueDate(upcoming);
 }
+
+function upcomingDueDate(upcoming){
+  if (upcoming[0]['Due Date']){
+    document.getElementById('nextdeadline').innerHTML = new Date(upcoming[0]['Due Date']).toGMTString().slice(0, 16)
+  }
+};
 
 function greetUserDaytime() {
   const currentTime = new Date().getHours();
