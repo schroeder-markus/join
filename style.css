@@ -195,7 +195,8 @@ main {
 }
 
 .content-container {
-    margin-right: 124px;
+    margin-right: 24px;
+    max-width: 800px;
 }
 
 .content-title {
@@ -312,6 +313,10 @@ main {
     transition: all 1s;
     width: 100%;
     z-index: 9;
+}
+
+.help-container {
+    width: 90%;
 }
 
 .showMessage {
