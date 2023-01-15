@@ -302,3 +302,13 @@ async function saveTasks() {
     await backend.setItem('allTasks', allTasksAsString);
     await backend.setItem('lastTaskID', lastTaskID)
 };
+
+function subTaskProgress(position,task){
+    let progress;
+    if (!task['subtasks'].length == 0){
+        progress = countTrueSubtasks(position) / task['subtasks'].length * 100
+    }else{
+        progress = 0;
+    }
+    return progress
+}
