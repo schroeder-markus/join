@@ -83,6 +83,7 @@ form p {
     animation-delay: 1s;
     animation-duration: 2s;
     animation-fill-mode: forwards;
+    pointer-events:none;
 }
 
 @keyframes hide {
