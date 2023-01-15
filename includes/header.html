@@ -3,12 +3,15 @@
         <a class="headerlogo" href="summary.html"><img src="img/join-logo.svg" alt=""></a>
         <span class="display-none">Kanban Project Management Tool</span>
         <div class="header-nav-user-container" onclick="logOutClickAvatar()">
+            <a href="/help.html" class="help-icon"><img src="/img/icon-help-head.svg" alt=""></a>
             <div class="name-circle-header">
                 <span class="name-circle-header-span">GU</span>
             </div>
         </div>
     </nav>
-    <div id="logout-btn" class="logout-btn toggle-logout-btn" onclick="window.location.href='./'">
-        <span>Log out</span>
+    <div id="logout-btn" class="logout-btn toggle-logout-btn">
+        <div class="logout-mobile" onclick="window.location.href='/help.html'">Help</div>
+        <div class="logout-mobile" onclick="window.location.href='/legal-notice.html'">Legal notice</div>
+        <div class="" onclick="window.location.href='./'">Log out</div>
     </div>
 </header>

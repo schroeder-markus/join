@@ -263,11 +263,14 @@ function findIndexFromMail(contacts, mailAdress) {
 
 
 function finishInvitationInput(contacts, index) {
-    assignedPersons.push({
-        name: `${contacts[index].name}`,
-        initials: `${contacts[index].initials}`,
-        color: `${contacts[index].color}`,
-    });
+    if (assignedPersons.includes(contacts)){
+    }else{
+        assignedPersons.push({
+            name: `${contacts[index].name}`,
+            initials: `${contacts[index].initials}`,
+            color: `${contacts[index].color}`,
+        })
+    };
     toggleView_DropdownAndNewEntry(
         "invitePersonInput",
         "assignToDropdown",

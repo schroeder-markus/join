@@ -11,6 +11,7 @@ main {
 
 .content {
     display: flex;
+        overflow-y: scroll;
 }
 
 .header {
@@ -113,6 +114,9 @@ h1 {
     line-height: 120%;
     color: #A8A8A8;
     overflow: hidden;
+    font-size: 16px;
+    width: 208px;
+    text-overflow: ellipsis;
 }
 
 .progressbardiv {
@@ -536,6 +540,9 @@ button span {
 
 .description {
     font-size: 21px;
+    width: 458px;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
 }
 
 .prioritycard {
@@ -717,11 +724,10 @@ button span {
         margin: 0;
     }
 
-    main
-     {
+    main {
         margin-top: 80px;
         overflow-x: hidden;
-     }
+    }
 
     .showroom {
         margin-bottom: 90px;

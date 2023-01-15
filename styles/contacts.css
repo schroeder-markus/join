@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    /* outline: 3px solid limegreen !important; */
+}
+
 body {
     position: relative;
 }
@@ -196,7 +201,7 @@ main {
 .contact-detail-data {
     height: 74px;
     margin-top: 16px;
-    width: 392.85px;
+    width: 375.85px;
 }
 
 .contact-information {
@@ -223,9 +228,9 @@ main {
 }
 
 .add-new-contact {
-    bottom: 130px;
+    top:950px;
     position: absolute;
-    right: 800px
+    right: 300px
 }
 
 .contact-bold {
@@ -516,12 +521,12 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     }
 
     .contact-headline-container {
-        margin-left: 10px;
+        margin-left: 30px;
         margin-top: 20px;
     }
 
     .contact-detail-container {
-        margin-left: 10px;
+        margin-left: 30px;
         margin-top: 20px;
     }
 
@@ -542,9 +547,10 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     }
 }
 
-@media screen and (max-width: 1130px) {
+@media screen and (max-width: 1190px) {
     .contact-headline-container {
         flex-direction: column;
+        align-items: flex-start;
         height: unset;
     }
 
@@ -552,10 +558,12 @@ input[type="color"]::-webkit-color-swatch-wrapper {
         display: none;
     }
 
-    .contact-detail-name {
+
+      .contact-detail-name {
         flex-direction: column;
         height: unset;
-    }
+        width: 50%;
+    } 
 
     .contact-detail-fullname {
         margin-left: unset;
@@ -565,9 +573,13 @@ input[type="color"]::-webkit-color-swatch-wrapper {
         max-width: 300px;
         text-align: center;
     }
-
     .new-contact-right {
         left: 250px
+    }
+    
+    .add-new-contact {
+        right: unset;
+        left: 380px;
     }
 }
 
@@ -860,7 +872,7 @@ input[type="color"]::-webkit-color-swatch-wrapper {
         display: flex;
         display: none;
         flex-direction: column;
-        margin-bottom: 60px;
+        margin-bottom: 80px;
     }
 
 
@@ -873,12 +885,14 @@ input[type="color"]::-webkit-color-swatch-wrapper {
         margin-left: 20px;
         margin-right: 20px;
         margin-top: 140px;
+        align-items: center;
     }
 
     .contact-detail-container {
         margin-left: 20px;
         margin-right: 20px;
         margin-top: 10px;
+        
     }
 
     .add-new-contact {

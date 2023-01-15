@@ -147,6 +147,8 @@ input {
     position: absolute;
     right: 30px;
     width: 120px;
+    display: flex;
+    flex-direction: column;
 }
 
 .logout-btn:hover span {
@@ -154,6 +156,10 @@ input {
 }
 
 .toggle-logout-btn {
+    display: none;
+}
+
+.logout-mobile {
     display: none;
 }
 
@@ -190,6 +196,7 @@ main {
 
 .content-container {
     margin-right: 124px;
+    max-width: 500px;
 }
 
 .content-title {
@@ -308,10 +315,26 @@ main {
     z-index: 9;
 }
 
+.help-container {
+    width: 90%;
+}
+
 .showMessage {
     bottom: 100px;
     opacity: 100;
     transition: all 1s;
+}
+
+@media(max-width:850px) {
+    .help-icon {
+        display: none;
+    }
+
+    .header-nav {
+        margin-left: 320px;
+            
+        
+    }
 }
 
 @media(max-width:750px) {
@@ -407,5 +430,18 @@ main {
     .icon-4 {
         height: 28px !important;
         width: 24px !important;
+    }
+
+    .logout-btn {
+        height: 100px;
+        line-height: 1.5rem;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        padding-left: 16px;
+
+    }
+
+    .logout-mobile {
+        display: flex;
     }
 }
