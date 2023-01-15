@@ -607,6 +607,7 @@ button span {
     .content {
         flex-direction: column;
         align-items: center;
+        overflow-y: hidden;
     }
 
     .draganddrop {
