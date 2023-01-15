@@ -228,7 +228,7 @@ main {
 }
 
 .add-new-contact {
-    top:950px;
+    top:80%;
     position: absolute;
     right: 300px
 }
