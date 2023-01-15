@@ -195,8 +195,8 @@ main {
 }
 
 .content-container {
-    margin-right: 24px;
-    max-width: 800px;
+    margin-right: 124px;
+    max-width: 500px;
 }
 
 .content-title {
@@ -323,6 +323,18 @@ main {
     bottom: 100px;
     opacity: 100;
     transition: all 1s;
+}
+
+@media(max-width:850px) {
+    .help-icon {
+        display: none;
+    }
+
+    .header-nav {
+        margin-left: 320px;
+            
+        
+    }
 }
 
 @media(max-width:750px) {
