@@ -708,6 +708,8 @@ button span {
 }
 
 @media(max-width:750px) {
+
+
     .content>* {
         margin: 0;
     }
@@ -715,6 +717,12 @@ button span {
     .inputcontainer {
         margin: 0;
     }
+
+    main
+     {
+        margin-top: 80px;
+        overflow-x: hidden;
+     }
 
     .showroom {
         margin-bottom: 90px;
