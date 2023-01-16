@@ -228,9 +228,10 @@ main {
 }
 
 .add-new-contact {
-    top:70%;
+    bottom:50px;
     position: absolute;
-    right: 829px
+    right: 100px;
+    z-index: 1;
 }
 
 .contact-bold {

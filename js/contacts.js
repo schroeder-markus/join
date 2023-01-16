@@ -59,11 +59,11 @@ function cancelContact() {
 }
 
 function createContact() {
-  document.querySelector(".new-contact-container").style.display = "flex";
+  document.querySelector(".create").style.display = "none";
 }
 
 function closeNewContact() {
-  document.querySelector(".new-contact-container").style.display = "none";
+  document.querySelector(".create").style.display = "flex";
 }
 
 function addNewContact() {

@@ -17,6 +17,10 @@
     <title>Join - Contacts</title>
   </head>
   <body onload="activatePage(4), createContactList(), loadAllContacts()">
+    <div class="add-new-contact">
+      <button class="create" id="createButton" onclick="openSlide()">New Contact<img
+          src="img/icons-add-contact.svg"></button>
+    </div>
     <div>
       <!-- header template -->
       <div w3-include-html="includes/header.html"></div>
@@ -29,6 +33,7 @@
         <div id="contact-created" class="messageContainer"><img src="img/message-contact-created.svg"
             alt="successMessage"></div>
         <main class="main-container">
+          
           <div class="contact-container">
             <img class="close-icon" src="img/icon-x.svg" onclick="closeDetailView(this)">
             <div class="contact-container-left scroll">
@@ -158,10 +163,10 @@
               </div>
             </div>
             </div>
-            <div class="add-new-contact">
+            <!-- <div class="add-new-contact">
               <button class="create" id="createButton" onclick="openSlide()">New Contact<img
                   src="img/icons-add-contact.svg"></button>
-            </div>
+            </div> -->
           </div>
         </main>
       <script src="includes.js" defer></script>
