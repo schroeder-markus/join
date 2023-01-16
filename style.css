@@ -163,6 +163,12 @@ input {
     display: none;
 }
 
+.help-logout-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 aside {
     align-items: center;
     background-color: var(--main-dark);
