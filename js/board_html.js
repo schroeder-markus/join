@@ -8,7 +8,7 @@ function cardHTML(task) {
         <h3>${task['title']}</h3>
         <span class="span" id="todo">${task['description']}</span>
     </div>
-    <div class="progressbardiv">
+    <div class="progressbardiv" id="progressbardiv">
         <div class="progressbar"><div class="barinprogress" id="progress-bar" style="width:${subTaskProgress(position, task)}%"></div></div>
         <span id="subtaskspan">${countTrueSubtasks(position)}/<span id="subtasklength">${task['subtasks'].length}</span> Done</span>
     </div>

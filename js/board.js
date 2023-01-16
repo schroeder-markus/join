@@ -19,9 +19,11 @@ async function renderTasks() {
     updateTasks();
 };
 
+
 function addClickEvents() {
     addOverlayClickEvent('taskslide', 'taskslidediv');
 }
+
 
 function clearCards() {
     toDoDiv.innerHTML = '';
@@ -39,34 +41,10 @@ function sortCards() {
 }
 
 
-function updateOpen() {
-    for (let i = 0; i < open.length; i++) {
-        const task = open[i];
-        toDoDiv.innerHTML += cardHTML(task)
-    }
-}
-
-
-function updateInProgress() {
-    for (let i = 0; i < inProgress.length; i++) {
-        const task = inProgress[i];
-        inProgressDiv.innerHTML += cardHTML(task)
-    }
-}
-
-
-function updateAwaitingFeedback() {
-    for (let i = 0; i < awaitingFeedback.length; i++) {
-        const task = awaitingFeedback[i];
-        awaitingFeedbackDiv.innerHTML += cardHTML(task)
-    }
-}
-
-
-function updateDone() {
-    for (let i = 0; i < done.length; i++) {
-        const task = done[i];
-        doneDiv.innerHTML += cardHTML(task)
+function updateAllTasks(status, container){
+    for (let i = 0; i < status.length; i++) {
+        const task = status[i];
+        container.innerHTML += cardHTML(task)
     }
 }
 
@@ -74,10 +52,10 @@ function updateDone() {
 function updateTasks() {
     sortCards();
     clearCards();
-    updateOpen();
-    updateInProgress();
-    updateAwaitingFeedback();
-    updateDone();
+    updateAllTasks(open, toDoDiv)
+    updateAllTasks(inProgress, inProgressDiv)
+    updateAllTasks(awaitingFeedback, awaitingFeedbackDiv)
+    updateAllTasks(done, doneDiv)
 }
 
 
@@ -113,6 +91,7 @@ function renderUser(position) {
                             </div>`;
     }
 }
+
 
 function renderSubTasks1(position){
     document.getElementById('infosubtasks').innerHTML = '';
@@ -204,7 +183,6 @@ function saveEditedTasks() {
     saveTasks();
     updateTasks();
     closeCardInformation();
-
 }
 
 
@@ -287,12 +265,12 @@ function searchTasks() {
 }
 
 
-
 async function saveTasks() {
     let allTasksAsString = JSON.stringify(allTasks);
     await backend.setItem('allTasks', allTasksAsString);
     await backend.setItem('lastTaskID', lastTaskID)
 };
+
 
 function subTaskProgress(position,task){
     let progress;
@@ -302,4 +280,12 @@ function subTaskProgress(position,task){
         progress = 0;
     }
     return progress
+}
+
+
+function clearProgressBar(task){
+    if (task['subtasks'].length == 0){
+        document.getElementById('progressbardiv').innerHTML = '';
+    }
+
 }
