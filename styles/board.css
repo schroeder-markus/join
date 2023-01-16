@@ -1,5 +1,4 @@
 main {
-    overflow-x: scroll;
     user-select: none;
 }
 
@@ -11,6 +10,7 @@ main {
 
 .content {
     display: flex;
+    overflow-y:scroll ;
 }
 
 .header {
