@@ -41,7 +41,7 @@ function sortCards() {
 }
 
 
-function updateAllTasks(status, container){
+function updateAllTasks(status, container) {
     for (let i = 0; i < status.length; i++) {
         const task = status[i];
         container.innerHTML += cardHTML(task)
@@ -61,11 +61,11 @@ function updateTasks() {
 
 function countTrueSubtasks(position) {
     let count = 0;
-        for (let i = 0; i < allTasks[position]['subtasks'].length; i++) {
-            if (allTasks[position]['subtasks'][i].done === true) {
-                count++;
-            }
+    for (let i = 0; i < allTasks[position]['subtasks'].length; i++) {
+        if (allTasks[position]['subtasks'][i].done === true) {
+            count++;
         }
+    }
     return count;
 }
 
@@ -93,25 +93,25 @@ function renderUser(position) {
 }
 
 
-function renderSubTasks1(position){
+function renderSubTasks1(position) {
     document.getElementById('infosubtasks').innerHTML = '';
     for (let i = 0; i < allTasks[position]['subtasks'].length; i++) {
         const element = allTasks[position]['subtasks'][i];
         document.getElementById('infosubtasks').innerHTML += `  
-                        <span  class="subtasks"><img onclick="toggleSubtaskSelection1(${position},${i})" id="box(${i})" src="${getCheckboxIcon1(position,i)}" alt="">                          
+                        <span  class="subtasks"><img onclick="toggleSubtaskSelection1(${position},${i})" id="box(${i})" src="${getCheckboxIcon1(position, i)}" alt="">                          
                         <div>${element['name']}</div></span>`
     }
 }
 
 
-function toggleSubtaskSelection1(position,i) {
+function toggleSubtaskSelection1(position, i) {
     let checkBox = document.getElementById(`box(${i})`);
-    if(allTasks[position]['subtasks'][i]['done']){
-        allTasks[position]['subtasks'][i]['done'] = false; 
-    }else{
-        allTasks[position]['subtasks'][i]['done'] = true; 
+    if (allTasks[position]['subtasks'][i]['done']) {
+        allTasks[position]['subtasks'][i]['done'] = false;
+    } else {
+        allTasks[position]['subtasks'][i]['done'] = true;
     }
-    checkBox.src = getCheckboxIcon1(position,i);
+    checkBox.src = getCheckboxIcon1(position, i);
     saveTasks();
     updateTasks();
 };
@@ -136,6 +136,7 @@ function renderCardInformation(position) {
     document.getElementById('infodescription').innerHTML = `${allTasks[position]['description']}`;
     document.getElementById('infoduedate').innerHTML = `${allTasks[position]['Due Date']}`;
     document.getElementById('priorotyimg').src = `img/card${allTasks[position]['priority']}.svg`;
+    document.getElementById('icon-bin').onclick = function () { deleteTask(position) };
     addOverlayClickEvent('cardinformation', 'editcard');
     renderUser(position);
     renderSubTasks1(position);
@@ -225,11 +226,11 @@ function moveTo(category) {
 function openSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.style.display = 'flex';
-    setTimeout(() => {taskSlide.classList.remove('closeslide')}, 0);
+    setTimeout(() => { taskSlide.classList.remove('closeslide') }, 0);
     document.getElementsByTagName('body')[0].style.overflow = 'hidden';
     document.getElementsByTagName('main')[0].style.overflow = 'hidden';
-    if (document.getElementById('dueDate') !== null){
-    document.getElementById('dueDate').valueAsDate = new Date();
+    if (document.getElementById('dueDate') !== null) {
+        document.getElementById('dueDate').valueAsDate = new Date();
     }
 }
 
@@ -238,13 +239,13 @@ function closeSlide() {
     let taskSlide = document.getElementById('taskslide');
     taskSlide.classList.add('closeslide');
     setTimeout(() => taskSlide.style.display = 'none', 0);
-    if (document.getElementById('board') !== null){
-    document.getElementById('board').style.overflow = 'scroll';
+    if (document.getElementById('board') !== null) {
+        document.getElementById('board').style.overflow = 'scroll';
     }
 }
 
 
-function filterSearchedTasks(status, container){
+function filterSearchedTasks(status, container) {
     let statusTask = searchTask.filter(t => t['status'] == status)
     for (let i = 0; i < statusTask.length; i++) {
         let element = statusTask[i];
@@ -272,20 +273,28 @@ async function saveTasks() {
 };
 
 
-function subTaskProgress(position,task){
+function subTaskProgress(position, task) {
     let progress;
-    if (!task['subtasks'].length == 0){
+    if (!task['subtasks'].length == 0) {
         progress = countTrueSubtasks(position) / task['subtasks'].length * 100
-    }else{
+    } else {
         progress = 0;
     }
     return progress
 }
 
 
-function clearProgressBar(task){
-    if (task['subtasks'].length == 0){
+function clearProgressBar(task) {
+    if (task['subtasks'].length == 0) {
         document.getElementById('progressbardiv').innerHTML = '';
     }
+}
 
+
+function deleteTask(position) {
+    allTasks.splice(position, 1);
+    lastTaskID -= 1;
+    saveTasks();
+    updateTasks();
+    closeCardInformation();
 }

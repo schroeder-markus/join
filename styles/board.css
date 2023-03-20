@@ -46,6 +46,7 @@ h2 {
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
     margin-top: 24px;
+    position: relative;
 }
 
 .barinprogress {
@@ -418,6 +419,21 @@ button span {
     z-index: 99;
 }
 
+.icon-bin{
+    left: 50px;
+    bottom: 34px;
+    height: 57px;
+    width: 57px;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.bin:hover,
+.icon-bin:hover{
+    cursor: pointer;
+    fill: #29ABE2;
+}
+
 .name-circle {
     display: flex;
     justify-content: center;
@@ -431,6 +447,7 @@ button span {
     border: 2px solid var(--main-white);
     color: var(--main-white);
 }
+
 
 .closebutton:hover,
 .editbutton:hover,
