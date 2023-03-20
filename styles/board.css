@@ -10,7 +10,7 @@ main {
 
 .content {
     display: flex;
-    overflow-y:scroll ;
+    overflow-y: scroll;
 }
 
 .header {
@@ -284,10 +284,8 @@ h1 {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 1400px;
-    width: 90%;
+    margin-left: 10px;
+    max-width: 1285px;
 }
 
 .input {
@@ -321,7 +319,6 @@ button span {
     background: #2A3647;
     border: 1px solid #2A3647;
     border-radius: 10px;
-    margin-right: 20px;
     font-weight: 700;
     font-size: 21px;
     color: white;
@@ -419,7 +416,7 @@ button span {
     z-index: 99;
 }
 
-.icon-bin{
+.icon-bin {
     left: 50px;
     bottom: 34px;
     height: 57px;
@@ -429,7 +426,7 @@ button span {
 }
 
 .bin:hover,
-.icon-bin:hover{
+.icon-bin:hover {
     cursor: pointer;
     fill: #29ABE2;
 }
